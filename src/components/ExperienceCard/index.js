@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 const CardHeader = styled.div`
   display: grid;
-  grid-template-columns: 0.25fr 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
   align-items: center;
-  column-gap: 1rem;
+  column-gap: 2rem;
 `
 
 export default function ExperienceCard ({ item }) {

@@ -1,4 +1,5 @@
 import { colors } from '@/design/colors'
+import { devices } from '@/design/devices'
 import styled from 'styled-components'
 
 export const FullPageContainer = styled.div`
@@ -14,6 +15,13 @@ export const ContentContainer = styled.div`
   overflow: scroll;
   height: 100%;
   padding: 1rem;
+
+  @media ${devices.md} {
+    padding: 2rem 4rem;
+  }
+  @media ${devices.lg} {
+    padding: 3rem 15rem;
+  }
 `
 export const SectionContainer = styled.div`
   display: grid;
