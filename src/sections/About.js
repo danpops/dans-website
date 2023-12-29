@@ -4,7 +4,7 @@ import { BodyText, Heading2 } from '../components/Text'
 
 export default function AboutSection () {
   return (
-    <SectionContainer id='about'>
+    <SectionContainer id='about-section'>
       <div>
         <Heading2 id='about-title'>{content.about.title}</Heading2>
         <BodyText id='about-text'>{content.about.text}</BodyText>

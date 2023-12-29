@@ -4,7 +4,7 @@ import { Heading2 } from '../components/Text'
 
 export default function SpecialtySection () {
   return (
-    <SectionContainer id='specialties'>
+    <SectionContainer id='specialties-section'>
       <div>
         <Heading2 id='specialties-title'>{content.specialties.title}</Heading2>
         <ul id='specialty-items'>
