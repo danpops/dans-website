@@ -22,8 +22,8 @@ const fadeOut = keyframes`
 `
 
 const activeStyle = `
-  background-color: ${colors.blueSecondary};
-  color: ${colors.white};
+  background-color: ${colors.blue};
+  color: ${colors.yellow};
 `
 const tabStyle = `
   background-color: ${colors.lightGrey};
@@ -41,6 +41,13 @@ export const NavigationContainer = styled.div`
   background-color: ${colors.lightGreen};
   z-index: 100;
   padding: 0.5rem;
+
+  @media ${devices.md} {
+    padding: 0.5rem 4rem;
+  }
+  @media ${devices.lg} {
+    padding: 1rem 15rem;
+  }
 `
 export const NavbarContainer = styled.div`
   display: grid;
@@ -56,11 +63,13 @@ export const PageTabsContainer = styled.ul`
   margin: 0;
   grid-template-columns: 1fr;
   row-gap: 0.25rem;
-  margin-top: 0.25rem;
+  column-gap: 1rem;
+  margin-top: 0.5rem;
   grid-template-rows: repeat(4, minmax(0, 1fr));
   cursor: pointer;
-
+  
   @media ${devices.md} {
+    margin-top: 1rem;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
   }
@@ -68,7 +77,7 @@ export const PageTabsContainer = styled.ul`
 export const TabItem = styled.li`
   padding: 0.5rem;
   font-size: ${fonts.sm};
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   text-align: center;
   border-right: 0.15rem solid ${colors.mediumGrey};
@@ -92,8 +101,8 @@ export const TabItem = styled.li`
 export const NavMenuButton = styled.button`
   display: grid;
   font-size: ${fonts.lg};
-  font-weight: 700;
-  justify-self: flex-start;
+  font-weight: 600;
+  justify-self: flex-end;
   color: ${colors.yellow};
   cursor: pointer;
   border: 0.25rem solid ${colors.red};
@@ -119,8 +128,8 @@ export const LogoContainer = styled.div`
 export const LogoTitle = styled.div`
   display: grid;
   font-size: ${fonts.lg};
-  font-weight: 700;
-  justify-self: flex-end;
+  font-weight: 600;
+  justify-self: flex-start;
   color: ${colors.blue};
   cursor: pointer;
   user-select: none;

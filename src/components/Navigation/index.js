@@ -15,10 +15,7 @@ export default function Navigation () {
   const [isVisible, setVisible] = useState(false)
   const router = useRouter()
 
-  const clickLink = link => () => {
-    setVisible(false)
-    router.push(link.toLowerCase())
-  }
+  const onClickLink = link => () => router.push(link.toLowerCase())
   const goHome = () => router.push('/')
 
   const composePageTabs = (item, index) => {
@@ -28,7 +25,7 @@ export default function Navigation () {
         $active={isPageActive}
         id='tab-item'
         key={index}
-        onClick={clickLink(item)}
+        onClick={onClickLink(item)}
       >
         {item}
       </TabItem>
@@ -38,12 +35,12 @@ export default function Navigation () {
   return (
     <NavigationContainer>
       <NavbarContainer id='navbar'>
-        <NavMenuButton id='nav-menu' onClick={() => setVisible(!isVisible)}>
-          !!!
-        </NavMenuButton>
         <LogoContainer id='nav-logo'>
           <LogoTitle onClick={goHome}>Dan Popovic</LogoTitle>
         </LogoContainer>
+        <NavMenuButton id='nav-menu' onClick={() => setVisible(!isVisible)}>
+          !!!
+        </NavMenuButton>
       </NavbarContainer>
       <PageTabsContainer id='page-tabs' $visible={isVisible}>
         {pageLinks.map(composePageTabs)}
