@@ -1,7 +1,25 @@
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
 import { fonts } from '@/design/fonts'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`
 
 const activeStyle = `
   background-color: ${colors.blueSecondary};
@@ -20,12 +38,13 @@ export const NavigationContainer = styled.nav`
   justify-content: space-between;
 `
 export const PageTabsContainer = styled.ul`
-  display: grid;
+  display: ${props => (props.visible ? 'grid' : 'none')};
+  animation: ${props => (props.visible ? fadeIn : fadeOut)} 0.5s ease;
   grid-template-rows: 1fr;
   list-style: none;
   padding: 0;
   grid-template-columns: 1fr;
-  row-gap: 0.5rem;
+  row-gap: 0.25rem;
   grid-template-rows: repeat(4, minmax(0, 1fr));
   cursor: pointer;
 

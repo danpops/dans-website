@@ -13,12 +13,14 @@ import { useState } from 'react'
 export default function Navigation () {
   const [isVisible, setVisible] = useState(false)
   const router = useRouter()
+
   const clickLink = link => () => {
     setVisible(false)
     router.push(link.toLowerCase())
   }
   const goHome = () => router.push('/')
-  const pageTabs = pageLinks.map((item, index) => {
+
+  const composePageTabs = (item, index) => {
     const isPageActive = router.pathname === `/${item.toLowerCase()}`
     return (
       <TabItem
@@ -30,7 +32,7 @@ export default function Navigation () {
         {item}
       </TabItem>
     )
-  })
+  }
 
   return (
     <div>
@@ -42,9 +44,9 @@ export default function Navigation () {
           <LogoTitle onClick={goHome}>Dan Popovic</LogoTitle>
         </LogoContainer>
       </NavigationContainer>
-      {isVisible && (
-        <PageTabsContainer id='page-tabs'>{pageTabs}</PageTabsContainer>
-      )}
+      <PageTabsContainer id='page-tabs' visible={isVisible}>
+        {pageLinks.map(composePageTabs)}
+      </PageTabsContainer>
     </div>
   )
 }
