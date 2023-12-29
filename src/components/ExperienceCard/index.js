@@ -1,4 +1,4 @@
-import { BodyText, Heading3, Heading4, Heading5 } from '@/components/Text'
+import { BodyText } from '@/components/Text'
 import {
   CardContainer,
   CardHeader,
@@ -22,19 +22,19 @@ export default function ExperienceCard ({ item }) {
           id='company-logo'
           src={item.logo}
           alt={`${item.company}-logo`}
-          width={100}
-          height={100}
         />
         <TitleContainer>
-          <Heading5 id='experience-date'>{item.date}</Heading5>
-          <Heading3 id='experience-title'>{item.title}</Heading3>
-          <Heading4 id='experience-company'>{item.company}</Heading4>
-          <Heading5 id='experience-tech'>
-            {item.technologies.join(' - ')}
-          </Heading5>
+          <BodyText id='experience-date'>{item.date}</BodyText>
+          <BodyText id='experience-title' style={{ fontWeight: 'bold' }}>
+            {item.title}
+          </BodyText>
+          <BodyText id='experience-company'>{item.company}</BodyText>
         </TitleContainer>
       </CardHeader>
       <DetailsContainer id='experience-details'>
+        <BodyText id='experience-tech' style={{ fontWeight: 'bold' }}>
+          {item.technologies.join(' - ')}
+        </BodyText>
         {item.notes.map(composeExperienceDetails)}
       </DetailsContainer>
     </CardContainer>

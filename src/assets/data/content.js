@@ -26,7 +26,7 @@ export const content = {
     title: 'Experience',
     cards: [
       {
-        company: 'McCain Foods Limited - TribalScale',
+        company: 'McCain - TribalScale',
         logo: mccain,
         title: 'Full Stack Engineer',
         date: "Oct '22 - Present",
