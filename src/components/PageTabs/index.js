@@ -8,11 +8,19 @@ export default function PageTabs () {
 
   return (
     <PageTabsContainer id='page-tabs'>
-      {pageLinks.map((item, index) => (
-        <TabItem id='tab-item' key={index} onClick={clickLink(item)}>
-          {item}
-        </TabItem>
-      ))}
+      {pageLinks.map((item, index) => {
+        const isPageActive = router.pathname === `/${item.toLowerCase()}`
+        return (
+          <TabItem
+            $active={isPageActive}
+            id='tab-item'
+            key={index}
+            onClick={clickLink(item)}
+          >
+            {item}
+          </TabItem>
+        )
+      })}
     </PageTabsContainer>
   )
 }
