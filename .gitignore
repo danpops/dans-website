@@ -35,3 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 yarn.lock
+
+tests/integration/report/cucumber.html
+tests/integration/report/cucumber.json
+tests/integration/report/screenshots/**

@@ -8,13 +8,13 @@ import ContactSection from '@/sections/Contact'
 
 export default function LandingPage () {
   return (
-    <React.Fragment id='landing-page'>
+    <div id='landing'>
       <HeroSection />
       <AboutSection />
       <SpecialtySection />
       <ExperienceSection />
       <ContactSection />
-    </React.Fragment>
+    </div>
   )
 }
 
