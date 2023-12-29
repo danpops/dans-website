@@ -1,8 +1,10 @@
-const { PAGE_LOGO, PAGE_TABS, TAB_ITEM } = require('.')
+const { NAV_MENU, NAV_LOGO, PAGE_TABS, TAB_ITEM, NAV } = require('.')
 
 module.exports = {
   pageName: '#landing',
-  PAGE_LOGO,
+  NAV,
+  NAV_LOGO,
+  NAV_MENU,
   PAGE_TABS,
   TAB_ITEM,
   HERO_SECTION: '#hero-section'

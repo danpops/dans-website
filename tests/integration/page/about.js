@@ -1,8 +1,8 @@
-const { PAGE_LOGO, PAGE_TABS } = require('.')
+const { NAV_LOGO, NAV_MENU } = require('.')
 
 module.exports = {
   pageName: '#about',
   ABOUT_SECTION: '#about-section',
-  PAGE_LOGO,
-  PAGE_TABS
+  NAV_LOGO,
+  NAV_MENU
 }
