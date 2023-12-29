@@ -14,12 +14,12 @@ export const ListBoxContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
   }
 `
-export const ListItem = styled.div`
+export const ListItem = styled.a`
   border: 0.25rem solid ${props => props.$bordercolor};
   width: 100%;
   text-align: center;
   background-color: ${props => props.$bgcolor};
   color: ${props => props.$color};
-  font-size: ${fonts.lg};
+  font-size: ${fonts.xl};
   font-weight: 600;
 `

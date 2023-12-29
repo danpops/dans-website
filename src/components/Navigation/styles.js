@@ -67,11 +67,15 @@ export const PageTabsContainer = styled.ul`
   margin-top: 0.5rem;
   grid-template-rows: repeat(4, minmax(0, 1fr));
   cursor: pointer;
-  
+
   @media ${devices.md} {
     margin-top: 1rem;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
+  }
+  @media ${devices.lg} {
+    display: grid;
+    animation: none;
   }
 `
 export const TabItem = styled.li`
@@ -103,17 +107,24 @@ export const NavMenuButton = styled.button`
   font-size: ${fonts.lg};
   font-weight: 600;
   justify-self: flex-end;
-  color: ${colors.yellow};
+  color: ${colors.blue};
   cursor: pointer;
   border: 0.25rem solid ${colors.red};
   padding: 0.5rem;
-  background-color: ${colors.blueSecondary};
+  background-color: ${colors.yellow};
 
   &:hover {
-    background-color: ${colors.red};
+    background-color: ${colors.blue};
+    color: ${colors.yellow};
   }
 
+  @media ${devices.md} {
+    font-size: ${fonts.xl};
+    padding: 0.65rem;
+    border: 0.4rem solid ${colors.red};
+  }
   @media ${devices.lg} {
+    display: none;
     font-size: ${fonts.xxl};
     padding: 0.75rem;
     border: 0.5rem solid ${colors.red};
@@ -137,6 +148,16 @@ export const LogoTitle = styled.div`
   padding: 0.5rem;
   background-color: ${colors.yellow};
 
+  &:hover {
+    background-color: ${colors.blue};
+    color: ${colors.yellow};
+  }
+
+  @media ${devices.md} {
+    font-size: ${fonts.xl};
+    padding: 0.65rem;
+    border: 0.4rem solid ${colors.red};
+  }
   @media ${devices.lg} {
     font-size: ${fonts.xxl};
     padding: 0.75rem;

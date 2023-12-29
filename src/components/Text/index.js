@@ -40,7 +40,8 @@ export const Heading5 = styled.h5`
 export const Heading6 = styled.h6`
   line-height: 0.75rem;
 `
-export const BodyText = styled.p`
+export const BodyText = styled.div`
+  line-height: 2rem;
   font-size: ${fonts.md};
 
   @media ${devices.md} {

@@ -1,18 +1,18 @@
-import { Heading3, Heading4, Heading5 } from '@/components/Text'
+import { BodyText, Heading3, Heading4, Heading5 } from '@/components/Text'
 import {
   CardContainer,
   CardHeader,
   CompanyImage,
-  DetailItem,
   DetailsContainer,
   TitleContainer
 } from './styles'
+import Markdown from 'react-markdown'
 
 export default function ExperienceCard ({ item }) {
   const composeExperienceDetails = (note, nIndex) => (
-    <DetailItem key={nIndex} id='experience-detail'>
-      {note}
-    </DetailItem>
+    <BodyText key={nIndex} id='experience-detail'>
+      <Markdown>{note}</Markdown>
+    </BodyText>
   )
 
   return (

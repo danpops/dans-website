@@ -2,7 +2,6 @@ import { content } from '@/assets/data/content'
 import { SectionContainer } from '../Layout/styles'
 import { BodyText, Heading2 } from '../Text'
 import ListBox from '../ListBox'
-import { colors } from '@/design/colors'
 
 export default function ContactSection () {
   return (
@@ -13,9 +12,6 @@ export default function ContactSection () {
         id='contact-links'
         listId='contact-link'
         items={content.contact.items}
-        bgColor={colors.blue}
-        color={colors.yellow}
-        borderColor={colors.purple}
       />
     </SectionContainer>
   )

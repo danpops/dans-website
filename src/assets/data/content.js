@@ -13,7 +13,14 @@ export const content = {
   },
   specialties: {
     title: 'Specialties',
-    items: ['AWS', 'Azure', 'Cucumber', 'JavaScript', 'React', 'React Native']
+    items: [
+      { name: 'AWS', link: 'https://aws.amazon.com' },
+      { name: 'Azure', link: 'https://azure.microsoft.com' },
+      { name: 'Cucumber', link: 'https://cucumber.io/' },
+      { name: 'JavaScript', link: 'https://www.javascript.com/' },
+      { name: 'React', link: 'https://react.dev/' },
+      { name: 'React Native', link: 'https://reactnative.dev' }
+    ]
   },
   experience: {
     title: 'Experience',
@@ -70,6 +77,10 @@ export const content = {
   contact: {
     title: 'Contact',
     text: "I'm more than happy to answer any questions you may have or provide advice. Please feel free to reach out to me anytime!",
-    items: ['LinkedIn', 'Email', 'Github']
+    items: [
+      { name: 'LinkedIn', link: 'https://www.linkedin.com/in/danpops' },
+      { name: 'Email', link: 'mailto:dan-popovic@hotmail.com' },
+      { name: 'Github', link: 'https://www.github.com/danpops' }
+    ]
   }
 }

@@ -7,7 +7,8 @@ export const FullPageContainer = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   width: 100%;
-  background-color: ${colors.background};
+  background-color: ${colors.lightGrey};
+  color: ${colors.black};
 `
 export const ContentContainer = styled.div`
   border: 0.2rem dashed ${colors.blue};

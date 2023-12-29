@@ -12,4 +12,3 @@ export const CardHeader = styled.div`
 export const CompanyImage = styled(Image)``
 export const TitleContainer = styled.div``
 export const DetailsContainer = styled.div``
-export const DetailItem = styled.p``
