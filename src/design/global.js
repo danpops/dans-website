@@ -1,9 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
+import { colors } from './colors'
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Verdana', 'Geneva', 'Trebuchet MS', sans-serif;
+    background-color: ${colors.green};
   }
 
   code {

@@ -5,7 +5,8 @@ import {
   TabItem,
   LogoContainer,
   LogoTitle,
-  NavMenuButton
+  NavMenuButton,
+  NavbarContainer
 } from './styles'
 import { pageLinks } from '@/assets/data/links'
 import { useState } from 'react'
@@ -35,18 +36,18 @@ export default function Navigation () {
   }
 
   return (
-    <div>
-      <NavigationContainer id='navbar'>
+    <NavigationContainer>
+      <NavbarContainer id='navbar'>
         <NavMenuButton id='nav-menu' onClick={() => setVisible(!isVisible)}>
           !!!
         </NavMenuButton>
         <LogoContainer id='nav-logo'>
           <LogoTitle onClick={goHome}>Dan Popovic</LogoTitle>
         </LogoContainer>
-      </NavigationContainer>
+      </NavbarContainer>
       <PageTabsContainer id='page-tabs' visible={isVisible}>
         {pageLinks.map(composePageTabs)}
       </PageTabsContainer>
-    </div>
+    </NavigationContainer>
   )
 }

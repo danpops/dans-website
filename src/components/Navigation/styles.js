@@ -30,12 +30,22 @@ const tabStyle = `
   color: ${colors.black};
 `
 
-export const NavigationContainer = styled.nav`
+export const NavigationContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
   justify-content: space-between;
+  align-content: center;
+  position: sticky;
+  top: 0;
+  background-color: ${colors.lightGreen};
+  z-index: 100;
+  padding: 0.5rem;
+`
+export const NavbarContainer = styled.div`
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
 `
 export const PageTabsContainer = styled.ul`
   display: ${props => (props.visible ? 'grid' : 'none')};
@@ -43,8 +53,10 @@ export const PageTabsContainer = styled.ul`
   grid-template-rows: 1fr;
   list-style: none;
   padding: 0;
+  margin: 0;
   grid-template-columns: 1fr;
   row-gap: 0.25rem;
+  margin-top: 0.25rem;
   grid-template-rows: repeat(4, minmax(0, 1fr));
   cursor: pointer;
 

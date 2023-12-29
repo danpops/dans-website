@@ -1,11 +1,12 @@
 import { getDefaultLayout } from '@/components/Layout'
+import { ContentContainer } from '@/components/Layout/styles'
 import SpecialtySection from '@/sections/Specialties'
 
 export default function SpecialtiesPage () {
   return (
-    <div id='specialties'>
+    <ContentContainer id='specialties'>
       <SpecialtySection />
-    </div>
+    </ContentContainer>
   )
 }
 

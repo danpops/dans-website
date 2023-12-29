@@ -1,33 +1,20 @@
 import { colors } from '@/design/colors'
-import { devices } from '@/design/devices'
 import styled from 'styled-components'
 
 export const FullPageContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(auto-fill, minmax(0, auto));
+  grid-template-rows: auto 1fr;
   width: 100%;
-  height: 100vh;
-  border: 0.2rem dashed ${colors.blue};
   background-color: ${colors.background};
+`
+export const ContentContainer = styled.div`
+  border: 0.2rem dashed ${colors.blue};
   box-sizing: border-box;
+  overflow: scroll;
+  height: 100%;
   padding: 1rem;
-  overflow: auto;
-
-  @media ${devices.md} {
-    padding: 1rem 3rem;
-  }
-  @media ${devices.lg} {
-    border: 0.5rem dashed ${colors.blue};
-    padding: 5rem 10rem;
-  }
 `
 export const SectionContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-
-  @media ${devices.lg} {
-    margin-top: 2rem;
-  }
 `

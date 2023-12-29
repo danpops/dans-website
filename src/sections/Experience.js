@@ -10,10 +10,8 @@ export default function ExperienceSection () {
 
   return (
     <SectionContainer id='experience-section'>
-      <div>
-        <Heading2 id='experience-title'>{content.experience.title}</Heading2>
-        {content.experience.cards.map(composeExperience)}
-      </div>
+      <Heading2 id='experience-title'>{content.experience.title}</Heading2>
+      {content.experience.cards.map(composeExperience)}
     </SectionContainer>
   )
 }

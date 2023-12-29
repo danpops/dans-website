@@ -1,11 +1,12 @@
 import { getDefaultLayout } from '@/components/Layout'
+import { ContentContainer } from '@/components/Layout/styles'
 import AboutSection from '@/sections/About'
 
 export default function AboutPage () {
   return (
-    <div id='about'>
+    <ContentContainer id='about'>
       <AboutSection />
-    </div>
+    </ContentContainer>
   )
 }
 

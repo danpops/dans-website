@@ -1,11 +1,12 @@
 import { getDefaultLayout } from '@/components/Layout'
+import { ContentContainer } from '@/components/Layout/styles'
 import ExperienceSection from '@/sections/Experience'
 
 export default function ExperiencePage () {
   return (
-    <div id='experience'>
+    <ContentContainer id='experience'>
       <ExperienceSection />
-    </div>
+    </ContentContainer>
   )
 }
 

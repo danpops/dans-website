@@ -5,10 +5,8 @@ import { Heading1, Heading3 } from '@/components/Text'
 export default function HeroSection () {
   return (
     <SectionContainer id='hero-section'>
-      <div>
-        <Heading1 id='hero-title'>{content.hero.title}</Heading1>
-        <Heading3 id='hero-subtitle'>{content.hero.subtitle}</Heading3>
-      </div>
+      <Heading1 id='hero-title'>{content.hero.title}</Heading1>
+      <Heading3 id='hero-subtitle'>{content.hero.subtitle}</Heading3>
     </SectionContainer>
   )
 }
