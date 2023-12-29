@@ -1,7 +1,7 @@
-import { LayoutContainer } from './styles'
+import { FullPageContainer } from './styles'
 
 export { getDefaultLayout }
 
 function getDefaultLayout (page) {
-  return <LayoutContainer id='app-layout'>{page}</LayoutContainer>
+  return <FullPageContainer id='app-layout'>{page}</FullPageContainer>
 }
