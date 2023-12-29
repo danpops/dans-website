@@ -1,6 +1,6 @@
 import { content } from '@/assets/data/content'
-import { SectionContainer } from '../components/Layout/styles'
-import { BodyText, Heading2 } from '../components/Text'
+import { SectionContainer } from '../Layout/styles'
+import { BodyText, Heading2 } from '../Text'
 
 export default function ContactSection () {
   return (

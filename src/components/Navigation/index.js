@@ -45,7 +45,7 @@ export default function Navigation () {
           <LogoTitle onClick={goHome}>Dan Popovic</LogoTitle>
         </LogoContainer>
       </NavbarContainer>
-      <PageTabsContainer id='page-tabs' visible={isVisible}>
+      <PageTabsContainer id='page-tabs' $visible={isVisible}>
         {pageLinks.map(composePageTabs)}
       </PageTabsContainer>
     </NavigationContainer>

@@ -1,6 +1,6 @@
+import ContactSection from '@/components/ContactSection'
 import { getDefaultLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
-import ContactSection from '@/sections/Contact'
 
 export default function ContactPage () {
   return (

@@ -48,8 +48,8 @@ export const NavbarContainer = styled.div`
   grid-template-columns: 1fr 1fr;
 `
 export const PageTabsContainer = styled.ul`
-  display: ${props => (props.visible ? 'grid' : 'none')};
-  animation: ${props => (props.visible ? fadeIn : fadeOut)} 0.5s ease;
+  display: ${props => (props.$visible ? 'grid' : 'none')};
+  animation: ${props => (props.$visible ? fadeIn : fadeOut)} 0.5s ease;
   grid-template-rows: 1fr;
   list-style: none;
   padding: 0;
