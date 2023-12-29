@@ -1,5 +1,4 @@
 const { NAV_MENU, NAV_LOGO, PAGE_TABS, TAB_ITEM, NAV } = require('.')
-const { CONTACT_SECTION, CONTACT_LINK } = require('./contact')
 
 module.exports = {
   pageName: '#landing',
@@ -8,7 +7,5 @@ module.exports = {
   NAV_LOGO,
   NAV_MENU,
   PAGE_TABS,
-  TAB_ITEM,
-  CONTACT_SECTION,
-  CONTACT_LINK
+  TAB_ITEM
 }

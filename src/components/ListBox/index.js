@@ -1,5 +1,4 @@
 import { colors } from '@/design/colors'
-import { Heading3 } from '../Text'
 import { ListBoxContainer, ListItem } from './styles'
 
 export default function ListBox (props) {
@@ -11,15 +10,14 @@ export default function ListBox (props) {
           <ListItem
             key={index}
             id={listId}
-            $bgcolor={colors.yellow}
-            $color={colors.blue}
-            $bordercolor={colors.red}
+            $bgcolor={colors.grey}
+            $color={colors.black}
             target='_blank'
             rel='noopener noreferrer'
             href={item?.link}
             style={{ cursor: item?.link ? 'pointer' : 'default' }}
           >
-            <Heading3>{item.name}</Heading3>
+            {item.name}
           </ListItem>
         )
       })}

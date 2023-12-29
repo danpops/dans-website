@@ -1,6 +1,7 @@
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
 import { fonts } from '@/design/fonts'
+import { borderStyle } from '@/design/global'
 import styled, { keyframes } from 'styled-components'
 
 const fadeIn = keyframes`
@@ -23,11 +24,12 @@ const fadeOut = keyframes`
 
 const activeStyle = `
   background-color: ${colors.blue};
-  color: ${colors.yellow};
+  color: ${colors.white};
 `
 const tabStyle = `
   background-color: ${colors.lightGrey};
   color: ${colors.black};
+  padding: 0.5rem 1rem;
 `
 
 export const NavigationContainer = styled.div`
@@ -38,15 +40,19 @@ export const NavigationContainer = styled.div`
   align-content: center;
   position: sticky;
   top: 0;
-  background-color: ${colors.lightGreen};
+  background-color: ${colors.grey};
   z-index: 100;
   padding: 0.5rem;
+  ${borderStyle}
 
   @media ${devices.md} {
-    padding: 0.5rem 4rem;
+    padding: 1rem 4rem;
   }
   @media ${devices.lg} {
     padding: 1rem 15rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
   }
 `
 export const NavbarContainer = styled.div`
@@ -76,27 +82,20 @@ export const PageTabsContainer = styled.ul`
   @media ${devices.lg} {
     display: grid;
     animation: none;
+    margin: 0;
   }
 `
 export const TabItem = styled.li`
-  padding: 0.5rem;
-  font-size: ${fonts.sm};
-  font-weight: 600;
-  cursor: pointer;
+  font-weight: 500;
+  font-size: ${fonts.md};
   text-align: center;
-  border-right: 0.15rem solid ${colors.mediumGrey};
-  border-bottom: 0.15rem solid ${colors.mediumGrey};
+  cursor: pointer;
   transition: background-color 0.3s;
-
+  ${borderStyle};
+  padding: 0.5rem 1rem;
   ${({ $active }) => ($active ? activeStyle : tabStyle)}
-
   &:hover {
     ${activeStyle}
-  }
-
-  @media ${devices.md} {
-    padding: 1rem;
-    font-size: ${fonts.md};
   }
   @media ${devices.lg} {
     font-size: ${fonts.xl};
@@ -104,30 +103,20 @@ export const TabItem = styled.li`
 `
 export const NavMenuButton = styled.button`
   display: grid;
-  font-size: ${fonts.lg};
-  font-weight: 600;
+  font-weight: 500;
+  font-size: ${fonts.md};
+  text-align: center;
   justify-self: flex-end;
-  color: ${colors.blue};
   cursor: pointer;
-  border: 0.25rem solid ${colors.red};
-  padding: 0.5rem;
-  background-color: ${colors.yellow};
+  ${tabStyle};
+  ${borderStyle}
 
   &:hover {
-    background-color: ${colors.blue};
-    color: ${colors.yellow};
+    ${activeStyle}
   }
 
-  @media ${devices.md} {
-    font-size: ${fonts.xl};
-    padding: 0.65rem;
-    border: 0.4rem solid ${colors.red};
-  }
   @media ${devices.lg} {
     display: none;
-    font-size: ${fonts.xxl};
-    padding: 0.75rem;
-    border: 0.5rem solid ${colors.red};
   }
 `
 export const LogoContainer = styled.div`
@@ -138,29 +127,19 @@ export const LogoContainer = styled.div`
 `
 export const LogoTitle = styled.div`
   display: grid;
-  font-size: ${fonts.lg};
-  font-weight: 600;
+  font-weight: 500;
+  font-size: ${fonts.md};
+  text-align: center;
   justify-self: flex-start;
-  color: ${colors.blue};
   cursor: pointer;
   user-select: none;
-  border: 0.25rem solid ${colors.red};
-  padding: 0.5rem;
-  background-color: ${colors.yellow};
+  ${tabStyle}
+  ${borderStyle}
 
-  &:hover {
-    background-color: ${colors.blue};
-    color: ${colors.yellow};
-  }
-
-  @media ${devices.md} {
-    font-size: ${fonts.xl};
-    padding: 0.65rem;
-    border: 0.4rem solid ${colors.red};
-  }
   @media ${devices.lg} {
-    font-size: ${fonts.xxl};
-    padding: 0.75rem;
-    border: 0.5rem solid ${colors.red};
+    font-size: ${fonts.xl};
+  }
+  &:hover {
+    ${activeStyle}
   }
 `

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 export const CardContainer = styled.div`
   width: 100%;
+  padding: 0.5rem 0;
 `
 export const CardHeader = styled.div`
   display: grid;
@@ -10,7 +11,6 @@ export const CardHeader = styled.div`
   grid-auto-flow: row;
   column-gap: 1rem;
   align-items: center;
-  margin: 1rem 0;
 `
 export const CompanyImage = styled(Image)`
   width: 5rem;

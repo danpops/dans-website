@@ -1,25 +1,25 @@
 import { devices } from '@/design/devices'
 import { fonts } from '@/design/fonts'
+import { borderStyle } from '@/design/global'
 import styled from 'styled-components'
 
 export const ListBoxContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 1fr;
-  justify-items: center;
   grid-gap: 1.25rem;
-  padding: 1rem;
+  margin: 1rem 0;
 
   @media ${devices.md} {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 `
 export const ListItem = styled.a`
-  border: 0.25rem solid ${props => props.$bordercolor};
-  width: 100%;
+  font-weight: 500;
+  font-size: ${fonts.md};
   text-align: center;
   background-color: ${props => props.$bgcolor};
   color: ${props => props.$color};
-  font-size: ${fonts.xl};
-  font-weight: 600;
+  padding: 1rem 2rem;
+  ${borderStyle}
 `

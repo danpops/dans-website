@@ -1,5 +1,6 @@
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
+import { borderStyle } from '@/design/global'
 import styled from 'styled-components'
 
 export const FullPageContainer = styled.div`
@@ -11,19 +12,25 @@ export const FullPageContainer = styled.div`
   color: ${colors.black};
 `
 export const ContentContainer = styled.div`
-  border: 0.2rem dashed ${colors.blue};
-  box-sizing: border-box;
   overflow: scroll;
   height: 100%;
+  background-color: ${colors.darkGreen};
   padding: 1rem;
 
   @media ${devices.md} {
-    padding: 2rem 4rem;
+    padding: 1rem 4rem;
   }
   @media ${devices.lg} {
-    padding: 3rem 15rem;
+    padding: 4rem 15rem 1rem;
   }
 `
 export const SectionContainer = styled.div`
   display: grid;
+  background-color: ${colors.grey};
+  padding: 1rem;
+  ${borderStyle}
+
+  @media ${devices.md} {
+    padding: 2rem;
+  }
 `

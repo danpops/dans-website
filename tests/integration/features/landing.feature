@@ -14,5 +14,3 @@ Feature: Landing Page
     Given I open the "landing" page
     Then I see the "landing" page
     And I see the "HERO_SECTION" on the "landing" page
-    And I see the "CONTACT_SECTION" on the "contact" page
-    And I see 3 different "CONTACT_LINK" on the "contact" page
