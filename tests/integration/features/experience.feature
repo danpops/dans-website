@@ -7,3 +7,4 @@ Feature: Experience Page
     And I see the "NAV_MENU" on the "experience" page
     And I see the "EXPERIENCE_SECTION" on the "experience" page
     And I see 2 different "EXPERIENCE_CARD" on the "experience" page
+    And I see the "RANDOM_FACTS_BANNER" on the "experience" page

@@ -1,5 +1,6 @@
 import { content } from '@/assets/data/content'
 import ExperienceCard from '@/components/ExperienceCard'
+import HomeButton from '@/components/HomeButton'
 import { getDefaultLayout } from '@/components/Layout'
 import { ContentContainer, SectionContainer } from '@/components/Layout/styles'
 import { Heading2 } from '@/components/Text'
@@ -14,6 +15,7 @@ export default function ExperiencePage () {
       <SectionContainer id='experience-section'>
         <Heading2 id='experience-title'>{content.experience.title}</Heading2>
         {content.experience.cards.map(composeExperience)}
+        <HomeButton />
       </SectionContainer>
     </ContentContainer>
   )

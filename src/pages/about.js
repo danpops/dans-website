@@ -1,4 +1,5 @@
 import { content } from '@/assets/data/content'
+import HomeButton from '@/components/HomeButton'
 import { getDefaultLayout } from '@/components/Layout'
 import { ContentContainer, SectionContainer } from '@/components/Layout/styles'
 import { BodyText, Heading2 } from '@/components/Text'
@@ -9,6 +10,7 @@ export default function AboutPage () {
       <SectionContainer id='about-section'>
         <Heading2 id='about-title'>{content.about.title}</Heading2>
         <BodyText id='about-text'>{content.about.text}</BodyText>
+        <HomeButton />
       </SectionContainer>
     </ContentContainer>
   )

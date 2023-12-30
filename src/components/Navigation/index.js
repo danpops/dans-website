@@ -15,7 +15,10 @@ export default function Navigation () {
   const [isVisible, setVisible] = useState(false)
   const router = useRouter()
 
-  const onClickLink = link => () => router.push(link.toLowerCase())
+  const onClickLink = link => () => {
+    setVisible(false)
+    router.push(link.toLowerCase())
+  }
   const goHome = () => router.push('/')
 
   const composePageTabs = (item, index) => {

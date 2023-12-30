@@ -7,3 +7,4 @@ Feature: Specialties Page
     And I see the "NAV_MENU" on the "about" page
     And I see the "SPECIALTIES_SECTION" on the "specialties" page
     And I see 6 different "SPECIALTY_ITEM" on the "specialties" page
+    And I see the "RANDOM_FACTS_BANNER" on the "specialties" page

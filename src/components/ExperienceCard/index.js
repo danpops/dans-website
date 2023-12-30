@@ -32,9 +32,6 @@ export default function ExperienceCard ({ item }) {
         </TitleContainer>
       </CardHeader>
       <DetailsContainer id='experience-details'>
-        <BodyText id='experience-tech' style={{ fontWeight: 'bold' }}>
-          {item.technologies.join(' - ')}
-        </BodyText>
         {item.notes.map(composeExperienceDetails)}
       </DetailsContainer>
     </CardContainer>

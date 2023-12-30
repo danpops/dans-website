@@ -11,6 +11,7 @@ export const CardHeader = styled.div`
   grid-auto-flow: row;
   column-gap: 1rem;
   align-items: center;
+  margin: 1rem 0 2rem;
 `
 export const CompanyImage = styled(Image)`
   width: 5rem;
