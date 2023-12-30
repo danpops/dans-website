@@ -98,7 +98,7 @@ export const TabItem = styled.li`
     ${activeStyle}
   }
   @media ${devices.lg} {
-    font-size: ${fonts.xl};
+    font-size: ${fonts.lg};
   }
 `
 export const NavMenuButton = styled.button`
@@ -137,7 +137,7 @@ export const LogoTitle = styled.div`
   ${borderStyle}
 
   @media ${devices.lg} {
-    font-size: ${fonts.xl};
+    font-size: ${fonts.lg};
   }
   &:hover {
     ${activeStyle}
