@@ -9,9 +9,7 @@ function getDefaultLayout (page) {
     <FullPageContainer id='app-layout'>
       <Navigation />
       {page}
-      <FooterBanner>
-        <div>danpops - 2023</div>
-      </FooterBanner>
+      <FooterBanner />
     </FullPageContainer>
   )
 }

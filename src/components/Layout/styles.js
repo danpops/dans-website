@@ -26,8 +26,11 @@ export const ContentContainer = styled.div`
 `
 export const SectionContainer = styled.div`
   display: grid;
+  grid-auto-flow: row;
+  row-gap: 1rem;
   background-color: ${colors.grey};
   padding: 1rem;
+  justify-items: center;
   ${borderStyle}
 
   @media ${devices.md} {

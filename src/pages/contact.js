@@ -1,5 +1,5 @@
 import { content } from '@/assets/data/content'
-import HomeButton from '@/components/HomeButton'
+import GifButton from '@/components/GifButton'
 import { getDefaultLayout } from '@/components/Layout'
 import { ContentContainer, SectionContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
@@ -16,8 +16,8 @@ export default function ContactPage () {
           listId='contact-link'
           items={content.contact.items}
         />
-        <HomeButton />
       </SectionContainer>
+      <GifButton />
     </ContentContainer>
   )
 }

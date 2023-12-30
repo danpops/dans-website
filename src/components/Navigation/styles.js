@@ -46,10 +46,10 @@ export const NavigationContainer = styled.div`
   ${borderStyle}
 
   @media ${devices.md} {
-    padding: 1rem 4rem;
+    padding: 0.5rem 4rem;
   }
   @media ${devices.lg} {
-    padding: 1rem 15rem;
+    padding: 0.5rem 15rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;

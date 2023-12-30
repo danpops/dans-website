@@ -14,8 +14,10 @@ export const CardHeader = styled.div`
   margin: 1rem 0 2rem;
 `
 export const CompanyImage = styled(Image)`
-  width: 5rem;
-  height: 5rem;
+  width: 10rem;
+  height: 10rem;
+  filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) brightness(1.2)
+    contrast(1.2);
 `
 export const TitleContainer = styled.div`
   display: grid;

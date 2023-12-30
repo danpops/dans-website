@@ -1,8 +1,10 @@
 import { content } from '@/assets/data/content'
-import HomeButton from '@/components/HomeButton'
+import GifButton from '@/components/GifButton'
 import { getDefaultLayout } from '@/components/Layout'
 import { ContentContainer, SectionContainer } from '@/components/Layout/styles'
 import { BodyText, Heading2 } from '@/components/Text'
+import Image from 'next/image'
+import computerGif from '@/assets/gifs/computer.gif'
 
 export default function AboutPage () {
   return (
@@ -10,8 +12,9 @@ export default function AboutPage () {
       <SectionContainer id='about-section'>
         <Heading2 id='about-title'>{content.about.title}</Heading2>
         <BodyText id='about-text'>{content.about.text}</BodyText>
-        <HomeButton />
+        <Image src={computerGif} alt='computer gif' width={200} />
       </SectionContainer>
+      <GifButton />
     </ContentContainer>
   )
 }
