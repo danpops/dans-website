@@ -3,7 +3,7 @@ import mccain from '../images/mccain.png'
 
 export const content = {
   hero: {
-    title: "Hello, I'm Dan",
+    title: "Dan's Portfolio",
     subtitle:
       'Passionate Software Engineer dedicated to crafting seamless, impactful digital solutions.'
   },
