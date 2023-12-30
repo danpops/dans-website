@@ -36,4 +36,7 @@ export const SectionContainer = styled.div`
   @media ${devices.md} {
     padding: 2rem;
   }
+  @media ${devices.lg} {
+    padding: 3rem 10rem;
+  }
 `

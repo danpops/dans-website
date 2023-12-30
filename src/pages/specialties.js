@@ -15,8 +15,8 @@ export default function SpecialtiesPage () {
           listId='specialty-item'
           items={content.specialties.items}
         />
+        <GifButton />
       </SectionContainer>
-      <GifButton />
     </ContentContainer>
   )
 }

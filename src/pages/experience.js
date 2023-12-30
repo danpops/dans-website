@@ -15,8 +15,8 @@ export default function ExperiencePage () {
       <SectionContainer id='experience-section'>
         <Heading2 id='experience-title'>{content.experience.title}</Heading2>
         {content.experience.cards.map(composeExperience)}
+        <GifButton />
       </SectionContainer>
-      <GifButton />
     </ContentContainer>
   )
 }

@@ -16,8 +16,8 @@ export default function ContactPage () {
           listId='contact-link'
           items={content.contact.items}
         />
+        <GifButton />
       </SectionContainer>
-      <GifButton />
     </ContentContainer>
   )
 }

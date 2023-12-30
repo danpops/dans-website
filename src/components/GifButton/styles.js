@@ -5,5 +5,4 @@ export const GifButtonContainer = styled.div`
   justify-items: center;
   align-items: center;
   cursor: pointer;
-  padding: 0.5rem;
 `
