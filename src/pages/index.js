@@ -1,13 +1,12 @@
 import { getDefaultLayout } from '@/components/Layout'
-import { ContentContainer } from '@/components/Layout/styles'
 import HeroBanner from '@/components/HeroBanner'
 
+export function getStaticProps () {
+  const id = 'landing'
+  return { props: { id } }
+}
 export default function LandingPage () {
-  return (
-    <ContentContainer id='landing'>
-      <HeroBanner />
-    </ContentContainer>
-  )
+  return <HeroBanner />
 }
 
 LandingPage.getLayout = getDefaultLayout

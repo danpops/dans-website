@@ -1,24 +1,16 @@
 import { content } from '@/assets/data/content'
 import ExperienceCard from '@/components/ExperienceCard'
-import GifButton from '@/components/GifButton'
 import { getDefaultLayout } from '@/components/Layout'
-import { ContentContainer, SectionContainer } from '@/components/Layout/styles'
-import { Heading2 } from '@/components/Text'
 
+export function getStaticProps () {
+  const id = 'experience'
+  const title = content.experience.title
+  return { props: { id, title, showBack: true } }
+}
 export default function ExperiencePage () {
-  const composeExperience = (item, index) => (
+  return content.experience.cards.map((item, index) => (
     <ExperienceCard key={index} item={item} />
-  )
-
-  return (
-    <ContentContainer id='experience'>
-      <SectionContainer id='experience-section'>
-        <Heading2 id='experience-title'>{content.experience.title}</Heading2>
-        {content.experience.cards.map(composeExperience)}
-        <GifButton />
-      </SectionContainer>
-    </ContentContainer>
-  )
+  ))
 }
 
 ExperiencePage.getLayout = getDefaultLayout

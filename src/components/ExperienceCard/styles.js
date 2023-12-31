@@ -12,14 +12,14 @@ export const CardHeader = styled.div`
   grid-auto-flow: row;
   column-gap: 1rem;
   align-items: center;
-  margin: 1rem 0 2rem;
+  margin-bottom: 2rem;
 `
 export const CompanyImage = styled(Image)`
   height: 5rem;
   width: 5rem;
   margin-right: 1rem;
   filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) brightness(1.2)
-  contrast(1.2);
+    contrast(1.2);
   @media ${devices.lg} {
     width: 8rem;
     height: 8rem;

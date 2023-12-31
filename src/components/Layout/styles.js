@@ -1,5 +1,6 @@
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
+import { fonts } from '@/design/fonts'
 import { borderStyle } from '@/design/global'
 import styled from 'styled-components'
 
@@ -11,7 +12,7 @@ export const FullPageContainer = styled.div`
   background-color: ${colors.lightGrey};
   color: ${colors.black};
 `
-export const ContentContainer = styled.div`
+export const PageContainer = styled.div`
   overflow: scroll;
   height: 100%;
   background-color: ${colors.darkGreen};
@@ -27,7 +28,7 @@ export const ContentContainer = styled.div`
     padding: 4rem 30rem 0;
   }
 `
-export const SectionContainer = styled.div`
+export const WindowContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
   background-color: ${colors.grey};
@@ -41,4 +42,8 @@ export const SectionContainer = styled.div`
   @media ${devices.lg} {
     padding: 3rem 10rem;
   }
+`
+export const PageTitle = styled.div`
+  font-size: ${fonts.xl};
+  font-weight: 700;
 `

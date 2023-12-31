@@ -1,23 +1,19 @@
 import { content } from '@/assets/data/content'
-import GifButton from '@/components/GifButton'
 import { getDefaultLayout } from '@/components/Layout'
-import { ContentContainer, SectionContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
-import { Heading2 } from '@/components/Text'
 
+export function getStaticProps () {
+  const id = 'specialties'
+  const title = content.specialties.title
+  return { props: { id, title, showBack: true } }
+}
 export default function SpecialtiesPage () {
   return (
-    <ContentContainer id='specialties'>
-      <SectionContainer id='specialties-section'>
-        <Heading2 id='specialties-title'>{content.specialties.title}</Heading2>
-        <ListBox
-          id='specialty-items'
-          listId='specialty-item'
-          items={content.specialties.items}
-        />
-        <GifButton />
-      </SectionContainer>
-    </ContentContainer>
+    <ListBox
+      id='specialty-items'
+      listId='specialty-item'
+      items={content.specialties.items}
+    />
   )
 }
 

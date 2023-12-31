@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Heading1 } from '@/components/Text'
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
-import { SectionContainer } from '../Layout/styles'
+import { WindowContainer } from '../Layout/styles'
 
 export const HeroTitle = styled(Heading1)`
   -webkit-text-stroke: 0.04rem ${colors.black};
@@ -15,7 +15,7 @@ export const HeroTitle = styled(Heading1)`
     -webkit-text-stroke: 0.08rem ${colors.black};
   }
 `
-export const HeroContainer = styled(SectionContainer)`
+export const HeroContainer = styled(WindowContainer)`
   justify-items: center;
   text-align: center;
   row-gap: 0;

@@ -1,15 +1,15 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import backHomeGif from '@/assets/gifs/back-home.gif'
-import { GifButtonContainer } from './styles'
+import { BackButtonContainer } from './styles'
 
-export default function GifButton () {
+export default function BackButton () {
   const router = useRouter()
   const goBack = () => router.push('/')
 
   return (
-    <GifButtonContainer id='home-button'>
+    <BackButtonContainer id='home-button'>
       <Image src={backHomeGif} alt='gif button' onClick={goBack} />
-    </GifButtonContainer>
+    </BackButtonContainer>
   )
 }

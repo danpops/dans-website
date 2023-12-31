@@ -1,23 +1,30 @@
-import { FullPageContainer } from './styles'
+import {
+  PageContainer,
+  FullPageContainer,
+  PageTitle,
+  WindowContainer
+} from './styles'
 import Navigation from '../Navigation'
 import PageMarquee from '../PageMarquee'
 import { content } from '@/assets/data/content'
-import homerGif from '@/assets/gifs/homer.gif'
-import { HomerGif, StickyGif } from '../GifButton/styles'
+import BackButton from '../BackButton'
+import StickyGif from '../StickyGif'
 
 export { getDefaultLayout }
 
-function getDefaultLayout (page) {
+function getDefaultLayout (page, { id, title, showBack = false }) {
   return (
-    <>
-      <FullPageContainer id='app-layout'>
-        <Navigation />
-        <PageMarquee bannerText={content.hero.subtitle} />
-        {page}
-      </FullPageContainer>
-      <HomerGif>
-        <StickyGif src={homerGif} alt='homer gif' />
-      </HomerGif>
-    </>
+    <FullPageContainer id='app-layout'>
+      <Navigation />
+      <PageMarquee bannerText={content.hero.subtitle} />
+      <PageContainer id={id}>
+        <WindowContainer id={`${id}-section`}>
+          {title && <PageTitle id={`${id}-title`}>{title}</PageTitle>}
+          {page}
+          {showBack && <BackButton />}
+        </WindowContainer>
+      </PageContainer>
+      <StickyGif />
+    </FullPageContainer>
   )
 }
