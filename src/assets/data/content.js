@@ -5,7 +5,7 @@ export const content = {
   hero: {
     title: "Dan's Portfolio",
     subtitle:
-      'Passionate Software Engineer dedicated to crafting seamless, impactful digital solutions.'
+      'Passionate Software Engineer dedicated to crafting seamless, impactful digital solutions. '
   },
   about: {
     title: 'About',
