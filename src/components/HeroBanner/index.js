@@ -6,6 +6,7 @@ import { HeroContainer, HeroTitle, TitleContainer, WelcomeImg } from './styles'
 import contactGif from '@/assets/gifs/contact.gif'
 import { GifButtonContainer } from '@/components/GifButton/styles'
 import { useRouter } from 'next/router'
+import { Heading3 } from '../Text'
 
 export default function HeroBanner () {
   const router = useRouter()
@@ -14,7 +15,7 @@ export default function HeroBanner () {
   return (
     <HeroContainer id='hero-section'>
       <WelcomeImg src={welcomeGif} alt='welcome gif' />
-      <p>to</p>
+      <Heading3>to</Heading3>
       <TitleContainer>
         <Image src={codeGif} alt='code gif' />
         <HeroTitle id='hero-title'>{content.hero.title}</HeroTitle>

@@ -4,20 +4,15 @@ import { Heading1 } from '@/components/Text'
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
 import { SectionContainer } from '../Layout/styles'
-import { fonts } from '@/design/fonts'
 
 export const HeroTitle = styled(Heading1)`
   -webkit-text-stroke: 0.04rem ${colors.black};
   text-align: center;
   color: ${colors.yellow};
-  font-size: ${fonts.xl};
   line-height: 2rem;
 
   @media ${devices.md} {
     -webkit-text-stroke: 0.08rem ${colors.black};
-  }
-  @media ${devices.lg} {
-    ${fonts.xxl}
   }
 `
 export const HeroContainer = styled(SectionContainer)`

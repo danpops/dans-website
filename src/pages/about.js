@@ -11,7 +11,7 @@ export default function AboutPage () {
     <ContentContainer id='about'>
       <SectionContainer id='about-section'>
         <Heading2 id='about-title'>{content.about.title}</Heading2>
-        <Image src={computerGif} alt='computer gif' width={200} />
+        <Image src={computerGif} alt='computer gif' width={150} />
         <BodyText id='about-text'>{content.about.text}</BodyText>
         <GifButton />
       </SectionContainer>
