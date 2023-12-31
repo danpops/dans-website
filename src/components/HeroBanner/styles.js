@@ -7,11 +7,18 @@ import { SectionContainer } from '../Layout/styles'
 import { fonts } from '@/design/fonts'
 
 export const HeroTitle = styled(Heading1)`
-  -webkit-text-stroke: 0.08rem ${colors.black};
+  -webkit-text-stroke: 0.04rem ${colors.black};
   text-align: center;
   color: ${colors.yellow};
-  font-size: ${fonts.xxl};
-  line-height: 2.5rem;
+  font-size: ${fonts.xl};
+  line-height: 2rem;
+
+  @media ${devices.md} {
+    -webkit-text-stroke: 0.08rem ${colors.black};
+  }
+  @media ${devices.lg} {
+    ${fonts.xxl}
+  }
 `
 export const HeroContainer = styled(SectionContainer)`
   justify-items: center;

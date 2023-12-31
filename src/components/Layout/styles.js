@@ -21,7 +21,7 @@ export const ContentContainer = styled.div`
     padding: 1rem 4rem;
   }
   @media ${devices.lg} {
-    padding: 5rem 15rem 1rem;
+    padding: 3rem 15rem 0;
   }
 `
 export const SectionContainer = styled.div`

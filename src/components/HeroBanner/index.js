@@ -21,7 +21,7 @@ export default function HeroBanner () {
         <Image src={codeGif} alt='code gif' />
       </TitleContainer>
       <GifButtonContainer onClick={goToContact}>
-        <Image src={contactGif} alt='contact gif' width={200} />
+        <Image src={contactGif} alt='contact gif' width={150} />
       </GifButtonContainer>
     </HeroContainer>
   )
