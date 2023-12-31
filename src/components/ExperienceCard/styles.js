@@ -1,3 +1,4 @@
+import { devices } from '@/design/devices'
 import Image from 'next/image'
 import styled from 'styled-components'
 
@@ -14,10 +15,16 @@ export const CardHeader = styled.div`
   margin: 1rem 0 2rem;
 `
 export const CompanyImage = styled(Image)`
-  width: 10rem;
-  height: 10rem;
+  height: 5rem;
+  width: 5rem;
+  margin-right: 1rem;
   filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) brightness(1.2)
-    contrast(1.2);
+  contrast(1.2);
+  @media ${devices.lg} {
+    width: 8rem;
+    height: 8rem;
+    margin-right: 2rem;
+  }
 `
 export const TitleContainer = styled.div`
   display: grid;

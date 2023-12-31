@@ -53,6 +53,7 @@ export const NavigationContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
+    height: 3rem;
   }
 `
 export const NavbarContainer = styled.div`

@@ -6,4 +6,4 @@ Feature: About Page
     And I see the "NAV_LOGO" on the "about" page
     And I see the "NAV_MENU" on the "about" page
     And I see the "ABOUT_SECTION" on the "about" page
-    And I see the "RANDOM_FACTS_BANNER" on the "about" page
+    And I see the "PAGE_MARQUEE" on the "about" page

@@ -4,5 +4,5 @@ module.exports = {
   NAV_LOGO: '#nav-logo',
   PAGE_TABS: '#page-tabs',
   TAB_ITEM: '#tab-item',
-  RANDOM_FACTS_BANNER: '#random-facts-banner'
+  PAGE_MARQUEE: '#page-marquee'
 }

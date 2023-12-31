@@ -1,4 +1,4 @@
-const { NAV_LOGO, NAV_MENU, RANDOM_FACTS_BANNER } = require('.')
+const { NAV_LOGO, NAV_MENU, PAGE_MARQUEE } = require('.')
 
 module.exports = {
   pageName: '#specialties',
@@ -6,5 +6,5 @@ module.exports = {
   SPECIALTY_ITEM: '#specialty-item',
   NAV_LOGO,
   NAV_MENU,
-  RANDOM_FACTS_BANNER
+  PAGE_MARQUEE
 }

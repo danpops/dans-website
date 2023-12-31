@@ -42,9 +42,9 @@ export const Heading6 = styled.h6`
 `
 export const BodyText = styled.div`
   line-height: 2rem;
-  font-size: ${fonts.md};
+  font-size: ${fonts.sm};
 
   @media ${devices.md} {
-    font-size: ${fonts.lg};
+    font-size: ${fonts.md};
   }
 `
