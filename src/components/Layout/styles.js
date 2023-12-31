@@ -23,6 +23,9 @@ export const ContentContainer = styled.div`
   @media ${devices.lg} {
     padding: 3rem 15rem 0;
   }
+  @media ${devices.xl} {
+    padding: 4rem 30rem 0;
+  }
 `
 export const SectionContainer = styled.div`
   display: grid;

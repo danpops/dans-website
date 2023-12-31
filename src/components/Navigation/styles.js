@@ -55,6 +55,10 @@ export const NavigationContainer = styled.div`
     align-items: center;
     height: 3rem;
   }
+  @media ${devices.xl} {
+    padding: 0.5rem 30rem;
+    height: 4rem;
+  }
 `
 export const NavbarContainer = styled.div`
   display: grid;
@@ -101,6 +105,9 @@ export const TabItem = styled.li`
   @media ${devices.lg} {
     font-size: ${fonts.lg};
   }
+  @media ${devices.xl} {
+    font-size: ${fonts.xl};
+  }
 `
 export const NavMenuButton = styled.button`
   display: grid;
@@ -133,12 +140,16 @@ export const LogoTitle = styled.div`
   text-align: center;
   justify-self: flex-start;
   cursor: pointer;
+  transition: background-color 0.3s;
   user-select: none;
   ${tabStyle}
   ${borderStyle}
 
   @media ${devices.lg} {
     font-size: ${fonts.lg};
+  }
+  @media ${devices.xl} {
+    font-size: ${fonts.xl};
   }
   &:hover {
     ${activeStyle}
