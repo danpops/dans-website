@@ -1,6 +1,18 @@
 # dans-website
 
-Welcome to my website repository! It is a React Next.js application that showcases my portfolio with a nostalgic 90s website aesthetic.
+## Overview
+
+Welcome to my portfolio website! This React Next.js application offers a showcase of my work, blending modern technology with a 90s website aesthetic. Dive into the code to explore best practices in React application development, run it locally, and experience the charm of the 90s web.
+
+### Features
+
+- **Nostalgic 90s Design**: Immerse yourself in a retro web experience with a visually appealing 90s aesthetic.
+- **Local Development**: Run the application locally to explore the codebase and discover React best practices.
+- **Integration Tests**: Elevate your React project with cool integration tests using Cucumber and Puppeteer.
+
+### Live Deployment
+
+Explore my live website at [danpops.ca](https://danpops.ca) to see the portfolio in action.
 
 ## Table of Contents
 
@@ -83,9 +95,9 @@ The project follows the structure below:
 
 - `/src`: Source code of the application.
 
-  - `/components`: Reusable React components.
-  - `/pages`: Next.js pages.
   - `/assets`: Text, images, gifs.
   - `/design`: Fonts, device breakpoints, and colors.
+  - `/components`: Reusable React components.
+  - `/pages`: Next.js pages.
 
 Feel free to explore each folder for additional details and customizations.
