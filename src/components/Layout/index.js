@@ -7,12 +7,12 @@ import {
 import Navigation from '../Navigation'
 import PageMarquee from '../PageMarquee'
 import { content } from '@/assets/data/content'
-import BackButton from '../BackButton'
+import HomeButton from '../HomeButton'
 import StickyGif from '../StickyGif'
 
 export { getDefaultLayout }
 
-function getDefaultLayout (page, { id, title, showBack = false }) {
+function getDefaultLayout (page, { id, title, hasHomeButton = false }) {
   return (
     <FullPageContainer id='app-layout'>
       <Navigation />
@@ -21,7 +21,7 @@ function getDefaultLayout (page, { id, title, showBack = false }) {
         <WindowContainer id={`${id}-section`}>
           {title && <PageTitle id={`${id}-title`}>{title}</PageTitle>}
           {page}
-          {showBack && <BackButton />}
+          {hasHomeButton && <HomeButton />}
         </WindowContainer>
       </PageContainer>
       <StickyGif />

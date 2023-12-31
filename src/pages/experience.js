@@ -5,7 +5,7 @@ import { getDefaultLayout } from '@/components/Layout'
 export function getStaticProps () {
   const id = 'experience'
   const title = content.experience.title
-  return { props: { id, title, showBack: true } }
+  return { props: { id, title, hasHomeButton: true } }
 }
 export default function ExperiencePage () {
   return content.experience.cards.map((item, index) => (

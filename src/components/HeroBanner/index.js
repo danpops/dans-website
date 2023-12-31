@@ -4,7 +4,7 @@ import codeGif from '@/assets/gifs/code.gif'
 import welcomeGif from '@/assets/gifs/mywelcome.gif'
 import { HeroContainer, HeroTitle, TitleContainer, WelcomeImg } from './styles'
 import contactGif from '@/assets/gifs/contact.gif'
-import { BackButtonContainer } from '@/components/BackButton/styles'
+import { HomeButtonContainer } from '@/components/HomeButton/styles'
 import { useRouter } from 'next/router'
 import { Heading3 } from '../Text'
 
@@ -21,9 +21,9 @@ export default function HeroBanner () {
         <HeroTitle id='hero-title'>{content.hero.title}</HeroTitle>
         <Image src={codeGif} alt='code gif' />
       </TitleContainer>
-      <BackButtonContainer onClick={goToContact}>
+      <HomeButtonContainer onClick={goToContact}>
         <Image src={contactGif} alt='contact gif' width={150} />
-      </BackButtonContainer>
+      </HomeButtonContainer>
     </HeroContainer>
   )
 }

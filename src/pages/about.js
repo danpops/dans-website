@@ -7,7 +7,7 @@ import computerGif from '@/assets/gifs/computer.gif'
 export function getStaticProps () {
   const id = 'about'
   const title = content.about.title
-  return { props: { id, title, showBack: true } }
+  return { props: { id, title, hasHomeButton: true } }
 }
 export default function AboutPage () {
   return (
