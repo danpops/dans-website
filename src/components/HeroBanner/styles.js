@@ -8,7 +8,7 @@ export const HeroTitle = styled.div`
   color: ${colors.blue};
   font-size: 1.8rem;
   font-weight: bold;
-  
+
   @media ${devices.md} {
     font-size: 2.75rem;
     margin-bottom: 1rem;
@@ -24,7 +24,7 @@ export const HeroContainer = styled(WindowContainer)`
   border: none;
   box-shadow: none;
   row-gap: 1rem;
-  
+
   @media ${devices.lg} {
     row-gap: 2rem;
     padding: 5rem;
@@ -65,4 +65,10 @@ export const WelcomeImg = styled(Image)`
     width: 30rem;
     height: 10rem;
   }
+`
+export const ContactImage = styled(Image)`
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
 `

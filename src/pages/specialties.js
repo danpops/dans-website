@@ -6,7 +6,7 @@ import ListBox from '@/components/ListBox'
 export function getStaticProps () {
   const id = 'specialties'
   const title = content.specialties.title
-  return { props: { id, title, hasHomeButton: true } }
+  return { props: { id, title } }
 }
 export default function SpecialtiesPage () {
   return (

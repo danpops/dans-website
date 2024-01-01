@@ -8,7 +8,7 @@ import { ContentContainer } from '@/components/Layout/styles'
 export function getStaticProps () {
   const id = 'about'
   const title = content.about.title
-  return { props: { id, title, hasHomeButton: true } }
+  return { props: { id, title } }
 }
 export default function AboutPage () {
   return (

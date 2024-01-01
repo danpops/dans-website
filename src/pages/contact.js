@@ -7,7 +7,7 @@ import { BodyText } from '@/components/Text'
 export function getStaticProps () {
   const id = 'contact'
   const title = content.contact.title
-  return { props: { id, title, hasHomeButton: true } }
+  return { props: { id, title } }
 }
 export default function ContactPage () {
   return (

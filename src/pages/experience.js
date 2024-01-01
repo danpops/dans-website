@@ -6,7 +6,7 @@ import { ContentContainer } from '@/components/Layout/styles'
 export function getStaticProps () {
   const id = 'experience'
   const title = content.experience.title
-  return { props: { id, title, hasHomeButton: true } }
+  return { props: { id, title } }
 }
 export default function ExperiencePage () {
   return (

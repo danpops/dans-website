@@ -1,15 +1,9 @@
-import {
-  PageContainer,
-  FullPageContainer,
-  PageTitle,
-  WindowContainer,
-  WindowHeader,
-  WindowBody
-} from './styles'
+import { PageContainer, FullPageContainer, WindowContainer } from './styles'
 import Navigation from '../Navigation'
 import PageMarquee from '../PageMarquee'
 import { content } from '@/assets/data/content'
 import StickyGif from '../StickyGif'
+import PageWindow from '../PageWindow'
 
 export { getDefaultLayout, getHeroLayout }
 
@@ -37,15 +31,5 @@ function DefaultLayout ({ id, children }) {
       <PageContainer id={id}>{children}</PageContainer>
       <StickyGif />
     </FullPageContainer>
-  )
-}
-function PageWindow ({ children, id, title }) {
-  return (
-    <WindowContainer id={`${id}-window`}>
-      <WindowHeader>
-        <PageTitle id={`${id}-title`}>{title}</PageTitle>
-      </WindowHeader>
-      <WindowBody>{children}</WindowBody>
-    </WindowContainer>
   )
 }

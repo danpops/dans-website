@@ -18,8 +18,6 @@ export const CompanyImage = styled(Image)`
   height: 5rem;
   width: 5rem;
   margin-right: 1rem;
-  filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) brightness(1.2)
-    contrast(1.2);
   @media ${devices.lg} {
     width: 8rem;
     height: 8rem;
