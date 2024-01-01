@@ -4,7 +4,7 @@ export default function PageMarquee ({ bannerText }) {
   return (
     <PageMarqueeWrapper id='page-marquee'>
       {bannerText && (
-        <CustomMarquee pauseOnHover speed={100}>
+        <CustomMarquee speed={100}>
           <PreText>{bannerText}</PreText>
         </CustomMarquee>
       )}

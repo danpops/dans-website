@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
 import { borderStyle } from '@/design/global'
+import { fonts } from '@/design/fonts'
 
 export const HeroTitle = styled.div`
   color: ${colors.blue};
@@ -22,6 +23,7 @@ export const HeroContainer = styled.div`
   grid-auto-flow: row;
   align-items: center;
   justify-items: center;
+  row-gap: 1rem;
   padding: 2rem;
   ${borderStyle}
 `
@@ -60,10 +62,20 @@ export const WelcomeImg = styled(Image)`
     height: 10rem;
   }
 `
-export const ContactImage = styled(Image)`
+export const LinkContainer = styled.div`
   display: grid;
-  justify-items: center;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, minmax(0, auto));
   align-items: center;
+  justify-items: stretch;
+  column-gap: 2rem;
+  margin: 1rem 0;
+`
+export const FireImage = styled(Image)`
+  display: grid;
   cursor: pointer;
-  margin-top: 3rem;
+`
+export const CopyrightText = styled.div`
+  color: ${colors.black}30;
+  font-size: ${fonts.sm};
 `

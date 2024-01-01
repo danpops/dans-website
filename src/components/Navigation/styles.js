@@ -99,12 +99,16 @@ export const TabItem = styled.li`
   cursor: pointer;
   transition: background-color 0.3s;
   ${borderStyle};
-  padding: 0.75rem 2rem;
+  padding: 0.5rem 1.5rem;
 
   ${({ $active }) => ($active ? activeStyle : tabStyle)}
 
   &:hover {
     ${hoverBorder}
+  }
+
+  @media ${devices.lg} {
+    padding: 0.75rem 2rem;
   }
 
   @media ${devices.xl} {
@@ -118,8 +122,8 @@ export const NavMenuButton = styled.button`
   text-align: center;
   justify-self: flex-end;
   align-items: center;
-  padding: 0.75rem;
-  width: 3rem;
+  padding: 0.5rem;
+  width: 2.5rem;
   cursor: pointer;
   ${tabStyle};
   ${borderStyle}
@@ -144,7 +148,7 @@ export const LogoTitle = styled.div`
   display: grid;
   font-weight: 500;
   font-size: ${fonts.sm};
-  padding: 0.75rem 2rem;
+  padding: 0.5rem 1.5rem;
   text-align: center;
   justify-self: flex-start;
   cursor: pointer;
@@ -154,6 +158,7 @@ export const LogoTitle = styled.div`
   ${borderStyle}
 
   @media ${devices.lg} {
+    padding: 0.75rem 2rem;
     font-size: ${fonts.md};
   }
   &:hover {

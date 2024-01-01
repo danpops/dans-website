@@ -37,4 +37,11 @@ export const ContentContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
   row-gap: 1rem;
+
+  @media ${devices.md} {
+    row-gap: 2rem;
+  }
+  @media ${devices.lg} {
+    row-gap: 3rem;
+  }
 `
