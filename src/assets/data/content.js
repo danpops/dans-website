@@ -1,5 +1,5 @@
-import gopuff from '../images/gopuff.png'
-import mccain from '../images/mccain.png'
+import gopuff from '../../../public/images/gopuff.png'
+import mccain from '../../../public/images/mccain.png'
 
 export const content = {
   hero: {

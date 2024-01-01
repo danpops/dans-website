@@ -4,7 +4,7 @@ import { StickyImage, StickyWrapper } from './styles'
 export default function StickyGif () {
   return (
     <StickyWrapper>
-      <StickyImage src={homerGif} alt='homer gif' />
+      <StickyImage src={homerGif} alt='homer gif' priority />
     </StickyWrapper>
   )
 }

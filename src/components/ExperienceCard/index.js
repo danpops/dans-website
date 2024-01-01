@@ -22,6 +22,7 @@ export default function ExperienceCard ({ item }) {
           id='company-logo'
           src={item.logo}
           alt={`${item.company}-logo`}
+          placeholder='blur'
         />
         <TitleContainer>
           <BodyText id='experience-date'>{item.date}</BodyText>
