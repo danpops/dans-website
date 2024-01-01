@@ -104,6 +104,8 @@ export const TabItem = styled.li`
   ${({ $active }) => ($active ? activeStyle : tabStyle)}
 
   &:hover {
+    background-color: ${colors.yellow};
+    color: ${colors.blue};
     ${hoverBorder}
   }
 
@@ -117,7 +119,7 @@ export const TabItem = styled.li`
 `
 export const NavMenuButton = styled.button`
   display: grid;
-  font-weight: 500;
+  font-weight: 600;
   font-size: ${fonts.md};
   text-align: center;
   justify-self: flex-end;
@@ -130,8 +132,8 @@ export const NavMenuButton = styled.button`
 
   &:hover {
     ${hoverBorder}
-    background-color: ${colors.blue};
-    color: ${colors.white};
+    background-color: ${colors.red};
+    color: ${colors.yellow};
   }
 
   @media ${devices.lg} {
@@ -146,9 +148,9 @@ export const LogoContainer = styled.div`
 `
 export const LogoTitle = styled.div`
   display: grid;
-  font-weight: 500;
   font-size: ${fonts.sm};
-  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem 0.65rem;
   text-align: center;
   justify-self: flex-start;
   cursor: pointer;
@@ -158,12 +160,12 @@ export const LogoTitle = styled.div`
   ${borderStyle}
 
   @media ${devices.lg} {
-    padding: 0.75rem 2rem;
-    font-size: ${fonts.md};
+    padding: 0.75rem 2rem 1rem;
+    font-size: ${fonts.lg};
   }
   &:hover {
     ${hoverBorder}
-    background-color: ${colors.blue};
-    color: ${colors.white};
+    background-color: ${colors.yellow};
+    color: ${colors.blue};
   }
 `
