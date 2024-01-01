@@ -132,8 +132,8 @@ export const NavMenuButton = styled.button`
 
   &:hover {
     ${hoverBorder}
-    background-color: ${colors.red};
-    color: ${colors.yellow};
+    background-color: ${colors.yellow};
+    color: ${colors.blue};
   }
 
   @media ${devices.lg} {
