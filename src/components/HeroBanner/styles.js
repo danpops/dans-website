@@ -2,7 +2,7 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
-import { WindowContainer } from '../Layout/styles'
+import { borderStyle } from '@/design/global'
 
 export const HeroTitle = styled.div`
   color: ${colors.blue};
@@ -17,27 +17,21 @@ export const HeroTitle = styled.div`
     font-size: 3rem;
   }
 `
-export const HeroContainer = styled(WindowContainer)`
+export const HeroContainer = styled.div`
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
   justify-items: center;
-  text-align: center;
   padding: 2rem;
-  border: none;
-  box-shadow: none;
-  row-gap: 1rem;
-
-  @media ${devices.lg} {
-    row-gap: 2rem;
-    padding: 5rem;
-  }
+  ${borderStyle}
 `
 export const TitleContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, auto));
-  align-items: center;
-  justify-content: center;
   column-gap: 0.5rem;
-  width: 100%;
   text-align: center;
+  align-items: center;
+
   @media ${devices.md} {
     column-gap: 1rem;
   }
@@ -71,4 +65,5 @@ export const ContactImage = styled(Image)`
   justify-items: center;
   align-items: center;
   cursor: pointer;
+  margin-top: 3rem;
 `
