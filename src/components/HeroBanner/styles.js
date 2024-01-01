@@ -66,7 +66,7 @@ export const LinkContainer = styled.div`
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(2, minmax(0, auto));
-  align-items: center;
+  align-items: flex-end;
   justify-items: stretch;
   column-gap: 2rem;
   margin: 1rem 0;
