@@ -2,7 +2,7 @@ import { content } from '@/assets/data/content'
 import Image from 'next/image'
 import codeGif from '@/assets/gifs/code.gif'
 import welcomeGif from '@/assets/gifs/mywelcome.gif'
-import { HeroContainer, HeroTitle, TitleContainer, WelcomeImg } from './styles'
+import { HeroContainer, HeroTitle, MatrixGif, TitleContainer, WelcomeImg } from './styles'
 import contactGif from '@/assets/gifs/contact.gif'
 import { HomeButtonContainer } from '@/components/HomeButton/styles'
 import { useRouter } from 'next/router'
@@ -17,9 +17,9 @@ export default function HeroBanner () {
       <WelcomeImg src={welcomeGif} alt='welcome gif' />
       <Heading3>to</Heading3>
       <TitleContainer>
-        <Image src={codeGif} alt='code gif' />
+        <MatrixGif src={codeGif} alt='code gif' />
         <HeroTitle id='hero-title'>{content.hero.title}</HeroTitle>
-        <Image src={codeGif} alt='code gif' />
+        <MatrixGif src={codeGif} alt='code gif' />
       </TitleContainer>
       <HomeButtonContainer onClick={goToContact}>
         <Image src={contactGif} alt='contact gif' width={150} />

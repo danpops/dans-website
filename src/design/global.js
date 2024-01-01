@@ -1,15 +1,26 @@
 import { createGlobalStyle } from 'styled-components'
 import { colors } from './colors'
+import ttf from './fonts/MS-Sans-Serif-8pt.ttf'
+import ttfBold from './fonts/MS-Sans-Serif-8pt-bold.ttf'
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    font-family: 'VT323', monospace;
-    background-color: ${colors.darkGreen};
+  @font-face {
+    font-family: 'MS Sans Serif';
+    src: url(${ttf}) format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'MS Sans Serif';
+    src: url(${ttfBold}) format('truetype');
+    font-style: normal;
+    font-weight: bold;
   }
 
-  code {
-    font-family: 'Courier New', Courier, monospace;
+  body {
+    margin: 0;
+    font-family: 'MS Sans Serif', sans-serif;
+    background-color: ${colors.darkGreen};
   }
 
   a {
@@ -40,7 +51,7 @@ export const hoverBorder = `
     inset 2px 2px 0 0 ${borderColor.outerBottomRight};
   border: 0;
 
-  outline: 2px dotted #333333; /* Assuming 'space.1' corresponds to 2px and 'colors.borderDarkest' corresponds to #333333 */
+  outline: 2px dotted ${colors.mediumGrey};
   outline-offset: -10px;
 `
 

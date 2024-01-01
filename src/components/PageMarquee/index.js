@@ -1,11 +1,11 @@
-import { CustomMarquee, PageMarqueeWrapper } from './styles'
+import { CustomMarquee, PageMarqueeWrapper, PreText } from './styles'
 
 export default function PageMarquee ({ bannerText }) {
   return (
     <PageMarqueeWrapper id='page-marquee'>
       {bannerText && (
         <CustomMarquee pauseOnHover speed={100}>
-          <pre>{bannerText}</pre>
+          <PreText>{bannerText}</PreText>
         </CustomMarquee>
       )}
     </PageMarqueeWrapper>

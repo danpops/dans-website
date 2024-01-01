@@ -1,5 +1,5 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const withFonts = require('next-fonts')
+const nextConfig = withFonts({
   compiler: {
     styledComponents: {
       displayName: true,
@@ -7,6 +7,6 @@ const nextConfig = {
       fileName: false
     }
   }
-}
+})
 
 module.exports = nextConfig

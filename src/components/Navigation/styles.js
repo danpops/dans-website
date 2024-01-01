@@ -88,6 +88,8 @@ export const PageTabsContainer = styled.ul`
     display: grid;
     animation: none;
     margin: 0;
+    height: 100%;
+    align-items: center;
   }
 `
 export const TabItem = styled.li`
@@ -97,7 +99,7 @@ export const TabItem = styled.li`
   cursor: pointer;
   transition: background-color 0.3s;
   ${borderStyle};
-  padding: 1rem;
+  padding: 0.75rem 2rem;
 
   ${({ $active }) => ($active ? activeStyle : tabStyle)}
 
@@ -116,7 +118,8 @@ export const NavMenuButton = styled.button`
   text-align: center;
   justify-self: flex-end;
   align-items: center;
-  padding: 1rem;
+  padding: 0.75rem;
+  width: 3rem;
   cursor: pointer;
   ${tabStyle};
   ${borderStyle}
@@ -141,7 +144,7 @@ export const LogoTitle = styled.div`
   display: grid;
   font-weight: 500;
   font-size: ${fonts.sm};
-  padding: 1rem;
+  padding: 0.75rem 2rem;
   text-align: center;
   justify-self: flex-start;
   cursor: pointer;

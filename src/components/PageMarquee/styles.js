@@ -27,13 +27,19 @@ export const CustomMarquee = styled(Marquee)`
   background-color: ${colors.yellow};
   color: ${colors.blue};
   font-size: ${fonts.sm};
-  font-weight: 700;
+  font-weight: bold;
   height: 2rem;
 
   @media ${devices.md} {
     font-size: ${fonts.md};
   }
   @media ${devices.xl} {
-    height: 3rem;
+    height: 2.5rem;
   }
+`
+export const PreText = styled.pre`
+  display: grid;
+  align-self: center;
+  line-height: 0;
+  font-family: 'MS Sans Serif', sans-serif !important;
 `
