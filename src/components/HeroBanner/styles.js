@@ -8,9 +8,10 @@ export const HeroTitle = styled.div`
   color: ${colors.blue};
   font-size: 1.8rem;
   font-weight: bold;
-
+  
   @media ${devices.md} {
     font-size: 2.75rem;
+    margin-bottom: 1rem;
   }
   @media ${devices.lg} {
     font-size: 4rem;
@@ -22,20 +23,19 @@ export const HeroContainer = styled(WindowContainer)`
   padding: 2rem 0;
   border: none;
   box-shadow: none;
-  row-gap: 1rem;
+  
+  @media ${devices.lg} {
+    row-gap: 2rem;
+  }
 `
 export const TitleContainer = styled.div`
   display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, auto));
   align-items: center;
-  justify-items: center;
-  margin: 1rem 0;
+  justify-content: center;
+  column-gap: 0.5rem;
   width: 100%;
-
-  @media ${devices.lg} {
-    grid-template-rows: 1fr;
-  }
+  text-align: center;
 `
 export const MatrixGif = styled(Image)`
   width: 3rem;

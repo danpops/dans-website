@@ -27,11 +27,14 @@ export const CustomMarquee = styled(Marquee)`
   background-color: ${colors.yellow};
   color: ${colors.blue};
   font-size: ${fonts.sm};
-  font-weight: bold;
+  font-weight: 500;
   height: 2rem;
 
   @media ${devices.md} {
     font-size: ${fonts.md};
+  }
+  @media ${devices.lg} {
+    font-size: ${fonts.lg};
   }
   @media ${devices.xl} {
     height: 2.5rem;
