@@ -47,3 +47,9 @@ export const PageTitle = styled.div`
   font-size: ${fonts.xl};
   font-weight: 700;
 `
+export const ContentContainer = styled.div`
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 2rem;
+  margin: 2rem 0;
+`

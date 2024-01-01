@@ -3,6 +3,7 @@ import { getDefaultLayout } from '@/components/Layout'
 import { BodyText } from '@/components/Text'
 import Image from 'next/image'
 import computerGif from '@/assets/gifs/computer.gif'
+import { ContentContainer } from '@/components/Layout/styles'
 
 export function getStaticProps () {
   const id = 'about'
@@ -11,10 +12,10 @@ export function getStaticProps () {
 }
 export default function AboutPage () {
   return (
-    <div>
+    <ContentContainer>
       <Image src={computerGif} alt='computer gif' width={150} />
       <BodyText id='about-text'>{content.about.text}</BodyText>
-    </div>
+    </ContentContainer>
   )
 }
 

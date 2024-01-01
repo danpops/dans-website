@@ -1,7 +1,7 @@
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
 import { fonts } from '@/design/fonts'
-import { borderStyle } from '@/design/global'
+import { borderStyle, hoverBorder } from '@/design/global'
 import styled, { keyframes } from 'styled-components'
 
 const fadeIn = keyframes`
@@ -23,13 +23,13 @@ const fadeOut = keyframes`
 `
 
 const activeStyle = `
-  background-color: ${colors.blue};
-  color: ${colors.white};
+  background-color: ${colors.lightGrey};
+  color: ${colors.black};
+  ${hoverBorder}
 `
 const tabStyle = `
   background-color: ${colors.lightGrey};
   color: ${colors.black};
-  padding: 0.5rem 1rem;
 `
 
 export const NavigationContainer = styled.div`
@@ -73,7 +73,7 @@ export const PageTabsContainer = styled.ul`
   padding: 0;
   margin: 0;
   grid-template-columns: 1fr;
-  row-gap: 0.25rem;
+  row-gap: 0.5rem;
   column-gap: 1rem;
   margin-top: 0.5rem;
   grid-template-rows: repeat(4, minmax(0, 1fr));
@@ -92,21 +92,21 @@ export const PageTabsContainer = styled.ul`
 `
 export const TabItem = styled.li`
   font-weight: 500;
-  font-size: ${fonts.md};
+  font-size: ${fonts.sm};
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
   ${borderStyle};
-  padding: 0.5rem 1rem;
+  padding: 1rem;
+
   ${({ $active }) => ($active ? activeStyle : tabStyle)}
+
   &:hover {
-    ${activeStyle}
+    ${hoverBorder}
   }
-  @media ${devices.lg} {
-    font-size: ${fonts.lg};
-  }
+
   @media ${devices.xl} {
-    font-size: ${fonts.xl};
+    font-size: ${fonts.md};
   }
 `
 export const NavMenuButton = styled.button`
@@ -115,12 +115,16 @@ export const NavMenuButton = styled.button`
   font-size: ${fonts.md};
   text-align: center;
   justify-self: flex-end;
+  align-items: center;
+  padding: 1rem;
   cursor: pointer;
   ${tabStyle};
   ${borderStyle}
 
   &:hover {
-    ${activeStyle}
+    ${hoverBorder}
+    background-color: ${colors.blue};
+    color: ${colors.white};
   }
 
   @media ${devices.lg} {
@@ -136,7 +140,8 @@ export const LogoContainer = styled.div`
 export const LogoTitle = styled.div`
   display: grid;
   font-weight: 500;
-  font-size: ${fonts.md};
+  font-size: ${fonts.sm};
+  padding: 1rem;
   text-align: center;
   justify-self: flex-start;
   cursor: pointer;
@@ -146,12 +151,11 @@ export const LogoTitle = styled.div`
   ${borderStyle}
 
   @media ${devices.lg} {
-    font-size: ${fonts.lg};
-  }
-  @media ${devices.xl} {
-    font-size: ${fonts.xl};
+    font-size: ${fonts.md};
   }
   &:hover {
-    ${activeStyle}
+    ${hoverBorder}
+    background-color: ${colors.blue};
+    color: ${colors.white};
   }
 `

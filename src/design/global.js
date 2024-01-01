@@ -20,12 +20,28 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 `
-
+const borderColor = {
+  innerBottomRight: colors.mediumGrey,
+  innerTopLeft: colors.lightGrey,
+  outerBottomRight: colors.black,
+  outerTopLeft: colors.white
+}
 export const borderStyle = `
-  outline: 0.1rem solid ${colors.black};
-  border-width: 0.1rem;
-  border-style: solid;
-  border-color: ${colors.white} ${colors.mediumGrey} ${colors.mediumGrey} ${colors.white};
+  box-shadow: inset -1px -1px 0 0 ${borderColor.outerBottomRight},
+    inset 1px 1px 0 0 ${borderColor.outerTopLeft}, 
+    inset -2px -2px 0 0 ${borderColor.innerBottomRight},
+    inset 2px 2px 0 0 ${borderColor.innerTopLeft};
+  border: 0;
+`
+export const hoverBorder = `
+  box-shadow: inset -1px -1px 0 0 ${borderColor.innerTopLeft},
+    inset 1px 1px 0 0 ${borderColor.innerBottomRight}, 
+    inset -2px -2px 0 0 ${borderColor.outerTopLeft},
+    inset 2px 2px 0 0 ${borderColor.outerBottomRight};
+  border: 0;
+
+  outline: 2px dotted #333333; /* Assuming 'space.1' corresponds to 2px and 'colors.borderDarkest' corresponds to #333333 */
+  outline-offset: -10px;
 `
 
 export default GlobalStyle

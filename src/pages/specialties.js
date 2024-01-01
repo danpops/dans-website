@@ -1,5 +1,6 @@
 import { content } from '@/assets/data/content'
 import { getDefaultLayout } from '@/components/Layout'
+import { ContentContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
 
 export function getStaticProps () {
@@ -9,11 +10,13 @@ export function getStaticProps () {
 }
 export default function SpecialtiesPage () {
   return (
-    <ListBox
-      id='specialty-items'
-      listId='specialty-item'
-      items={content.specialties.items}
-    />
+    <ContentContainer>
+      <ListBox
+        id='specialty-items'
+        listId='specialty-item'
+        items={content.specialties.items}
+      />
+    </ContentContainer>
   )
 }
 

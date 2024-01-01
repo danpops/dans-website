@@ -1,6 +1,6 @@
 import { devices } from '@/design/devices'
 import { fonts } from '@/design/fonts'
-import { borderStyle } from '@/design/global'
+import { borderStyle, hoverBorder } from '@/design/global'
 import styled from 'styled-components'
 
 export const ListBoxContainer = styled.div`
@@ -22,4 +22,8 @@ export const ListItem = styled.a`
   color: ${props => props.$color};
   padding: 1rem 2rem;
   ${borderStyle}
+  
+  &:hover {
+    ${hoverBorder}
+  }
 `
