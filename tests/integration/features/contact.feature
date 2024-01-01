@@ -5,6 +5,6 @@ Feature: Contact Page
     Then I see the "contact" page
     And I see the "NAV_LOGO" on the "contact" page
     And I see the "NAV_MENU" on the "contact" page
-    And I see the "CONTACT_SECTION" on the "contact" page
+    And I see the "CONTACT_WINDOW" on the "contact" page
     And I see 3 different "CONTACT_LINK" on the "contact" page
     And I see the "PAGE_MARQUEE" on the "contact" page

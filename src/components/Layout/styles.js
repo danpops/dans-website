@@ -32,24 +32,37 @@ export const WindowContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
   background-color: ${colors.grey};
-  padding: 1rem;
-  row-gap: 1rem;
   ${borderStyle}
+`
+export const WindowHeader = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+  padding: 0.35rem;
+`
+export const WindowBody = styled.div`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  padding: 1rem;
 
   @media ${devices.md} {
-    padding: 2rem;
+    padding: 2rem 3rem;
   }
   @media ${devices.lg} {
-    padding: 3rem 10rem;
+    padding: 3rem 8rem;
   }
 `
 export const PageTitle = styled.div`
-  font-size: ${fonts.xl};
+  color: ${colors.white};
+  background-color: ${colors.darkBlue};
+  font-size: ${fonts.sm};
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
   font-weight: 700;
 `
 export const ContentContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
-  row-gap: 2rem;
-  margin: 2rem 0;
+  row-gap: 1rem;
 `

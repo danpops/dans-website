@@ -14,18 +14,20 @@ export const HeroTitle = styled.div`
     margin-bottom: 1rem;
   }
   @media ${devices.lg} {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 `
 export const HeroContainer = styled(WindowContainer)`
   justify-items: center;
   text-align: center;
-  padding: 2rem 0;
+  padding: 2rem;
   border: none;
   box-shadow: none;
+  row-gap: 1rem;
   
   @media ${devices.lg} {
     row-gap: 2rem;
+    padding: 5rem;
   }
 `
 export const TitleContainer = styled.div`
@@ -36,6 +38,12 @@ export const TitleContainer = styled.div`
   column-gap: 0.5rem;
   width: 100%;
   text-align: center;
+  @media ${devices.md} {
+    column-gap: 1rem;
+  }
+  @media ${devices.lg} {
+    column-gap: 2rem;
+  }
 `
 export const MatrixGif = styled(Image)`
   width: 3rem;

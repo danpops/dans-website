@@ -13,5 +13,5 @@ Feature: Landing Page
   Scenario: Ensure page content renders
     Given I open the "landing" page
     Then I see the "landing" page
-    And I see the "HERO_SECTION" on the "landing" page
+    And I see the "HERO_WINDOW" on the "landing" page
     And I see the "PAGE_MARQUEE" on the "landing" page

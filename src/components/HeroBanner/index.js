@@ -19,7 +19,7 @@ export default function HeroBanner () {
   const goToContact = () => router.push('/contact')
 
   return (
-    <HeroContainer id='hero-section'>
+    <HeroContainer id='hero-window'>
       <WelcomeImg src={welcomeGif} alt='welcome gif' />
       <Heading3 style={{ margin: 0 }}>to</Heading3>
       <TitleContainer>

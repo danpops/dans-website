@@ -8,7 +8,6 @@ export const ListBoxContainer = styled.div`
   grid-auto-flow: row;
   grid-template-columns: 1fr;
   grid-gap: 1.25rem;
-  margin: 1rem 0;
 
   @media ${devices.md} {
     grid-template-columns: repeat(3, minmax(0, 1fr));

@@ -1,4 +1,4 @@
-import { getDefaultLayout } from '@/components/Layout'
+import { getHeroLayout } from '@/components/Layout'
 import HeroBanner from '@/components/HeroBanner'
 
 export function getStaticProps () {
@@ -9,4 +9,4 @@ export default function LandingPage () {
   return <HeroBanner />
 }
 
-LandingPage.getLayout = getDefaultLayout
+LandingPage.getLayout = getHeroLayout
