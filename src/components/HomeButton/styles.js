@@ -8,6 +8,9 @@ export const HomeButtonContainer = styled.button`
   align-items: center;
   padding-bottom: 0.25rem;
   background-color: ${colors.grey};
+  width: 1rem;
+  justify-content: center;
+  color: ${colors.black};
   font-size: ${fonts.lg};
   font-weight: bold;
   margin: 0.25rem;
