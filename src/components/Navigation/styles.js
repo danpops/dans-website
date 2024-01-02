@@ -149,7 +149,6 @@ export const LogoContainer = styled.div`
 export const LogoTitle = styled.div`
   display: grid;
   font-size: ${fonts.sm};
-  font-weight: 600;
   padding: 0.5rem 1.5rem 0.65rem;
   text-align: center;
   justify-self: flex-start;
@@ -160,7 +159,7 @@ export const LogoTitle = styled.div`
   ${borderStyle}
 
   @media ${devices.lg} {
-    padding: 0.75rem 2rem 1rem;
+    padding: 0.75rem 2rem;
   }
   @media ${devices.xl} {
     font-size: ${fonts.md};
