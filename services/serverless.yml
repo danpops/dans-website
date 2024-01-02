@@ -1,0 +1,42 @@
+frameworkVersion: "3"
+service: dans-website
+provider:
+  name: aws
+  apiGateway:
+    usagePlan:
+      throttle:
+        burstLimit: 200
+        rateLimit: 100
+    apiKeys:
+      - ${self:provider.stage}-apiKey
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
+  profile: personal
+  memorySize: 512
+  timeout: 10
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'ses:SendEmail'
+      Resource: 
+        - '*'
+  region: ca-central-1
+  environment:
+    toAddress: me@danpops.ca
+    sourceAddress: noreply@danpops.ca
+package:
+  individually: true
+functions:
+  notifyByEmail:
+    handler: notifyByEmail.lambda
+    events:
+      - http:
+          path: contact
+          method: post
+          private: true
+          cors: true
+plugins:
+  - serverless-offline
+custom:
+  serverless-offline:
+    port: 3000
