@@ -13,6 +13,7 @@ export const content = {
   },
   specialties: {
     title: 'Specialties',
+    text: 'Here is a list of the technologies I specialize in.',
     items: [
       { name: 'AWS', link: 'https://aws.amazon.com' },
       { name: 'Azure', link: 'https://azure.microsoft.com' },
