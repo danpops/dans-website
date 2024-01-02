@@ -20,8 +20,7 @@ export default function ContactPage ({ apiKey, apiUrl }) {
     <ContentContainer>
       <BodyText id='contact-text'>{content.contact.text}</BodyText>
       <EmailForm
-        apiKey={apiKey}
-        apiUrl={apiUrl}
+        loading={contact.loading}
         emailSent={contact.emailSent}
         handleSubmit={contact.onSubmit}
         formData={contact.formData}

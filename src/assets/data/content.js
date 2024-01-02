@@ -82,6 +82,8 @@ export const content = {
     title: 'Contact',
     text: "I'm more than happy to answer any questions you may have or provide advice. Please feel free to reach out to me anytime!",
     submitButton: 'Send Message',
+    successMessage:
+      'Thank you for reaching out. I have received your message and will reach out as soon as possible!',
     items: [
       { name: 'LinkedIn', link: 'https://www.linkedin.com/in/danpops' },
       { name: 'Github', link: 'https://www.github.com/danpops' }
