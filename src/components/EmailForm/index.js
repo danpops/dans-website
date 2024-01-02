@@ -1,7 +1,7 @@
 import { TextArea, TextInput } from '../Input'
 import { CustomForm, SubmitButton } from './styles'
 
-export default function SendEmailForm (props) {
+export default function EmailForm (props) {
   const { emailSent, handleSubmit, formData, handleInputChange } = props
   const disabled =
     formData.fullName === '' || formData.email === '' || formData.message === ''
