@@ -1,16 +1,17 @@
 const aws = require('aws-sdk')
+const { createEmailBody, createEmailParams } = require('./utils/email')
 
 module.exports.lambda = handler
 
 async function handler (event, context) {
   const ses = new aws.SES()
-  const emailBody = JSON.parse(event.body)
-  const fullName = emailBody.fullName
-  const email = emailBody.email
-  const message = emailBody.message
-  const body = `${fullName} with email address ${email} reached out to you! Their message is:
-  ${message}`
-  const emailParams = createEmailParams(body)
+  const eventBody = JSON.parse(event.body)
+  const fullName = eventBody.fullName
+  const email = eventBody.email
+  const message = eventBody.message
+  const details = { fullName, email, message }
+  const emailBody = createEmailBody(details)
+  const emailParams = createEmailParams(emailBody)
   const response = ses
     .sendEmail(emailParams)
     .promise()
@@ -25,17 +26,4 @@ async function handler (event, context) {
     })
     .catch(() => ({ statusCode: 400 }))
   return response
-}
-function createEmailParams (body) {
-  return {
-    Destination: { ToAddresses: [process.env.toAddress] },
-    Message: {
-      Body: { Text: { Charset: 'UTF-8', Data: body } },
-      Subject: {
-        Charset: 'UTF-8',
-        Data: "Dan's website contact form submission"
-      }
-    },
-    Source: process.env.sourceAddress
-  }
 }

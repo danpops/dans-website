@@ -14,18 +14,17 @@ provider:
   profile: personal
   memorySize: 512
   timeout: 10
-  iamRoleStatements:
-    - Effect: 'Allow'
-      Action:
-        - 'ses:SendEmail'
-      Resource: 
-        - '*'
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 'ses:SendEmail'
+          Resource: 
+            - '*'
   region: ca-central-1
   environment:
-    toAddress: me@danpops.ca
-    sourceAddress: noreply@danpops.ca
-package:
-  individually: true
+    # All variables in .env are automatically imported
 functions:
   notifyByEmail:
     handler: notifyByEmail.lambda
@@ -36,7 +35,13 @@ functions:
           private: true
           cors: true
 plugins:
+  - serverless-webpack
   - serverless-offline
+  - serverless-dotenv-plugin
 custom:
   serverless-offline:
     port: 3000
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: false
+    packager: yarn
