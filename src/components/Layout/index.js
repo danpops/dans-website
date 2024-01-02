@@ -14,7 +14,7 @@ function getHeroLayout (page, { id }) {
     </DefaultLayout>
   )
 }
-function getDefaultLayout (page, { id, title, hasHomeButton = false }) {
+function getDefaultLayout (page, { id, title }) {
   return (
     <DefaultLayout id={id}>
       <PageWindow id={id} title={title}>

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
 import { borderStyle } from '@/design/global'
-import { fonts } from '@/design/fonts'
 
 export const HeroTitle = styled.div`
   color: ${colors.blue};
@@ -74,8 +73,4 @@ export const LinkContainer = styled.div`
 export const FireImage = styled(Image)`
   display: grid;
   cursor: pointer;
-`
-export const CopyrightText = styled.div`
-  color: ${colors.black}30;
-  font-size: ${fonts.sm};
 `

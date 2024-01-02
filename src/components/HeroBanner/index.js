@@ -7,7 +7,6 @@ import welcomeGif from '@/assets/gifs/mywelcome.gif'
 import { Heading3 } from '../Text'
 import {
   FireImage,
-  CopyrightText,
   HeroContainer,
   HeroTitle,
   MatrixGif,
@@ -15,10 +14,10 @@ import {
   WelcomeImg,
   LinkContainer
 } from './styles'
+import Copyright from '../Copyright'
 
 export default function HeroBanner () {
   const router = useRouter()
-  const year = new Date().getFullYear()
 
   const goToAbout = () => router.push('/about')
   const goToContact = () => router.push('/contact')
@@ -46,7 +45,7 @@ export default function HeroBanner () {
           onClick={goToContact}
         />
       </LinkContainer>
-      <CopyrightText>© {year} - danpops.ca</CopyrightText>
+      <Copyright />
     </HeroContainer>
   )
 }
