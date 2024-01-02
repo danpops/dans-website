@@ -79,7 +79,6 @@ export const content = {
     text: "I'm more than happy to answer any questions you may have or provide advice. Please feel free to reach out to me anytime!",
     items: [
       { name: 'LinkedIn', link: 'https://www.linkedin.com/in/danpops' },
-      { name: 'Email', link: 'mailto:dan-popovic@hotmail.com' },
       { name: 'Github', link: 'https://www.github.com/danpops' }
     ]
   }

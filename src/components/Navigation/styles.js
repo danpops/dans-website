@@ -100,12 +100,12 @@ export const TabItem = styled.li`
   transition: background-color 0.3s;
   ${borderStyle};
   padding: 0.5rem 1.5rem;
+  background-color: ${colors.lightGrey};
+  color: ${colors.black};
 
-  ${({ $active }) => ($active ? activeStyle : tabStyle)}
+  ${({ $active }) => ($active ? activeStyle : '')}
 
-  &:hover {
-    background-color: ${colors.yellow};
-    color: ${colors.blue};
+  &:active {
     ${hoverBorder}
   }
 
@@ -127,13 +127,15 @@ export const NavMenuButton = styled.button`
   padding: 0.5rem;
   width: 2.5rem;
   cursor: pointer;
-  ${tabStyle};
+  background-color: ${colors.lightGrey};
+  color: ${colors.black};
+
   ${borderStyle}
 
-  &:hover {
+  ${({ $active }) => ($active ? activeStyle : '')}
+
+  &:active {
     ${hoverBorder}
-    background-color: ${colors.yellow};
-    color: ${colors.blue};
   }
 
   @media ${devices.lg} {
@@ -164,9 +166,7 @@ export const LogoTitle = styled.div`
   @media ${devices.xl} {
     font-size: ${fonts.md};
   }
-  &:hover {
+  &:active {
     ${hoverBorder}
-    background-color: ${colors.yellow};
-    color: ${colors.blue};
   }
 `

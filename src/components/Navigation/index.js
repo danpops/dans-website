@@ -20,6 +20,7 @@ export default function Navigation () {
     router.push(link.toLowerCase())
   }
   const goHome = () => router.push('/')
+  const toggleNav = () => setVisible(!isVisible)
 
   const composePageTabs = (item, index) => {
     const isPageActive = router.pathname === `/${item.toLowerCase()}`
@@ -41,7 +42,7 @@ export default function Navigation () {
         <LogoContainer id='nav-logo'>
           <LogoTitle onClick={goHome}>Dan Popovic</LogoTitle>
         </LogoContainer>
-        <NavMenuButton id='nav-menu' onClick={() => setVisible(!isVisible)}>
+        <NavMenuButton id='nav-menu' onClick={toggleNav} $active={isVisible}>
           !!!
         </NavMenuButton>
       </NavbarContainer>

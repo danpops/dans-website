@@ -10,7 +10,7 @@ export const ListBoxContainer = styled.div`
   grid-gap: 1rem;
 
   @media ${devices.md} {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `
 export const ListItem = styled.a`
