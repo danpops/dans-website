@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import {
   Table,
   TableCell,
@@ -9,10 +10,10 @@ import {
   TableText
 } from './styles'
 
-const RELEASE_URL = 'https://discogs.com/release/'
 export default function RecordTable ({ items }) {
+  const router = useRouter()
   const openDiscogsPage = id => () => {
-    window.open(`${RELEASE_URL}${id}`, '_blank')
+    router.push(`/records/${id}`)
   }
   return (
     <Table>
