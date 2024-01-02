@@ -2,7 +2,7 @@ import { content } from '@/assets/data/content'
 import { getDefaultLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
-import SendEmailForm from '@/components/SendEmail'
+import EmailForm from '@/components/EmailForm'
 import { BodyText } from '@/components/Text'
 import useContactForm from '@/hooks/useContactForm'
 
@@ -19,7 +19,7 @@ export default function ContactPage ({ apiKey, apiUrl }) {
   return (
     <ContentContainer>
       <BodyText id='contact-text'>{content.contact.text}</BodyText>
-      <SendEmailForm
+      <EmailForm
         apiKey={apiKey}
         apiUrl={apiUrl}
         emailSent={contact.emailSent}
