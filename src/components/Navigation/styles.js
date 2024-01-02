@@ -161,7 +161,9 @@ export const LogoTitle = styled.div`
 
   @media ${devices.lg} {
     padding: 0.75rem 2rem 1rem;
-    font-size: ${fonts.lg};
+  }
+  @media ${devices.xl} {
+    font-size: ${fonts.md};
   }
   &:hover {
     ${hoverBorder}
