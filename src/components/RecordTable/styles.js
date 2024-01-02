@@ -2,15 +2,24 @@ import styled from 'styled-components'
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
 import { fonts } from '@/design/fonts'
-import { borderStyle } from '@/design/global'
+import { borderStyle, tableBorder } from '@/design/global'
 
 export const TableContainer = styled.div`
-  ${borderStyle}
+  ${tableBorder}
+  outline: 0;
+  padding: 0.5rem;
+  position: relative;
+`
+export const TableScroll = styled.div`
+  overflow: auto;
+  max-height: 25rem;
 `
 export const Table = styled.table`
   border-collapse: separate;
   font-size: ${fonts.xs};
   width: 100%;
+  ${borderStyle}
+  outline: 0;
 
   @media ${devices.md} {
     font-size: ${fonts.md};
@@ -19,7 +28,7 @@ export const Table = styled.table`
 export const TableHeaderRow = styled.tr`
   outline: 0;
 `
-export const TableHead = styled.th`
+export const TableHeader = styled.th`
   text-align: center;
   padding: 0.25rem;
   ${borderStyle}
@@ -41,4 +50,8 @@ export const TableCell = styled.td`
 `
 export const TableText = styled.div`
   padding: 0.15rem;
+`
+export const TableHead = styled.thead``
+export const TableBody = styled.tbody`
+  border-collapse: collapse;
 `

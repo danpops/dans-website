@@ -54,5 +54,15 @@ export const hoverBorder = `
   outline: 2px dotted ${colors.mediumGrey};
   outline-offset: -10px;
 `
+export const tableBorder = `
+  box-shadow: inset -2px -2px 0 0 ${borderColor.innerTopLeft},
+    inset 2px 2px 0 0 ${borderColor.innerBottomRight}, 
+    inset -4px -4px 0 0 ${borderColor.outerTopLeft},
+    inset 4px 4px 0 0 ${borderColor.outerBottomRight};
+  border: 0;
+
+  outline: 2px dotted ${colors.mediumGrey};
+  outline-offset: -10px;
+`
 
 export default GlobalStyle
