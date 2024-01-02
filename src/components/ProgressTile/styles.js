@@ -17,7 +17,7 @@ export const ProgressBar = styled.div`
   justify-content: flex-start;
   width: 100%;
   height: 1.5rem;
-  padding: 0.25rem;
+  padding: 0.5rem;
 `
 export const Tile = styled.div`
   max-width: 12px;
