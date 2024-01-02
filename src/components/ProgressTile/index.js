@@ -10,7 +10,7 @@ export default function ProgressTile ({ value }) {
       return
     }
     const progressWidth = tilesWrapperRef.current.getBoundingClientRect().width
-    const minWidth = 17
+    const minWidth = 18
     const tileWidth = (value / 100) * progressWidth
     const newTilesNumber = Math.floor(tileWidth / minWidth)
     setTiles(Array.from({ length: newTilesNumber }))

@@ -38,17 +38,17 @@ const borderColor = {
   outerTopLeft: colors.white
 }
 export const borderStyle = `
-  box-shadow: inset -1px -1px 0 0 ${borderColor.outerBottomRight},
-    inset 1px 1px 0 0 ${borderColor.outerTopLeft}, 
-    inset -2px -2px 0 0 ${borderColor.innerBottomRight},
-    inset 2px 2px 0 0 ${borderColor.innerTopLeft};
+  box-shadow: inset -2px -2px 0 0 ${borderColor.outerBottomRight},
+    inset 2px 2px 0 0 ${borderColor.outerTopLeft},
+    inset -4px -4px 0 0 ${borderColor.innerBottomRight},
+    inset 4px 4px 0 0 ${borderColor.innerTopLeft};
   border: 0;
 `
 export const hoverBorder = `
-  box-shadow: inset -1px -1px 0 0 ${borderColor.innerTopLeft},
-    inset 1px 1px 0 0 ${borderColor.innerBottomRight}, 
-    inset -2px -2px 0 0 ${borderColor.outerTopLeft},
-    inset 2px 2px 0 0 ${borderColor.outerBottomRight};
+  box-shadow: inset -2px -2px 0 0 ${borderColor.innerTopLeft},
+    inset 2px 2px 0 0 ${borderColor.innerBottomRight}, 
+    inset -4px -4px 0 0 ${borderColor.outerTopLeft},
+    inset 4px 4px 0 0 ${borderColor.outerBottomRight};
   border: 0;
 
   outline: 2px dotted ${colors.mediumGrey};
