@@ -8,9 +8,12 @@ export const CopyrightText = styled.div`
   color: ${colors.black}30;
   font-size: ${fonts.sm};
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 
-  @media ${devices.lg} {
+  @media ${devices.md} {
     margin-top: 2rem;
+  }
+  @media ${devices.lg} {
+    margin-top: 3rem;
   }
 `
