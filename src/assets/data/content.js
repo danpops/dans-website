@@ -9,12 +9,13 @@ export const content = {
   },
   about: {
     title: 'About',
-    text: "Hello, I'm Dan Popovic!",
-    summary: "I'm a highly skilled and motivated Full Stack Engineer, driven by a passion for functional programming and JavaScript. I take pride in my dedication to delivering top-notch products that prioritize business value and address clients' primary pain points. I take a comprehensive approach to testing by employing both TDD and BDD methodologies to ensure the highest quality standards."
+    text: 'Hello, my name is Dan Popovic!',
+    summary:
+      "I am a highly skilled and motivated Full Stack Engineer, driven by a passion for functional programming and JavaScript. I take pride in my dedication to delivering top-notch products that prioritize business value and address clients' primary pain points. I take a comprehensive approach to testing by employing both TDD and BDD methodologies to ensure the highest quality standards."
   },
   specialties: {
     title: 'Specialties',
-    text: 'Here is a list of the technologies I specialize in.',
+    text: 'A list of the technologies I specialize in.',
     items: [
       { name: 'AWS', link: 'https://aws.amazon.com' },
       { name: 'Azure', link: 'https://azure.microsoft.com' },
@@ -26,7 +27,7 @@ export const content = {
   },
   experience: {
     title: 'Experience',
-    text: 'Software Engineering Experience',
+    text: 'My software engineering experience.',
     cards: [
       {
         company: 'McCain - TribalScale',
@@ -80,6 +81,7 @@ export const content = {
   contact: {
     title: 'Contact',
     text: "I'm more than happy to answer any questions you may have or provide advice. Please feel free to reach out to me anytime!",
+    submitButton: 'Send Message',
     items: [
       { name: 'LinkedIn', link: 'https://www.linkedin.com/in/danpops' },
       { name: 'Github', link: 'https://www.github.com/danpops' }
