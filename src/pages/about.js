@@ -13,8 +13,9 @@ export function getStaticProps () {
 export default function AboutPage () {
   return (
     <ContentContainer>
-      <Image src={computerGif} alt='computer gif' width={150} />
+      <Image src={computerGif} alt='computer gif' width={125} />
       <BodyText id='about-text'>{content.about.text}</BodyText>
+      <BodyText id='about-summary'>{content.about.summary}</BodyText>
     </ContentContainer>
   )
 }

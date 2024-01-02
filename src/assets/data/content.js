@@ -9,7 +9,8 @@ export const content = {
   },
   about: {
     title: 'About',
-    text: "I'm Dan Popovic, a highly skilled and motivated Full Stack Engineer, driven by a passion for functional programming and JavaScript. I take pride in my dedication to delivering top-notch products that prioritize business value and address clients' primary pain points. I take a comprehensive approach to testing by employing both TDD and BDD methodologies to ensure the highest quality standards."
+    text: "Hello, I'm Dan Popovic!",
+    summary: "I'm a highly skilled and motivated Full Stack Engineer, driven by a passion for functional programming and JavaScript. I take pride in my dedication to delivering top-notch products that prioritize business value and address clients' primary pain points. I take a comprehensive approach to testing by employing both TDD and BDD methodologies to ensure the highest quality standards."
   },
   specialties: {
     title: 'Specialties',
@@ -25,6 +26,7 @@ export const content = {
   },
   experience: {
     title: 'Experience',
+    text: 'Software Engineering Experience',
     cards: [
       {
         company: 'McCain - TribalScale',
