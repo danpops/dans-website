@@ -41,7 +41,4 @@ export const ContentContainer = styled.div`
   @media ${devices.md} {
     row-gap: 2rem;
   }
-  @media ${devices.lg} {
-    row-gap: 3rem;
-  }
 `

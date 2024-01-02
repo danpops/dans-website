@@ -1,4 +1,5 @@
 import { colors } from '@/design/colors'
+import { devices } from '@/design/devices'
 import { fonts } from '@/design/fonts'
 import { borderStyle, hoverBorder } from '@/design/global'
 import styled from 'styled-components'
@@ -20,5 +21,9 @@ export const HomeButtonContainer = styled.button`
   &:hover {
     ${hoverBorder}
     outline: none;
+  }
+
+  @media ${devices.lg} {
+    width: 2rem;
   }
 `

@@ -29,4 +29,8 @@ export const WindowTitle = styled.div`
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;
   font-weight: 700;
+
+  @media ${devices.lg} {
+    font-size: ${fonts.md};
+  }
 `
