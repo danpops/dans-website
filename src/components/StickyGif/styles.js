@@ -7,6 +7,8 @@ export const StickyWrapper = styled.div`
   z-index: 9999;
   bottom: 2rem;
   right: -3rem;
+  cursor: pointer;
+  
   @media ${devices.lg} {
     right: -2rem;
     bottom: 0;
