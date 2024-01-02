@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react'
 import { content } from '@/assets/data/content'
 import { getDefaultLayout } from '@/components/Layout'
 import RecordTable from '@/components/RecordTable'
 import TableWindow from '@/components/TableWindow'
 import { Anchor, TableBodyText } from '@/components/Text'
 import { COLLECTION_URL, fetchDiscogsData } from '@/lib/api'
-import React, { useEffect, useState } from 'react'
 
 export async function getStaticProps () {
   const id = 'records'
