@@ -1,37 +1,34 @@
 import styled from 'styled-components'
+import { borderStyle, tableBorder } from '@/design/global'
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
 import { fonts } from '@/design/fonts'
-import { borderStyle, tableBorder } from '@/design/global'
 
-export const TableContainer = styled.div`
-  ${tableBorder}
-  outline: 0;
-  padding: 0.5rem;
-  position: relative;
-`
-export const TableScroll = styled.div`
-  overflow: auto;
-  max-height: 25rem;
-`
 export const Table = styled.table`
-  border-collapse: separate;
-  font-size: ${fonts.xs};
+  font-size: ${fonts.sm};
   width: 100%;
-  ${borderStyle}
+  ${tableBorder}
   outline: 0;
 
   @media ${devices.md} {
     font-size: ${fonts.md};
   }
 `
-export const TableHeaderRow = styled.tr`
-  outline: 0;
+export const TableCell = styled.td`
+  border: none;
 `
+export const TableBody = styled.tbody`
+  border-collapse: collapse;
+`
+export const TableHead = styled.thead``
 export const TableHeader = styled.th`
   text-align: center;
   padding: 0.25rem;
+  background-color: ${colors.grey};
   ${borderStyle}
+`
+export const TableHeaderRow = styled.tr`
+  outline: 0;
 `
 export const TableRow = styled.tr`
   border-collapse: collapse;
@@ -45,13 +42,6 @@ export const TableRow = styled.tr`
     color: ${colors.white} !important;
   }
 `
-export const TableCell = styled.td`
-  border: none;
-`
 export const TableText = styled.div`
   padding: 0.15rem;
-`
-export const TableHead = styled.thead``
-export const TableBody = styled.tbody`
-  border-collapse: collapse;
 `

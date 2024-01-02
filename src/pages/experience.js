@@ -1,6 +1,6 @@
 import { content } from '@/assets/data/content'
 import ExperienceCard from '@/components/ExperienceCard'
-import { getDefaultLayout } from '@/components/Layout'
+import { getWindowLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import { BodyText } from '@/components/Text'
 
@@ -20,4 +20,4 @@ export default function ExperiencePage () {
   )
 }
 
-ExperiencePage.getLayout = getDefaultLayout
+ExperiencePage.getLayout = getWindowLayout
