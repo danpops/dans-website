@@ -18,7 +18,7 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   transition: background-color 0.3s;
   ${borderStyle};
-  padding: 0.4rem 0;
+  padding: 0.5rem 0;
   background-color: ${colors.lightGrey};
   color: ${colors.black};
 

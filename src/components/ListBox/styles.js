@@ -15,7 +15,7 @@ export const ListBoxContainer = styled.div`
 `
 export const ListItem = styled.a`
   font-weight: 500;
-  font-size: ${fonts.md};
+  font-size: ${fonts.sm};
   text-align: center;
   background-color: ${props => props.$bgcolor};
   color: ${props => props.$color};

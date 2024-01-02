@@ -20,7 +20,7 @@ export const WindowBody = styled.div`
     padding: 2rem 3rem;
   }
   @media ${devices.lg} {
-    padding: 3rem 8rem;
+    padding: 3rem 8rem 2rem;
   }
 `
 export const WindowTitle = styled.div`
