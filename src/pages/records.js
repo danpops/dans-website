@@ -1,9 +1,10 @@
+import { content } from '@/assets/data/content'
 import { getDefaultLayout } from '@/components/Layout'
-import { ContentContainer } from '@/components/Layout/styles'
 import RecordTable from '@/components/RecordTable'
-import { BodyText } from '@/components/Text'
+import TableWindow from '@/components/TableWindow'
+import { Anchor, TableBodyText } from '@/components/Text'
 import { COLLECTION_URL, fetchDiscogsData } from '@/lib/api'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export async function getStaticProps () {
   const id = 'records'
@@ -14,7 +15,7 @@ export async function getStaticProps () {
     .catch(err => err)
   return { props: { id, title, records } }
 }
-export default function RecordsPage ({ records }) {
+export default function RecordsPage ({ title, records }) {
   const [myCollection, setMyCollection] = useState([])
 
   useEffect(() => {
@@ -22,17 +23,17 @@ export default function RecordsPage ({ records }) {
   }, [records])
 
   return (
-    <ContentContainer>
-      <BodyText>Here is a list of all the records in my collection!</BodyText>
-      <RecordTable items={myCollection} />
-      <BodyText>
-        Check out more details on my{' '}
-        <a href={COLLECTION_URL} target='_blank' rel='noopener noreferrer'>
+    <TableWindow id='records-window' title={title}>
+      <TableBodyText>{content.records.text}</TableBodyText>
+      <TableBodyText>
+        More info on my{' '}
+        <Anchor href={COLLECTION_URL} target='_blank' rel='noopener noreferrer'>
           Discogs
-        </a>{' '}
-        page!
-      </BodyText>
-    </ContentContainer>
+        </Anchor>{' '}
+        page.
+      </TableBodyText>
+      <RecordTable items={myCollection} />
+    </TableWindow>
   )
 }
 
