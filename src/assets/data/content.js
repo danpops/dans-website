@@ -88,5 +88,9 @@ export const content = {
       { name: 'LinkedIn', link: 'https://www.linkedin.com/in/danpops' },
       { name: 'Github', link: 'https://www.github.com/danpops' }
     ]
+  },
+  records: {
+    title: 'My Records',
+    text: '10+ years of vinyl collecting — check out my record collection. Click on albums for release info!'
   }
 }

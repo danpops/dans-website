@@ -48,3 +48,7 @@ export const BodyText = styled.div`
     font-size: ${fonts.md};
   }
 `
+export const Anchor = styled.a``
+export const TableBodyText = styled(BodyText)`
+  padding: 0.5rem;
+`

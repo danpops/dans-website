@@ -1,5 +1,5 @@
 import { content } from '@/assets/data/content'
-import { getDefaultLayout } from '@/components/Layout'
+import { getWindowLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
 import EmailForm from '@/components/EmailForm'
@@ -35,4 +35,4 @@ export default function ContactPage ({ apiKey, apiUrl }) {
   )
 }
 
-ContactPage.getLayout = getDefaultLayout
+ContactPage.getLayout = getWindowLayout

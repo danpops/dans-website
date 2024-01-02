@@ -1,5 +1,5 @@
 import { content } from '@/assets/data/content'
-import { getDefaultLayout } from '@/components/Layout'
+import { getWindowLayout } from '@/components/Layout'
 import { BodyText } from '@/components/Text'
 import Image from 'next/image'
 import computerGif from '@/assets/gifs/computer.gif'
@@ -20,4 +20,4 @@ export default function AboutPage () {
   )
 }
 
-AboutPage.getLayout = getDefaultLayout
+AboutPage.getLayout = getWindowLayout

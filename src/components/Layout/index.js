@@ -5,8 +5,11 @@ import { content } from '@/assets/data/content'
 import StickyGif from '../StickyGif'
 import PageWindow from '../PageWindow'
 
-export { getDefaultLayout, getHeroLayout }
+export { getDefaultLayout, getWindowLayout, getHeroLayout }
 
+function getDefaultLayout (page, { id }) {
+  return <DefaultLayout id={id}>{page}</DefaultLayout>
+}
 function getHeroLayout (page, { id }) {
   return (
     <DefaultLayout id={id}>
@@ -14,7 +17,7 @@ function getHeroLayout (page, { id }) {
     </DefaultLayout>
   )
 }
-function getDefaultLayout (page, { id, title }) {
+function getWindowLayout (page, { id, title }) {
   return (
     <DefaultLayout id={id}>
       <PageWindow id={id} title={title}>
