@@ -1,9 +1,18 @@
 import styled from 'styled-components'
-import { borderStyle, tableBorder } from '@/design/global'
+import { borderStyle, hoverBorder, tableBorder } from '@/design/global'
 import { colors } from '@/design/colors'
 import { devices } from '@/design/devices'
 import { fonts } from '@/design/fonts'
 
+export const LoadingContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+  ${hoverBorder}
+`
 export const Table = styled.table`
   font-size: ${fonts.sm};
   width: 100%;

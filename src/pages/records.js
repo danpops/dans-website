@@ -29,10 +29,9 @@ export default function RecordsPage ({ title, records, pagination }) {
     setLoading(false)
   }, [records, pagination])
 
-  const onSelectPage = async e => {
-    e.preventDefault()
+  const onSelectPage = async (type = 'next') => {
     setLoading(true)
-    const newPageNumber = e.target.value
+    const newPageNumber = type === 'next' ? currentPage + 1 : currentPage - 1
     setCurrentPage(newPageNumber)
     await fetchDiscogsData({
       discogsKey: process.env.DISCOGS_KEY ?? '',
@@ -62,7 +61,7 @@ export default function RecordsPage ({ title, records, pagination }) {
         page.
       </TableBodyText>
       <TableContainer>
-        {loading ? <div>getting records</div> : <RecordTable items={myCollection} />}
+        <RecordTable loading={loading} items={myCollection} />
       </TableContainer>
       <Pagination
         onChange={onSelectPage}

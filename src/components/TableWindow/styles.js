@@ -2,11 +2,16 @@ import styled from 'styled-components'
 import { WindowBody } from '../PageWindow/styles'
 import { borderStyle } from '@/design/global'
 import { colors } from '@/design/colors'
+import { devices } from '@/design/devices'
 
 export const TableContainer = styled.div`
   overflow: auto;
-  max-height: 30rem;
-  padding: 0 0.7rem;
+  min-height: 20rem;
+  max-height: 20rem;
+  padding: 0 0.5rem;
+  @media ${devices.md} {
+    max-height: 30rem;
+  }
 `
 
 export const TableWindowBody = styled(WindowBody)`

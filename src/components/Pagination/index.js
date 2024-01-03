@@ -1,19 +1,26 @@
 import { BodyText } from '@/components/Text'
-import { PageOption, PageSelect, PaginationContainer } from './styles'
+import {
+  ChevronLeft,
+  ChevronRight,
+  PageButton,
+  PaginationContainer
+} from './styles'
 
 export default function Pagination ({ onChange, currentPage, pages }) {
+  const isNextDisabled = Number(currentPage) === pages
+  const isPreviousDisabled = currentPage === 1
+
+  const onClickPrev = () => onChange('previous')
+  const onClickNext = () => onChange()
   return (
     <PaginationContainer id='pagination'>
-      <BodyText>Page:</BodyText>
-      <PageSelect onChange={onChange} value={currentPage}>
-        {Array.from({ length: pages }, (_, index) => index + 1).map(
-          (item, index) => (
-            <PageOption key={index} value={item}>
-              {item}
-            </PageOption>
-          )
-        )}
-      </PageSelect>
+      <PageButton disabled={isPreviousDisabled} onClick={onClickPrev}>
+        <ChevronLeft />
+      </PageButton>
+      <BodyText>Page: {currentPage}</BodyText>
+      <PageButton disabled={isNextDisabled} onClick={onClickNext}>
+        <ChevronRight />
+      </PageButton>
     </PaginationContainer>
   )
 }

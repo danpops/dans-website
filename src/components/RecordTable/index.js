@@ -6,14 +6,26 @@ import {
   TableHeader,
   TableHeaderRow,
   TableRow,
-  TableText
+  TableText,
+  LoadingContainer
 } from './styles'
+import Image from 'next/image'
+import hourglassGif from '@/assets/gifs/hourglass.gif'
 
 const RELEASE_URL = 'https://discogs.com/release/'
-export default function RecordTable ({ items }) {
+export default function RecordTable ({ loading, items }) {
   const openDiscogsPage = id => () => {
     window.open(`${RELEASE_URL}${id}`, '_blank')
   }
+
+  if (loading) {
+    return (
+      <LoadingContainer>
+        <Image src={hourglassGif} alt='loading hourglass' width={40} />
+      </LoadingContainer>
+    )
+  }
+
   return (
     <Table id='records-table'>
       <TableHead>
