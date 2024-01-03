@@ -53,8 +53,8 @@ export default function RecordsPage ({ title, records, pagination }) {
 
   return (
     <TableWindow id='records-window' title={title}>
-      <TableBodyText>{content.records.text}</TableBodyText>
-      <TableBodyText>
+      <TableBodyText id='records-info'>{content.records.text}</TableBodyText>
+      <TableBodyText id='discogs-collection-link'>
         More info on my{' '}
         <Anchor href={COLLECTION_URL} target='_blank' rel='noopener noreferrer'>
           Discogs

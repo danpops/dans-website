@@ -17,19 +17,21 @@ export default function Navigation () {
 
   const onClickLink = link => () => {
     setVisible(false)
-    router.push(link.toLowerCase())
+    router.push(link)
   }
   const goHome = () => router.push('/')
   const toggleNav = () => setVisible(!isVisible)
 
   const composePageTabs = (item, index) => {
-    const isPageActive = router.pathname === `/${item.toLowerCase()}`
+    const pageName = item.toLowerCase()
+    const pagePath = `/${pageName}`
+    const isPageActive = router.pathname === pagePath
     return (
       <TabItem
         $active={isPageActive}
-        id='tab-item'
+        id={`${pageName}-nav-tab`}
         key={index}
-        onClick={onClickLink(item)}
+        onClick={onClickLink(pagePath)}
       >
         {item}
       </TabItem>
@@ -39,8 +41,10 @@ export default function Navigation () {
   return (
     <NavigationContainer>
       <NavbarContainer id='navbar'>
-        <LogoContainer id='nav-logo'>
-          <LogoTitle onClick={goHome}>Dan Popovic</LogoTitle>
+        <LogoContainer>
+          <LogoTitle id='nav-logo' onClick={goHome}>
+            Dan Popovic
+          </LogoTitle>
         </LogoContainer>
         <NavMenuButton id='nav-menu' onClick={toggleNav} $active={isVisible}>
           !!!

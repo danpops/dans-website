@@ -7,7 +7,7 @@ export default function StickyGif () {
   const onClickRecords = () => router.push('/records')
 
   return (
-    <StickyWrapper onClick={onClickRecords}>
+    <StickyWrapper onClick={onClickRecords} id='sticky-gif'>
       <StickyImage src={homerGif} alt='homer gif' priority />
     </StickyWrapper>
   )

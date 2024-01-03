@@ -15,7 +15,7 @@ export default function RecordTable ({ items }) {
     window.open(`${RELEASE_URL}${id}`, '_blank')
   }
   return (
-    <Table>
+    <Table id='records-table'>
       <TableHead>
         <TableHeaderRow>
           <TableHeader>Artist</TableHeader>

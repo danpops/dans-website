@@ -4,7 +4,7 @@ import { TableWindowBody, TableWindowWrapper } from './styles'
 
 export default function TableWindow ({ id, title, children }) {
   return (
-    <TableWindowWrapper>
+    <TableWindowWrapper id={id}>
       <WindowHeader>
         <WindowTitle id={`${id}-title`}>{title}</WindowTitle>
         <HomeButton />
