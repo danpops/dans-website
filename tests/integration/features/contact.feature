@@ -7,5 +7,5 @@ Feature: Contact Page
     And I see the "NAV_MENU" on the "contact" page
     And I see the "CONTACT_WINDOW" on the "contact" page
     And I see the "EMAIL_FORM" on the "contact" page
-    And I see 2 different "CONTACT_LINK" on the "contact" page
+    And I see 2 different "CONTACT_TAB" on the "contact" page
     And I see the "PAGE_MARQUEE" on the "contact" page
