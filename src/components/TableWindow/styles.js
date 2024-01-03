@@ -3,17 +3,11 @@ import { WindowBody } from '../PageWindow/styles'
 import { borderStyle } from '@/design/global'
 import { colors } from '@/design/colors'
 
-export const TableContainer = styled.div`
-  overflow: auto;
-  max-height: 60vh;
-  padding: 0 0.7rem;
-  margin-bottom: 0.75rem;
-`
-
 export const TableWindowBody = styled(WindowBody)`
-  padding: 0;
+  display: grid;
+  grid-template-rows: repeat(4, minmax(0, auto));
+  padding: 0 0.5rem;
 `
-
 export const TableWindowWrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
@@ -23,4 +17,5 @@ export const TableWindowWrapper = styled.div`
   position: relative;
   align-items: flex-start;
   background-color: ${colors.grey};
+  height: 100%;
 `

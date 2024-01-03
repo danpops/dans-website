@@ -1,4 +1,4 @@
-export { fetchDiscogsData }
+export { fetchDiscogsData, fetchRelease }
 
 export const COLLECTION_URL =
   'https://www.discogs.com/user/nowspinninglps/collection?header=1'
@@ -28,6 +28,28 @@ async function fetchDiscogsData ({ discogsKey = '' }) {
     return null
   }
 }
+async function fetchRelease ({ discogsKey = '', id }) {
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Discogs token=${discogsKey}`
+    },
+    body: null
+  }
+  const url = `https://api.discogs.com//users/nowspinninglps/collection/releases/${id}`
+  try {
+    const response = await fetch(url, requestOptions)
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error('Error fetching data:', error)
+    return null
+  }
+}
 function formatReleases (item) {
   return {
     id: item.id,
@@ -35,6 +57,7 @@ function formatReleases (item) {
     artist: item.basic_information.artists
       .map(item => item.name.replace(/\(\d+\)/g, '').trim())
       .join(', '),
-    dateAdded: item.date_added
+    dateAdded: item.date_added,
+    original: item
   }
 }
