@@ -17,14 +17,13 @@ import {
 } from './styles'
 
 export default function RecordInfo ({ onClickImage, release }) {
+  console.log('🚀 ~ file: index.js:20 ~ RecordInfo ~ release:', release)
   return (
     <DetailContainer>
       <InfoContainer>
         <RecordImage
-          blurDataURL={release.thumb}
-          placeholder='blur'
           src={release.thumb}
-          alt='release img'
+          alt={`${release.title} album cover`}
           width={100}
           height={100}
           onClick={onClickImage}
