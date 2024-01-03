@@ -37,7 +37,7 @@ async function fetchRelease ({ discogsKey = '', id }) {
     },
     body: null
   }
-  const url = `https://api.discogs.com/releases/${id}`
+  const url = `https://api.discogs.com//users/nowspinninglps/collection/releases/${id}`
   try {
     const response = await fetch(url, requestOptions)
     if (!response.ok) {
@@ -57,6 +57,7 @@ function formatReleases (item) {
     artist: item.basic_information.artists
       .map(item => item.name.replace(/\(\d+\)/g, '').trim())
       .join(', '),
-    dateAdded: item.date_added
+    dateAdded: item.date_added,
+    original: item
   }
 }

@@ -1,14 +1,5 @@
 import Copyright from '../Copyright'
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableHeaderRow,
-  TableRow
-} from '../RecordTable/styles'
-import {
   AlbumText,
   AlbumTextContainer,
   DetailContainer,
@@ -17,7 +8,6 @@ import {
 } from './styles'
 
 export default function RecordInfo ({ onClickImage, release }) {
-  console.log('🚀 ~ file: index.js:20 ~ RecordInfo ~ release:', release)
   return (
     <DetailContainer>
       <InfoContainer>
@@ -35,40 +25,28 @@ export default function RecordInfo ({ onClickImage, release }) {
           </AlbumText>
           <AlbumText>
             <span>Artist: </span>
-            {release.artists_sort.replace(/\(\d+\)/g, '').trim()}
+            {release.artists
+              .map(item => item.name.replace(/\(\d+\)/g, '').trim())
+              .join(', ')}
           </AlbumText>
           <AlbumText>
             <span>Format: </span>
             {release.formats.map(item => item.name).join(', ')}
           </AlbumText>
           <AlbumText>
-            <span>Country: </span>
-            {release.country}
+            <span>Genres: </span>
+            {release.genres.join(', ')}
           </AlbumText>
           <AlbumText>
-            <span>Release Date: </span>
-            {release.released}
+            <span>Styles: </span>
+            {release.styles.join(', ')}
+          </AlbumText>
+          <AlbumText>
+            <span>Date Added: </span>
+            {release.dateAdded}
           </AlbumText>
         </AlbumTextContainer>
       </InfoContainer>
-      <Table>
-        <TableHead>
-          <TableHeaderRow>
-            <TableHeader>Pos</TableHeader>
-            <TableHeader>Title</TableHeader>
-            <TableHeader>Duration</TableHeader>
-          </TableHeaderRow>
-        </TableHead>
-        <TableBody>
-          {release.tracklist.map((item, index) => (
-            <TableRow key={index}>
-              <TableCell>{item.position}</TableCell>
-              <TableCell>{item.title}</TableCell>
-              <TableCell>{item.duration}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
       <Copyright />
     </DetailContainer>
   )

@@ -13,8 +13,11 @@ export const InfoContainer = styled.div`
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
   column-gap: 1rem;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 1rem;
+  @media ${devices.md} {
+    column-gap: 2rem;
+  }
 `
 export const AlbumTextContainer = styled.div`
   padding: 0;

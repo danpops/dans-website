@@ -7,10 +7,11 @@ import { useRouter } from 'next/router'
 export async function getServerSideProps (ctx) {
   const { id } = ctx.query
   const discogsKey = process.env.DISCOGS_KEY ?? ''
-  const release = await fetchRelease({ discogsKey, id })
-    .then(data => data)
+  const data = await fetchRelease({ discogsKey, id })
+    .then(data => data.releases[0])
     .catch(err => err)
-  const title = release.title
+  const title = data?.basic_information.title ?? ''
+  const release = { ...data.basic_information, dateAdded: data.date_added }
   return { props: { id, title, release } }
 }
 export default function RecordPage ({ id, title, release }) {
