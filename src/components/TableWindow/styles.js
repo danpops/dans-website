@@ -5,9 +5,8 @@ import { colors } from '@/design/colors'
 
 export const TableContainer = styled.div`
   overflow: auto;
-  max-height: 60vh;
+  max-height: 30rem;
   padding: 0 0.7rem;
-  margin-bottom: 0.75rem;
 `
 
 export const TableWindowBody = styled(WindowBody)`

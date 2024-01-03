@@ -5,7 +5,7 @@ export const COLLECTION_URL =
 const API_URL = 'https://api.discogs.com'
 const RELEASES_URL = `${API_URL}/users/nowspinninglps/collection/releases/0`
 
-async function fetchDiscogsData ({ discogsKey = '' }) {
+async function fetchDiscogsData ({ discogsKey = '', page = 1 }) {
   const requestOptions = {
     method: 'GET',
     headers: {
@@ -14,7 +14,7 @@ async function fetchDiscogsData ({ discogsKey = '' }) {
     },
     body: null
   }
-  const url = `${RELEASES_URL}?sort=artist&sort_order=asc&per_page=500`
+  const url = `${RELEASES_URL}?sort=artist&sort_order=asc&per_page=50&page=${page}`
   try {
     const response = await fetch(url, requestOptions)
     if (!response.ok) {
@@ -22,7 +22,7 @@ async function fetchDiscogsData ({ discogsKey = '' }) {
     }
     const data = await response.json()
     const records = data.releases.map(formatReleases)
-    return records
+    return { records, pagination: data.pagination }
   } catch (error) {
     console.error('Error fetching data:', error)
     return null

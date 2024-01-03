@@ -1,6 +1,6 @@
 import HomeButton from '../HomeButton'
 import { WindowHeader, WindowTitle } from '../PageWindow/styles'
-import { TableContainer, TableWindowBody, TableWindowWrapper } from './styles'
+import { TableWindowBody, TableWindowWrapper } from './styles'
 
 export default function TableWindow ({ id, title, children }) {
   return (
@@ -9,9 +9,7 @@ export default function TableWindow ({ id, title, children }) {
         <WindowTitle id={`${id}-title`}>{title}</WindowTitle>
         <HomeButton />
       </WindowHeader>
-      <TableWindowBody>
-        <TableContainer>{children}</TableContainer>
-      </TableWindowBody>
+      <TableWindowBody>{children}</TableWindowBody>
     </TableWindowWrapper>
   )
 }
