@@ -1,11 +1,12 @@
 const withFonts = require('next-fonts')
 const nextConfig = withFonts({
   images: {
-    domains: ['i.discogs.com'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.discogs.com'
+        hostname: 'i.discogs.com',
+        port: '',
+        pathname: '/**'
       }
     ]
   },
