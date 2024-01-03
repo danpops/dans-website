@@ -91,6 +91,6 @@ export const content = {
   },
   records: {
     title: 'My Records',
-    text: '10+ years of vinyl collecting — check out my record collection. Click on albums for release info!'
+    text: 'Check out my vinyl record collection. Click on albums for release info!'
   }
 }

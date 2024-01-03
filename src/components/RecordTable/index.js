@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router'
 import {
-  Table,
-  TableCell,
+  AlignedTable,
+  BodyTableContainer,
+  TableContainer,
+  StickyTableHeader,
   TableBody,
-  TableHead,
+  TableCell,
   TableHeader,
-  TableHeaderRow,
   TableRow,
   TableText
 } from './styles'
@@ -16,25 +17,33 @@ export default function RecordTable ({ items }) {
     router.push(`/records/${id}`)
   }
   return (
-    <Table>
-      <TableHead>
-        <TableHeaderRow>
-          <TableHeader>Artist</TableHeader>
-          <TableHeader>Title</TableHeader>
-        </TableHeaderRow>
-      </TableHead>
-      <TableBody>
-        {items?.map(item => (
-          <TableRow key={item.id} onClick={openDiscogsPage(item.id)}>
-            <TableCell>
-              <TableText>{item.artist}</TableText>
-            </TableCell>
-            <TableCell>
-              <TableText>{item.title}</TableText>
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+    <TableContainer>
+      <StickyTableHeader>
+        <AlignedTable>
+          <thead>
+            <tr>
+              <TableHeader>Artist</TableHeader>
+              <TableHeader>Title</TableHeader>
+            </tr>
+          </thead>
+        </AlignedTable>
+      </StickyTableHeader>
+      <BodyTableContainer>
+        <AlignedTable>
+          <TableBody>
+            {items?.map(item => (
+              <TableRow key={item.id} onClick={openDiscogsPage(item.id)}>
+                <TableCell>
+                  <TableText>{item.artist}</TableText>
+                </TableCell>
+                <TableCell>
+                  <TableText>{item.title}</TableText>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </AlignedTable>
+      </BodyTableContainer>
+    </TableContainer>
   )
 }
