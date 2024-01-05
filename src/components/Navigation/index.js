@@ -9,18 +9,19 @@ import {
   NavbarContainer
 } from './styles'
 import { pageLinks } from '@/assets/data/links'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Navigation () {
   const [isVisible, setVisible] = useState(false)
   const router = useRouter()
 
-  const onClickLink = link => () => {
-    setVisible(false)
-    router.push(link)
-  }
   const goHome = () => router.push('/')
+  const onClickLink = link => () => router.push(link)
   const toggleNav = () => setVisible(!isVisible)
+
+  useEffect(() => {
+    setVisible(false)
+  }, [router.pathname])
 
   const composePageTabs = (item, index) => {
     const pageName = item.toLowerCase()

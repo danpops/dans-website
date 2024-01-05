@@ -25,7 +25,7 @@ export const PageMarqueeWrapper = styled.div`
 `
 export const CustomMarquee = styled(Marquee)`
   background-color: ${colors.yellow};
-  color: ${colors.blue};
+  color: ${colors.black};
   font-size: ${fonts.sm};
   font-weight: 500;
   height: 2rem;

@@ -50,5 +50,5 @@ export const BodyText = styled.div`
 `
 export const Anchor = styled.a``
 export const TableBodyText = styled(BodyText)`
-  padding: 0.5rem;
+  padding: 0;
 `

@@ -35,13 +35,13 @@ export default function HeroBanner () {
         <FireImage
           src={aboutGif}
           alt='about gif'
-          width={110}
+          width={95}
           onClick={goToAbout}
         />
         <FireImage
           src={contactGif}
           alt='contact gif'
-          width={150}
+          width={120}
           onClick={goToContact}
         />
       </LinkContainer>

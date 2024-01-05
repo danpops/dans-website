@@ -1,4 +1,5 @@
 import { content } from '@/assets/data/content'
+import Copyright from '@/components/Copyright'
 import { getDefaultLayout } from '@/components/Layout'
 import Pagination from '@/components/Pagination'
 import RecordTable from '@/components/RecordTable'
@@ -52,14 +53,20 @@ export default function RecordsPage ({ title, records, pagination }) {
 
   return (
     <TableWindow id='records-window' title={title}>
-      <TableBodyText id='records-info'>{content.records.text}</TableBodyText>
-      <TableBodyText id='discogs-collection-link'>
-        More info on my{' '}
-        <Anchor href={COLLECTION_URL} target='_blank' rel='noopener noreferrer'>
-          Discogs
-        </Anchor>{' '}
-        page.
-      </TableBodyText>
+      <div>
+        <TableBodyText id='records-info'>{content.records.text}</TableBodyText>
+        <TableBodyText id='discogs-collection-link'>
+          More info on my{' '}
+          <Anchor
+            href={COLLECTION_URL}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Discogs
+          </Anchor>{' '}
+          page.
+        </TableBodyText>
+      </div>
       <TableContainer>
         <RecordTable loading={loading} items={myCollection} />
       </TableContainer>
@@ -68,6 +75,7 @@ export default function RecordsPage ({ title, records, pagination }) {
         currentPage={currentPage}
         pages={paginationInfo.pages}
       />
+      <Copyright />
     </TableWindow>
   )
 }

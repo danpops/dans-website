@@ -22,7 +22,7 @@ export const HeroContainer = styled.div`
   grid-auto-flow: row;
   align-items: center;
   justify-items: center;
-  row-gap: 1rem;
+  row-gap: 2rem;
   padding: 2rem;
   ${borderStyle}
 `

@@ -14,8 +14,8 @@ export const FullPageContainer = styled.div`
 export const PageContainer = styled.div`
   overflow: scroll;
   height: 100%;
-  background-color: ${colors.darkGreen};
-  padding: 1rem;
+  background-color: ${colors.blueSecondary};
+  padding: 0.5rem;
 
   @media ${devices.md} {
     padding: 1rem 4rem;
@@ -36,7 +36,7 @@ export const WindowContainer = styled.div`
 export const ContentContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
 
   @media ${devices.md} {
     row-gap: 2rem;

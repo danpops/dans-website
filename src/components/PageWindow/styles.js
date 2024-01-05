@@ -12,9 +12,10 @@ export const WindowHeader = styled.div`
 `
 export const WindowBody = styled.div`
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr auto;
   grid-template-columns: 1fr;
   padding: 1rem;
+  row-gap: 1rem;
 
   @media ${devices.md} {
     padding: 2rem 3rem;

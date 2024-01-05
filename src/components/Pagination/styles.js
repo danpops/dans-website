@@ -8,7 +8,7 @@ export const PaginationContainer = styled.div`
   grid-template-rows: auto;
   justify-content: center;
   column-gap: 1rem;
-  padding: 1rem;
+  align-items: center;
 `
 export const PageButton = styled.button`
   background-color: ${colors.grey};

@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'MS Sans Serif', sans-serif;
-    background-color: ${colors.darkGreen};
+    background-color: ${colors.blueSecondary};
   }
 
   a {
