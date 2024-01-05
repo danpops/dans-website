@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { content } from '@/assets/data/content'
-import aboutGif from '@/assets/gifs/about.gif'
-import codeGif from '@/assets/gifs/code.gif'
-import contactGif from '@/assets/gifs/contact.gif'
-import welcomeGif from '@/assets/gifs/mywelcome.gif'
+import aboutGif from 'public/gifs/about.gif'
+import codeGif from 'public/gifs/code.gif'
+import contactGif from 'public/gifs/contact.gif'
+import welcomeGif from 'public/gifs/mywelcome.gif'
 import { Heading3 } from '../Text'
 import {
   FireImage,

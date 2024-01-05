@@ -2,7 +2,7 @@ import { content } from '@/assets/data/content'
 import { getWindowLayout } from '@/components/Layout'
 import { BodyText } from '@/components/Text'
 import Image from 'next/image'
-import computerGif from '@/assets/gifs/computer.gif'
+import computerGif from 'public/gifs/computer.gif'
 import { ContentContainer } from '@/components/Layout/styles'
 
 export function getStaticProps () {

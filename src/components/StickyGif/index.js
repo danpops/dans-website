@@ -1,4 +1,4 @@
-import homerGif from '@/assets/gifs/homer.gif'
+import homerGif from 'public/gifs/homer.gif'
 import { StickyImage, StickyWrapper } from './styles'
 import { useRouter } from 'next/router'
 

@@ -10,7 +10,7 @@ import {
   LoadingContainer
 } from './styles'
 import Image from 'next/image'
-import hourglassGif from '@/assets/gifs/hourglass.gif'
+import hourglassGif from 'public/gifs/hourglass.gif'
 
 const RELEASE_URL = 'https://discogs.com/release/'
 export default function RecordTable ({ loading, items }) {
