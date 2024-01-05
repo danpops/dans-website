@@ -10,7 +10,15 @@ const DEFAULT_CONFIG = {
   // DO NOT CHANGE THE ORDER OF INTEGRATION TEST PATHS.
   // CHANGING THE ORDER WILL RESULT IN BROKEN TESTS.
   // DATA IS RECYCLED THROUGHOUT ALL FEATURES.
-  paths: ['tests/integration/features/**/*.feature'],
+  paths: [
+    'tests/integration/features/landing.feature',
+    'tests/integration/features/about.feature',
+    'tests/integration/features/specialties.feature',
+    'tests/integration/features/experience.feature',
+    'tests/integration/features/contact.feature',
+    'tests/integration/features/records.feature',
+    'tests/integration/features/error.feature'
+  ],
   require: [
     'tests/integration/actions/**/*.js',
     'tests/integration/page/**/*.js',
