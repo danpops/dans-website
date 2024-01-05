@@ -9,7 +9,7 @@ import { Anchor, TableBodyText } from '@/components/Text'
 import { COLLECTION_URL, fetchDiscogsData } from '@/lib/api'
 import React, { useEffect, useState } from 'react'
 
-export async function getStaticProps () {
+export async function getServerSideProps () {
   const id = 'records'
   const title = 'My Record Collection'
   const discogsKey = process.env.DISCOGS_KEY ?? ''
