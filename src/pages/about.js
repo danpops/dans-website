@@ -1,21 +1,26 @@
-import { content } from '@/assets/data/content'
 import { getWindowLayout } from '@/components/Layout'
 import { BodyText } from '@/components/Text'
 import Image from 'next/image'
-import computerGif from 'public/gifs/computer.gif'
 import { ContentContainer } from '@/components/Layout/styles'
+import { getAbout } from '../../sanity/query'
 
-export function getStaticProps () {
+export async function getServerSideProps () {
   const id = 'about'
-  const title = content.about.title
-  return { props: { id, title } }
+  const data = await getAbout()
+  const title = data.title
+  return { props: { id, title, data } }
 }
-export default function AboutPage () {
+export default function AboutPage ({ data }) {
   return (
     <ContentContainer>
-      <Image src={computerGif} alt='computer gif' width={125} />
-      <BodyText id='about-text'>{content.about.text}</BodyText>
-      <BodyText id='about-summary'>{content.about.summary}</BodyText>
+      <Image
+        src={data.aboutGif.image}
+        alt={data.aboutGif.alt}
+        width={125}
+        height={125}
+      />
+      <BodyText id='about-text'>{data.heading}</BodyText>
+      <BodyText id='about-summary'>{data.summary}</BodyText>
     </ContentContainer>
   )
 }
