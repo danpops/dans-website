@@ -6,51 +6,12 @@ import TableWindow from '@/components/TableWindow'
 import { TableContainer } from '@/components/TableWindow/styles'
 import { Anchor, TableBodyText } from '@/components/Text'
 import { COLLECTION_URL, fetchDiscogsData } from '@/lib/api'
-import React, { useEffect, useState } from 'react'
-import { getRecords } from '../../sanity/query'
+import { querySanity } from '../../sanity/query'
+import useCollection from '@/hooks/useCollection'
 
-export async function getServerSideProps () {
-  const id = 'records'
-  const data = await getRecords()
-  const title = data.title
-  const discogsKey = process.env.DISCOGS_KEY ?? ''
-  const { records, pagination } = await fetchDiscogsData({ discogsKey })
-    .then(data => data)
-    .catch(err => err)
-  return { props: { id, title, records, pagination, data } }
-}
 export default function RecordsPage ({ title, records, pagination, data }) {
-  const [loading, setLoading] = useState(true)
-  const [paginationInfo, setPaginationInfo] = useState(pagination)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [myCollection, setMyCollection] = useState([])
-
-  useEffect(() => {
-    setMyCollection(records)
-    setPaginationInfo(pagination)
-    setLoading(false)
-  }, [records, pagination])
-
-  const onSelectPage = async (type = 'next') => {
-    setLoading(true)
-    const newPageNumber = type === 'next' ? currentPage + 1 : currentPage - 1
-    setCurrentPage(newPageNumber)
-    await fetchDiscogsData({
-      discogsKey: process.env.DISCOGS_KEY ?? '',
-      page: newPageNumber
-    })
-      .then(data => {
-        setMyCollection(data.records)
-        setPaginationInfo(data.pagination)
-      })
-      .catch(err => {
-        console.error(err)
-        setLoading(false)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-  }
+  const { loading, myCollection, onSelectPage, currentPage, paginationInfo } =
+    useCollection({ records, pagination })
 
   return (
     <TableWindow id='records-window' title={title}>
@@ -79,6 +40,22 @@ export default function RecordsPage ({ title, records, pagination, data }) {
       <Copyright />
     </TableWindow>
   )
+}
+export async function getServerSideProps () {
+  const id = 'records'
+  const data = await querySanity(
+    `*[_type == "records"]{
+      _id,
+      title,
+      summary
+    }`
+  )
+  const title = data.title
+  const discogsKey = process.env.DISCOGS_KEY ?? ''
+  const { records, pagination } = await fetchDiscogsData({ discogsKey })
+    .then(data => data)
+    .catch(err => err)
+  return { props: { id, title, records, pagination, data } }
 }
 
 RecordsPage.getLayout = getDefaultLayout

@@ -2,14 +2,8 @@ import { getWindowLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
 import { BodyText } from '@/components/Text'
-import { getSpecialties } from '../../sanity/query'
+import { querySanity } from '../../sanity/query'
 
-export async function getServerSideProps () {
-  const id = 'specialties'
-  const data = await getSpecialties()
-  const title = data.title
-  return { props: { id, title, data } }
-}
 export default function SpecialtiesPage ({ data }) {
   return (
     <ContentContainer>
@@ -21,6 +15,19 @@ export default function SpecialtiesPage ({ data }) {
       />
     </ContentContainer>
   )
+}
+export async function getServerSideProps () {
+  const id = 'specialties'
+  const data = await querySanity(
+    `*[_type == "specialties"]{
+      _id,
+      title,
+      summary,
+      specialtyLinks
+    }`
+  )
+  const title = data.title
+  return { props: { id, title, data } }
 }
 
 SpecialtiesPage.getLayout = getWindowLayout

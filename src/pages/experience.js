@@ -2,14 +2,8 @@ import ExperienceCard from '@/components/ExperienceCard'
 import { getWindowLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import { BodyText } from '@/components/Text'
-import { getExperience } from '../../sanity/query'
+import { querySanity } from '../../sanity/query'
 
-export async function getServerSideProps () {
-  const id = 'experience'
-  const data = await getExperience()
-  const title = data.title
-  return { props: { id, title, data } }
-}
 export default function ExperiencePage ({ data }) {
   return (
     <ContentContainer>
@@ -19,6 +13,25 @@ export default function ExperiencePage ({ data }) {
       ))}
     </ContentContainer>
   )
+}
+export async function getServerSideProps () {
+  const id = 'experience'
+  const data = await querySanity(
+    `*[_type == "experience"]{
+      _id,
+      title,
+      summary,
+      'cards': cards[] {
+        company,
+        logo {alt, "image": asset->url},
+        title,
+        date,
+        notes
+      }
+    }`
+  )
+  const title = data.title
+  return { props: { id, title, data } }
 }
 
 ExperiencePage.getLayout = getWindowLayout

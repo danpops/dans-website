@@ -4,16 +4,8 @@ import ListBox from '@/components/ListBox'
 import EmailForm from '@/components/EmailForm'
 import { BodyText } from '@/components/Text'
 import useContactForm from '@/hooks/useContactForm'
-import { getContact } from '../../sanity/query'
+import { querySanity } from '../../sanity/query'
 
-export async function getServerSideProps () {
-  const id = 'contact'
-  const data = await getContact()
-  const title = data.title
-  const apiKey = process.env.API_KEY ?? ''
-  const apiUrl = process.env.API_URL ?? ''
-  return { props: { id, title, apiKey, apiUrl, data } }
-}
 export default function ContactPage ({ apiKey, apiUrl, data }) {
   const contact = useContactForm({ apiKey, apiUrl })
 
@@ -35,6 +27,22 @@ export default function ContactPage ({ apiKey, apiUrl, data }) {
       />
     </ContentContainer>
   )
+}
+export async function getServerSideProps () {
+  const id = 'contact'
+  const data = await querySanity(
+    `*[_type == "contact"]{
+      _id,
+      title,
+      summary,
+      successMessage,
+      contactLinks
+    }`
+  )
+  const title = data.title
+  const apiKey = process.env.API_KEY ?? ''
+  const apiUrl = process.env.API_URL ?? ''
+  return { props: { id, title, apiKey, apiUrl, data } }
 }
 
 ContactPage.getLayout = getWindowLayout
