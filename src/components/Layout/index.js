@@ -1,7 +1,6 @@
 import { PageContainer, FullPageContainer, WindowContainer } from './styles'
 import Navigation from '../Navigation'
 import PageMarquee from '../PageMarquee'
-import { content } from '@/assets/data/content'
 import StickyGif from '../StickyGif'
 import PageWindow from '../PageWindow'
 
@@ -30,7 +29,7 @@ function DefaultLayout ({ id, children }) {
   return (
     <FullPageContainer id='app-layout'>
       <Navigation />
-      <PageMarquee bannerText={content.hero.subtitle} />
+      <PageMarquee />
       <PageContainer id={id}>{children}</PageContainer>
       <StickyGif />
     </FullPageContainer>

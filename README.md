@@ -95,9 +95,11 @@ The project follows the structure below:
 
 - `/src`: Source code of the application.
 
-  - `/assets`: Text, images, gifs.
-  - `/design`: Fonts, device breakpoints, and colors.
+  - `/cms`: Location for Sanity CMS query, client, and schema files.
   - `/components`: Reusable React components.
+  - `/design`: Fonts, device breakpoints, and colors.
+  - `/hooks`: Custom React hooks used within the applicaiton.
+  - `/lib`: API files, etc.
   - `/pages`: Next.js pages.
 
 Feel free to explore each folder for additional details and customizations.

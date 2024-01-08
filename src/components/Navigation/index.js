@@ -8,9 +8,9 @@ import {
   NavMenuButton,
   NavbarContainer
 } from './styles'
-import { pageLinks } from '@/assets/data/links'
 import { useEffect, useState } from 'react'
 
+const PAGE_LINKS = ['About', 'Specialties', 'Experience', 'Contact']
 export default function Navigation () {
   const [isVisible, setVisible] = useState(false)
   const router = useRouter()
@@ -52,7 +52,7 @@ export default function Navigation () {
         </NavMenuButton>
       </NavbarContainer>
       <PageTabsContainer id='page-tabs' $visible={isVisible}>
-        {pageLinks.map(composePageTabs)}
+        {PAGE_LINKS.map(composePageTabs)}
       </PageTabsContainer>
     </NavigationContainer>
   )
