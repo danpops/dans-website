@@ -2,7 +2,7 @@ import { getWindowLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
 import { BodyText } from '@/components/Text'
-import { querySanity } from '../../sanity/query'
+import { querySanity } from '../cms/query'
 
 export default function SpecialtiesPage ({ data }) {
   return (

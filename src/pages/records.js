@@ -6,7 +6,7 @@ import TableWindow from '@/components/TableWindow'
 import { TableContainer } from '@/components/TableWindow/styles'
 import { Anchor, TableBodyText } from '@/components/Text'
 import { COLLECTION_URL, fetchDiscogsData } from '@/lib/api'
-import { querySanity } from '../../sanity/query'
+import { querySanity } from '../cms/query'
 import useCollection from '@/hooks/useCollection'
 
 export default function RecordsPage ({ title, records, pagination, data }) {

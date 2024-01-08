@@ -2,7 +2,7 @@ import { getWindowLayout } from '@/components/Layout'
 import { BodyText } from '@/components/Text'
 import Image from 'next/image'
 import { ContentContainer } from '@/components/Layout/styles'
-import { querySanity } from '../../sanity/query'
+import { querySanity } from '../cms/query'
 
 export default function AboutPage ({ data }) {
   return (

@@ -1,6 +1,6 @@
 import { getHeroLayout } from '@/components/Layout'
 import HeroBanner from '@/components/HeroBanner'
-import { querySanity } from '../../sanity/query'
+import { querySanity } from '../cms/query'
 
 export default function LandingPage ({ data }) {
   return (

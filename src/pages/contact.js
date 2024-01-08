@@ -4,7 +4,7 @@ import ListBox from '@/components/ListBox'
 import EmailForm from '@/components/EmailForm'
 import { BodyText } from '@/components/Text'
 import useContactForm from '@/hooks/useContactForm'
-import { querySanity } from '../../sanity/query'
+import { querySanity } from '../cms/query'
 
 export default function ContactPage ({ apiKey, apiUrl, data }) {
   const contact = useContactForm({ apiKey, apiUrl })
