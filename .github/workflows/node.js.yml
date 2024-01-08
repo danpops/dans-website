@@ -10,6 +10,9 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
+    env:
+      NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
     steps:
       - name: ✅ checkout
         uses: actions/checkout@v2.1.1
