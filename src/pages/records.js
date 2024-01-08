@@ -1,4 +1,3 @@
-import { content } from '@/assets/data/content'
 import Copyright from '@/components/Copyright'
 import { getDefaultLayout } from '@/components/Layout'
 import Pagination from '@/components/Pagination'
@@ -8,17 +7,19 @@ import { TableContainer } from '@/components/TableWindow/styles'
 import { Anchor, TableBodyText } from '@/components/Text'
 import { COLLECTION_URL, fetchDiscogsData } from '@/lib/api'
 import React, { useEffect, useState } from 'react'
+import { getRecords } from '../../sanity/query'
 
 export async function getServerSideProps () {
   const id = 'records'
-  const title = 'My Record Collection'
+  const data = await getRecords()
+  const title = data.title
   const discogsKey = process.env.DISCOGS_KEY ?? ''
   const { records, pagination } = await fetchDiscogsData({ discogsKey })
     .then(data => data)
     .catch(err => err)
-  return { props: { id, title, records, pagination } }
+  return { props: { id, title, records, pagination, data } }
 }
-export default function RecordsPage ({ title, records, pagination }) {
+export default function RecordsPage ({ title, records, pagination, data }) {
   const [loading, setLoading] = useState(true)
   const [paginationInfo, setPaginationInfo] = useState(pagination)
   const [currentPage, setCurrentPage] = useState(1)
@@ -54,7 +55,7 @@ export default function RecordsPage ({ title, records, pagination }) {
   return (
     <TableWindow id='records-window' title={title}>
       <div>
-        <TableBodyText id='records-info'>{content.records.text}</TableBodyText>
+        <TableBodyText id='records-info'>{data.summary}</TableBodyText>
         <TableBodyText id='discogs-collection-link'>
           More info on my{' '}
           <Anchor

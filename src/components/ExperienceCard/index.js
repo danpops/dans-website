@@ -20,9 +20,10 @@ export default function ExperienceCard ({ item }) {
       <CardHeader>
         <CompanyImage
           id='company-logo'
-          src={item.logo}
-          alt={`${item.company}-logo`}
-          placeholder='blur'
+          src={item.logo.image}
+          alt={item.logo.alt}
+          height={100}
+          width={100}
         />
         <TitleContainer>
           <BodyText id='experience-date'>{item.date}</BodyText>

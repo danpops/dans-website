@@ -1,4 +1,3 @@
-import { content } from '@/assets/data/content'
 import { TextArea, TextInput } from '../Input'
 import { CustomForm, SubmitButton } from './styles'
 import ProgressTile from '../ProgressTile'
@@ -6,8 +5,14 @@ import useProgress from '@/hooks/useProgress'
 import { BodyText } from '../Text'
 
 export default function EmailForm (props) {
-  const { emailSent, handleSubmit, loading, formData, handleInputChange } =
-    props
+  const {
+    emailSent,
+    handleSubmit,
+    loading,
+    formData,
+    handleInputChange,
+    successMessage
+  } = props
   const { progressVisible, progressValue } = useProgress({ loading })
   const disabled =
     formData.fullName === '' || formData.email === '' || formData.message === ''
@@ -17,11 +22,7 @@ export default function EmailForm (props) {
   }
 
   if (emailSent && !progressVisible) {
-    return (
-      <BodyText id='success-message'>
-        {content.contact.successMessage}
-      </BodyText>
-    )
+    return <BodyText id='success-message'>{successMessage}</BodyText>
   }
 
   return (
@@ -50,7 +51,7 @@ export default function EmailForm (props) {
         onChange={handleInputChange}
       />
       <SubmitButton id='submit-button' type='submit' disabled={disabled}>
-        {content.contact.submitButton}
+        Send Message
       </SubmitButton>
     </CustomForm>
   )
