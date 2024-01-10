@@ -7,5 +7,5 @@ Feature: Specialties Page
     And I see the "NAV_MENU" on the "about" page
     And I see the "SPECIALTIES_WINDOW" on the "specialties" page
     And I see the "SPECIALTIES_TEXT" on the "specialties" page
-    And I see 6 different "SPECIALTY_ITEM" on the "specialties" page
+    And I see 7 different "SPECIALTY_ITEM" on the "specialties" page
     And I see the "PAGE_MARQUEE" on the "specialties" page
