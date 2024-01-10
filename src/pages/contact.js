@@ -1,33 +1,12 @@
 import { getWindowLayout } from '@/components/Layout'
-import { ContentContainer } from '@/components/Layout/styles'
-import ListBox from '@/components/ListBox'
-import EmailForm from '@/components/EmailForm'
-import { BodyText } from '@/components/Text'
 import useContactForm from '@/hooks/useContactForm'
 import client from '@/cms/client'
 import { GET_CONTACT } from '@/cms/queries'
+import Contact from '@/containers/Contact'
 
 export default function ContactPage ({ apiKey, apiUrl, data }) {
   const contact = useContactForm({ apiKey, apiUrl })
-
-  return (
-    <ContentContainer>
-      <BodyText id='contact-text'>{data.summary}</BodyText>
-      <EmailForm
-        loading={contact.loading}
-        emailSent={contact.emailSent}
-        handleSubmit={contact.onSubmit}
-        formData={contact.formData}
-        handleInputChange={contact.onChangeInput}
-        successMessage={data.successMessage}
-      />
-      <ListBox
-        id='contact-links'
-        listId='contact-link'
-        items={data.contactLinks}
-      />
-    </ContentContainer>
-  )
+  return <Contact contact={contact} data={data} />
 }
 export async function getStaticProps () {
   const id = 'contact'

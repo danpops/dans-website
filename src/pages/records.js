@@ -1,38 +1,23 @@
-import Copyright from '@/components/Copyright'
 import { getDefaultLayout } from '@/components/Layout'
-import Pagination from '@/components/Pagination'
-import RecordTable from '@/components/RecordTable'
-import TableWindow from '@/components/TableWindow'
-import { TableContainer } from '@/components/TableWindow/styles'
-import { TableBodyText } from '@/components/Text'
 import { fetchDiscogsData } from '@/lib/api'
 import useCollection from '@/hooks/useCollection'
-import Markdown from 'react-markdown'
 import client from '@/cms/client'
 import { GET_RECORDS } from '@/cms/queries'
+import Records from '@/containers/Records'
 
 export default function RecordsPage ({ title, records, pagination, data }) {
   const { loading, myCollection, onSelectPage, currentPage, paginationInfo } =
     useCollection({ records, pagination })
-
   return (
-    <TableWindow id='records-window' title={title}>
-      <div>
-        <TableBodyText id='records-info'>{data.summary}</TableBodyText>
-        <TableBodyText id='discogs-collection-link'>
-          <Markdown>{data.discogsMessage}</Markdown>
-        </TableBodyText>
-      </div>
-      <TableContainer>
-        <RecordTable loading={loading} items={myCollection} />
-      </TableContainer>
-      <Pagination
-        onChange={onSelectPage}
-        currentPage={currentPage}
-        pages={paginationInfo.pages}
-      />
-      <Copyright />
-    </TableWindow>
+    <Records
+      data={data}
+      title={title}
+      loading={loading}
+      myCollection={myCollection}
+      onSelectPage={onSelectPage}
+      currentPage={currentPage}
+      paginationInfo={paginationInfo}
+    />
   )
 }
 export async function getServerSideProps () {

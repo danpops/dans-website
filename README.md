@@ -96,6 +96,7 @@ The project follows the structure below:
 - `/src`: Source code of the application.
 
   - `/cms`: Location for Sanity CMS query, client, and schema files.
+  - `/containers`: Dedicated JSX containers for organizing and assembling components into coherent pages. The containers serve as structured compositions of components, facilitating the creation of specific pages.
   - `/components`: Reusable React components.
   - `/design`: Fonts, device breakpoints, and colors.
   - `/hooks`: Custom React hooks used within the applicaiton.

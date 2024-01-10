@@ -1,18 +1,14 @@
 import { getHeroLayout } from '@/components/Layout'
-import HeroBanner from '@/components/HeroBanner'
 import client from '@/cms/client'
 import { GET_LANDING } from '@/cms/queries'
+import Home from '@/containers/Home'
+import { useRouter } from 'next/router'
 
 export default function LandingPage ({ data }) {
-  return (
-    <HeroBanner
-      title={data.title}
-      welcomeGif={data.welcomeGif}
-      iconGif={data.iconGif}
-      aboutLinkGif={data.aboutLinkGif}
-      contactLinkGif={data.contactLinkGif}
-    />
-  )
+  const router = useRouter()
+  const goToAbout = () => router.push('/about')
+  const goToContact = () => router.push('/contact')
+  return <Home data={data} goToAbout={goToAbout} goToContact={goToContact} />
 }
 export async function getStaticProps () {
   const id = 'landing'
