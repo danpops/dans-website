@@ -19,7 +19,7 @@ export default function SpecialtiesPage ({ data }) {
 export async function getServerSideProps () {
   const id = 'specialties'
   const data = await querySanity(
-    `*[_type == "specialties"]{
+    `*[_type == "specialties"][0]{
       _id,
       title,
       summary,

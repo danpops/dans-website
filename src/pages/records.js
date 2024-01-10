@@ -44,7 +44,7 @@ export default function RecordsPage ({ title, records, pagination, data }) {
 export async function getServerSideProps () {
   const id = 'records'
   const data = await querySanity(
-    `*[_type == "records"]{
+    `*[_type == "records"][0]{
       _id,
       title,
       summary

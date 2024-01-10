@@ -21,7 +21,7 @@ export default function AboutPage ({ data }) {
 export async function getServerSideProps () {
   const id = 'about'
   const data = await querySanity(
-    `*[_type == "about"]{
+    `*[_type == "about"][0]{
       _id,
       title,
       heading,

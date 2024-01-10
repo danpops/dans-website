@@ -17,7 +17,7 @@ export default function ExperiencePage ({ data }) {
 export async function getServerSideProps () {
   const id = 'experience'
   const data = await querySanity(
-    `*[_type == "experience"]{
+    `*[_type == "experience"][0]{
       _id,
       title,
       summary,

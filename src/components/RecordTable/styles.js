@@ -11,6 +11,7 @@ export const LoadingContainer = styled.div`
   height: 100%;
   align-items: center;
   justify-items: center;
+  height: 10rem;
   ${hoverBorder}
 `
 export const Table = styled.table`

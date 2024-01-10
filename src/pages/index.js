@@ -14,7 +14,7 @@ export default function LandingPage ({ data }) {
 export async function getServerSideProps () {
   const id = 'landing'
   const data = await querySanity(
-    `*[_type == "landing"]{
+    `*[_type == "landing"][0]{
       _id,
       title,
       welcomeGif {alt, "image": asset->url},

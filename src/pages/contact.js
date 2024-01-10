@@ -31,7 +31,7 @@ export default function ContactPage ({ apiKey, apiUrl, data }) {
 export async function getServerSideProps () {
   const id = 'contact'
   const data = await querySanity(
-    `*[_type == "contact"]{
+    `*[_type == "contact"][0]{
       _id,
       title,
       summary,
