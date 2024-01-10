@@ -4,10 +4,11 @@ import Pagination from '@/components/Pagination'
 import RecordTable from '@/components/RecordTable'
 import TableWindow from '@/components/TableWindow'
 import { TableContainer } from '@/components/TableWindow/styles'
-import { Anchor, TableBodyText } from '@/components/Text'
-import { COLLECTION_URL, fetchDiscogsData } from '@/lib/api'
+import { TableBodyText } from '@/components/Text'
+import { fetchDiscogsData } from '@/lib/api'
 import { querySanity } from '../cms/query'
 import useCollection from '@/hooks/useCollection'
+import Markdown from 'react-markdown'
 
 export default function RecordsPage ({ title, records, pagination, data }) {
   const { loading, myCollection, onSelectPage, currentPage, paginationInfo } =
@@ -18,15 +19,7 @@ export default function RecordsPage ({ title, records, pagination, data }) {
       <div>
         <TableBodyText id='records-info'>{data.summary}</TableBodyText>
         <TableBodyText id='discogs-collection-link'>
-          More info on my{' '}
-          <Anchor
-            href={COLLECTION_URL}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Discogs
-          </Anchor>{' '}
-          page.
+          <Markdown>{data.discogsMessage}</Markdown>
         </TableBodyText>
       </div>
       <TableContainer>
@@ -47,7 +40,8 @@ export async function getServerSideProps () {
     `*[_type == "records"][0]{
       _id,
       title,
-      summary
+      summary,
+      discogsMessage
     }`
   )
   const title = data.title

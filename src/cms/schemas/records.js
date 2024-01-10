@@ -12,6 +12,11 @@ const records = {
       name: 'summary',
       title: 'Summary',
       type: 'string'
+    },
+    {
+      name: 'discogsMessage',
+      title: 'Discogs URL Message',
+      type: 'string'
     }
   ]
 }

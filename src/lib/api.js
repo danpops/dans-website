@@ -1,7 +1,5 @@
 export { fetchDiscogsData }
 
-export const COLLECTION_URL =
-  'https://www.discogs.com/user/nowspinninglps/collection?header=1'
 const API_URL = 'https://api.discogs.com'
 const RELEASES_URL = `${API_URL}/users/nowspinninglps/collection/releases/0`
 
