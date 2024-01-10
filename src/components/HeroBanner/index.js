@@ -1,6 +1,4 @@
 import { useRouter } from 'next/router'
-import aboutGif from 'public/gifs/about.gif'
-import contactGif from 'public/gifs/contact.gif'
 import { Heading3 } from '../Text'
 import {
   FireImage,
@@ -13,9 +11,9 @@ import {
 } from './styles'
 import Copyright from '../Copyright'
 
-export default function HeroBanner ({ title, welcomeGif, iconGif }) {
+export default function HeroBanner (props) {
   const router = useRouter()
-
+  const { title, welcomeGif, iconGif, aboutLinkGif, contactLinkGif } = props
   const goToAbout = () => router.push('/about')
   const goToContact = () => router.push('/contact')
 
@@ -45,15 +43,17 @@ export default function HeroBanner ({ title, welcomeGif, iconGif }) {
       </TitleContainer>
       <LinkContainer>
         <FireImage
-          src={aboutGif}
-          alt='about gif'
+          src={aboutLinkGif.image}
+          alt={aboutLinkGif.alt}
           width={95}
+          height={30}
           onClick={goToAbout}
         />
         <FireImage
-          src={contactGif}
-          alt='contact gif'
+          src={contactLinkGif.image}
+          alt={contactLinkGif.alt}
           width={120}
+          height={30}
           onClick={goToContact}
         />
       </LinkContainer>

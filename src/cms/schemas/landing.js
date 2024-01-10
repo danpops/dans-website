@@ -33,6 +33,32 @@ const landing = {
           type: 'string'
         }
       ]
+    },
+    {
+      name: 'aboutLinkGif',
+      title: 'About Link GIF',
+      type: 'image',
+      options: { hotspot: true },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt',
+          type: 'string'
+        }
+      ]
+    },
+    {
+      name: 'contactLinkGif',
+      title: 'Contact Link GIF',
+      type: 'image',
+      options: { hotspot: true },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt',
+          type: 'string'
+        }
+      ]
     }
   ]
 }

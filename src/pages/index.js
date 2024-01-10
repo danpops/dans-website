@@ -8,6 +8,8 @@ export default function LandingPage ({ data }) {
       title={data.title}
       welcomeGif={data.welcomeGif}
       iconGif={data.iconGif}
+      aboutLinkGif={data.aboutLinkGif}
+      contactLinkGif={data.contactLinkGif}
     />
   )
 }
@@ -18,7 +20,11 @@ export async function getServerSideProps () {
       _id,
       title,
       welcomeGif {alt, "image": asset->url},
-      iconGif {alt, "image": asset->url}
+      iconGif {alt, "image": asset->url},
+      iconGif {alt, "image": asset->url},
+      iconGif {alt, "image": asset->url},
+      aboutLinkGif {alt, "image": asset->url},
+      contactLinkGif {alt, "image": asset->url}
     }`
   )
   return { props: { id, data } }
