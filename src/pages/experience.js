@@ -2,7 +2,8 @@ import ExperienceCard from '@/components/ExperienceCard'
 import { getWindowLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import { BodyText } from '@/components/Text'
-import { querySanity } from '../cms/query'
+import client from '@/cms/client'
+import { GET_EXPERIENCE } from '@/cms/queries'
 
 export default function ExperiencePage ({ data }) {
   return (
@@ -14,22 +15,9 @@ export default function ExperiencePage ({ data }) {
     </ContentContainer>
   )
 }
-export async function getServerSideProps () {
+export async function getStaticProps () {
   const id = 'experience'
-  const data = await querySanity(
-    `*[_type == "experience"][0]{
-      _id,
-      title,
-      summary,
-      'cards': cards[] {
-        company,
-        logo {alt, "image": asset->url},
-        title,
-        date,
-        notes
-      }
-    }`
-  )
+  const data = await client.fetch(GET_EXPERIENCE)
   const title = data.title
   return { props: { id, title, data } }
 }

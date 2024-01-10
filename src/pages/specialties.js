@@ -1,8 +1,9 @@
+import client from '@/cms/client'
+import { GET_SPECIALTIES } from '@/cms/queries'
 import { getWindowLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
 import { BodyText } from '@/components/Text'
-import { querySanity } from '../cms/query'
 
 export default function SpecialtiesPage ({ data }) {
   return (
@@ -16,16 +17,9 @@ export default function SpecialtiesPage ({ data }) {
     </ContentContainer>
   )
 }
-export async function getServerSideProps () {
+export async function getStaticProps () {
   const id = 'specialties'
-  const data = await querySanity(
-    `*[_type == "specialties"][0]{
-      _id,
-      title,
-      summary,
-      specialtyLinks
-    }`
-  )
+  const data = await client.fetch(GET_SPECIALTIES)
   const title = data.title
   return { props: { id, title, data } }
 }

@@ -1,6 +1,6 @@
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
-import { schemaTypes } from './src/cms/schemas'
+import { schemaTypes } from '@/cms/schemas'
 
 export default defineConfig({
   name: 'dans-website-sanity',

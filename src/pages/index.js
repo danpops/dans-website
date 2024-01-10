@@ -1,6 +1,7 @@
 import { getHeroLayout } from '@/components/Layout'
 import HeroBanner from '@/components/HeroBanner'
-import { querySanity } from '../cms/query'
+import client from '@/cms/client'
+import { GET_LANDING } from '@/cms/queries'
 
 export default function LandingPage ({ data }) {
   return (
@@ -13,20 +14,9 @@ export default function LandingPage ({ data }) {
     />
   )
 }
-export async function getServerSideProps () {
+export async function getStaticProps () {
   const id = 'landing'
-  const data = await querySanity(
-    `*[_type == "landing"][0]{
-      _id,
-      title,
-      welcomeGif {alt, "image": asset->url},
-      iconGif {alt, "image": asset->url},
-      iconGif {alt, "image": asset->url},
-      iconGif {alt, "image": asset->url},
-      aboutLinkGif {alt, "image": asset->url},
-      contactLinkGif {alt, "image": asset->url}
-    }`
-  )
+  const data = await client.fetch(GET_LANDING)
   return { props: { id, data } }
 }
 

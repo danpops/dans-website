@@ -6,9 +6,10 @@ import TableWindow from '@/components/TableWindow'
 import { TableContainer } from '@/components/TableWindow/styles'
 import { TableBodyText } from '@/components/Text'
 import { fetchDiscogsData } from '@/lib/api'
-import { querySanity } from '../cms/query'
 import useCollection from '@/hooks/useCollection'
 import Markdown from 'react-markdown'
+import client from '@/cms/client'
+import { GET_RECORDS } from '@/cms/queries'
 
 export default function RecordsPage ({ title, records, pagination, data }) {
   const { loading, myCollection, onSelectPage, currentPage, paginationInfo } =
@@ -36,14 +37,7 @@ export default function RecordsPage ({ title, records, pagination, data }) {
 }
 export async function getServerSideProps () {
   const id = 'records'
-  const data = await querySanity(
-    `*[_type == "records"][0]{
-      _id,
-      title,
-      summary,
-      discogsMessage
-    }`
-  )
+  const data = await client.fetch(GET_RECORDS)
   const title = data.title
   const discogsKey = process.env.DISCOGS_KEY ?? ''
   const { records, pagination } = await fetchDiscogsData({ discogsKey })

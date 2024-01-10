@@ -2,7 +2,8 @@ import { getWindowLayout } from '@/components/Layout'
 import { BodyText } from '@/components/Text'
 import Image from 'next/image'
 import { ContentContainer } from '@/components/Layout/styles'
-import { querySanity } from '../cms/query'
+import client from '@/cms/client'
+import { GET_ABOUT } from '@/cms/queries'
 
 export default function AboutPage ({ data }) {
   return (
@@ -18,17 +19,9 @@ export default function AboutPage ({ data }) {
     </ContentContainer>
   )
 }
-export async function getServerSideProps () {
+export async function getStaticProps () {
   const id = 'about'
-  const data = await querySanity(
-    `*[_type == "about"][0]{
-      _id,
-      title,
-      heading,
-      summary,
-      aboutGif {alt, "image": asset->url}
-    }`
-  )
+  const data = await client.fetch(GET_ABOUT)
   const title = data.title
   return { props: { id, title, data } }
 }
