@@ -8,7 +8,7 @@ const ThemeProvider = dynamic(() => import('@/components/ThemeProvider'), { ssr:
 
 export default function MyApp ({ Component, pageProps }) {
   const getLayout = Component.getLayout || (page => page)
-  const theme = useThemeProvider()
+  const themeProvider = useThemeProvider()
   return (
     <>
       <Head>
@@ -19,11 +19,11 @@ export default function MyApp ({ Component, pageProps }) {
           content='width=device-width,height=device-height,initial-scale=1,maximum-scale=1'
         />
         <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
-        <meta name='theme-color' content={theme.marquee} />
+        <meta name='theme-color' content={themeProvider.theme.marquee} />
         <meta name='format-detection' content='telephone=no' />
         <meta name='description' content='Dan Popovic - Portfolio' />
       </Head>
-      <ThemeProvider {...theme}>
+      <ThemeProvider {...themeProvider}>
         <GlobalStyle />
         {getLayout(<Component {...pageProps} />, pageProps)}
       </ThemeProvider>
