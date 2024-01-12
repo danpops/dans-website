@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: #00f;
+    color: ${props => props.theme.heroTitle};
     text-decoration: none;
     &:hover {
       text-decoration: underline;
