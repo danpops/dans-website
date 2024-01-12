@@ -9,6 +9,7 @@ export const FullPageContainer = styled.div`
   width: 100%;
   background-color: ${props => props.theme.primary};
   color: ${props => props.theme.font};
+  margin-bottom: 2rem;
 `
 export const PageContainer = styled.div`
   overflow: scroll;
@@ -35,7 +36,7 @@ export const WindowContainer = styled.div`
 export const ContentContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
-  row-gap: 0.5rem;
+  row-gap: 1rem;
 
   @media ${devices.md} {
     row-gap: 2rem;

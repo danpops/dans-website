@@ -7,9 +7,10 @@ export const ListBoxContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 1fr;
-  grid-gap: 1rem;
-
+  grid-gap: 0.5rem;
+  
   @media ${devices.md} {
+    grid-gap: 1rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `
