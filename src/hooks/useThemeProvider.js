@@ -1,5 +1,5 @@
 /* global localStorage */
-import { darkTheme, lightTheme } from '@/lib/colors'
+import { darkTheme, lightTheme } from '@/lib/theme'
 import { useState } from 'react'
 
 export default function useThemeProvider () {

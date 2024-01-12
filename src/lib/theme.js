@@ -1,8 +1,8 @@
 export const colors = {
-  darkBlue: '#000e7a',
-  yellow: '#ffff00',
+  darkBlue: '#000E7A',
+  yellow: '#FFFF00',
   blueSecondary: '#357EC7',
-  grey: '#c0c0c0',
+  grey: '#C0C0C0',
   mediumGrey: '#808080',
   lightGrey: '#CCCCCC',
   black: '#000000',
@@ -10,15 +10,15 @@ export const colors = {
   darkBackground: '#121212',
   darkFont: '#FFFFFF',
   darkButton: '#263238',
-  darkButtonDisabled: '#546e7a',
+  darkButtonDisabled: '#546E7A',
   darkBlueHover: '#004080',
-  rustyOrange: '#ca8138',
-  charcoal: '#3f3f3f',
+  rustyOrange: '#CA8138',
+  charcoal: '#3F3F3F',
   lavenderBlush: '#F7D8FA',
   darkSlateGrey: '#333333',
-  slateGrey: '#7f7f7f',
-  blue: '#0000ff',
-  paleGolden: '#fff185'
+  slateGrey: '#7F7F7F',
+  blue: '#0000FF',
+  paleGolden: '#FFF185'
 }
 export const lightTheme = {
   primary: colors.blueSecondary,
