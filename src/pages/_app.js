@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import GlobalStyle from '@/lib/global'
 import { colors } from '@/lib/colors'
+import ThemeProvider from '@/components/ThemeProvider'
 
 export default function MyApp ({ Component, pageProps }) {
   const getLayout = Component.getLayout || (page => page)
@@ -19,8 +20,10 @@ export default function MyApp ({ Component, pageProps }) {
         <meta name='format-detection' content='telephone=no' />
         <meta name='description' content='Dan Popovic - Portfolio' />
       </Head>
-      <GlobalStyle />
-      {getLayout(<Component {...pageProps} />, pageProps)}
+      <ThemeProvider>
+        <GlobalStyle />
+        {getLayout(<Component {...pageProps} />, pageProps)}
+      </ThemeProvider>
     </>
   )
 }

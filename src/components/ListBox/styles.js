@@ -17,12 +17,12 @@ export const ListItem = styled.a`
   font-weight: 500;
   font-size: ${fonts.sm};
   text-align: center;
-  background-color: ${props => props.$bgcolor};
-  color: ${props => props.$color};
+  background-color: ${props => props.theme.button};
+  color: ${props => props.theme.font};
   padding: 0.5rem 2rem;
-  ${borderStyle}
-  
+  ${props => borderStyle(props)}
+
   &:hover {
-    ${hoverBorder}
+    ${props => hoverBorder(props)}
   }
 `

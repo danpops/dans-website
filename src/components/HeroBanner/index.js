@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import styled from 'styled-components'
-import { colors } from '@/lib/colors'
 import { devices } from '@/lib/devices'
 import { borderStyle } from '@/lib/global'
 
 export const HeroTitle = styled.div`
-  color: ${colors.blue};
+  color: ${props => props.theme.blue};
   font-size: 1.8rem;
   font-weight: bold;
 
@@ -24,7 +23,7 @@ export const HeroContainer = styled.div`
   justify-items: center;
   row-gap: 2rem;
   padding: 2rem;
-  ${borderStyle}
+  ${props => borderStyle(props)}
 `
 export const TitleContainer = styled.div`
   display: grid;

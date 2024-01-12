@@ -17,20 +17,20 @@ export const SubmitButton = styled.button`
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
-  ${borderStyle};
+  ${props => borderStyle(props)};
   padding: 0.5rem 0;
-  background-color: ${colors.lightGrey};
+  background-color: ${props => props.theme.button};
   color: ${colors.black};
 
   &:hover {
-    ${hoverBorder}
+    ${props => hoverBorder(props)}
   }
 
   &:disabled {
-    color: ${colors.mediumGrey};
+    color: ${props => props.theme.buttonDisabled};
     cursor: not-allowed;
     &:hover {
-      ${borderStyle}
+      ${props => borderStyle(props)}
       outline: none;
     }
   }

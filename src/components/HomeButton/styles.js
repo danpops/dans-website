@@ -1,4 +1,3 @@
-import { colors } from '@/lib/colors'
 import { devices } from '@/lib/devices'
 import { fonts } from '@/lib/fonts'
 import { borderStyle, hoverBorder } from '@/lib/global'
@@ -8,18 +7,18 @@ export const HomeButtonContainer = styled.button`
   display: grid;
   align-items: center;
   padding-bottom: 0.25rem;
-  background-color: ${colors.grey};
+  background-color: ${props => props.theme.button};
   width: 1.5rem;
   justify-content: center;
-  color: ${colors.black};
+  color: ${props => props.theme.font};
   font-size: ${fonts.md};
   font-weight: bold;
   margin: 0.25rem;
   cursor: pointer;
-  ${borderStyle}
+  ${props => borderStyle(props)}
 
   &:hover {
-    ${hoverBorder}
+    ${props => hoverBorder(props)}
     outline: none;
   }
 

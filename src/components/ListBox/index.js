@@ -1,4 +1,3 @@
-import { colors } from '@/lib/colors'
 import { ListBoxContainer, ListItem } from './styles'
 
 export default function ListBox (props) {
@@ -10,8 +9,6 @@ export default function ListBox (props) {
           <ListItem
             key={index}
             id={listId}
-            $bgcolor={colors.grey}
-            $color={colors.black}
             target='_blank'
             rel='noopener noreferrer'
             href={item?.link}

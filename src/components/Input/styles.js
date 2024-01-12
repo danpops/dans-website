@@ -4,7 +4,7 @@ import { hoverBorder } from '@/lib/global'
 import styled from 'styled-components'
 
 export const CustomInput = styled.input`
-  ${hoverBorder}
+  ${props => hoverBorder(props)}
   outline: none;
   border-radius: 0;
   padding: 0.5rem;
@@ -13,7 +13,7 @@ export const CustomInput = styled.input`
   font-family: 'MS Sans Serif';
 `
 export const CustomTextArea = styled.textarea`
-  ${hoverBorder}
+  ${props => hoverBorder(props)}
   border-radius: 0;
   outline: none;
   font-family: 'MS Sans Serif';

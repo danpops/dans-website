@@ -1,4 +1,3 @@
-import { colors } from '@/lib/colors'
 import { devices } from '@/lib/devices'
 import { borderStyle } from '@/lib/global'
 import styled from 'styled-components'
@@ -8,13 +7,13 @@ export const FullPageContainer = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr;
   width: 100%;
-  background-color: ${colors.lightGrey};
-  color: ${colors.black};
+  background-color: ${props => props.theme.primary};
+  color: ${props => props.theme.font};
 `
 export const PageContainer = styled.div`
   overflow: scroll;
   height: 100%;
-  background-color: ${colors.blueSecondary};
+  background-color: ${props => props.theme.primary};
   padding: 0.5rem;
 
   @media ${devices.md} {
@@ -30,8 +29,8 @@ export const PageContainer = styled.div`
 export const WindowContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
-  background-color: ${colors.grey};
-  ${borderStyle}
+  background-color: ${props => props.theme.secondary};
+  ${props => borderStyle(props)}
 `
 export const ContentContainer = styled.div`
   display: grid;

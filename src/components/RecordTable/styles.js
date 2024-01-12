@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { borderStyle, hoverBorder, tableBorder } from '@/lib/global'
-import { colors } from '@/lib/colors'
 import { devices } from '@/lib/devices'
 import { fonts } from '@/lib/fonts'
 
@@ -12,12 +11,12 @@ export const LoadingContainer = styled.div`
   align-items: center;
   justify-items: center;
   height: 10rem;
-  ${hoverBorder}
+  ${props => hoverBorder(props)}
 `
 export const Table = styled.table`
   font-size: ${fonts.sm};
   width: 100%;
-  ${tableBorder}
+  ${props => tableBorder(props)}
   outline: 0;
 
   @media ${devices.md} {
@@ -34,8 +33,8 @@ export const TableHead = styled.thead``
 export const TableHeader = styled.th`
   text-align: center;
   padding: 0.25rem;
-  background-color: ${colors.grey};
-  ${borderStyle}
+  background-color: ${props => props.theme.table.header};
+  ${props => borderStyle(props)}
 `
 export const TableHeaderRow = styled.tr`
   outline: 0;
@@ -43,13 +42,13 @@ export const TableHeaderRow = styled.tr`
 export const TableRow = styled.tr`
   border-collapse: collapse;
   border: 0;
-  background-color: ${colors.white};
-  color: ${colors.black};
+  background-color: ${props => props.theme.table.row.bg};
+  color: ${props => props.theme.table.row.font};
   cursor: pointer;
 
   &:hover {
-    background-color: ${colors.darkBlue};
-    color: ${colors.white} !important;
+    background-color: ${props => props.theme.table.row.hover};
+    color: ${props => props.theme.table.row.hoverFont} !important;
   }
 `
 export const TableText = styled.div`

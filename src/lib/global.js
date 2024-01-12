@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'MS Sans Serif', sans-serif;
-    background-color: ${colors.blueSecondary};
+    background-color: ${props => props.theme.primary};
   }
 
   a {
@@ -31,38 +31,28 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 `
-const borderColor = {
-  innerBottomRight: colors.mediumGrey,
-  innerTopLeft: colors.lightGrey,
-  outerBottomRight: colors.black,
-  outerTopLeft: colors.white
-}
-export const borderStyle = `
-  box-shadow: inset -2px -2px 0 0 ${borderColor.outerBottomRight},
-    inset 2px 2px 0 0 ${borderColor.outerTopLeft},
-    inset -4px -4px 0 0 ${borderColor.innerBottomRight},
-    inset 4px 4px 0 0 ${borderColor.innerTopLeft};
+export const borderStyle = props => `
+  box-shadow: inset -2px -2px 0 0 ${props.theme.border.outerBottomRight},
+    inset 2px 2px 0 0 ${props.theme.border.outerTopLeft},
+    inset -4px -4px 0 0 ${props.theme.border.innerBottomRight},
+    inset 4px 4px 0 0 ${props.theme.border.innerTopLeft};
   border: 0;
 `
-export const hoverBorder = `
-  box-shadow: inset -2px -2px 0 0 ${borderColor.innerTopLeft},
-    inset 2px 2px 0 0 ${borderColor.innerBottomRight}, 
-    inset -4px -4px 0 0 ${borderColor.outerTopLeft},
-    inset 4px 4px 0 0 ${borderColor.outerBottomRight};
+export const hoverBorder = props => `
+  box-shadow: inset -2px -2px 0 0 ${props.theme.border.innerTopLeft},
+    inset 2px 2px 0 0 ${props.theme.border.innerBottomRight}, 
+    inset -4px -4px 0 0 ${props.theme.border.outerTopLeft},
+    inset 4px 4px 0 0 ${props.theme.border.outerBottomRight};
   border: 0;
-
   outline: 2px dotted ${colors.mediumGrey};
   outline-offset: -10px;
 `
-export const tableBorder = `
-  box-shadow: inset -2px -2px 0 0 ${borderColor.innerTopLeft},
-    inset 2px 2px 0 0 ${borderColor.innerBottomRight}, 
-    inset -4px -4px 0 0 ${borderColor.outerTopLeft},
-    inset 4px 4px 0 0 ${borderColor.outerBottomRight};
+export const tableBorder = props => `
+  box-shadow: inset -2px -2px 0 0 ${props.theme.border.innerTopLeft},
+    inset 2px 2px 0 0 ${props.theme.border.innerBottomRight}, 
+    inset -4px -4px 0 0 ${props.theme.border.outerTopLeft},
+    inset 4px 4px 0 0 ${props.theme.border.outerBottomRight};
   border: 0;
-
-  outline: 2px dotted ${colors.mediumGrey};
-  outline-offset: -10px;
 `
 
 export default GlobalStyle

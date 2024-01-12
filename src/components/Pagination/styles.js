@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { borderStyle, hoverBorder } from '@/lib/global'
-import { colors } from '@/lib/colors'
 
 export const PaginationContainer = styled.div`
   display: grid;
@@ -11,15 +10,16 @@ export const PaginationContainer = styled.div`
   align-items: center;
 `
 export const PageButton = styled.button`
-  background-color: ${colors.grey};
+  background-color: ${props => props.theme.button};
+  color: ${props => props.theme.font};
   padding: 0.5rem 1rem;
   font-weight: 600;
   cursor: pointer;
-  ${borderStyle}
+  ${props => borderStyle(props)}
   border: none;
 
   &:active {
-    ${hoverBorder}
+    ${props => hoverBorder(props)}
   }
 `
 const chrevronStyle = `
@@ -33,11 +33,11 @@ export const ChevronRight = styled.div`
   ${chrevronStyle}
   border-top: 0.35rem solid transparent;
   border-bottom: 0.35rem solid transparent;
-  border-left: 0.35rem solid ${colors.black};
+  border-left: 0.35rem solid ${props => props.theme.font};
 `
 export const ChevronLeft = styled.div`
   ${chrevronStyle}
   border-top: 0.35rem solid transparent;
   border-bottom: 0.35rem solid transparent;
-  border-right: 0.35rem solid ${colors.black};
+  border-right: 0.35rem solid ${props => props.theme.font};
 `

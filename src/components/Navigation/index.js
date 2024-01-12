@@ -6,14 +6,17 @@ import {
   LogoContainer,
   LogoTitle,
   NavMenuButton,
-  NavbarContainer
+  NavbarContainer,
+  ToggleContainer
 } from './styles'
 import { useEffect, useState } from 'react'
+import { useTheme } from '../ThemeProvider'
 
 const PAGE_LINKS = ['About', 'Specialties', 'Experience', 'Contact']
 export default function Navigation () {
   const [isVisible, setVisible] = useState(false)
   const router = useRouter()
+  const { themeMode, toggleTheme } = useTheme()
 
   const goHome = () => router.push('/')
   const onClickLink = link => () => router.push(link)
@@ -47,9 +50,14 @@ export default function Navigation () {
             Dan Popovic
           </LogoTitle>
         </LogoContainer>
-        <NavMenuButton id='nav-menu' onClick={toggleNav} $active={isVisible}>
-          !!!
-        </NavMenuButton>
+        <ToggleContainer>
+          <NavMenuButton id='theme-toggle' onClick={toggleTheme}>
+            {themeMode === 'dark' ? '🌞' : '🌜'}
+          </NavMenuButton>
+          <NavMenuButton id='nav-menu' onClick={toggleNav} $active={isVisible}>
+            !!!
+          </NavMenuButton>
+        </ToggleContainer>
       </NavbarContainer>
       <PageTabsContainer id='page-tabs' $visible={isVisible}>
         {PAGE_LINKS.map(composePageTabs)}

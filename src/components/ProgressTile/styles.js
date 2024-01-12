@@ -1,13 +1,12 @@
-import { colors } from '@/lib/colors'
 import { hoverBorder } from '@/lib/global'
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: grid;
-  ${hoverBorder}
+  ${props => hoverBorder(props)}
   outline: none;
   width: 100%;
-  background-color: ${colors.grey};
+  background-color: ${props => props.theme.primary};
 `
 export const ProgressBar = styled.div`
   display: grid;
@@ -23,6 +22,6 @@ export const Tile = styled.div`
   max-width: 12px;
   box-sizing: border-box;
   display: inline-flex;
-  background-color: ${colors.darkBlue};
+  background-color: ${props => props.theme.windowHeader};
   padding: 0.4rem;
 `

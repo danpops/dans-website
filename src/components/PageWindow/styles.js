@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { colors } from '@/lib/colors'
 import { devices } from '@/lib/devices'
 import { fonts } from '@/lib/fonts'
 
@@ -8,7 +7,7 @@ export const WindowHeader = styled.div`
   grid-template-columns: 1fr auto;
   grid-template-rows: 1fr;
   margin: 0.35rem;
-  background-color: ${colors.darkBlue};
+  background-color: ${props => props.theme.windowHeader};
 `
 export const WindowBody = styled.div`
   display: grid;
@@ -25,7 +24,7 @@ export const WindowBody = styled.div`
   }
 `
 export const WindowTitle = styled.div`
-  color: ${colors.white};
+  color: ${props => props.theme.windowTitle};
   font-size: ${fonts.sm};
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;

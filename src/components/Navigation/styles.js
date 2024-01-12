@@ -1,4 +1,3 @@
-import { colors } from '@/lib/colors'
 import { devices } from '@/lib/devices'
 import { fonts } from '@/lib/fonts'
 import { borderStyle, hoverBorder } from '@/lib/global'
@@ -22,16 +21,6 @@ const fadeOut = keyframes`
   }
 `
 
-const activeStyle = `
-  background-color: ${colors.lightGrey};
-  color: ${colors.black};
-  ${hoverBorder}
-`
-const tabStyle = `
-  background-color: ${colors.lightGrey};
-  color: ${colors.black};
-`
-
 export const NavigationContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -40,10 +29,10 @@ export const NavigationContainer = styled.div`
   align-content: center;
   position: sticky;
   top: 0;
-  background-color: ${colors.grey};
+  background-color: ${props => props.theme.secondary};
   z-index: 100;
   padding: 0.5rem;
-  ${borderStyle}
+  ${props => borderStyle(props)}
 
   @media ${devices.md} {
     padding: 0.5rem 4rem;
@@ -63,7 +52,14 @@ export const NavigationContainer = styled.div`
 export const NavbarContainer = styled.div`
   display: grid;
   align-content: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto;
+`
+export const ToggleContainer = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-items: flex-end;
+  column-gap: 1rem;
 `
 export const PageTabsContainer = styled.ul`
   display: ${props => (props.$visible ? 'grid' : 'none')};
@@ -98,15 +94,15 @@ export const TabItem = styled.li`
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
-  ${borderStyle};
+  ${props => borderStyle(props)};
   padding: 0.5rem 1.5rem;
-  background-color: ${colors.lightGrey};
-  color: ${colors.black};
+  background-color: ${props => props.theme.secondary};
+  color: ${props => props.theme.font};
 
-  ${({ $active }) => ($active ? activeStyle : '')}
+  ${({ $active }) => ($active ? hoverBorder : props => borderStyle(props))}
 
   &:active {
-    ${hoverBorder}
+    ${props => hoverBorder(props)}
   }
 
   @media ${devices.lg} {
@@ -127,15 +123,13 @@ export const NavMenuButton = styled.button`
   padding: 0.5rem;
   width: 2.5rem;
   cursor: pointer;
-  background-color: ${colors.lightGrey};
-  color: ${colors.black};
+  background-color: ${props => props.theme.secondary};
+  color: ${props => props.theme.font};
 
-  ${borderStyle}
-
-  ${({ $active }) => ($active ? activeStyle : '')}
+  ${({ $active }) => ($active ? hoverBorder : props => borderStyle(props))}
 
   &:active {
-    ${hoverBorder}
+    ${props => hoverBorder(props)}
   }
 
   @media ${devices.lg} {
@@ -157,8 +151,10 @@ export const LogoTitle = styled.div`
   cursor: pointer;
   transition: background-color 0.3s;
   user-select: none;
-  ${tabStyle}
-  ${borderStyle}
+  background-color: ${props => props.theme.secondary};
+  color: ${props => props.theme.font};
+
+  ${props => borderStyle(props)}
 
   @media ${devices.lg} {
     padding: 0.75rem 2rem;
@@ -167,6 +163,6 @@ export const LogoTitle = styled.div`
     font-size: ${fonts.md};
   }
   &:active {
-    ${hoverBorder}
+    ${props => hoverBorder(props)}
   }
 `
