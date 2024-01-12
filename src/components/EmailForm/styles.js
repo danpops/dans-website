@@ -1,4 +1,3 @@
-import { colors } from '@/lib/colors'
 import { fonts } from '@/lib/fonts'
 import { borderStyle, hoverBorder } from '@/lib/global'
 import styled from 'styled-components'
@@ -19,8 +18,8 @@ export const SubmitButton = styled.button`
   transition: background-color 0.3s;
   ${props => borderStyle(props)};
   padding: 0.5rem 0;
-  background-color: ${props => props.theme.button};
-  color: ${colors.black};
+  background-color: ${props => props.theme.secondary};
+  color: ${props => props.theme.font};
 
   &:hover {
     ${props => hoverBorder(props)}

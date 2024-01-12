@@ -17,7 +17,7 @@ export const ListItem = styled.a`
   font-weight: 500;
   font-size: ${fonts.sm};
   text-align: center;
-  background-color: ${props => props.theme.button};
+  background-color: ${props => props.theme.secondary};
   color: ${props => props.theme.font};
   padding: 0.5rem 2rem;
   ${props => borderStyle(props)}

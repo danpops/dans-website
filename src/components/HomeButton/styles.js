@@ -7,7 +7,7 @@ export const HomeButtonContainer = styled.button`
   display: grid;
   align-items: center;
   padding-bottom: 0.25rem;
-  background-color: ${props => props.theme.button};
+  background-color: ${props => props.theme.secondary};
   width: 1.5rem;
   justify-content: center;
   color: ${props => props.theme.font};

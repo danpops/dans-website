@@ -48,7 +48,7 @@ export const darkTheme = {
   font: colors.darkFont,
   heroTitle: colors.darkBlue,
   button: colors.darkButton,
-  buttonDisabled: colors.darkButtonDisabled,
+  buttonDisabled: colors.lightGrey,
   marquee: colors.darkBlue,
   windowHeader: colors.darkBackground,
   windowTitle: colors.white,
