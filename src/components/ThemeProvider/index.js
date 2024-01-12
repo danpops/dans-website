@@ -1,14 +1,12 @@
 import { ThemeProvider as SCThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme } from '@/lib/colors'
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext } from 'react'
+import useThemeProvider from '@/hooks/useThemeProvider'
 
 const ThemeContext = createContext()
 
 export default function ThemeProvider ({ children }) {
-  const [themeMode, setThemeMode] = useState('light')
-  const onChangeTheme = prevMode => (prevMode === 'light' ? 'dark' : 'light')
-  const toggleTheme = () => setThemeMode(onChangeTheme)
-  const theme = themeMode === 'dark' ? darkTheme : lightTheme
+  const { theme, themeMode, toggleTheme } = useThemeProvider()
+
   return (
     <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
       <SCThemeProvider theme={theme}>{children}</SCThemeProvider>

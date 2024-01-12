@@ -2,7 +2,9 @@ import React from 'react'
 import Head from 'next/head'
 import GlobalStyle from '@/lib/global'
 import { colors } from '@/lib/colors'
-import ThemeProvider from '@/components/ThemeProvider'
+import dynamic from 'next/dynamic'
+
+const ThemeProvider = dynamic(() => import('@/components/ThemeProvider'), { ssr: false })
 
 export default function MyApp ({ Component, pageProps }) {
   const getLayout = Component.getLayout || (page => page)
