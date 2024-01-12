@@ -7,7 +7,8 @@ import {
   LogoTitle,
   NavMenuButton,
   NavbarContainer,
-  ToggleContainer
+  ToggleContainer,
+  DesktopToggle
 } from './styles'
 import { useEffect, useState } from 'react'
 import { useTheme } from '../ThemeProvider'
@@ -17,6 +18,7 @@ export default function Navigation () {
   const [isVisible, setVisible] = useState(false)
   const router = useRouter()
   const { themeMode, toggleTheme } = useTheme()
+  const themeLabel = themeMode === 'dark' ? '🌞' : '🌜'
 
   const goHome = () => router.push('/')
   const onClickLink = link => () => router.push(link)
@@ -49,10 +51,13 @@ export default function Navigation () {
           <LogoTitle id='nav-logo' onClick={goHome}>
             Dan Popovic
           </LogoTitle>
+          <DesktopToggle id='theme-toggle' onClick={toggleTheme}>
+            {themeLabel}
+          </DesktopToggle>
         </LogoContainer>
         <ToggleContainer>
           <NavMenuButton id='theme-toggle' onClick={toggleTheme}>
-            {themeMode === 'dark' ? '🌞' : '🌜'}
+            {themeLabel}
           </NavMenuButton>
           <NavMenuButton id='nav-menu' onClick={toggleNav} $active={isVisible}>
             !!!

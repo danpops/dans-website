@@ -4,7 +4,7 @@ import { devices } from '@/lib/devices'
 import { borderStyle } from '@/lib/global'
 
 export const HeroTitle = styled.div`
-  color: ${props => props.theme.blue};
+  color: ${props => props.theme.heroTitle};
   font-size: 1.8rem;
   font-weight: bold;
 

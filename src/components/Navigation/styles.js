@@ -122,6 +122,7 @@ export const NavMenuButton = styled.button`
   align-items: center;
   padding: 0.5rem;
   width: 2.5rem;
+  height: 2.5rem;
   cursor: pointer;
   background-color: ${props => props.theme.secondary};
   color: ${props => props.theme.font};
@@ -141,6 +142,12 @@ export const LogoContainer = styled.div`
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   align-items: center;
+
+  @media ${devices.lg} {
+    grid-template-columns: 1fr auto;
+    justify-self: flex-start;
+    column-gap: 1rem;
+  }
 `
 export const LogoTitle = styled.div`
   display: grid;
@@ -164,5 +171,13 @@ export const LogoTitle = styled.div`
   }
   &:active {
     ${props => hoverBorder(props)}
+  }
+`
+export const DesktopToggle = styled(LogoTitle)`
+  display: none;
+
+  @media ${devices.lg} {
+    display: block;
+    padding: 0.75rem 1rem;
   }
 `
