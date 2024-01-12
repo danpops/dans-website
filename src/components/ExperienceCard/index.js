@@ -8,7 +8,7 @@ import {
 } from './styles'
 import Markdown from 'react-markdown'
 
-export default function ExperienceCard ({ item }) {
+export default function ExperienceCard ({ item, inverted }) {
   const composeExperienceDetails = (note, nIndex) => (
     <BodyText key={nIndex} id='experience-detail'>
       <Markdown>{note}</Markdown>
@@ -24,6 +24,7 @@ export default function ExperienceCard ({ item }) {
           alt={item.logo.alt}
           height={100}
           width={100}
+          inverted={inverted}
         />
         <TitleContainer>
           <BodyText id='experience-date'>{item.date}</BodyText>

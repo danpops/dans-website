@@ -8,7 +8,7 @@ export const StickyWrapper = styled.div`
   bottom: 2rem;
   right: -3rem;
   cursor: pointer;
-  
+
   @media ${devices.lg} {
     right: -2rem;
     bottom: 0;
@@ -17,4 +17,5 @@ export const StickyWrapper = styled.div`
 export const StickyImage = styled(Image)`
   width: 10rem;
   height: 10rem;
+  ${props => (props.inverted ? 'filter: invert(100%);' : '')}
 `

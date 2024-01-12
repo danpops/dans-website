@@ -9,8 +9,12 @@ import {
   WelcomeImg
 } from '@/components/HeroBanner'
 import { Heading3 } from '@/components/Text'
+import { useTheme } from '@/components/ThemeProvider'
 
 export default function Home ({ data, goToAbout, goToContact }) {
+  const { themeMode } = useTheme()
+  const inverted = themeMode === 'dark'
+
   return (
     <HeroContainer id='hero-window'>
       <WelcomeImg
@@ -18,6 +22,7 @@ export default function Home ({ data, goToAbout, goToContact }) {
         alt={data.welcomeGif.alt}
         width={150}
         height={100}
+        inverted={inverted}
       />
       <Heading3 style={{ margin: 0 }}>to</Heading3>
       <TitleContainer>
@@ -26,6 +31,7 @@ export default function Home ({ data, goToAbout, goToContact }) {
           alt={data.iconGif.alt}
           width={50}
           height={50}
+          inverted={inverted}
         />
         <HeroTitle id='hero-title'>{data.title}</HeroTitle>
         <MatrixGif
@@ -33,6 +39,7 @@ export default function Home ({ data, goToAbout, goToContact }) {
           alt={data.iconGif.alt}
           width={50}
           height={50}
+          inverted={inverted}
         />
       </TitleContainer>
       <LinkContainer>
@@ -42,6 +49,7 @@ export default function Home ({ data, goToAbout, goToContact }) {
           width={95}
           height={30}
           onClick={goToAbout}
+          inverted={inverted}
         />
         <LinkImage
           src={data.contactLinkGif.image}
@@ -49,6 +57,7 @@ export default function Home ({ data, goToAbout, goToContact }) {
           width={120}
           height={30}
           onClick={goToContact}
+          inverted={inverted}
         />
       </LinkContainer>
       <Copyright />

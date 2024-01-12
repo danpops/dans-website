@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import { colors } from './colors'
 import ttf from './fonts/MS-Sans-Serif-8pt.ttf'
 import ttfBold from './fonts/MS-Sans-Serif-8pt-bold.ttf'
 
@@ -44,7 +43,7 @@ export const hoverBorder = props => `
     inset -4px -4px 0 0 ${props.theme.border.outerTopLeft},
     inset 4px 4px 0 0 ${props.theme.border.outerBottomRight};
   border: 0;
-  outline: 2px dotted ${colors.mediumGrey};
+  outline: 2px dotted ${props.theme.buttonDisabled};
   outline-offset: -10px;
 `
 export const tableBorder = props => `

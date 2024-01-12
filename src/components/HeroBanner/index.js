@@ -42,6 +42,7 @@ export const TitleContainer = styled.div`
 export const MatrixGif = styled(Image)`
   width: 3rem;
   height: 2rem;
+  ${props => (props.inverted ? 'filter: invert(100%);' : '')}
   @media ${devices.lg} {
     width: 6rem;
     height: 4rem;
@@ -50,6 +51,8 @@ export const MatrixGif = styled(Image)`
 export const WelcomeImg = styled(Image)`
   width: 15rem;
   height: 5rem;
+
+  ${props => (props.inverted ? 'filter: invert(100%);' : '')}
 
   @media ${devices.md} {
     width: 22rem;
@@ -72,4 +75,5 @@ export const LinkContainer = styled.div`
 export const LinkImage = styled(Image)`
   display: grid;
   cursor: pointer;
+  ${props => (props.inverted ? 'filter: invert(100%);' : '')}
 `

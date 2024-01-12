@@ -16,6 +16,7 @@ export const CompanyImage = styled(Image)`
   height: 5rem;
   width: 5rem;
   margin-right: 1rem;
+  ${props => (props.inverted ? 'filter: invert(100%);' : '')}
   @media ${devices.lg} {
     width: 8rem;
     height: 8rem;

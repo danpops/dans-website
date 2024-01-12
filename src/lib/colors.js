@@ -1,9 +1,6 @@
 export const colors = {
   darkBlue: '#000e7a',
-  darkGreen: '#00665e',
-  red: '#e35f5f',
   yellow: '#ffff00',
-  blue: '#0827f5',
   blueSecondary: '#357EC7',
   grey: '#c0c0c0',
   mediumGrey: '#808080',
@@ -14,7 +11,14 @@ export const colors = {
   darkFont: '#FFFFFF',
   darkButton: '#263238',
   darkButtonDisabled: '#546e7a',
-  darkBlueHover: '#004080'
+  darkBlueHover: '#004080',
+  rustyOrange: '#ca8138',
+  charcoal: '#3f3f3f',
+  lavenderBlush: '#F7D8FA',
+  darkSlateGrey: '#333333',
+  slateGrey: '#7f7f7f',
+  blue: '#0000ff',
+  paleGolden: '#fff185'
 }
 export const lightTheme = {
   primary: colors.blueSecondary,
@@ -43,22 +47,22 @@ export const lightTheme = {
   }
 }
 export const darkTheme = {
-  primary: colors.darkGreen,
-  secondary: colors.mediumGrey,
-  font: colors.darkFont,
-  heroTitle: colors.darkBlue,
-  button: colors.darkButton,
-  buttonDisabled: colors.lightGrey,
-  marquee: colors.darkBlue,
-  windowHeader: colors.darkBackground,
-  windowTitle: colors.white,
+  primary: colors.rustyOrange,
+  secondary: colors.charcoal,
+  font: colors.white,
+  heroTitle: colors.lavenderBlush,
+  button: colors.darkSlateGrey,
+  buttonDisabled: colors.slateGrey,
+  marquee: colors.blue,
+  windowHeader: colors.paleGolden,
+  windowTitle: colors.black,
   table: {
-    header: colors.grey,
+    header: colors.charcoal,
     row: {
-      bg: colors.darkBackground,
-      font: colors.darkFont,
-      hover: colors.darkBlueHover,
-      hoverFont: colors.white
+      bg: colors.black,
+      font: colors.white,
+      hover: colors.paleGolden,
+      hoverFont: colors.black
     }
   },
   border: {
