@@ -25,7 +25,7 @@ export const PageMarqueeWrapper = styled.div`
 export const CustomMarquee = styled(Marquee)`
   background-color: ${props => props.theme.marquee};
   color: ${props => props.theme.marqueeText};
-  font-size: ${fonts.sm};
+  font-size: ${fonts.xs};
   font-weight: 500;
   height: 2rem;
 
