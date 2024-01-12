@@ -66,9 +66,9 @@ export const darkTheme = {
     }
   },
   border: {
-    innerBottomRight: colors.mediumGrey,
-    innerTopLeft: colors.lightGrey,
+    innerBottomRight: colors.darkSlateGrey,
+    innerTopLeft: colors.slateGrey,
     outerBottomRight: colors.black,
-    outerTopLeft: colors.white
+    outerTopLeft: colors.grey
   }
 }
