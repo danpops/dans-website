@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { WindowBody } from '../PageWindow/styles'
-import { borderStyle } from '@/design/global'
-import { colors } from '@/design/colors'
+import { borderStyle } from '@/lib/global'
+import { colors } from '@/lib/colors'
 
 export const TableContainer = styled.div`
   overflow: auto;

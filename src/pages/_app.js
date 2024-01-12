@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import GlobalStyle from '@/design/global'
-import { colors } from '@/design/colors'
+import GlobalStyle from '@/lib/global'
+import { colors } from '@/lib/colors'
 
 export default function MyApp ({ Component, pageProps }) {
   const getLayout = Component.getLayout || (page => page)

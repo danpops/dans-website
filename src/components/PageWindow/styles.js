@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { colors } from '@/design/colors'
-import { devices } from '@/design/devices'
-import { fonts } from '@/design/fonts'
+import { colors } from '@/lib/colors'
+import { devices } from '@/lib/devices'
+import { fonts } from '@/lib/fonts'
 
 export const WindowHeader = styled.div`
   display: grid;

@@ -1,5 +1,5 @@
-import { colors } from '@/design/colors'
-import { hoverBorder } from '@/design/global'
+import { colors } from '@/lib/colors'
+import { hoverBorder } from '@/lib/global'
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`

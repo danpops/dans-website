@@ -1,4 +1,4 @@
-import { devices } from '@/design/devices'
+import { devices } from '@/lib/devices'
 import Image from 'next/image'
 import styled from 'styled-components'
 

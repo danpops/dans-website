@@ -1,6 +1,6 @@
-import { devices } from '@/design/devices'
-import { fonts } from '@/design/fonts'
-import { borderStyle, hoverBorder } from '@/design/global'
+import { devices } from '@/lib/devices'
+import { fonts } from '@/lib/fonts'
+import { borderStyle, hoverBorder } from '@/lib/global'
 import styled from 'styled-components'
 
 export const ListBoxContainer = styled.div`

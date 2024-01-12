@@ -1,4 +1,4 @@
-import { colors } from '@/design/colors'
+import { colors } from '@/lib/colors'
 import { ListBoxContainer, ListItem } from './styles'
 
 export default function ListBox (props) {

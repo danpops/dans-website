@@ -1,7 +1,7 @@
-import { colors } from '@/design/colors'
-import { devices } from '@/design/devices'
-import { fonts } from '@/design/fonts'
-import { borderStyle, hoverBorder } from '@/design/global'
+import { colors } from '@/lib/colors'
+import { devices } from '@/lib/devices'
+import { fonts } from '@/lib/fonts'
+import { borderStyle, hoverBorder } from '@/lib/global'
 import styled from 'styled-components'
 
 export const HomeButtonContainer = styled.button`

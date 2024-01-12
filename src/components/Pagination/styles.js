@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { borderStyle, hoverBorder } from '@/design/global'
-import { colors } from '@/design/colors'
+import { borderStyle, hoverBorder } from '@/lib/global'
+import { colors } from '@/lib/colors'
 
 export const PaginationContainer = styled.div`
   display: grid;

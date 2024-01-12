@@ -1,6 +1,6 @@
-import { colors } from '@/design/colors'
-import { fonts } from '@/design/fonts'
-import { borderStyle, hoverBorder } from '@/design/global'
+import { colors } from '@/lib/colors'
+import { fonts } from '@/lib/fonts'
+import { borderStyle, hoverBorder } from '@/lib/global'
 import styled from 'styled-components'
 
 export const CustomForm = styled.form`

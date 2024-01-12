@@ -1,6 +1,6 @@
-import { colors } from '@/design/colors'
-import { devices } from '@/design/devices'
-import { borderStyle } from '@/design/global'
+import { colors } from '@/lib/colors'
+import { devices } from '@/lib/devices'
+import { borderStyle } from '@/lib/global'
 import styled from 'styled-components'
 
 export const FullPageContainer = styled.div`

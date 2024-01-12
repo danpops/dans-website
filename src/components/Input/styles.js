@@ -1,6 +1,6 @@
-import { colors } from '@/design/colors'
-import { fonts } from '@/design/fonts'
-import { hoverBorder } from '@/design/global'
+import { colors } from '@/lib/colors'
+import { fonts } from '@/lib/fonts'
+import { hoverBorder } from '@/lib/global'
 import styled from 'styled-components'
 
 export const CustomInput = styled.input`

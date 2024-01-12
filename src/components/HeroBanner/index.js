@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import styled from 'styled-components'
-import { colors } from '@/design/colors'
-import { devices } from '@/design/devices'
-import { borderStyle } from '@/design/global'
+import { colors } from '@/lib/colors'
+import { devices } from '@/lib/devices'
+import { borderStyle } from '@/lib/global'
 
 export const HeroTitle = styled.div`
   color: ${colors.blue};

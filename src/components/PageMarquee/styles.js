@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { colors } from '@/design/colors'
-import { fonts } from '@/design/fonts'
-import { borderStyle } from '@/design/global'
-import { devices } from '@/design/devices'
+import { colors } from '@/lib/colors'
+import { fonts } from '@/lib/fonts'
+import { borderStyle } from '@/lib/global'
+import { devices } from '@/lib/devices'
 import Marquee from 'react-fast-marquee'
 
 export const PageMarqueeWrapper = styled.div`

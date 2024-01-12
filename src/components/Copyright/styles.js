@@ -1,5 +1,5 @@
-import { colors } from '@/design/colors'
-import { fonts } from '@/design/fonts'
+import { colors } from '@/lib/colors'
+import { fonts } from '@/lib/fonts'
 import styled from 'styled-components'
 
 export const CopyrightText = styled.div`

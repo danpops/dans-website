@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { borderStyle, hoverBorder, tableBorder } from '@/design/global'
-import { colors } from '@/design/colors'
-import { devices } from '@/design/devices'
-import { fonts } from '@/design/fonts'
+import { borderStyle, hoverBorder, tableBorder } from '@/lib/global'
+import { colors } from '@/lib/colors'
+import { devices } from '@/lib/devices'
+import { fonts } from '@/lib/fonts'
 
 export const LoadingContainer = styled.div`
   display: grid;

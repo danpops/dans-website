@@ -96,11 +96,10 @@ The project follows the structure below:
 - `/src`: Source code of the application.
 
   - `/cms`: Location for Sanity CMS query, client, and schema files.
-  - `/containers`: Dedicated JSX containers for organizing and assembling components into coherent pages. The containers serve as structured compositions of components, facilitating the creation of specific pages.
   - `/components`: Reusable React components.
-  - `/design`: Fonts, device breakpoints, and colors.
+  - `/containers`: Dedicated JSX containers for organizing and assembling components into coherent pages. The containers serve as structured compositions of components, facilitating the creation of specific pages.
   - `/hooks`: Custom React hooks used within the applicaiton.
-  - `/lib`: API files, etc.
+  - `/lib`: API, fonts, device breakpoints, and colors.
   - `/pages`: Next.js pages.
 
 Feel free to explore each folder for additional details and customizations.
