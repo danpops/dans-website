@@ -5,9 +5,10 @@ import { useTheme } from '../ThemeProvider'
 
 export default function StickyGif () {
   const router = useRouter()
+  const visible = router.pathname !== '/records'
   const { isDarkMode } = useTheme()
   const onClickRecords = () => router.push('/records')
-
+  if (!visible) return
   return (
     <StickyWrapper onClick={onClickRecords} id='sticky-gif'>
       <StickyImage
