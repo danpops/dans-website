@@ -31,4 +31,13 @@ export const GET_LANDING = groq`*[_type == "landing"][0]{
   contactLinkGif {alt, "image": asset->url}
 }`
 export const GET_RECORDS = groq`*[_type == "records"][0]`
-export const GET_SPECIALTIES = groq`*[_type == "specialties"][0]`
+export const GET_SPECIALTIES = groq`*[_type == "specialties"][0]{
+  _id,
+  title,
+  summary,
+  'specialtyLinks': specialtyLinks[] {
+    name,
+    link,
+    logo {alt, "image": asset->url},
+  }
+}`
