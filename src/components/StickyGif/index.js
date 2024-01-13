@@ -14,7 +14,7 @@ export default function StickyGif () {
         src={homerGif}
         alt='homer gif'
         priority
-        inverted={isDarkMode}
+        $inverted={isDarkMode}
       />
     </StickyWrapper>
   )

@@ -8,7 +8,7 @@ export default function Experience (props) {
     <ContentContainer>
       <BodyText id='specialties-text'>{data.summary}</BodyText>
       {data.cards.map((item, index) => (
-        <ExperienceCard key={index} item={item} inverted={isDarkMode} />
+        <ExperienceCard key={index} item={item} $inverted={isDarkMode} />
       ))}
     </ContentContainer>
   )

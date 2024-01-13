@@ -19,7 +19,7 @@ export default function Landing (props) {
         alt={data.welcomeGif.alt}
         width={150}
         height={100}
-        inverted={isDarkMode}
+        $inverted={isDarkMode}
       />
       <Heading3 style={{ margin: 0 }}>to</Heading3>
       <TitleContainer>
@@ -28,7 +28,7 @@ export default function Landing (props) {
           alt={data.iconGif.alt}
           width={50}
           height={50}
-          inverted={isDarkMode}
+          $inverted={isDarkMode}
         />
         <HeroTitle id='hero-title'>{data.title}</HeroTitle>
         <MatrixGif
@@ -36,7 +36,7 @@ export default function Landing (props) {
           alt={data.iconGif.alt}
           width={50}
           height={50}
-          inverted={isDarkMode}
+          $inverted={isDarkMode}
         />
       </TitleContainer>
       <LinkContainer>
@@ -46,7 +46,7 @@ export default function Landing (props) {
           width={95}
           height={30}
           onClick={goToAbout}
-          inverted={isDarkMode}
+          $inverted={isDarkMode}
         />
         <LinkImage
           src={data.contactLinkGif.image}
@@ -54,7 +54,7 @@ export default function Landing (props) {
           width={120}
           height={30}
           onClick={goToContact}
-          inverted={isDarkMode}
+          $inverted={isDarkMode}
         />
       </LinkContainer>
       <Copyright />

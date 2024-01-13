@@ -17,5 +17,5 @@ export const StickyWrapper = styled.div`
 export const StickyImage = styled(Image)`
   width: 10rem;
   height: 10rem;
-  ${props => (props.inverted ? 'filter: invert(100%);' : '')}
+  ${props => (props.$inverted ? 'filter: invert(100%);' : '')}
 `

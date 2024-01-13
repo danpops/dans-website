@@ -24,7 +24,7 @@ export default function ExperienceCard ({ item, inverted }) {
           alt={item.logo.alt}
           height={100}
           width={100}
-          inverted={inverted}
+          $inverted={inverted}
         />
         <TitleContainer>
           <BodyText id='experience-date'>{item.date}</BodyText>

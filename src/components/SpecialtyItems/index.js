@@ -21,7 +21,7 @@ export default function SpecialtyItems (props) {
         >
           <SpecialtyImageContainer>
             <SpecialtyImage
-              inverted={isDarkMode}
+              $inverted={isDarkMode}
               src={item.logo.image}
               alt={item.logo.alt}
               width={20}

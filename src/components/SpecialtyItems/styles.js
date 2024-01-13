@@ -39,5 +39,5 @@ export const SpecialtyImageContainer = styled.div`
 export const SpecialtyImage = styled(Image)`
   width: 2rem;
   height: 2rem;
-  ${props => (props.inverted ? 'filter: invert(100%);' : '')}
+  ${props => (props.$inverted ? 'filter: invert(100%);' : '')}
 `
