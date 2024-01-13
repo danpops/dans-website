@@ -25,16 +25,8 @@ export const PageMarqueeWrapper = styled.div`
 export const CustomMarquee = styled(Marquee)`
   background-color: ${props => props.theme.marquee};
   color: ${props => props.theme.marqueeText};
-  font-size: ${fonts.xs};
-  font-weight: 500;
   height: 2rem;
 
-  @media ${devices.md} {
-    font-size: ${fonts.md};
-  }
-  @media ${devices.lg} {
-    font-size: ${fonts.lg};
-  }
   @media ${devices.xl} {
     height: 2.5rem;
   }
@@ -44,4 +36,12 @@ export const PreText = styled.pre`
   align-self: center;
   line-height: 0;
   font-family: 'MS Sans Serif', sans-serif !important;
+  font-weight: 500;
+  font-size: ${fonts.xs} !important;
+  @media ${devices.md} {
+    font-size: ${fonts.md} !important;
+  }
+  @media ${devices.lg} {
+    font-size: ${fonts.lg} !important;
+  }
 `

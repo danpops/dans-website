@@ -2,9 +2,11 @@ import { getWindowLayout } from '@/components/Layout'
 import client from '@/cms/client'
 import { GET_ABOUT } from '@/cms/queries'
 import About from '@/containers/About'
+import { useTheme } from '@/components/ThemeProvider'
 
 export default function AboutPage ({ data }) {
-  return <About data={data} />
+  const { isDarkMode } = useTheme()
+  return <About data={data} isDarkMode={isDarkMode} />
 }
 export async function getStaticProps () {
   const id = 'about'

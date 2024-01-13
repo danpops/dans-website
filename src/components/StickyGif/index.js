@@ -5,9 +5,8 @@ import { useTheme } from '../ThemeProvider'
 
 export default function StickyGif () {
   const router = useRouter()
-  const { themeMode } = useTheme()
+  const { isDarkMode } = useTheme()
   const onClickRecords = () => router.push('/records')
-  const inverted = themeMode === 'dark'
 
   return (
     <StickyWrapper onClick={onClickRecords} id='sticky-gif'>
@@ -15,7 +14,7 @@ export default function StickyGif () {
         src={homerGif}
         alt='homer gif'
         priority
-        inverted={inverted}
+        inverted={isDarkMode}
       />
     </StickyWrapper>
   )

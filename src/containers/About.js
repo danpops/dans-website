@@ -1,13 +1,10 @@
 import Image from 'next/image'
 import { ContentContainer } from '@/components/Layout/styles'
 import { BodyText } from '@/components/Text'
-import { useTheme } from '@/components/ThemeProvider'
 
-export default function About ({ data }) {
-  const { themeMode } = useTheme()
-  const inverted = themeMode === 'dark'
-  const imgStyle = inverted ? { filter: 'invert(100%)' } : {}
-
+export default function About (props) {
+  const { data, isDarkMode } = props
+  const imgStyle = isDarkMode ? { filter: 'invert(100%)' } : {}
   return (
     <ContentContainer>
       <Image

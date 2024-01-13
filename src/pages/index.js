@@ -1,14 +1,23 @@
 import { getHeroLayout } from '@/components/Layout'
 import client from '@/cms/client'
 import { GET_LANDING } from '@/cms/queries'
-import Home from '@/containers/Home'
+import Landing from '@/containers/Landing'
 import { useRouter } from 'next/router'
+import { useTheme } from '@/components/ThemeProvider'
 
 export default function LandingPage ({ data }) {
   const router = useRouter()
+  const { isDarkMode } = useTheme()
   const goToAbout = () => router.push('/about')
   const goToContact = () => router.push('/contact')
-  return <Home data={data} goToAbout={goToAbout} goToContact={goToContact} />
+  return (
+    <Landing
+      data={data}
+      goToAbout={goToAbout}
+      goToContact={goToContact}
+      isDarkMode={isDarkMode}
+    />
+  )
 }
 export async function getStaticProps () {
   const id = 'landing'

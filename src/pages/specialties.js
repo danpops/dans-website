@@ -1,10 +1,12 @@
 import client from '@/cms/client'
 import { GET_SPECIALTIES } from '@/cms/queries'
 import { getWindowLayout } from '@/components/Layout'
+import { useTheme } from '@/components/ThemeProvider'
 import Specialties from '@/containers/Specialties'
 
 export default function SpecialtiesPage ({ data }) {
-  return <Specialties data={data} />
+  const { isDarkMode } = useTheme()
+  return <Specialties data={data} isDarkMode={isDarkMode} />
 }
 export async function getStaticProps () {
   const id = 'specialties'

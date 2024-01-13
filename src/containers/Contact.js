@@ -3,7 +3,8 @@ import { ContentContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
 import { BodyText } from '@/components/Text'
 
-export default function Contact ({ data, contact }) {
+export default function Contact (props) {
+  const { data, contact } = props
   return (
     <ContentContainer>
       <BodyText id='contact-text'>{data.summary}</BodyText>

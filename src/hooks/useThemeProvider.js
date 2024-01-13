@@ -24,7 +24,8 @@ export default function useThemeProvider () {
       return newMode
     })
 
-  const theme = themeMode === 'dark' ? darkTheme : lightTheme
+  const isDarkMode = themeMode === 'dark'
+  const theme = isDarkMode ? darkTheme : lightTheme
 
-  return { theme, toggleTheme, themeMode }
+  return { theme, toggleTheme, themeMode, isDarkMode }
 }

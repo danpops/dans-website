@@ -2,9 +2,11 @@ import { getWindowLayout } from '@/components/Layout'
 import client from '@/cms/client'
 import { GET_EXPERIENCE } from '@/cms/queries'
 import Experience from '@/containers/Experience'
+import { useTheme } from '@/components/ThemeProvider'
 
 export default function ExperiencePage ({ data }) {
-  return <Experience data={data} />
+  const { isDarkMode } = useTheme()
+  return <Experience data={data} isDarkMode={isDarkMode} />
 }
 export async function getStaticProps () {
   const id = 'experience'
