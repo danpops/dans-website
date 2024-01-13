@@ -21,7 +21,7 @@ export const SpecialtyItemContainer = styled.a`
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
   align-items: center;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
   column-gap: 1rem;
   background-color: ${props => props.theme.secondary};
   color: ${props => props.theme.font};
