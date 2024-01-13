@@ -1,4 +1,5 @@
 import { fetchDiscogsData } from '@/lib/api'
+import { getPageNumbers } from '@/lib/dataUtils'
 import { useEffect, useState } from 'react'
 
 export default function useCollection ({ records, pagination }) {
@@ -13,13 +14,12 @@ export default function useCollection ({ records, pagination }) {
     setLoading(false)
   }, [records, pagination])
 
-  const onSelectPage = async (type = 'next') => {
+  const onSelectPage = async page => {
     setLoading(true)
-    const newPageNumber = type === 'next' ? currentPage + 1 : currentPage - 1
-    setCurrentPage(newPageNumber)
+    setCurrentPage(page)
     await fetchDiscogsData({
       discogsKey: process.env.DISCOGS_KEY ?? '',
-      page: newPageNumber
+      page
     })
       .then(data => {
         setMyCollection(data.records)
@@ -34,5 +34,14 @@ export default function useCollection ({ records, pagination }) {
       })
   }
 
-  return { loading, myCollection, onSelectPage, currentPage, paginationInfo }
+  const pageList = getPageNumbers(paginationInfo.pages, currentPage)
+
+  return {
+    loading,
+    myCollection,
+    onSelectPage,
+    currentPage,
+    paginationInfo,
+    pageList
+  }
 }

@@ -6,19 +6,8 @@ import { GET_RECORDS } from '@/cms/queries'
 import Records from '@/containers/Records'
 
 export default function RecordsPage ({ title, records, pagination, data }) {
-  const { loading, myCollection, onSelectPage, currentPage, paginationInfo } =
-    useCollection({ records, pagination })
-  return (
-    <Records
-      data={data}
-      title={title}
-      loading={loading}
-      myCollection={myCollection}
-      onSelectPage={onSelectPage}
-      currentPage={currentPage}
-      paginationInfo={paginationInfo}
-    />
-  )
+  const collection = useCollection({ records, pagination })
+  return <Records data={data} title={title} {...collection} />
 }
 export async function getServerSideProps () {
   const id = 'records'

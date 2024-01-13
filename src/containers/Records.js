@@ -14,7 +14,8 @@ export default function Records (props) {
     myCollection,
     onSelectPage,
     currentPage,
-    paginationInfo
+    paginationInfo,
+    pageList
   } = props
 
   return (
@@ -32,6 +33,7 @@ export default function Records (props) {
         onChange={onSelectPage}
         currentPage={currentPage}
         pages={paginationInfo.pages}
+        pageList={pageList}
       />
       <Copyright />
     </TableWindow>

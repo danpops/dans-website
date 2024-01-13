@@ -9,17 +9,31 @@ export const PaginationContainer = styled.div`
   column-gap: 1rem;
   align-items: center;
 `
+export const PageButtonContainer = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
+  column-gap: 0.5rem;
+`
 export const PageButton = styled.button`
-  background-color: ${props => props.theme.button};
-  color: ${props => props.theme.font};
   padding: 0.5rem 1rem;
   font-weight: 600;
   cursor: pointer;
   ${props => borderStyle(props)}
   border: none;
+  font-family: 'MS Sans Serif' !important;
+
+  ${({ $active, theme }) => `
+    background-color: ${$active ? theme.heroTitle : theme.button};
+    color: ${$active ? theme.windowTitle : theme.font};
+  `}
 
   &:active {
     ${props => hoverBorder(props)}
+  }
+  &:disabled {
+    background-color: ${props => props.theme.buttonDisabled};
+    cursor: not-allowed;
   }
 `
 const chrevronStyle = `
@@ -28,16 +42,14 @@ const chrevronStyle = `
   display: inline-block;
   width: 0;
   height: 0;
+  border-top: 0.35rem solid transparent;
+  border-bottom: 0.35rem solid transparent;
 `
 export const ChevronRight = styled.div`
   ${chrevronStyle}
-  border-top: 0.35rem solid transparent;
-  border-bottom: 0.35rem solid transparent;
   border-left: 0.35rem solid ${props => props.theme.font};
 `
 export const ChevronLeft = styled.div`
   ${chrevronStyle}
-  border-top: 0.35rem solid transparent;
-  border-bottom: 0.35rem solid transparent;
   border-right: 0.35rem solid ${props => props.theme.font};
 `
