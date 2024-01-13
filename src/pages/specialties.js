@@ -1,7 +1,7 @@
 import client from '@/cms/client'
 import { GET_SPECIALTIES } from '@/cms/queries'
 import { getWindowLayout } from '@/components/Layout'
-import { useTheme } from '@/components/ThemeProvider'
+import { useTheme } from '@/components/Layout/ThemeProvider'
 import Specialties from '@/containers/Specialties'
 
 export default function SpecialtiesPage ({ data }) {

@@ -1,14 +1,10 @@
-import HomeButton from '../HomeButton'
-import { WindowHeader, WindowTitle } from '../PageWindow/styles'
+import WindowHeader from '../WindowHeader'
 import { TableWindowBody, TableWindowWrapper } from './styles'
 
 export default function TableWindow ({ id, title, children }) {
   return (
     <TableWindowWrapper id={id}>
-      <WindowHeader>
-        <WindowTitle id={`${id}-title`}>{title}</WindowTitle>
-        <HomeButton />
-      </WindowHeader>
+      <WindowHeader id={id} title={title} />
       <TableWindowBody>{children}</TableWindowBody>
     </TableWindowWrapper>
   )

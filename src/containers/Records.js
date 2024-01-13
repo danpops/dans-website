@@ -1,10 +1,10 @@
 import Markdown from 'react-markdown'
-import TableWindow from '@/components/TableWindow'
+import TableWindow from '@/components/Layout/TableWindow'
 import { TableBodyText } from '@/components/Text'
-import { TableContainer } from '@/components/TableWindow/styles'
+import { TableContainer } from '@/components/Layout/TableWindow/styles'
 import RecordTable from '@/components/RecordTable'
 import Pagination from '@/components/Pagination'
-import Copyright from '@/components/Copyright'
+import Copyright from '@/components/Layout/Copyright'
 
 export default function Records (props) {
   const {

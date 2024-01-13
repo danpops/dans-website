@@ -20,7 +20,8 @@ export const Heading2 = styled.h2`
 `
 export const Heading3 = styled.h3`
   font-size: ${fonts.md};
-  line-height: 2rem;
+  line-height: 1rem;
+  margin: 0;
 
   @media ${devices.md} {
     font-size: ${fonts.lg};
@@ -29,6 +30,7 @@ export const Heading3 = styled.h3`
 export const Heading4 = styled.h4`
   font-size: ${fonts.sm};
   line-height: 1rem;
+  margin: 0;
 
   @media ${devices.md} {
     font-size: ${fonts.md};

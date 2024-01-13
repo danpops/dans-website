@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   ${props => hoverBorder(props)}
   outline: none;
   width: 100%;
-  background-color: ${props => props.theme.primary};
+  background-color: ${props => props.theme.secondary};
 `
 export const ProgressBar = styled.div`
   display: grid;

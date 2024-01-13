@@ -3,7 +3,7 @@ import client from '@/cms/client'
 import { GET_LANDING } from '@/cms/queries'
 import Landing from '@/containers/Landing'
 import { useRouter } from 'next/router'
-import { useTheme } from '@/components/ThemeProvider'
+import { useTheme } from '@/components/Layout/ThemeProvider'
 
 export default function LandingPage ({ data }) {
   const router = useRouter()

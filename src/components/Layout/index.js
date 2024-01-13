@@ -1,8 +1,8 @@
 import { PageContainer, FullPageContainer, WindowContainer } from './styles'
-import Navigation from '../Navigation'
-import PageMarquee from '../PageMarquee'
-import StickyGif from '../StickyGif'
-import PageWindow from '../PageWindow'
+import Navigation from './Navigation'
+import PageMarquee from './PageMarquee'
+import StickyGif from './StickyGif'
+import PageWindow from './PageWindow'
 
 export { getDefaultLayout, getWindowLayout, getHeroLayout }
 

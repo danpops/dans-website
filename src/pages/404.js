@@ -1,8 +1,8 @@
-import ErrorMessage from '@/components/ErrorMessage'
 import { getWindowLayout } from '@/components/Layout'
+import NotFound from '@/containers/NotFound'
 
-export default function ErrorPage () {
-  return <ErrorMessage />
+export default function NotFoundPage () {
+  return <NotFound />
 }
 export function getStaticProps () {
   const id = 'error'
@@ -10,4 +10,4 @@ export function getStaticProps () {
   return { props: { id, title } }
 }
 
-ErrorPage.getLayout = getWindowLayout
+NotFoundPage.getLayout = getWindowLayout

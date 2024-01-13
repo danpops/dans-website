@@ -4,7 +4,7 @@ import GlobalStyle from '@/lib/global'
 import dynamic from 'next/dynamic'
 import useThemeProvider from '@/hooks/useThemeProvider'
 
-const ThemeProvider = dynamic(() => import('@/components/ThemeProvider'), { ssr: false })
+const ThemeProvider = dynamic(() => import('@/components/Layout/ThemeProvider'), { ssr: false })
 
 export default function MyApp ({ Component, pageProps }) {
   const getLayout = Component.getLayout || (page => page)

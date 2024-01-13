@@ -2,7 +2,7 @@ import { getWindowLayout } from '@/components/Layout'
 import client from '@/cms/client'
 import { GET_ABOUT } from '@/cms/queries'
 import About from '@/containers/About'
-import { useTheme } from '@/components/ThemeProvider'
+import { useTheme } from '@/components/Layout/ThemeProvider'
 
 export default function AboutPage ({ data }) {
   const { isDarkMode } = useTheme()
