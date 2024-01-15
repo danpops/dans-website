@@ -15,7 +15,8 @@ export default function Records (props) {
     onSelectPage,
     currentPage,
     paginationInfo,
-    pageList
+    pageList,
+    totalAlbums
   } = props
 
   return (
@@ -24,6 +25,9 @@ export default function Records (props) {
         <TableBodyText id='records-info'>{data.summary}</TableBodyText>
         <TableBodyText id='discogs-collection-link'>
           <Markdown>{data.discogsMessage}</Markdown>
+        </TableBodyText>
+        <TableBodyText id='total-albums'>
+          Total Albums: {totalAlbums}
         </TableBodyText>
       </div>
       <TableContainer>
