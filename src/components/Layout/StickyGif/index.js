@@ -7,10 +7,11 @@ export default function StickyGif () {
   const router = useRouter()
   const visible = router.pathname !== '/records'
   const { isDarkMode } = useTheme()
-  const onClickRecords = () => router.push('/records')
+
   if (!visible) return
+
   return (
-    <StickyWrapper onClick={onClickRecords} id='sticky-gif'>
+    <StickyWrapper id='sticky-gif'>
       <StickyImage
         src={homerGif}
         alt='homer gif'

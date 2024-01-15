@@ -72,12 +72,12 @@ export const PageTabsContainer = styled.ul`
   row-gap: 0.5rem;
   column-gap: 1rem;
   margin-top: 0.5rem;
-  grid-template-rows: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
   cursor: pointer;
 
   @media ${devices.md} {
     margin-top: 1rem;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
   }
   @media ${devices.lg} {

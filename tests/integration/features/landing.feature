@@ -12,6 +12,7 @@ Feature: Landing Page
     And I see the "SPECIALITIES_NAV_TAB" on the "landing" page
     And I see the "EXPERIENCE_NAV_TAB" on the "landing" page
     And I see the "CONTACT_NAV_TAB" on the "landing" page
+    And I see the "RECORDS_NAV_TAB" on the "landing" page
 
   Scenario: Ensure About navigation tab navigates to About page
     Given I open the "landing" page
@@ -48,6 +49,15 @@ Feature: Landing Page
     And I see the "CONTACT_NAV_TAB" on the "landing" page
     When I use the "CONTACT_NAV_TAB" button on the "landing" page
     Then I see the "contact" page
+  
+  Scenario: Ensure Records navigation tab navigates to Records page
+    Given I open the "landing" page
+    And I see the "NAV_MENU" on the "landing" page
+    When I use the "NAV_MENU" button on the "landing" page
+    Then I see the "PAGE_TABS" on the "landing" page
+    And I see the "RECORDS_NAV_TAB" on the "landing" page
+    When I use the "RECORDS_NAV_TAB" button on the "landing" page
+    Then I see the "records" page
 
   Scenario: Ensure Nav Logo navigates to Landing page
     Given I open the "about" page
