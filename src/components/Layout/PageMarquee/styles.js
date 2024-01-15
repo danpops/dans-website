@@ -26,6 +26,7 @@ export const CustomMarquee = styled(Marquee)`
   background-color: ${props => props.theme.marquee};
   color: ${props => props.theme.marqueeText};
   height: 2rem;
+  overflow: hidden;
 
   @media ${devices.xl} {
     height: 2.5rem;
