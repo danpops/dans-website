@@ -25,8 +25,7 @@ export const GET_LANDING = groq`*[_type == "landing"][0]{
   title,
   welcomeGif {alt, "image": asset->url},
   iconGif {alt, "image": asset->url},
-  iconGif {alt, "image": asset->url},
-  iconGif {alt, "image": asset->url},
+  "resumeURL": resume.asset->url,
   aboutLinkGif {alt, "image": asset->url},
   contactLinkGif {alt, "image": asset->url}
 }`

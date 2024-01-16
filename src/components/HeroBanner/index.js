@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import styled from 'styled-components'
 import { devices } from '@/lib/devices'
-import { borderStyle } from '@/lib/global'
+import { borderStyle, hoverBorder } from '@/lib/global'
+import { fonts } from '@/lib/fonts'
 
 export const HeroTitle = styled.div`
   color: ${props => props.theme.heroTitle};
@@ -21,7 +22,7 @@ export const HeroContainer = styled.div`
   grid-auto-flow: row;
   align-items: center;
   justify-items: center;
-  row-gap: 2rem;
+  row-gap: 1.5rem;
   padding: 2rem;
   ${props => borderStyle(props)}
 `
@@ -76,4 +77,17 @@ export const LinkImage = styled(Image)`
   display: grid;
   cursor: pointer;
   ${props => (props.$inverted ? 'filter: invert(100%);' : '')}
+`
+export const ResumeLink = styled.a`
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 0.3rem 2rem;
+  font-size: ${fonts.sm};
+  color: ${props => props.theme.font} !important;
+  background-color: ${props => props.theme.secondary};
+  ${props => borderStyle(props)}
+  &:active {
+    ${props => hoverBorder(props)}
+  }
 `

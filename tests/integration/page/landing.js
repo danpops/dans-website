@@ -16,6 +16,9 @@ const {
 module.exports = {
   pageName: '#landing',
   HERO_WINDOW: '#hero-window',
+  ABOUT_LINK: '#about-link',
+  CONTACT_LINK: '#contact-link',
+  RESUME_LINK: '#resume-link',
   NAV,
   NAV_LOGO,
   NAV_MENU,

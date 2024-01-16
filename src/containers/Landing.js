@@ -6,7 +6,8 @@ import {
   LinkContainer,
   MatrixGif,
   TitleContainer,
-  WelcomeImg
+  WelcomeImg,
+  ResumeLink
 } from '@/components/HeroBanner'
 import { Heading3 } from '@/components/Text'
 
@@ -41,6 +42,7 @@ export default function Landing (props) {
       </TitleContainer>
       <LinkContainer>
         <LinkImage
+          id='about-link'
           src={data.aboutLinkGif.image}
           alt={data.aboutLinkGif.alt}
           width={95}
@@ -49,6 +51,7 @@ export default function Landing (props) {
           $inverted={isDarkMode}
         />
         <LinkImage
+          id='contact-link'
           src={data.contactLinkGif.image}
           alt={data.contactLinkGif.alt}
           width={120}
@@ -57,6 +60,14 @@ export default function Landing (props) {
           $inverted={isDarkMode}
         />
       </LinkContainer>
+      <ResumeLink
+        id='resume-link'
+        target='_blank'
+        rel='noopener noreferrer'
+        href={`${data.resumeURL}`}
+      >
+        Resume
+      </ResumeLink>
       <Copyright />
     </HeroContainer>
   )

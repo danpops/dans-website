@@ -49,7 +49,7 @@ Feature: Landing Page
     And I see the "CONTACT_NAV_TAB" on the "landing" page
     When I use the "CONTACT_NAV_TAB" button on the "landing" page
     Then I see the "contact" page
-  
+
   Scenario: Ensure Records navigation tab navigates to Records page
     Given I open the "landing" page
     And I see the "NAV_MENU" on the "landing" page
@@ -69,5 +69,8 @@ Feature: Landing Page
     Given I open the "landing" page
     Then I see the "landing" page
     And I see the "HERO_WINDOW" on the "landing" page
+    And I see the "ABOUT_LINK" on the "landing" page
+    And I see the "CONTACT_LINK" on the "landing" page
+    And I see the "RESUME_LINK" on the "landing" page
     And I see the "PAGE_MARQUEE" on the "landing" page
     And I see the "STICKY_GIF" on the "landing" page

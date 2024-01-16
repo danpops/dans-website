@@ -13,52 +13,33 @@ const landing = {
       title: 'Welcome GIF',
       type: 'image',
       options: { hotspot: true },
-      fields: [
-        {
-          name: 'alt',
-          title: 'Alt',
-          type: 'string'
-        }
-      ]
+      fields: [{ name: 'alt', title: 'Alt', type: 'string' }]
     },
     {
       name: 'iconGif',
       title: 'Icon GIF',
       type: 'image',
       options: { hotspot: true },
-      fields: [
-        {
-          name: 'alt',
-          title: 'Alt',
-          type: 'string'
-        }
-      ]
+      fields: [{ name: 'alt', title: 'Alt', type: 'string' }]
+    },
+    {
+      name: 'resume',
+      title: 'Resume',
+      type: 'file'
     },
     {
       name: 'aboutLinkGif',
       title: 'About Link GIF',
       type: 'image',
       options: { hotspot: true },
-      fields: [
-        {
-          name: 'alt',
-          title: 'Alt',
-          type: 'string'
-        }
-      ]
+      fields: [{ name: 'alt', title: 'Alt', type: 'string' }]
     },
     {
       name: 'contactLinkGif',
       title: 'Contact Link GIF',
       type: 'image',
       options: { hotspot: true },
-      fields: [
-        {
-          name: 'alt',
-          title: 'Alt',
-          type: 'string'
-        }
-      ]
+      fields: [{ name: 'alt', title: 'Alt', type: 'string' }]
     }
   ]
 }
