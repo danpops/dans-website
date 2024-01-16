@@ -17,7 +17,6 @@ export const PageButtonContainer = styled.div`
 `
 export const PageButton = styled.button`
   padding: 0.5rem 1rem;
-  font-weight: 600;
   cursor: pointer;
   ${props => borderStyle(props)}
   border: none;
@@ -26,6 +25,8 @@ export const PageButton = styled.button`
   ${({ $active, theme }) => `
     background-color: ${$active ? theme.heroTitle : theme.button};
     color: ${$active ? theme.windowTitle : theme.font};
+    ${$active && hoverBorder({ theme })}
+    ${$active && 'outline: none;'}
   `}
 
   &:active {

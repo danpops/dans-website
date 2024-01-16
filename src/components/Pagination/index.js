@@ -7,8 +7,8 @@ import {
 } from './styles'
 
 export default function Pagination ({ onChange, currentPage, pages, pageList }) {
-  const isNextDisabled = Number(currentPage) === pages
-  const isPreviousDisabled = currentPage === 1
+  const hasNext = Number(currentPage) !== pages
+  const hasPrevious = currentPage !== 1
 
   const onClickPrev = () => onChange(currentPage - 1)
   const onClickNext = () => onChange(currentPage + 1)
@@ -16,9 +16,7 @@ export default function Pagination ({ onChange, currentPage, pages, pageList }) 
 
   return (
     <PaginationContainer id='pagination'>
-      <PageButton disabled={isPreviousDisabled} onClick={onClickPrev}>
-        <ChevronLeft />
-      </PageButton>
+      {hasPrevious && <PaginationButton onClick={onClickPrev} type='prev' />}
       <PageButtonContainer>
         {pageList.map(item => (
           <PageButton
@@ -30,9 +28,14 @@ export default function Pagination ({ onChange, currentPage, pages, pageList }) 
           </PageButton>
         ))}
       </PageButtonContainer>
-      <PageButton disabled={isNextDisabled} onClick={onClickNext}>
-        <ChevronRight />
-      </PageButton>
+      {hasNext && <PaginationButton onClick={onClickNext} type='next' />}
     </PaginationContainer>
+  )
+}
+function PaginationButton ({ onClick, type }) {
+  return (
+    <PageButton onClick={onClick}>
+      {type === 'prev' ? <ChevronLeft /> : <ChevronRight />}
+    </PageButton>
   )
 }
