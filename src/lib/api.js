@@ -1,9 +1,16 @@
+import { formatReleases } from './dataUtils'
+
 export { fetchDiscogsData }
 
 const API_URL = 'https://api.discogs.com'
 const RELEASES_URL = `${API_URL}/users/nowspinninglps/collection/releases/0`
 
-async function fetchDiscogsData ({ discogsKey = '', page = 1 }) {
+async function fetchDiscogsData ({
+  discogsKey = '',
+  page = 1,
+  sort = 'artist',
+  sortOrder = 'asc'
+}) {
   const requestOptions = {
     method: 'GET',
     headers: {
@@ -12,7 +19,7 @@ async function fetchDiscogsData ({ discogsKey = '', page = 1 }) {
     },
     body: null
   }
-  const url = `${RELEASES_URL}?sort=artist&sort_order=asc&per_page=50&page=${page}`
+  const url = `${RELEASES_URL}?sort=${sort}&sort_order=${sortOrder}&per_page=50&page=${page}`
   try {
     const response = await fetch(url, requestOptions)
     if (!response.ok) {
@@ -24,15 +31,5 @@ async function fetchDiscogsData ({ discogsKey = '', page = 1 }) {
   } catch (error) {
     console.error('Error fetching data:', error)
     return null
-  }
-}
-function formatReleases (item) {
-  return {
-    id: item.id,
-    title: item.basic_information.title,
-    artist: item.basic_information.artists
-      .map(item => item.name.replace(/\(\d+\)/g, '').trim())
-      .join(', '),
-    dateAdded: item.date_added
   }
 }

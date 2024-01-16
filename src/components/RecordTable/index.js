@@ -7,17 +7,20 @@ import {
   TableHeaderRow,
   TableRow,
   TableText,
-  LoadingContainer
+  LoadingContainer,
+  HeaderContainer,
+  SortChevron
 } from './styles'
 import Image from 'next/image'
 import hourglassGif from 'public/gifs/hourglass.gif'
 
 const RELEASE_URL = 'https://discogs.com/release/'
-export default function RecordTable ({ loading, items }) {
+const TABLE_HEADERS = ['Artist', 'Title']
+export default function RecordTable (props) {
+  const { loading, items, onUpdateSorting, sorting } = props
   const openDiscogsPage = id => () => {
     window.open(`${RELEASE_URL}${id}`, '_blank')
   }
-
   if (loading) {
     return (
       <LoadingContainer>
@@ -25,13 +28,18 @@ export default function RecordTable ({ loading, items }) {
       </LoadingContainer>
     )
   }
-
   return (
     <Table id='records-table'>
       <TableHead>
         <TableHeaderRow>
-          <TableHeader>Artist</TableHeader>
-          <TableHeader>Title</TableHeader>
+          {TABLE_HEADERS.map((header, index) => (
+            <TableHeaderButton
+              key={index}
+              label={header}
+              onUpdateSorting={onUpdateSorting}
+              sorting={sorting}
+            />
+          ))}
         </TableHeaderRow>
       </TableHead>
       <TableBody>
@@ -47,5 +55,23 @@ export default function RecordTable ({ loading, items }) {
         ))}
       </TableBody>
     </Table>
+  )
+}
+function TableHeaderButton (props) {
+  const { label, onUpdateSorting, sorting } = props
+  const key = label.toLowerCase()
+  const isActive = key === sorting.sortKey
+  const isAscending = sorting.sortOrder === 'asc'
+  const onSort = () => {
+    const order = isAscending ? 'desc' : 'asc'
+    onUpdateSorting(key, order)
+  }
+  return (
+    <TableHeader onClick={onSort}>
+      <HeaderContainer>
+        <span>{label}</span>
+        {isActive && <SortChevron order={sorting.sortOrder} />}
+      </HeaderContainer>
+    </TableHeader>
   )
 }

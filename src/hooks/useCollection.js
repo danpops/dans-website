@@ -2,25 +2,18 @@ import { fetchDiscogsData } from '@/lib/api'
 import { getPageNumbers } from '@/lib/dataUtils'
 import { useEffect, useState } from 'react'
 
+const discogsKey = process.env.DISCOGS_KEY ?? ''
+
 export default function useCollection ({ records, pagination }) {
   const [loading, setLoading] = useState(true)
   const [paginationInfo, setPaginationInfo] = useState(pagination)
+  const [sortKey, setSortKey] = useState('artist')
+  const [sortOrder, setSortOrder] = useState('asc')
   const [currentPage, setCurrentPage] = useState(1)
   const [myCollection, setMyCollection] = useState([])
 
-  useEffect(() => {
-    setMyCollection(records)
-    setPaginationInfo(pagination)
-    setLoading(false)
-  }, [records, pagination])
-
-  const onSelectPage = async page => {
-    setLoading(true)
-    setCurrentPage(page)
-    await fetchDiscogsData({
-      discogsKey: process.env.DISCOGS_KEY ?? '',
-      page
-    })
+  const fetchData = async (page, sort, sortOrder) => {
+    await fetchDiscogsData({ discogsKey, page, sort, sortOrder })
       .then(data => {
         setMyCollection(data.records)
         setPaginationInfo(data.pagination)
@@ -34,6 +27,29 @@ export default function useCollection ({ records, pagination }) {
       })
   }
 
+  useEffect(() => {
+    setMyCollection(records)
+    setPaginationInfo(pagination)
+    setLoading(false)
+  }, [records, pagination])
+
+  useEffect(() => {
+    setLoading(true)
+    setCurrentPage(1)
+    fetchData(1, sortKey, sortOrder)
+  }, [sortKey, sortOrder])
+
+  const onSelectPage = async page => {
+    setLoading(true)
+    setCurrentPage(page)
+    await fetchData(page, sortKey, sortOrder)
+  }
+
+  const onUpdateSorting = (key, order) => {
+    setSortKey(key)
+    setSortOrder(order)
+  }
+
   const pageList = getPageNumbers(paginationInfo.pages, currentPage)
   const collectionInfo = `I currently have a total of **${pagination.items}** albums in my collection.`
 
@@ -44,6 +60,8 @@ export default function useCollection ({ records, pagination }) {
     currentPage,
     paginationInfo,
     pageList,
-    collectionInfo
+    collectionInfo,
+    onUpdateSorting,
+    sorting: { sortKey, sortOrder }
   }
 }

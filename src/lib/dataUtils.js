@@ -1,5 +1,14 @@
-export { getPageNumbers }
+export { formatReleases, getPageNumbers }
 
+function formatReleases (item) {
+  return {
+    id: item.id,
+    title: item.basic_information.title,
+    artist: item.basic_information.artists
+      .map(item => item.name.replace(/\(\d+\)/g, '').trim())
+      .join(', ')
+  }
+}
 function getPageNumbers (totalPages, currentPage) {
   const result = []
   // Ensure currentPage is within valid range

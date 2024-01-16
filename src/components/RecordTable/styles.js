@@ -10,7 +10,7 @@ export const LoadingContainer = styled.div`
   height: 100%;
   align-items: center;
   justify-items: center;
-  height: 10rem;
+  height: 20rem;
   ${props => hoverBorder(props)}
 `
 export const Table = styled.table`
@@ -31,10 +31,16 @@ export const TableBody = styled.tbody`
 `
 export const TableHead = styled.thead``
 export const TableHeader = styled.th`
-  text-align: center;
-  padding: 0.25rem;
   background-color: ${props => props.theme.table.header};
   ${props => borderStyle(props)}
+`
+export const HeaderContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  align-items: center;
+  justify-items: flex-start;
+  padding: 0.5rem 1rem;
 `
 export const TableHeaderRow = styled.tr`
   outline: 0;
@@ -53,4 +59,17 @@ export const TableRow = styled.tr`
 `
 export const TableText = styled.div`
   padding: 0.15rem;
+`
+export const SortChevron = styled.div`
+  position: relative;
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 0.45rem solid transparent;
+  border-right: 0.45rem solid transparent;
+  ${props => {
+    const location = props.order === 'asc' ? 'top' : 'bottom'
+    return `border-${location}: 0.45rem solid ${props.theme.font}`
+  }}
 `

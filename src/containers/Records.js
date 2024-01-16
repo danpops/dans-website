@@ -16,7 +16,9 @@ export default function Records (props) {
     currentPage,
     paginationInfo,
     pageList,
-    collectionInfo
+    collectionInfo,
+    onUpdateSorting,
+    sorting
   } = props
   const infoText = `${collectionInfo} ${data.discogsMessage}`
 
@@ -29,7 +31,12 @@ export default function Records (props) {
         </TableBodyText>
       </div>
       <TableContainer>
-        <RecordTable loading={loading} items={myCollection} />
+        <RecordTable
+          loading={loading}
+          items={myCollection}
+          onUpdateSorting={onUpdateSorting}
+          sorting={sorting}
+        />
       </TableContainer>
       <Pagination
         onChange={onSelectPage}
