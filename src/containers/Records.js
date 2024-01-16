@@ -24,7 +24,7 @@ export default function Records (props) {
     <TableWindow id='records-window' title={title}>
       <div>
         <TableBodyText id='records-info'>{data.summary}</TableBodyText>
-        <TableBodyText id='discogs-collection-link'>
+        <TableBodyText id='discogs-total-albums'>
           <Markdown>{infoText}</Markdown>
         </TableBodyText>
       </div>
