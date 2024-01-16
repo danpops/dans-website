@@ -10,7 +10,8 @@ const {
   EXPERIENCE_NAV_TAB,
   CONTACT_NAV_TAB,
   RECORDS_NAV_TAB,
-  STICKY_GIF
+  STICKY_GIF,
+  COPYRIGHT_GITHUB_LINK
 } = require('.')
 
 module.exports = {
@@ -30,5 +31,6 @@ module.exports = {
   EXPERIENCE_NAV_TAB,
   CONTACT_NAV_TAB,
   RECORDS_NAV_TAB,
-  STICKY_GIF
+  STICKY_GIF,
+  COPYRIGHT_GITHUB_LINK
 }

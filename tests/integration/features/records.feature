@@ -11,3 +11,4 @@ Feature: Records Page
     And I see the "RECORDS_TABLE" on the "records" page
     And I see the "PAGINATION" on the "records" page
     And I see the "PAGE_MARQUEE" on the "records" page
+    And I see the "COPYRIGHT_GITHUB_LINK" on the "records" page

@@ -1,4 +1,4 @@
-const { NAV_MENU, NAV_LOGO, PAGE_MARQUEE } = require('.')
+const { NAV_MENU, NAV_LOGO, PAGE_MARQUEE, COPYRIGHT_GITHUB_LINK } = require('.')
 
 module.exports = {
   pageName: '#records',
@@ -9,5 +9,6 @@ module.exports = {
   PAGINATION: '#pagination',
   NAV_MENU,
   NAV_LOGO,
-  PAGE_MARQUEE
+  PAGE_MARQUEE,
+  COPYRIGHT_GITHUB_LINK
 }

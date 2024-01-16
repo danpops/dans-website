@@ -74,3 +74,4 @@ Feature: Landing Page
     And I see the "RESUME_LINK" on the "landing" page
     And I see the "PAGE_MARQUEE" on the "landing" page
     And I see the "STICKY_GIF" on the "landing" page
+    And I see the "COPYRIGHT_GITHUB_LINK" on the "landing" page

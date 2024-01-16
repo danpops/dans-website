@@ -9,3 +9,4 @@ Feature: Contact Page
     And I see the "EMAIL_FORM" on the "contact" page
     And I see 2 different "CONTACT_TAB" on the "contact" page
     And I see the "PAGE_MARQUEE" on the "contact" page
+    And I see the "COPYRIGHT_GITHUB_LINK" on the "contact" page

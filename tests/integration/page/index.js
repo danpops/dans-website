@@ -10,5 +10,6 @@ module.exports = {
   EXPERIENCE_NAV_TAB: '#experience-nav-tab',
   CONTACT_NAV_TAB: '#contact-nav-tab',
   RECORDS_NAV_TAB: '#records-nav-tab',
-  STICKY_GIF: '#sticky-gif'
+  STICKY_GIF: '#sticky-gif',
+  COPYRIGHT_GITHUB_LINK: '#copyright-github-link'
 }

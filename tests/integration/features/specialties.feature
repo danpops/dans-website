@@ -9,3 +9,4 @@ Feature: Specialties Page
     And I see the "SPECIALTIES_TEXT" on the "specialties" page
     And I see 6 different "SPECIALTY_ITEM" on the "specialties" page
     And I see the "PAGE_MARQUEE" on the "specialties" page
+    And I see the "COPYRIGHT_GITHUB_LINK" on the "specialties" page
