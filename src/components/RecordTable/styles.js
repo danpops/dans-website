@@ -16,6 +16,7 @@ export const LoadingContainer = styled.div`
 export const Table = styled.table`
   font-size: ${fonts.sm};
   width: 100%;
+  table-layout: fixed;
   ${props => tableBorder(props)}
   outline: 0;
 
