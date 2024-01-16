@@ -2,13 +2,14 @@
 
 ## Overview
 
-Welcome to my portfolio website! This React Next.js application offers a showcase of my work, blending modern technology with a 90s website aesthetic. Dive into the code to explore best practices in React application development, run it locally, and experience the charm of the 90s web.
+Welcome to my portfolio website! This **React Next.js** application offers a showcase of my work, blending modern technology with a 90s website aesthetic. Dive into the code to explore best practices in React application development, run it locally, and experience the charm of the 90s web. The content management system (CMS) is powered by **Sanity.io**, enabling easy management and retrieval of dynamic content.
 
 ### Features
 
 - **Nostalgic 90s Design**: Immerse yourself in a retro web experience with a visually appealing 90s aesthetic.
-- **Local Development**: Run the application locally to explore the codebase and discover React best practices.
-- **Integration Tests**: Elevate your React project with cool integration tests using Cucumber and Puppeteer.
+- **Local Development**: Run the application locally to explore the codebase and discover **_React_** best practices.
+- **Integration Tests**: Elevate your React project with cool integration tests using **_Cucumber_** and **_Puppeteer_**. Integration tests are behaviorally driven, employing **_Cucumber Gherkin_** syntax to ensure seamless collaboration between developers and stakeholders.
+- **Sanity.io CMS Integration**: Content management is powered by **_Sanity.io_**, enabling easy management and retrieval of dynamic content.
 
 ### Live Deployment
 
@@ -20,6 +21,7 @@ Explore my live website at [danpops.ca](https://danpops.ca) to see the portfolio
 - [Scripts](#scripts)
 - [Integration Tests](#integration-tests)
 - [Folder Structure](#folder-structure)
+- [Serverless Services](#serverless-services)
 
 ## Getting Started
 
@@ -96,6 +98,11 @@ The project follows the structure below:
 - `/src`: Source code of the application.
 
   - `/cms`: Location for Sanity CMS query, client, and schema files.
+
+    - `/client.js`: Sanity configuration for making queries to content.
+    - `/queries.js`: Queries for different page content.
+    - `/schemas`: Page content schemas to set up the CMS.
+
   - `/components`: Reusable React components.
   - `/containers`: Dedicated JSX containers for organizing and assembling components into coherent pages. The containers serve as structured compositions of components, facilitating the creation of specific pages.
   - `/hooks`: Custom React hooks used within the applicaiton.
@@ -103,3 +110,7 @@ The project follows the structure below:
   - `/pages`: Next.js pages.
 
 Feel free to explore each folder for additional details and customizations.
+
+### Serverless Services
+
+For serverless functionality, check out the [services/README.md](./services/README.md) for information on **_AWS Lambda_** and **_Serverless_** Framework. The services folder contains the Lambda function (`notifyByEmail`) used for handling email contact form submissions.
