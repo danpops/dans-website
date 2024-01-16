@@ -7,14 +7,7 @@ import Records from '@/containers/Records'
 
 export default function RecordsPage ({ title, records, pagination, data }) {
   const collection = useCollection({ records, pagination })
-  return (
-    <Records
-      data={data}
-      title={title}
-      totalAlbums={pagination.items}
-      {...collection}
-    />
-  )
+  return <Records data={data} title={title} {...collection} />
 }
 export async function getServerSideProps () {
   const id = 'records'

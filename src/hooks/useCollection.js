@@ -35,6 +35,7 @@ export default function useCollection ({ records, pagination }) {
   }
 
   const pageList = getPageNumbers(paginationInfo.pages, currentPage)
+  const collectionInfo = `I currently have a total of **${pagination.items}** albums in my collection.`
 
   return {
     loading,
@@ -42,6 +43,7 @@ export default function useCollection ({ records, pagination }) {
     onSelectPage,
     currentPage,
     paginationInfo,
-    pageList
+    pageList,
+    collectionInfo
   }
 }

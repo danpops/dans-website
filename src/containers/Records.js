@@ -16,18 +16,16 @@ export default function Records (props) {
     currentPage,
     paginationInfo,
     pageList,
-    totalAlbums
+    collectionInfo
   } = props
+  const infoText = `${collectionInfo} ${data.discogsMessage}`
 
   return (
     <TableWindow id='records-window' title={title}>
       <div>
         <TableBodyText id='records-info'>{data.summary}</TableBodyText>
         <TableBodyText id='discogs-collection-link'>
-          <Markdown>{data.discogsMessage}</Markdown>
-        </TableBodyText>
-        <TableBodyText id='total-albums'>
-          Total Albums: {totalAlbums}
+          <Markdown>{infoText}</Markdown>
         </TableBodyText>
       </div>
       <TableContainer>
