@@ -104,7 +104,6 @@ The project follows the structure below:
     - `/schemas`: Page content schemas to set up the CMS.
 
   - `/components`: Reusable React components.
-  - `/containers`: Dedicated JSX containers for organizing and assembling components into coherent pages. The containers serve as structured compositions of components, facilitating the creation of specific pages.
   - `/hooks`: Custom React hooks used within the applicaiton.
   - `/lib`: API, fonts, device breakpoints, and colors.
   - `/pages`: Next.js pages.
