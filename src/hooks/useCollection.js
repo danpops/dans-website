@@ -45,9 +45,12 @@ export default function useCollection ({ records, pagination }) {
     await fetchData(page, sortKey, sortOrder)
   }
 
-  const onUpdateSorting = (key, order) => {
+  const onUpdateSorting = key => {
+    const newKey = key !== sortKey
+    const isAscending = sortOrder === 'asc'
+    const newOrder = newKey ? 'asc' : isAscending ? 'desc' : 'asc'
+    setSortOrder(newOrder)
     setSortKey(key)
-    setSortOrder(order)
   }
 
   const pageList = getPageNumbers(paginationInfo.pages, currentPage)

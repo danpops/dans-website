@@ -31,7 +31,7 @@ export const TableBody = styled.tbody`
   border-collapse: collapse;
 `
 export const TableHead = styled.thead``
-export const TableHeader = styled.th`
+export const TableHeaderContainer = styled.th`
   background-color: ${props => props.theme.table.header};
   ${props => borderStyle(props)}
 `
@@ -70,7 +70,7 @@ export const SortChevron = styled.div`
   border-left: 0.45rem solid transparent;
   border-right: 0.45rem solid transparent;
   ${props => {
-    const location = props.order === 'asc' ? 'top' : 'bottom'
+    const location = props.order === 'asc' ? 'bottom' : 'top'
     return `border-${location}: 0.45rem solid ${props.theme.font}`
   }}
 `

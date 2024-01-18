@@ -3,7 +3,7 @@ import {
   TableCell,
   TableBody,
   TableHead,
-  TableHeader,
+  TableHeaderContainer,
   TableHeaderRow,
   TableRow,
   TableText,
@@ -33,7 +33,7 @@ export default function RecordTable (props) {
       <TableHead>
         <TableHeaderRow>
           {TABLE_HEADERS.map((header, index) => (
-            <TableHeaderButton
+            <TableHeader
               key={index}
               label={header}
               onUpdateSorting={onUpdateSorting}
@@ -57,21 +57,18 @@ export default function RecordTable (props) {
     </Table>
   )
 }
-function TableHeaderButton (props) {
+function TableHeader (props) {
   const { label, onUpdateSorting, sorting } = props
-  const key = label.toLowerCase()
-  const isActive = key === sorting.sortKey
-  const isAscending = sorting.sortOrder === 'asc'
-  const onSort = () => {
-    const order = isAscending ? 'desc' : 'asc'
-    onUpdateSorting(key, order)
-  }
+  const sortKey = label.toLowerCase()
+  const isActive = sortKey === sorting.sortKey
+  const onSort = () => onUpdateSorting(sortKey)
+
   return (
-    <TableHeader onClick={onSort}>
+    <TableHeaderContainer onClick={onSort}>
       <HeaderContainer>
         <span>{label}</span>
         {isActive && <SortChevron order={sorting.sortOrder} />}
       </HeaderContainer>
-    </TableHeader>
+    </TableHeaderContainer>
   )
 }
