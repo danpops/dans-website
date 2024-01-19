@@ -76,11 +76,11 @@ export const PageTabsContainer = styled.ul`
   cursor: pointer;
 
   @media ${devices.md} {
-    margin-top: 1rem;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
   }
   @media ${devices.lg} {
+    grid-template-columns: repeat(5, 1fr);
     display: grid;
     animation: none;
     margin: 0;
@@ -105,8 +105,17 @@ export const TabItem = styled.li`
     ${props => hoverBorder(props)}
   }
 
+  @media ${devices.md} {
+    &:nth-last-child(1) {
+      grid-column: 1 / span 2;
+    }
+  }
+
   @media ${devices.lg} {
     padding: 0.75rem 2rem;
+    &:nth-last-child(1) {
+      grid-column: 5 / span 1;
+    }
   }
 
   @media ${devices.xl} {
@@ -178,6 +187,9 @@ export const DesktopToggle = styled(LogoTitle)`
 
   @media ${devices.lg} {
     display: block;
+    padding: 0.7rem 1rem;
+  }
+  @media ${devices.xl} {
     padding: 0.75rem 1rem;
   }
 `
