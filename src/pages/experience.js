@@ -17,8 +17,12 @@ export default function ExperiencePage ({ data }) {
   return (
     <ContentContainer>
       <BodyText id='specialties-text'>{data.summary}</BodyText>
-      {data.cards.map((item, index) => (
-        <ExperienceCard key={index} item={item} inverted={isDarkMode} />
+      {data.cards.map((experience, index) => (
+        <ExperienceCard
+          key={index}
+          experience={experience}
+          inverted={isDarkMode}
+        />
       ))}
     </ContentContainer>
   )
