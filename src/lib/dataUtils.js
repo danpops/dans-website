@@ -1,12 +1,34 @@
 export { formatReleases, getPageNumbers }
 
+const MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+]
+function formatDate (inputDate) {
+  const date = new Date(inputDate)
+  const monthName = MONTHS[date.getMonth()]
+  const day = date.getDate()
+  const year = date.getFullYear()
+  return `${monthName} ${day}, ${year}`
+}
 function formatReleases (item) {
   return {
     id: item.id,
     title: item.basic_information.title,
     artist: item.basic_information.artists
       .map(item => item.name.replace(/\(\d+\)/g, '').trim())
-      .join(', ')
+      .join(', '),
+    dateAdded: formatDate(item.date_added)
   }
 }
 function getPageNumbers (totalPages, currentPage) {

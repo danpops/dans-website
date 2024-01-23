@@ -15,7 +15,7 @@ import Image from 'next/image'
 import hourglassGif from 'public/gifs/hourglass.gif'
 
 const RELEASE_URL = 'https://discogs.com/release/'
-const TABLE_HEADERS = ['Artist', 'Title']
+const TABLE_HEADERS = ['Artist', 'Title', 'Added']
 export default function RecordTable (props) {
   const { loading, items, onUpdateSorting, sorting } = props
   const openDiscogsPage = id => () => {
@@ -43,15 +43,12 @@ export default function RecordTable (props) {
         </TableHeaderRow>
       </TableHead>
       <TableBody>
-        {items?.map(item => (
-          <TableRow key={item.id} onClick={openDiscogsPage(item.id)}>
-            <TableCell>
-              <TableText>{item.artist}</TableText>
-            </TableCell>
-            <TableCell>
-              <TableText>{item.title}</TableText>
-            </TableCell>
-          </TableRow>
+        {items?.map(release => (
+          <AlbumRelease
+            key={release.id}
+            release={release}
+            openDiscogsPage={openDiscogsPage}
+          />
         ))}
       </TableBody>
     </Table>
@@ -70,5 +67,20 @@ function TableHeader (props) {
         {isActive && <SortChevron order={sorting.sortOrder} />}
       </HeaderContainer>
     </TableHeaderContainer>
+  )
+}
+function AlbumRelease ({ release, openDiscogsPage }) {
+  return (
+    <TableRow onClick={openDiscogsPage(release.id)}>
+      <TableCell>
+        <TableText>{release.artist}</TableText>
+      </TableCell>
+      <TableCell>
+        <TableText>{release.title}</TableText>
+      </TableCell>
+      <TableCell>
+        <TableText>{release.dateAdded}</TableText>
+      </TableCell>
+    </TableRow>
   )
 }

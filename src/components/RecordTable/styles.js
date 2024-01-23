@@ -26,6 +26,13 @@ export const Table = styled.table`
 `
 export const TableCell = styled.td`
   border: none;
+
+  &:nth-child(3) {
+    display: none;
+    @media ${devices.md} {
+      display: block;
+    }
+  }
 `
 export const TableBody = styled.tbody`
   border-collapse: collapse;
@@ -34,6 +41,13 @@ export const TableHead = styled.thead``
 export const TableHeaderContainer = styled.th`
   background-color: ${props => props.theme.table.header};
   ${props => borderStyle(props)}
+
+  &:nth-child(3) {
+    display: none;
+    @media ${devices.md} {
+      display: block;
+    }
+  }
 `
 export const HeaderContainer = styled.div`
   display: grid;
