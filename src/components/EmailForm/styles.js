@@ -34,3 +34,24 @@ export const SubmitButton = styled.button`
     }
   }
 `
+export const TextInput = styled.input`
+  ${props => hoverBorder(props)}
+  outline: none;
+  border-radius: 0;
+  padding: 0.5rem;
+  font-size: ${fonts.sm};
+  background-color: ${props => props.theme.windowTitle};
+  color: ${props => props.theme.font};
+  font-family: 'MS Sans Serif';
+`
+export const TextArea = styled.textarea`
+  ${props => hoverBorder(props)}
+  border-radius: 0;
+  outline: none;
+  font-family: 'MS Sans Serif';
+  padding: 0.5rem;
+  background-color: ${props => props.theme.windowTitle};
+  color: ${props => props.theme.font};
+  font-size: ${fonts.sm};
+  resize: none;
+`

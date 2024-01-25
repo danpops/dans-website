@@ -1,5 +1,4 @@
-import { TextArea, TextInput } from '../Input'
-import { CustomForm, SubmitButton } from './styles'
+import { CustomForm, SubmitButton, TextArea, TextInput } from './styles'
 import ProgressTile from '../ProgressTile'
 import useProgress from '@/hooks/useProgress'
 import { BodyText } from '../Text'
@@ -49,6 +48,7 @@ export default function EmailForm (props) {
         placeholder='Enter your message...'
         value={formData.message}
         onChange={handleInputChange}
+        rows={3}
       />
       <SubmitButton id='submit-button' type='submit' disabled={disabled}>
         Send Message
