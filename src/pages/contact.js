@@ -1,4 +1,4 @@
-import EmailForm from '@/components/EmailForm'
+import ContactForm from '@/components/ContactForm'
 import { getWindowLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import ListBox from '@/components/ListBox'
@@ -16,18 +16,11 @@ export async function getStaticProps () {
   return { props: { id, title, apiKey, apiUrl, data } }
 }
 export default function ContactPage ({ apiKey, apiUrl, data }) {
-  const contact = useContactForm({ apiKey, apiUrl })
+  const contactForm = useContactForm({ apiKey, apiUrl })
   return (
     <ContentContainer>
       <BodyText id='contact-text'>{data.summary}</BodyText>
-      <EmailForm
-        loading={contact.loading}
-        emailSent={contact.emailSent}
-        handleSubmit={contact.onSubmit}
-        formData={contact.formData}
-        handleInputChange={contact.onChangeInput}
-        successMessage={data.successMessage}
-      />
+      <ContactForm {...contactForm} successMessage={data.successMessage} />
       <ListBox
         id='contact-links'
         listId='contact-link'

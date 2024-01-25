@@ -1,24 +1,22 @@
 import { useState } from 'react'
 import { THREE_SECONDS } from './useProgress'
+import { useForm } from 'react-hook-form'
 
 const INITIAL_FORM = { fullName: '', email: '', message: '' }
 export default function useContactForm ({ apiKey, apiUrl }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({ defaultValues: INITIAL_FORM })
   const [loading, setLoading] = useState(false)
   const [emailSent, setEmailSent] = useState(false)
-  const [formData, setFormData] = useState(INITIAL_FORM)
 
-  const onChangeInput = e => {
-    const { name, value } = e.target
-    setFormData(prevData => ({ ...prevData, [name]: value }))
-  }
-
-  const onSubmit = e => {
+  const onSubmit = data => {
     setLoading(true)
-    e.preventDefault()
     const headers = { 'Content-Type': 'application/json', 'x-api-key': apiKey }
-    const body = JSON.stringify(formData)
-    const options = { method: 'POST', headers, body }
-    fetch(apiUrl, options)
+    const body = JSON.stringify(data)
+    fetch(apiUrl, { method: 'POST', headers, body })
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok')
@@ -38,5 +36,11 @@ export default function useContactForm ({ apiKey, apiUrl }) {
       })
   }
 
-  return { emailSent, formData, loading, onChangeInput, onSubmit }
+  return {
+    emailSent,
+    loading,
+    register,
+    submitContact: handleSubmit(onSubmit),
+    errors
+  }
 }

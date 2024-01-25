@@ -18,7 +18,9 @@ export const colors = {
   darkSlateGrey: '#333333',
   slateGrey: '#7F7F7F',
   blue: '#0000FF',
-  paleGolden: '#FFF185'
+  paleGolden: '#FFF185',
+  red: '#E50000',
+  babyBlue: '#1AFFFF'
 }
 export const lightTheme = {
   primary: colors.blueSecondary,
@@ -30,6 +32,7 @@ export const lightTheme = {
   marquee: colors.yellow,
   windowHeader: colors.darkBlue,
   windowTitle: colors.white,
+  error: colors.red,
   table: {
     header: colors.grey,
     row: {
@@ -56,6 +59,7 @@ export const darkTheme = {
   marquee: colors.blue,
   windowHeader: colors.paleGolden,
   windowTitle: colors.black,
+  error: colors.babyBlue,
   table: {
     header: colors.charcoal,
     row: {

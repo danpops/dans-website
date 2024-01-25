@@ -55,3 +55,6 @@ export const TextArea = styled.textarea`
   font-size: ${fonts.sm};
   resize: none;
 `
+export const ErrorLabel = styled.label`
+  color: ${props => props.theme.error};
+`
