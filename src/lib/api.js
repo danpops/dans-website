@@ -1,6 +1,6 @@
 import { formatReleases } from './dataUtils'
 
-export { fetchDiscogsData }
+export { fetchDiscogsData, sendContactMessage }
 
 const API_URL = 'https://api.discogs.com'
 const RELEASES_URL = `${API_URL}/users/nowspinninglps/collection/releases/0`
@@ -32,4 +32,17 @@ async function fetchDiscogsData ({
     console.error('Error fetching data:', error)
     return null
   }
+}
+async function sendContactMessage ({ url, data, apiKey }) {
+  const headers = { 'Content-Type': 'application/json', 'x-api-key': apiKey }
+  const body = JSON.stringify(data)
+  const result = fetch(url, { method: 'POST', headers, body }).then(
+    response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+      return response.json()
+    }
+  )
+  return result
 }
