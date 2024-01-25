@@ -1,5 +1,7 @@
 export { formatReleases, getPageNumbers }
 
+const formatArtistName = ({ name }) => name.replace(/\(\d+\)/g, '').trim()
+const formatArtists = artists => artists.map(formatArtistName).join(', ')
 const MONTHS = [
   'January',
   'February',
@@ -22,14 +24,11 @@ function formatDate (inputDate) {
   return `${monthName} ${day}, ${year}`
 }
 function formatReleases (item) {
-  return {
-    id: item.id,
-    title: item.basic_information.title,
-    artist: item.basic_information.artists
-      .map(item => item.name.replace(/\(\d+\)/g, '').trim())
-      .join(', '),
-    dateAdded: formatDate(item.date_added)
-  }
+  const id = item.id
+  const title = item.basic_information.title
+  const artist = formatArtists(item.basic_information.artists)
+  const dateAdded = formatDate(item.date_added)
+  return { id, title, artist, dateAdded }
 }
 function getPageNumbers (totalPages, currentPage) {
   const result = []
