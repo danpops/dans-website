@@ -3,7 +3,7 @@ const breakpoints = {
   sm: 425,
   md: 768,
   lg: 1440,
-  xl: 2560
+  xl: 2200
 }
 
 const devices = {
