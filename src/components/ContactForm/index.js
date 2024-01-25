@@ -59,7 +59,7 @@ export default function ContactForm (props) {
         {...register('message', {
           required: 'Message is required',
           pattern: {
-            value: /^(?:\b\w+\b[\s\r\n.,?!]*){10,250}$/,
+            value: /^(?:\b\w+\b[\s\r\n.,?!';]*){10,250}$/,
             message: 'At least 10 words must be entered.'
           }
         })}
