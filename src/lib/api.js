@@ -33,10 +33,10 @@ async function fetchDiscogsData ({
     return null
   }
 }
-async function sendContactMessage ({ url, data, apiKey }) {
+async function sendContactMessage ({ apiUrl, data, apiKey }) {
   const headers = { 'Content-Type': 'application/json', 'x-api-key': apiKey }
   const body = JSON.stringify(data)
-  const result = fetch(url, { method: 'POST', headers, body }).then(
+  const result = fetch(apiUrl, { method: 'POST', headers, body }).then(
     response => {
       if (!response.ok) {
         throw new Error('Network response was not ok')
