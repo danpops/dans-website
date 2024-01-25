@@ -5,7 +5,7 @@ import { devices } from '@/lib/devices'
 export const StickyWrapper = styled.div`
   position: fixed;
   z-index: 9999;
-  bottom: 2rem;
+  bottom: 0.75rem;
   right: -3rem;
   cursor: pointer;
 
