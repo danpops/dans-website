@@ -16,8 +16,7 @@ export default function SpecialtyItems (props) {
           id='specialty-item'
           target='_blank'
           rel='noopener noreferrer'
-          href={item?.link}
-          style={{ cursor: item?.link ? 'pointer' : 'default' }}
+          href={item.link}
         >
           <SpecialtyImageContainer>
             <SpecialtyImage
