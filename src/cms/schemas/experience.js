@@ -3,16 +3,8 @@ const experience = {
   title: 'Experience',
   type: 'document',
   fields: [
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string'
-    },
-    {
-      name: 'summary',
-      title: 'Summary',
-      type: 'string'
-    },
+    { name: 'title', title: 'Title', type: 'string' },
+    { name: 'summary', title: 'Summary', type: 'string' },
     {
       name: 'cards',
       title: 'Experience Cards',
@@ -28,13 +20,7 @@ const experience = {
               type: 'image',
               description: 'Upload a company picture',
               options: { hotspot: true },
-              fields: [
-                {
-                  name: 'alt',
-                  title: 'Alt',
-                  type: 'string'
-                }
-              ]
+              fields: [{ name: 'alt', title: 'Alt', type: 'string' }]
             },
             { name: 'title', title: 'Title', type: 'string' },
             { name: 'date', title: 'Date', type: 'string' },

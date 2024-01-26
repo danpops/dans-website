@@ -12,6 +12,9 @@ export default function useCollection ({ records, pagination }) {
   const [currentPage, setCurrentPage] = useState(1)
   const [myCollection, setMyCollection] = useState([])
 
+  const pageList = getPageNumbers(paginationInfo.pages, currentPage)
+  const collectionInfo = `I currently have a total of **${pagination.items}** albums in my collection.`
+
   const fetchData = async (page, sort, sortOrder) => {
     await fetchDiscogsData({ discogsKey, page, sort, sortOrder })
       .then(data => {
@@ -27,18 +30,6 @@ export default function useCollection ({ records, pagination }) {
       })
   }
 
-  useEffect(() => {
-    setMyCollection(records)
-    setPaginationInfo(pagination)
-    setLoading(false)
-  }, [records, pagination])
-
-  useEffect(() => {
-    setLoading(true)
-    setCurrentPage(1)
-    fetchData(1, sortKey, sortOrder)
-  }, [sortKey, sortOrder])
-
   const onSelectPage = async page => {
     setLoading(true)
     setCurrentPage(page)
@@ -53,8 +44,17 @@ export default function useCollection ({ records, pagination }) {
     setSortKey(key)
   }
 
-  const pageList = getPageNumbers(paginationInfo.pages, currentPage)
-  const collectionInfo = `I currently have a total of **${pagination.items}** albums in my collection.`
+  useEffect(() => {
+    setMyCollection(records)
+    setPaginationInfo(pagination)
+    setLoading(false)
+  }, [records, pagination])
+
+  useEffect(() => {
+    setLoading(true)
+    setCurrentPage(1)
+    fetchData(1, sortKey, sortOrder)
+  }, [sortKey, sortOrder])
 
   return {
     loading,

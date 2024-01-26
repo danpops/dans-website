@@ -3,16 +3,8 @@ const specialties = {
   title: 'Specialties',
   type: 'document',
   fields: [
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string'
-    },
-    {
-      name: 'summary',
-      title: 'Summary',
-      type: 'string'
-    },
+    { name: 'title', title: 'Title', type: 'string' },
+    { name: 'summary', title: 'Summary', type: 'string' },
     {
       name: 'specialtyLinks',
       title: 'Specialty Links',

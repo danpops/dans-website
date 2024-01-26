@@ -3,11 +3,7 @@ const landing = {
   title: 'Landing',
   type: 'document',
   fields: [
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string'
-    },
+    { name: 'title', title: 'Title', type: 'string' },
     {
       name: 'welcomeGif',
       title: 'Welcome GIF',
@@ -22,11 +18,7 @@ const landing = {
       options: { hotspot: true },
       fields: [{ name: 'alt', title: 'Alt', type: 'string' }]
     },
-    {
-      name: 'resume',
-      title: 'Resume',
-      type: 'file'
-    },
+    { name: 'resume', title: 'Resume', type: 'file' },
     {
       name: 'aboutLinkGif',
       title: 'About Link GIF',
