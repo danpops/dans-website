@@ -6,12 +6,11 @@ export const StickyWrapper = styled.div`
   position: fixed;
   z-index: 9999;
   bottom: 0.75rem;
-  right: -3rem;
+  width: 100vw;
   cursor: pointer;
 
   @media ${devices.lg} {
-    right: -2rem;
-    bottom: 0;
+    bottom: 1.2rem;
   }
 `
 export const StickyImage = styled(Image)`
