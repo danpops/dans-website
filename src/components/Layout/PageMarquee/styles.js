@@ -30,7 +30,7 @@ export const PreText = styled.pre`
   line-height: 0;
   font-family: 'MS Sans Serif', sans-serif !important;
   font-weight: 500;
-  font-size: ${fonts.xs} !important;
+  font-size: ${fonts.sm} !important;
   @media ${devices.md} {
     font-size: ${fonts.md} !important;
   }

@@ -1,5 +1,5 @@
 import homerGif from 'public/gifs/homer.gif'
-import { StickyImage, StickyWrapper } from './styles'
+import { StickyImageWrapper, StickyImage, MarqueeWrapper } from './styles'
 import { useRouter } from 'next/router'
 import { useTheme } from '../ThemeProvider'
 import Marquee from 'react-fast-marquee'
@@ -9,22 +9,24 @@ export default function StickyGif () {
   const router = useRouter()
   const visible = router.pathname !== '/records'
   const { isDarkMode } = useTheme()
-  const [isAnimated, setIsAnimated] = useState(false)
+  const [isAnimated, setAnimated] = useState(false)
 
-  const onToggleHomer = () => setIsAnimated(!isAnimated)
+  const onToggleHomer = () => setAnimated(!isAnimated)
 
   if (!visible) return null
 
   return (
-    <StickyWrapper id='sticky-gif' onClick={onToggleHomer}>
+    <MarqueeWrapper id='sticky-gif' onClick={onToggleHomer}>
       <Marquee speed={100} play={isAnimated}>
-        <StickyImage
-          src={homerGif}
-          alt='homer gif'
-          priority
-          $inverted={isDarkMode}
-        />
+        <StickyImageWrapper>
+          <StickyImage
+            src={homerGif}
+            alt='homer gif'
+            priority
+            $inverted={isDarkMode}
+          />
+        </StickyImageWrapper>
       </Marquee>
-    </StickyWrapper>
+    </MarqueeWrapper>
   )
 }
