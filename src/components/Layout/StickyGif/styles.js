@@ -10,7 +10,7 @@ export const MarqueeWrapper = styled.div`
   cursor: pointer;
 
   @media ${devices.lg} {
-    bottom: 1.4rem;
+    bottom: 1.75rem;
   }
 `
 export const StickyImage = styled(Image)`
