@@ -7,8 +7,6 @@ export const MarqueeWrapper = styled.div`
   z-index: 999;
   bottom: 1.25rem;
   width: 100vw;
-  cursor: pointer;
-
   @media ${devices.lg} {
     bottom: 1.75rem;
   }
@@ -16,6 +14,7 @@ export const MarqueeWrapper = styled.div`
 export const StickyImage = styled(Image)`
   width: 10rem;
   height: 10rem;
+  cursor: pointer;
   ${props => (props.$inverted ? 'filter: invert(100%);' : '')}
 `
 export const StickyImageWrapper = styled.div`
