@@ -70,17 +70,18 @@ export const PageTabsContainer = styled.ul`
   margin: 0;
   grid-template-columns: 1fr;
   row-gap: 0.5rem;
-  column-gap: 1rem;
   margin-top: 0.5rem;
   grid-template-rows: repeat(5, minmax(0, 1fr));
   cursor: pointer;
 
   @media ${devices.md} {
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 0.5rem;
     grid-template-rows: 1fr;
   }
   @media ${devices.lg} {
     grid-template-columns: repeat(5, 1fr);
+    column-gap: 1rem;
     display: grid;
     animation: none;
     margin: 0;
