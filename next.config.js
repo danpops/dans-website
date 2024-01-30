@@ -1,5 +1,8 @@
 const withFonts = require('next-fonts')
 const nextConfig = withFonts({
+  env: {
+    DISCOGS_KEY: process.env.DISCOGS_KEY
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
