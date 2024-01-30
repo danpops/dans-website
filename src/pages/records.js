@@ -11,7 +11,6 @@ import useCollection from '@/hooks/useCollection'
 import client from '@/cms/client'
 import { GET_RECORDS } from '@/cms/queries'
 import RecordDetail from '@/components/RecordDetail'
-import { useState } from 'react'
 
 export async function getStaticProps () {
   const id = 'records'
@@ -25,19 +24,15 @@ export async function getStaticProps () {
 }
 export default function RecordsPage (props) {
   const { title, records, discogsKey, pagination, data } = props
-  const [activeRelease, setActiveRelease] = useState(null)
   const collection = useCollection({ records, pagination, discogsKey })
   const { collectionInfo, onSelectPage, onUpdateSorting } = collection
+  const { activeRelease, onClickRelease, onCloseRelease } = collection
   const infoText = `${collectionInfo} ${data.discogsMessage}`
-  const onClickRelease = release => setActiveRelease(release)
 
   return (
     <TableWindow id='records-window' title={title}>
       {activeRelease && (
-        <RecordDetail
-          onClose={() => setActiveRelease(null)}
-          release={activeRelease}
-        />
+        <RecordDetail onClose={onCloseRelease} release={activeRelease} />
       )}
       <div>
         <TableBodyText id='records-info'>{data.summary}</TableBodyText>

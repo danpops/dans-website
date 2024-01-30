@@ -7,6 +7,7 @@ export default function useCollection ({
   pagination = {},
   discogsKey = ''
 }) {
+  const [activeRelease, setActiveRelease] = useState(null)
   const [loading, setLoading] = useState(true)
   const [paginationInfo, setPaginationInfo] = useState(pagination)
   const [sortKey, setSortKey] = useState('artist')
@@ -31,6 +32,14 @@ export default function useCollection ({
         setLoading(false)
       })
   }
+
+  const onClickRelease = release => {
+    const value = release === null ? 'unset' : 'hidden'
+    document.body.style.overflow = value
+    setActiveRelease(release)
+  }
+
+  const onCloseRelease = () => onClickRelease(null)
 
   const onSelectPage = async page => {
     setLoading(true)
@@ -67,6 +76,9 @@ export default function useCollection ({
     pageList,
     collectionInfo,
     onUpdateSorting,
+    onCloseRelease,
+    onClickRelease,
+    activeRelease,
     sorting: { sortKey, sortOrder }
   }
 }
