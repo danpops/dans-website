@@ -1,6 +1,6 @@
-import { formatReleases } from './dataUtils'
+import { formatRelease, formatReleases } from './dataUtils'
 
-export { fetchDiscogsData, sendContactMessage }
+export { fetchDiscogsData, fetchDiscogsRelease, sendContactMessage }
 
 const API_URL = 'https://api.discogs.com'
 const RELEASES_URL = `${API_URL}/users/nowspinninglps/collection/releases/0`
@@ -28,6 +28,28 @@ async function fetchDiscogsData ({
     const data = await response.json()
     const records = data.releases.map(formatReleases)
     return { records, pagination: data.pagination }
+  } catch (error) {
+    console.error('Error fetching data:', error)
+    return null
+  }
+}
+async function fetchDiscogsRelease ({ discogsKey, id }) {
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Discogs token=${discogsKey}`
+    },
+    body: null
+  }
+  const url = `${API_URL}/releases/${id}`
+  try {
+    const response = await fetch(url, requestOptions)
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    const data = await response.json()
+    return formatRelease(data)
   } catch (error) {
     console.error('Error fetching data:', error)
     return null

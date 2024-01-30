@@ -1,4 +1,4 @@
-export { formatReleases, getPageNumbers }
+export { formatRelease, formatReleases, getPageNumbers, trimText }
 
 const composeFormatDescription = descriptions =>
   descriptions?.filter(desc => desc !== 'Album')?.join(' ') ?? ''
@@ -33,6 +33,34 @@ function formatDate (inputDate) {
   const year = date.getFullYear()
   return `${monthName} ${day}, ${year}`
 }
+function formatRelease (release) {
+  const id = release.id
+  const title = release.title
+  const artist = formatArtists(release.artists)
+  const labels = release.labels.map(item => item.name).join(', ')
+  const dateAdded = formatDate(release.date_added)
+  const formats = release.formats.map(composeFormat).join(', ')
+  const genres = release.genres.join(', ')
+  const coverImage = release.images[0].uri
+  const thumbImage = release.thumb
+  const releaseYear = release.year
+  const tracklist = release.tracklist
+  const country = release.country
+  return {
+    id,
+    title,
+    artist,
+    tracklist,
+    dateAdded,
+    releaseYear,
+    formats,
+    labels,
+    genres,
+    country,
+    coverImage,
+    thumbImage
+  }
+}
 function formatReleases (item) {
   const id = item.id
   const dateAdded = formatDate(item.date_added)
@@ -54,6 +82,13 @@ function formatReleases (item) {
     coverImage,
     thumbImage
   }
+}
+function trimText (inputString, maxLength = 40) {
+  if (inputString.length <= maxLength) {
+    return inputString
+  }
+  const substring = inputString.substring(0, maxLength)
+  return `${substring}...`
 }
 function getPageNumbers (totalPages, currentPage) {
   const result = []
