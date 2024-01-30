@@ -6,32 +6,36 @@ import { fonts } from '@/lib/fonts'
 
 export const AlbumInfo = styled.div`
   display: grid;
-  grid-area: album-info;
-  @media ${devices.md} {
-    margin-top: 1rem;
-    align-content: flex-start;
-  }
   @media ${devices.lg} {
-    align-items: center;
-    justify-self: flex-start;
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
+    align-items: flex-start;
+    justify-items: flex-start;
   }
 `
 export const ImageContainer = styled.div`
-  grid-area: album-art;
   width: 100%;
   height: 100%;
   justify-self: center;
   @media ${devices.lg} {
     max-width: 30rem;
     justify-self: flex-start;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
   }
 `
 export const TracklistContainer = styled.div`
-  grid-area: tracklist;
   width: 100%;
+  @media ${devices.lg} {
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 2;
+  }
 `
 export const LinkText = styled(BodyText)`
-  grid-area: album-link;
+  @media ${devices.lg} {
+    grid-row: 3 / span 1;
+    grid-column: 1 / span 2;
+  }
 `
 export const RecordImage = styled(Image)`
   object-fit: contain;
@@ -40,23 +44,15 @@ export const RecordImage = styled(Image)`
 `
 export const ReleaseContent = styled.div`
   display: grid;
-  grid-template-areas:
-    'album-art'
-    'album-info'
-    'tracklist'
-    'album-link';
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
   row-gap: 0.5rem;
-  align-items: center;
-  justify-items: start;
   @media ${devices.lg} {
-    grid-template-areas:
-      'album-art album-info album-info album-info'
-      'tracklist tracklist tracklist tracklist'
-      'album-link . . .';
+    align-items: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, auto));
+    row-gap: 1rem;
     column-gap: 1rem;
-  }
-  @media ${devices.lg} {
-    row-gap: 2rem;
   }
 `
 export const ReleaseText = styled(BodyText)`
