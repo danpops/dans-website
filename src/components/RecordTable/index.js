@@ -1,15 +1,17 @@
 import {
-  Table,
-  TableCell,
   TableBody,
   TableHead,
-  TableHeaderContainer,
-  TableHeaderRow,
-  TableRow,
-  TableText,
-  LoadingContainer,
   HeaderContainer,
-  SortChevron
+  TableHeaderRow,
+  SortChevron,
+  TableText
+} from '@/components/Table'
+import {
+  RecordTableContainer,
+  LoadingContainer,
+  RecordsCell,
+  RecordsHeader,
+  RecordRow
 } from './styles'
 import Image from 'next/image'
 import hourglassGif from 'public/gifs/hourglass.gif'
@@ -26,7 +28,7 @@ export default function RecordTable (props) {
     )
   }
   return (
-    <Table id='records-table'>
+    <RecordTableContainer id='records-table'>
       <TableHead>
         <TableHeaderRow>
           {TABLE_HEADERS.map((header, index) => (
@@ -48,7 +50,7 @@ export default function RecordTable (props) {
           />
         ))}
       </TableBody>
-    </Table>
+    </RecordTableContainer>
   )
 }
 function TableHeader (props) {
@@ -58,26 +60,26 @@ function TableHeader (props) {
   const onSort = () => onUpdateSorting(sortKey)
 
   return (
-    <TableHeaderContainer onClick={onSort}>
+    <RecordsHeader onClick={onSort}>
       <HeaderContainer>
         <span>{label}</span>
         {isActive && <SortChevron order={sorting.sortOrder} />}
       </HeaderContainer>
-    </TableHeaderContainer>
+    </RecordsHeader>
   )
 }
 function AlbumRelease ({ release, onClick }) {
   return (
-    <TableRow onClick={onClick(release)}>
-      <TableCell>
+    <RecordRow onClick={onClick(release)}>
+      <RecordsCell>
         <TableText>{release.artist}</TableText>
-      </TableCell>
-      <TableCell>
+      </RecordsCell>
+      <RecordsCell>
         <TableText>{release.title}</TableText>
-      </TableCell>
-      <TableCell>
+      </RecordsCell>
+      <RecordsCell>
         <TableText>{release.dateAdded}</TableText>
-      </TableCell>
-    </TableRow>
+      </RecordsCell>
+    </RecordRow>
   )
 }
