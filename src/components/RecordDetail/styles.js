@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { BodyText } from '../Text'
 import { devices } from '@/lib/devices'
+import { fonts } from '@/lib/fonts'
 
 export const AlbumInfo = styled.div`
   display: grid;
@@ -11,31 +12,26 @@ export const AlbumInfo = styled.div`
     align-content: flex-start;
   }
   @media ${devices.lg} {
-    align-content: center;
+    align-items: center;
+    justify-self: flex-start;
   }
 `
 export const ImageContainer = styled.div`
   grid-area: album-art;
   width: 100%;
   height: 100%;
-  max-height: 18rem;
   justify-self: center;
-  @media ${devices.md} {
-    max-width: 25rem;
-    max-height: 25rem;
+  @media ${devices.lg} {
+    max-width: 30rem;
+    justify-self: flex-start;
   }
+`
+export const TracklistContainer = styled.div`
+  grid-area: tracklist;
+  width: 100%;
 `
 export const LinkText = styled(BodyText)`
   grid-area: album-link;
-`
-export const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
 `
 export const RecordImage = styled(Image)`
   object-fit: contain;
@@ -47,40 +43,30 @@ export const ReleaseContent = styled.div`
   grid-template-areas:
     'album-art'
     'album-info'
+    'tracklist'
     'album-link';
-  justify-content: flex-start;
   row-gap: 0.5rem;
-  align-content: center;
-  padding: 1rem;
-  @media ${devices.md} {
+  align-items: center;
+  justify-items: start;
+  @media ${devices.lg} {
     grid-template-areas:
-      'album-art album-info'
-      'album-art album-link';
-    column-gap: 2rem;
-    margin-bottom: 1rem;
+      'album-art album-info album-info album-info'
+      'tracklist tracklist tracklist tracklist'
+      'album-link . . .';
+    column-gap: 1rem;
   }
   @media ${devices.lg} {
-    padding: 2rem;
+    row-gap: 2rem;
   }
 `
 export const ReleaseText = styled(BodyText)`
   font-weight: bold;
   color: ${props => props.theme.font};
+
+  @media ${devices.lg} {
+    font-size: ${fonts.lg} !important;
+  }
 `
 export const Span = styled.span`
   font-weight: normal;
-`
-export const WindowWrapper = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  width: 90%;
-  @media ${devices.lg} {
-    max-width: 45rem;
-  }
-  @media ${devices.lg} {
-    max-width: 60rem;
-  }
 `

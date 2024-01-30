@@ -1,81 +1,116 @@
-import { WindowContainer } from '../Layout/styles'
-import WindowHeader from '../Layout/WindowHeader'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderContainer,
+  TableHeaderRow,
+  TableRow,
+  TableText
+} from '../Table'
 import { Anchor } from '../Text'
 import {
-  Overlay,
   ReleaseContent,
   ReleaseText,
   Span,
-  WindowWrapper,
   RecordImage,
   ImageContainer,
   LinkText,
-  AlbumInfo
+  AlbumInfo,
+  TracklistContainer
 } from './styles'
 
 const RELEASE_URL = 'https://discogs.com/release/'
-export default function RecordDetail ({ release, onClose }) {
+
+export default function RecordDetail ({ release }) {
   const discogsLink = `${RELEASE_URL}${release.id}`
   return (
-    <>
-      <Overlay onClick={onClose} />
-      <WindowWrapper>
-        <WindowContainer id='release-window'>
-          <WindowHeader id='release' title='Album Release' onExit={onClose} />
-          <ReleaseContent>
-            <AlbumImage src={release.coverImage} thumb={release.thumbImage} />
-            <AlbumDetails release={release} />
-            <LinkText>
-              Release information from{' '}
-              <Anchor
-                style={{ cursor: 'pointer' }}
-                href={discogsLink}
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Discogs
-              </Anchor>
-              .
-            </LinkText>
-          </ReleaseContent>
-        </WindowContainer>
-      </WindowWrapper>
-    </>
+    <ReleaseContent>
+      <ImageContainer>
+        <RecordImage
+          src={release.coverImage}
+          alt='album cover'
+          width={100}
+          height={100}
+          placeholder='blur'
+          blurDataURL={release.thumbImage}
+        />
+      </ImageContainer>
+      <AlbumInfo>
+        <ReleaseText>
+          Title: <Span>{release.title}</Span>
+        </ReleaseText>
+        <ReleaseText>
+          Artist: <Span>{release.artist}</Span>
+        </ReleaseText>
+        <ReleaseText>
+          Release Year: <Span>{release.releaseYear}</Span>
+        </ReleaseText>
+        <ReleaseText>
+          Format: <Span>{release.formats}</Span>
+        </ReleaseText>
+        <ReleaseText>
+          Release Year: <Span>{release.releaseYear}</Span>
+        </ReleaseText>
+        <ReleaseText>
+          Labels: <Span>{release.labels}</Span>
+        </ReleaseText>
+        <ReleaseText>
+          Genres: <Span>{release.genres}</Span>
+        </ReleaseText>
+        <ReleaseText>
+          Country: <Span>{release.country}</Span>
+        </ReleaseText>
+      </AlbumInfo>
+      <Tracklist tracklist={release.tracklist} />
+      <LinkText>
+        Release information from{' '}
+        <Anchor
+          style={{ cursor: 'pointer' }}
+          href={discogsLink}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Discogs
+        </Anchor>
+        .
+      </LinkText>
+    </ReleaseContent>
   )
 }
-function AlbumImage ({ src, thumb }) {
-  if (!src) return null
+function Tracklist ({ tracklist }) {
   return (
-    <ImageContainer>
-      <RecordImage
-        src={src}
-        alt='album cover'
-        width={100}
-        height={100}
-        placeholder='blur'
-        blurDataURL={thumb}
-      />
-    </ImageContainer>
-  )
-}
-function AlbumDetails ({ release }) {
-  return (
-    <AlbumInfo>
-      <ReleaseText>
-        Title: <Span>{release.title}</Span>
-      </ReleaseText>
-      <ReleaseText>
-        Artist: <Span>{release.artist}</Span>
-      </ReleaseText>
-      <ReleaseText>
-        Release Year: <Span>{release.releaseYear}</Span>
-      </ReleaseText>
-      <ReleaseText>
-        Format: <Span>{release.formats}</Span>
-      </ReleaseText>
-      <ReleaseText>
-        Date Added: <Span>{release.dateAdded}</Span>
-      </ReleaseText>
-    </AlbumInfo>
+    <TracklistContainer>
+      <Table>
+        <TableHead>
+          <TableHeaderRow>
+            <TableHeaderContainer>
+              <TableText>Position</TableText>
+            </TableHeaderContainer>
+            <TableHeaderContainer>
+              <TableText>Title</TableText>
+            </TableHeaderContainer>
+            <TableHeaderContainer>
+              <TableText>Duration</TableText>
+            </TableHeaderContainer>
+          </TableHeaderRow>
+        </TableHead>
+        <TableBody>
+          {tracklist.map(track => (
+            <TableRow key={track.position}>
+              <TableCell>
+                <TableText>{track.position}</TableText>
+              </TableCell>
+              <TableCell>
+                <TableText>{track.title}</TableText>
+              </TableCell>
+              <TableCell>
+                <TableText>{track.duration}</TableText>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TracklistContainer>
   )
 }
