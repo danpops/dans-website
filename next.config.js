@@ -1,6 +1,7 @@
 const withFonts = require('next-fonts')
 const nextConfig = withFonts({
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
