@@ -5,11 +5,12 @@ import {
   WindowTitle
 } from './styles'
 
-export default function WindowHeader ({ id, title, onExit = null }) {
+export default function WindowHeader ({ id, title, onExit = 'home' }) {
   const router = useRouter()
   const goHome = () => router.push('/')
+  const goBack = () => router.back()
 
-  const onClickExit = () => (onExit !== null ? onExit() : goHome())
+  const onClickExit = () => (onExit === 'home' ? goHome() : goBack())
 
   return (
     <WindowHeaderContainer>

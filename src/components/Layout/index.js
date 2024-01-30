@@ -16,10 +16,10 @@ function getHeroLayout (page, { id }) {
     </DefaultLayout>
   )
 }
-function getWindowLayout (page, { id, title }) {
+function getWindowLayout (page, { id, title, onExit }) {
   return (
     <DefaultLayout id={id}>
-      <PageWindow id={id} title={title}>
+      <PageWindow id={id} title={title} onExit={onExit}>
         {page}
       </PageWindow>
     </DefaultLayout>
