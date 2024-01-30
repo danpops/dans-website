@@ -10,7 +10,7 @@ import { fetchDiscogsData } from '@/lib/api'
 import useCollection from '@/hooks/useCollection'
 import client from '@/cms/client'
 import { GET_RECORDS } from '@/cms/queries'
-import RecordDetail from '@/components/RecordDetail'
+import { useRouter } from 'next/router'
 
 export async function getStaticProps () {
   const id = 'records'
@@ -24,16 +24,15 @@ export async function getStaticProps () {
 }
 export default function RecordsPage (props) {
   const { title, records, discogsKey, pagination, data } = props
+  const router = useRouter()
   const collection = useCollection({ records, pagination, discogsKey })
   const { collectionInfo, onSelectPage, onUpdateSorting } = collection
-  const { activeRelease, onClickRelease, onCloseRelease } = collection
   const infoText = `${collectionInfo} ${data.discogsMessage}`
+
+  const onClickRelease = release => router.push(`/records/${release.id}`)
 
   return (
     <TableWindow id='records-window' title={title}>
-      {activeRelease && (
-        <RecordDetail onClose={onCloseRelease} release={activeRelease} />
-      )}
       <div>
         <TableBodyText id='records-info'>{data.summary}</TableBodyText>
         <TableBodyText id='discogs-total-albums'>
