@@ -10,8 +10,10 @@ import { fetchDiscogsData } from '@/lib/api'
 import useCollection from '@/hooks/useCollection'
 import client from '@/cms/client'
 import { GET_RECORDS } from '@/cms/queries'
+import RecordDetail from '@/components/RecordDetail'
+import { useState } from 'react'
 
-export async function getServerSideProps () {
+export async function getStaticProps () {
   const id = 'records'
   const data = await client.fetch(GET_RECORDS)
   const title = data.title
@@ -19,15 +21,24 @@ export async function getServerSideProps () {
   const { records, pagination } = await fetchDiscogsData({ discogsKey })
     .then(data => data)
     .catch(err => err)
-  return { props: { id, title, records, pagination, data } }
+  return { props: { id, title, records, discogsKey, pagination, data } }
 }
-export default function RecordsPage ({ title, records, pagination, data }) {
-  const collection = useCollection({ records, pagination })
+export default function RecordsPage (props) {
+  const { title, records, discogsKey, pagination, data } = props
+  const [activeRelease, setActiveRelease] = useState(null)
+  const collection = useCollection({ records, pagination, discogsKey })
   const { collectionInfo, onSelectPage, onUpdateSorting } = collection
   const infoText = `${collectionInfo} ${data.discogsMessage}`
+  const onClickRelease = release => setActiveRelease(release)
 
   return (
     <TableWindow id='records-window' title={title}>
+      {activeRelease && (
+        <RecordDetail
+          onClose={() => setActiveRelease(null)}
+          release={activeRelease}
+        />
+      )}
       <div>
         <TableBodyText id='records-info'>{data.summary}</TableBodyText>
         <TableBodyText id='discogs-total-albums'>
@@ -40,6 +51,7 @@ export default function RecordsPage ({ title, records, pagination, data }) {
           items={collection.myCollection}
           onUpdateSorting={onUpdateSorting}
           sorting={collection.sorting}
+          onClickRelease={onClickRelease}
         />
       </TableContainer>
       <Pagination

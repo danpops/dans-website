@@ -14,13 +14,10 @@ import {
 import Image from 'next/image'
 import hourglassGif from 'public/gifs/hourglass.gif'
 
-const RELEASE_URL = 'https://discogs.com/release/'
 const TABLE_HEADERS = ['Artist', 'Title', 'Added']
 export default function RecordTable (props) {
-  const { loading, items, onUpdateSorting, sorting } = props
-  const openDiscogsPage = id => () => {
-    window.open(`${RELEASE_URL}${id}`, '_blank')
-  }
+  const { loading, items, onUpdateSorting, sorting, onClickRelease } = props
+  const onClickRow = release => () => onClickRelease(release)
   if (loading) {
     return (
       <LoadingContainer>
@@ -47,7 +44,7 @@ export default function RecordTable (props) {
           <AlbumRelease
             key={release.id}
             release={release}
-            openDiscogsPage={openDiscogsPage}
+            onClick={onClickRow}
           />
         ))}
       </TableBody>
@@ -69,9 +66,9 @@ function TableHeader (props) {
     </TableHeaderContainer>
   )
 }
-function AlbumRelease ({ release, openDiscogsPage }) {
+function AlbumRelease ({ release, onClick }) {
   return (
-    <TableRow onClick={openDiscogsPage(release.id)}>
+    <TableRow onClick={onClick(release)}>
       <TableCell>
         <TableText>{release.artist}</TableText>
       </TableCell>

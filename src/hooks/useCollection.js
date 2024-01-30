@@ -2,9 +2,11 @@ import { fetchDiscogsData } from '@/lib/api'
 import { getPageNumbers } from '@/lib/dataUtils'
 import { useEffect, useState } from 'react'
 
-const discogsKey = process.env.DISCOGS_KEY ?? ''
-
-export default function useCollection ({ records, pagination }) {
+export default function useCollection ({
+  records = [],
+  pagination = {},
+  discogsKey = ''
+}) {
   const [loading, setLoading] = useState(true)
   const [paginationInfo, setPaginationInfo] = useState(pagination)
   const [sortKey, setSortKey] = useState('artist')

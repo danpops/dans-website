@@ -5,14 +5,16 @@ import {
   WindowTitle
 } from './styles'
 
-export default function WindowHeader ({ id, title }) {
+export default function WindowHeader ({ id, title, onExit = null }) {
   const router = useRouter()
   const goHome = () => router.push('/')
+
+  const onClickExit = () => (onExit !== null ? onExit() : goHome())
 
   return (
     <WindowHeaderContainer>
       <WindowTitle id={`${id}-title`}>{title}</WindowTitle>
-      <CloseButtonContainer id='home-button' onClick={goHome}>
+      <CloseButtonContainer id='home-button' onClick={onClickExit}>
         x
       </CloseButtonContainer>
     </WindowHeaderContainer>

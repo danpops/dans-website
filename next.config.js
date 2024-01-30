@@ -7,6 +7,10 @@ const nextConfig = withFonts({
         hostname: 'cdn.sanity.io',
         port: '',
         pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.discogs.com'
       }
     ]
   },
