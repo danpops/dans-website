@@ -25,8 +25,8 @@ const RELEASE_URL = 'https://discogs.com/release/'
 export default function RecordDetail ({ release }) {
   const discogsLink = `${RELEASE_URL}${release.id}`
   return (
-    <ReleaseContent>
-      <ImageContainer>
+    <ReleaseContent id='record-detail'>
+      <ImageContainer id='record-image'>
         <RecordImage
           src={release.coverImage}
           alt='album cover'
@@ -36,34 +36,31 @@ export default function RecordDetail ({ release }) {
           blurDataURL={release.thumbImage}
         />
       </ImageContainer>
-      <AlbumInfo>
-        <ReleaseText>
+      <AlbumInfo id='album-info'>
+        <ReleaseText id='album-title'>
           Title: <Span>{release.title}</Span>
         </ReleaseText>
-        <ReleaseText>
+        <ReleaseText id='album-artist'>
           Artist: <Span>{release.artist}</Span>
         </ReleaseText>
-        <ReleaseText>
+        <ReleaseText id='album-release'>
           Release Year: <Span>{release.releaseYear}</Span>
         </ReleaseText>
-        <ReleaseText>
+        <ReleaseText id='album-format'>
           Format: <Span>{release.formats}</Span>
         </ReleaseText>
-        <ReleaseText>
-          Release Year: <Span>{release.releaseYear}</Span>
-        </ReleaseText>
-        <ReleaseText>
+        <ReleaseText id='album-labels'>
           Labels: <Span>{release.labels}</Span>
         </ReleaseText>
-        <ReleaseText>
+        <ReleaseText id='album-genres'>
           Genres: <Span>{release.genres}</Span>
         </ReleaseText>
-        <ReleaseText>
+        <ReleaseText id='album-country'>
           Country: <Span>{release.country}</Span>
         </ReleaseText>
       </AlbumInfo>
       <Tracklist tracklist={release.tracklist} />
-      <LinkText>
+      <LinkText id='album-discogs-link'>
         Release information from{' '}
         <Anchor
           style={{ cursor: 'pointer' }}
@@ -80,7 +77,7 @@ export default function RecordDetail ({ release }) {
 }
 function Tracklist ({ tracklist }) {
   return (
-    <TracklistContainer>
+    <TracklistContainer id='album-tracklist'>
       <Table>
         <TableHead>
           <TableHeaderRow>
