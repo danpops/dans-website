@@ -20,6 +20,10 @@ export const GET_EXPERIENCE = groq`*[_type == "experience"][0]{
     notes
   }
 }`
+export const GET_RESUME = groq`*[_type == "landing"][0]{
+  _id,
+  "resumeURL": resume.asset->url
+}`
 export const GET_LANDING = groq`*[_type == "landing"][0]{
   _id,
   title,
