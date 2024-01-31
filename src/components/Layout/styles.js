@@ -10,6 +10,12 @@ export const FullPageContainer = styled.div`
   background-color: ${props => props.theme.primary};
   color: ${props => props.theme.font};
   margin-bottom: 2rem;
+  @media ${devices.md} {
+    margin-bottom: 2rem;
+  }
+  @media ${devices.lg} {
+    margin-bottom: 4rem;
+  }
 `
 export const PageContainer = styled.div`
   overflow: scroll;
@@ -21,10 +27,10 @@ export const PageContainer = styled.div`
     padding: 1rem 4rem;
   }
   @media ${devices.lg} {
-    padding: 3rem 15rem 0;
+    padding: 2rem 15rem 0;
   }
   @media ${devices.xl} {
-    padding: 4rem 30rem 0;
+    padding: 1rem 30rem 0;
   }
 `
 export const WindowContainer = styled.div`
