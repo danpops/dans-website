@@ -1,7 +1,12 @@
 import { getDefaultLayout } from '@/components/Layout'
 import Copyright from '@/components/Layout/Copyright'
 import TableWindow from '@/components/Layout/TableWindow'
-import ReleaseDetails from '@/components/ReleaseDetails'
+import {
+  ReleaseHeading,
+  ReleaseLink,
+  ReleaseTracklist
+} from '@/components/ReleaseDetails'
+import { ReleaseContent } from '@/components/ReleaseDetails/styles'
 import { fetchDiscogsRelease } from '@/lib/api'
 import { trimText } from '@/lib/dataUtils'
 
@@ -9,16 +14,20 @@ export async function getServerSideProps (ctx) {
   const { id } = ctx.query
   const onExit = 'back'
   const discogsKey = process.env.DISCOGS_KEY ?? ''
-  const data = await fetchDiscogsRelease({ discogsKey, id })
-  const longTitle = `${data.title} - ${data.artist}`
+  const release = await fetchDiscogsRelease({ discogsKey, id })
+  const longTitle = `${release.title} - ${release.artist}`
   const title = trimText(longTitle)
   const pageId = 'release-page'
-  return { props: { id: pageId, title, data, onExit } }
+  return { props: { id: pageId, title, release, onExit } }
 }
-export default function RecordPage ({ id, title, data, onExit }) {
+export default function RecordPage ({ id, title, release, onExit }) {
   return (
     <TableWindow id={id} title={title} onExit={onExit}>
-      <ReleaseDetails release={data} />
+      <ReleaseContent id='record-detail'>
+        <ReleaseHeading release={release} />
+        <ReleaseTracklist tracklist={release.tracklist} />
+        <ReleaseLink id={release.id} />
+      </ReleaseContent>
       <Copyright />
     </TableWindow>
   )

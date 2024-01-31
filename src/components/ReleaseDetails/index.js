@@ -10,43 +10,19 @@ import {
 } from '../Table'
 import { Anchor } from '../Text'
 import {
-  ReleaseContent,
   ReleaseText,
   Span,
   RecordImage,
   ImageContainer,
-  LinkText,
   AlbumInfo,
   TracklistContainer,
   AlbumHeading,
   InfoContainer,
-  AlbumTextContainer
+  AlbumTextContainer,
+  LinkText
 } from './styles'
 
-const RELEASE_URL = 'https://discogs.com/release/'
-
-export default function ReleaseDetails ({ release }) {
-  const discogsLink = `${RELEASE_URL}${release.id}`
-  return (
-    <ReleaseContent id='record-detail'>
-      <ReleaseHeading release={release} />
-      <ReleaseTracklist tracklist={release.tracklist} />
-      <LinkText id='album-discogs-link'>
-        Release information from{' '}
-        <Anchor
-          style={{ cursor: 'pointer' }}
-          href={discogsLink}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Discogs
-        </Anchor>
-        .
-      </LinkText>
-    </ReleaseContent>
-  )
-}
-function ReleaseHeading ({ release }) {
+export function ReleaseHeading ({ release }) {
   return (
     <AlbumHeading>
       <ImageContainer id='record-image'>
@@ -85,7 +61,7 @@ function ReleaseHeading ({ release }) {
     </AlbumHeading>
   )
 }
-function AlbumText ({ id, label, value }) {
+export function AlbumText ({ id, label, value }) {
   return (
     <AlbumTextContainer id={id}>
       <ReleaseText>{label}</ReleaseText>
@@ -93,7 +69,7 @@ function AlbumText ({ id, label, value }) {
     </AlbumTextContainer>
   )
 }
-function ReleaseTracklist ({ tracklist }) {
+export function ReleaseTracklist ({ tracklist }) {
   return (
     <TracklistContainer id='album-tracklist'>
       <Table>
@@ -127,5 +103,22 @@ function ReleaseTracklist ({ tracklist }) {
         </TableBody>
       </Table>
     </TracklistContainer>
+  )
+}
+export function ReleaseLink ({ id }) {
+  const discogsLink = `https://discogs.com/release/${id}`
+  return (
+    <LinkText id='album-discogs-link'>
+      Release information from{' '}
+      <Anchor
+        style={{ cursor: 'pointer' }}
+        href={discogsLink}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        Discogs
+      </Anchor>
+      .
+    </LinkText>
   )
 }

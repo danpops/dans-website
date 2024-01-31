@@ -22,7 +22,7 @@ export const AlbumHeading = styled.div`
 export const AlbumTextContainer = styled.div`
   font-size: ${fonts.md} !important;
   @media ${devices.lg} {
-    font-size: ${fonts.xl} !important;
+    font-size: ${fonts.lg} !important;
   }
 `
 export const InfoContainer = styled.div`
@@ -30,6 +30,10 @@ export const InfoContainer = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   align-items: center;
+  @media ${devices.md} {
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
 `
 export const AlbumInfo = styled.div`
   display: grid;
