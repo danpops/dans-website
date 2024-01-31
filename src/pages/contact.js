@@ -7,7 +7,7 @@ import useContactForm from '@/hooks/useContactForm'
 import client from '@/cms/client'
 import { GET_CONTACT } from '@/cms/queries'
 
-export async function getStaticProps () {
+export async function getServerSideProps () {
   const id = 'contact'
   const data = await client.fetch(GET_CONTACT)
   const title = data.title

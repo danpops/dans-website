@@ -10,7 +10,7 @@ import useCollection from '@/hooks/useCollection'
 import client from '@/cms/client'
 import { GET_RECORDS } from '@/cms/queries'
 
-export async function getStaticProps () {
+export async function getServerSideProps () {
   const id = 'records'
   const data = await client.fetch(GET_RECORDS)
   const title = data.title

@@ -6,7 +6,7 @@ import { BodyText } from '@/components/Text'
 import client from '@/cms/client'
 import { GET_SPECIALTIES } from '@/cms/queries'
 
-export async function getStaticProps () {
+export async function getServerSideProps () {
   const id = 'specialties'
   const data = await client.fetch(GET_SPECIALTIES)
   const title = data.title

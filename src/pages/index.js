@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useTheme } from '@/components/Layout/ThemeProvider'
 import HeroBanner from '@/components/HeroBanner'
 
-export async function getStaticProps () {
+export async function getServerSideProps () {
   const id = 'landing'
   const data = await client.fetch(GET_LANDING)
   return { props: { id, data } }

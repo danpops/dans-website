@@ -7,7 +7,7 @@ import client from '@/cms/client'
 import { GET_ABOUT, GET_RESUME } from '@/cms/queries'
 import { ResumeLink } from '@/components/HeroBanner/styles'
 
-export async function getStaticProps () {
+export async function getServerSideProps () {
   const id = 'about'
   const data = await client.fetch(GET_ABOUT)
   const resume = await client.fetch(GET_RESUME)
