@@ -91,6 +91,7 @@ function trimText (inputString, maxLength = 40) {
   return `${substring}...`
 }
 function getPageNumbers (totalPages, currentPage) {
+  if (!totalPages) return null
   const result = []
   // Ensure currentPage is within valid range
   currentPage = Math.min(Math.max(currentPage, 1), totalPages)

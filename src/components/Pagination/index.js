@@ -7,6 +7,7 @@ import {
 } from './styles'
 
 export default function Pagination ({ onChange, currentPage, pages, pageList }) {
+  if (pageList === null) return null
   const hasNext = Number(currentPage) !== pages
   const hasPrevious = currentPage !== 1
 
