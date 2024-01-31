@@ -8,8 +8,8 @@ const RELEASES_URL = `${API_URL}/users/nowspinninglps/collection/releases/0`
 async function fetchDiscogsData ({
   discogsKey = '',
   page = 1,
-  sort = 'artist',
-  sortOrder = 'asc'
+  key = 'artist',
+  order = 'asc'
 }) {
   const requestOptions = {
     method: 'GET',
@@ -19,7 +19,7 @@ async function fetchDiscogsData ({
     },
     body: null
   }
-  const url = `${RELEASES_URL}?sort=${sort}&sort_order=${sortOrder}&per_page=50&page=${page}`
+  const url = `${RELEASES_URL}?sort=${key}&sort_order=${order}&per_page=50&page=${page}`
   try {
     const response = await fetch(url, requestOptions)
     if (!response.ok) {
