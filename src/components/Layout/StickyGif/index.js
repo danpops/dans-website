@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 export default function StickyGif () {
   const router = useRouter()
-  const visible = router.pathname !== '/records'
+  const visible = !router.pathname.includes('/records')
   const { isDarkMode } = useTheme()
   const [isAnimated, setAnimated] = useState(false)
 
