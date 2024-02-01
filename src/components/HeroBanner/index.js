@@ -6,8 +6,8 @@ import {
   LinkContainer,
   MatrixGif,
   TitleContainer,
-  WelcomeImg
-  // ResumeLink
+  WelcomeImg,
+  ResumeLink
 } from '@/components/HeroBanner/styles'
 import { Heading3 } from '@/components/Text'
 
@@ -60,14 +60,14 @@ export default function HeroBanner (props) {
           $inverted={isDarkMode}
         />
       </LinkContainer>
-      {/* <ResumeLink
+      <ResumeLink
         id='resume-link'
         target='_blank'
         rel='noopener noreferrer'
-        href={`${data.resumeURL}`}
+        href={data.resumeURL}
       >
         Resume
-      </ResumeLink> */}
+      </ResumeLink>
       <Copyright />
     </HeroContainer>
   )
