@@ -16,7 +16,7 @@ export default function StickyGif () {
   if (!visible) return null
 
   return (
-    <MarqueeWrapper id='sticky-gif' onClick={onToggleHomer}>
+    <MarqueeWrapper id='sticky-gif'>
       <Marquee speed={100} play={isAnimated}>
         <StickyImageWrapper>
           <StickyImage
@@ -24,6 +24,7 @@ export default function StickyGif () {
             alt='homer gif'
             priority
             $inverted={isDarkMode}
+            onClick={onToggleHomer}
           />
         </StickyImageWrapper>
       </Marquee>
