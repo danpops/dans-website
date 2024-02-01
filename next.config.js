@@ -1,7 +1,9 @@
 const withFonts = require('next-fonts')
 const nextConfig = withFonts({
   env: {
-    DISCOGS_KEY: process.env.DISCOGS_KEY
+    DISCOGS_KEY: process.env.DISCOGS_KEY,
+    API_KEY: process.env.API_KEY,
+    API_URL: process.env.API_URL
   },
   images: {
     unoptimized: true,
