@@ -8,7 +8,7 @@ import {
   TableRow,
   TableText
 } from '../Table'
-import { Anchor } from '../Text'
+import { Anchor, Heading3 } from '../Text'
 import {
   ReleaseText,
   Span,
@@ -133,8 +133,15 @@ export function CommunityBar ({ community }) {
   const wantPercentage = (wantRelease / total) * 100
   return (
     <BarContainer>
-      <HaveBar have={havePercentage}>{haveRelease} Have</HaveBar>
-      <WantBar want={wantPercentage}>{wantRelease} Want</WantBar>
+      <Heading3>Community Stats</Heading3>
+      <div>
+        <HaveBar have={havePercentage}>{haveRelease}</HaveBar>
+        Have Release
+      </div>
+      <div>
+        <WantBar want={wantPercentage}>{wantRelease}</WantBar>
+        Want Relese
+      </div>
     </BarContainer>
   )
 }

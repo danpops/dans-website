@@ -84,28 +84,28 @@ export const Span = styled.span`
 `
 export const BarContainer = styled.div`
   display: grid;
-  position: relative;
-  height: 2rem;
-  background-color: lightgray;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 1rem;
+  margin: 0.75rem 0;
+  justify-self: center;
+  width: 100%;
 `
 const barStyle = `
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 2rem;
+  padding: 0 0.5rem;
   `
 export const HaveBar = styled.div`
   ${barStyle}
   color: ${props => props.theme.windowTitle};
   width: ${props => props.have}%;
   background-color: ${props => props.theme.heroTitle};
-  justify-self: flex-start;
 `
 export const WantBar = styled.div`
   ${barStyle}
   color: ${props => props.theme.windowTitle};
   width: ${props => props.want}%;
   background-color: ${props => props.theme.windowHeader};
-  position: absolute;
-  justify-self: flex-end;
 `
