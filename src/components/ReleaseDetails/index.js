@@ -22,7 +22,9 @@ import {
   LinkText,
   BarContainer,
   HaveBar,
-  WantBar
+  WantBar,
+  BarWrapper,
+  BarText
 } from './styles'
 
 export function ReleaseHeading ({ release }) {
@@ -134,14 +136,14 @@ export function CommunityBar ({ community }) {
   return (
     <BarContainer>
       <Heading3>Community Stats</Heading3>
-      <div>
+      <BarWrapper>
+        <BarText>Have Release</BarText>
         <HaveBar have={havePercentage}>{haveRelease}</HaveBar>
-        Have Release
-      </div>
-      <div>
+      </BarWrapper>
+      <BarWrapper>
+        <BarText>Want Release</BarText>
         <WantBar want={wantPercentage}>{wantRelease}</WantBar>
-        Want Relese
-      </div>
+      </BarWrapper>
     </BarContainer>
   )
 }

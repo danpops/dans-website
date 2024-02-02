@@ -4,6 +4,13 @@ import { BodyText } from '../Text'
 import { devices } from '@/lib/devices'
 import { fonts } from '@/lib/fonts'
 
+const barStyle = `
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  padding: 0 0.5rem;
+`
 export const AlbumHeading = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -90,22 +97,25 @@ export const BarContainer = styled.div`
   justify-self: center;
   width: 100%;
 `
-const barStyle = `
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 2rem;
-  padding: 0 0.5rem;
-  `
 export const HaveBar = styled.div`
   ${barStyle}
-  color: ${props => props.theme.windowTitle};
   width: ${props => props.have}%;
-  background-color: ${props => props.theme.heroTitle};
+  color: ${props => props.theme.windowTitle};
+  background-color: ${props => props.theme.windowHeader};
 `
 export const WantBar = styled.div`
   ${barStyle}
-  color: ${props => props.theme.windowTitle};
   width: ${props => props.want}%;
-  background-color: ${props => props.theme.windowHeader};
+  color: ${props => props.theme.font};
+  background-color: ${props => props.theme.marquee};
+`
+export const BarWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, minmax(0, auto));
+  row-gap: 0.5rem;
+`
+export const BarText = styled(BodyText)`
+  margin-left: 0.25rem;
+  font-weight: 500;
 `
