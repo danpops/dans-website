@@ -16,7 +16,8 @@ export default function ContactForm (props) {
     emailSent,
     submitContact,
     errors,
-    successMessage
+    successMessage,
+    errorMessage
   } = props
   const { progressVisible, progressValue } = useProgress({ loading })
 
@@ -26,6 +27,10 @@ export default function ContactForm (props) {
 
   if (emailSent && !progressVisible) {
     return <BodyText id='success-message'>{successMessage}</BodyText>
+  }
+
+  if (errorMessage) {
+    return <ErrorLabel id='error-message'>{errorMessage}</ErrorLabel>
   }
 
   return (

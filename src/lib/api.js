@@ -58,13 +58,16 @@ async function fetchDiscogsRelease ({ discogsKey, id }) {
 async function sendContactMessage ({ apiUrl, data, apiKey }) {
   const headers = { 'Content-Type': 'application/json', 'x-api-key': apiKey }
   const body = JSON.stringify(data)
-  const result = fetch(apiUrl, { method: 'POST', headers, body }).then(
-    response => {
+  const result = fetch(apiUrl, { method: 'POST', headers, body })
+    .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok')
       }
       return response.json()
-    }
-  )
+    })
+    .catch(err => {
+      console.error(err)
+      throw new Error('Unable to send message. Please try again later.')
+    })
   return result
 }
