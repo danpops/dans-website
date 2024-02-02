@@ -19,7 +19,10 @@ import {
   AlbumHeading,
   InfoContainer,
   AlbumTextContainer,
-  LinkText
+  LinkText,
+  BarContainer,
+  HaveBar,
+  WantBar
 } from './styles'
 
 export function ReleaseHeading ({ release }) {
@@ -120,5 +123,18 @@ export function ReleaseLink ({ id }) {
       </Anchor>
       .
     </LinkText>
+  )
+}
+export function CommunityBar ({ community }) {
+  const haveRelease = parseInt(community.have)
+  const wantRelease = parseInt(community.want)
+  const total = haveRelease + wantRelease
+  const havePercentage = (haveRelease / total) * 100
+  const wantPercentage = (wantRelease / total) * 100
+  return (
+    <BarContainer>
+      <HaveBar have={havePercentage}>{haveRelease} Have</HaveBar>
+      <WantBar want={wantPercentage}>{wantRelease} Want</WantBar>
+    </BarContainer>
   )
 }

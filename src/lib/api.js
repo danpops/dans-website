@@ -49,7 +49,8 @@ async function fetchDiscogsRelease ({ discogsKey, id }) {
       throw new Error('Network response was not ok')
     }
     const data = await response.json()
-    return formatRelease(data)
+    const release = formatRelease(data)
+    return release
   } catch (error) {
     console.error('Error fetching data:', error)
     return null

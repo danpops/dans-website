@@ -82,3 +82,30 @@ export const ReleaseText = styled.div`
 export const Span = styled.span`
   font-weight: normal;
 `
+export const BarContainer = styled.div`
+  display: grid;
+  position: relative;
+  height: 2rem;
+  background-color: lightgray;
+`
+const barStyle = `
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  `
+export const HaveBar = styled.div`
+  ${barStyle}
+  color: ${props => props.theme.windowTitle};
+  width: ${props => props.have}%;
+  background-color: ${props => props.theme.heroTitle};
+  justify-self: flex-start;
+`
+export const WantBar = styled.div`
+  ${barStyle}
+  color: ${props => props.theme.windowTitle};
+  width: ${props => props.want}%;
+  background-color: ${props => props.theme.windowHeader};
+  position: absolute;
+  justify-self: flex-end;
+`
