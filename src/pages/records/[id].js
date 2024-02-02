@@ -12,11 +12,11 @@ import { fetchDiscogsRelease } from '@/lib/api'
 
 export async function getServerSideProps (ctx) {
   const { id } = ctx.query
+  const pageId = 'release-page'
   const onExit = 'back'
   const discogsKey = process.env.DISCOGS_KEY ?? ''
   const release = await fetchDiscogsRelease({ discogsKey, id })
-  const title = release.shortTitle
-  const pageId = 'release-page'
+  const title = release.title
   return { props: { id: pageId, title, release, onExit } }
 }
 export default function RecordPage ({ id, title, release, onExit }) {

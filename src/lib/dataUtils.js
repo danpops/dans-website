@@ -46,14 +46,12 @@ function formatRelease (release) {
   const releaseYear = release.year
   const tracklist = release.tracklist
   const country = release.country
-  const shortTitle = trimText(`${release.title} - ${release.artist}`)
   const have = release.community.have
   const want = release.community.want
   const community = { have, want }
   return {
     id,
     title,
-    shortTitle,
     artist,
     tracklist,
     dateAdded,
