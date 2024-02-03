@@ -3,7 +3,8 @@ const {
   formatRelease,
   formatCollectionRelease,
   getPageNumbers,
-  trimText
+  trimText,
+  formatDate
 } = require('@/lib/dataUtils')
 const {
   DISCOGS_RELEASE,
@@ -20,7 +21,7 @@ describe('dataUtils tests', () => {
         title: release.title,
         artist: 'A Tribe Called Quest',
         tracklist: release.tracklist,
-        dateAdded: 'April 27, 2022',
+        dateAdded: formatDate(release.date_added),
         releaseYear: release.year,
         formats:
           ' Vinyl LP 45 RPM Green,  Vinyl LP 45 RPM Red,  All Media Club Edition Reissue Remastered Gatefold',

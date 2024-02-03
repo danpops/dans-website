@@ -1,4 +1,10 @@
-export { formatCollectionRelease, formatRelease, getPageNumbers, trimText }
+export {
+  formatCollectionRelease,
+  formatDate,
+  formatRelease,
+  getPageNumbers,
+  trimText
+}
 
 const composeFormatDescription = descriptions =>
   descriptions?.filter(desc => desc !== 'Album')?.join(' ') ?? ''
