@@ -17,6 +17,7 @@ const DEFAULT_CONFIG = {
     'tests/integration/features/experience.feature',
     'tests/integration/features/contact.feature',
     'tests/integration/features/records.feature',
+    'tests/integration/features/record.feature',
     'tests/integration/features/error.feature'
   ],
   require: [
