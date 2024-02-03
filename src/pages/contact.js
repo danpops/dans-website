@@ -11,8 +11,8 @@ export async function getServerSideProps () {
   const id = 'contact'
   const data = await client.fetch(GET_CONTACT)
   const title = data.title
-  const apiKey = process.env.API_KEY ?? ''
-  const apiUrl = process.env.API_URL ?? ''
+  const apiKey = process.env.CONTACT_API_KEY ?? ''
+  const apiUrl = process.env.CONTACT_API_URL ?? ''
   return { props: { id, title, apiKey, apiUrl, data } }
 }
 export default function ContactPage ({ apiKey, apiUrl, data }) {
