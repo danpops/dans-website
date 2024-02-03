@@ -43,7 +43,7 @@ export default function RecordTable (props) {
       </TableHead>
       <TableBody>
         {items?.map(release => (
-          <AlbumRelease
+          <AlbumReleaseRow
             key={release.id}
             release={release}
             onClick={onClickRow}
@@ -68,9 +68,9 @@ function TableHeader (props) {
     </RecordsHeader>
   )
 }
-function AlbumRelease ({ release, onClick }) {
+function AlbumReleaseRow ({ release, onClick }) {
   return (
-    <RecordRow onClick={onClick(release)}>
+    <RecordRow id='album-release-row' onClick={onClick(release)}>
       <RecordsCell>
         <TableText>{release.artist}</TableText>
       </RecordsCell>

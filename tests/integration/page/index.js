@@ -4,6 +4,7 @@ module.exports = {
   NAV_LOGO: '#nav-logo',
   PAGE_TABS: '#page-tabs',
   TAB_ITEM: '#tab-item',
+  HOME_BUTTON: '#home-button',
   PAGE_MARQUEE: '#page-marquee',
   ABOUT_NAV_TAB: '#about-nav-tab',
   SPECIALITIES_NAV_TAB: '#specialties-nav-tab',

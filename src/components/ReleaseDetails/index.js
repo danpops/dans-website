@@ -30,8 +30,9 @@ import {
 export function ReleaseHeading ({ release }) {
   return (
     <AlbumHeading>
-      <ImageContainer id='record-image'>
+      <ImageContainer>
         <RecordImage
+          id='album-cover-art'
           src={release.coverImage}
           alt='album cover'
           width={100}
@@ -134,13 +135,13 @@ export function CommunityBar ({ community }) {
   const havePercentage = (haveRelease / total) * 100
   const wantPercentage = (wantRelease / total) * 100
   return (
-    <BarContainer>
+    <BarContainer id='album-community-stats'>
       <Heading3>Community Stats</Heading3>
-      <BarWrapper>
+      <BarWrapper id='have-release-bar'>
         <BarText>Have Release</BarText>
         <HaveBar have={havePercentage}>{haveRelease}</HaveBar>
       </BarWrapper>
-      <BarWrapper>
+      <BarWrapper id='want-release-bar'>
         <BarText>Want Release</BarText>
         <WantBar want={wantPercentage}>{wantRelease}</WantBar>
       </BarWrapper>
