@@ -13,6 +13,9 @@ jobs:
     env:
       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
       NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+      CONTACT_API_KEY: ${{ secrets.CONTACT_API_KEY }}
+      CONTACT_API_URL: ${{ secrets.CONTACT_API_URL }}
+      DISCOGS_KEY: ${{ secrets.DISCOGS_KEY }}
     steps:
       - name: ✅ checkout
         uses: actions/checkout@v2.1.1
