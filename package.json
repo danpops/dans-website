@@ -12,7 +12,7 @@
     "test:int": "cucumber-js --config tests/integration/config/index.js",
     "test:local": "APP_ENV=local yarn test:int",
     "test:report": "node tests/integration/report/index.js",
-    "test:unit": "jest",
+    "test:unit": "jest --verbose",
     "test:watch": "jest --watch"
   },
   "dependencies": {
