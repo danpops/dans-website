@@ -73,6 +73,14 @@ Starts the built application.
 yarn start
 ```
 
+### yarn test:unit
+
+Runs unit tests using [Jest](https://jestjs.io).
+
+```
+yarn test:unit
+```
+
 ### yarn test:int
 
 Runs integration tests using [Cucumber](https://cucumber.io/) and [Puppeteer](https://pptr.dev/).
