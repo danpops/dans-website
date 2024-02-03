@@ -1,4 +1,4 @@
-export { formatRelease, formatReleases, getPageNumbers, trimText }
+export { formatCollectionRelease, formatRelease, getPageNumbers, trimText }
 
 const composeFormatDescription = descriptions =>
   descriptions?.filter(desc => desc !== 'Album')?.join(' ') ?? ''
@@ -12,6 +12,28 @@ function composeFormat (format) {
 }
 const formatArtistName = ({ name }) => name.replace(/\(\d+\)/g, '').trim()
 const formatArtists = artists => artists.map(formatArtistName).join(', ')
+function formatCollectionRelease (item) {
+  const id = item.id
+  const dateAdded = formatDate(item.date_added)
+  const information = item.basic_information
+  const title = information.title
+  const artist = formatArtists(information.artists)
+  const year = information.year
+  const releaseYear = year === 0 ? 'N/A' : year
+  const formats = information.formats.map(composeFormat).join(', ')
+  const coverImage = information.cover_image
+  const thumbImage = information.thumb
+  return {
+    id,
+    title,
+    artist,
+    dateAdded,
+    releaseYear,
+    formats,
+    coverImage,
+    thumbImage
+  }
+}
 const MONTHS = [
   'January',
   'February',
@@ -63,28 +85,6 @@ function formatRelease (release) {
     coverImage,
     thumbImage,
     community
-  }
-}
-function formatReleases (item) {
-  const id = item.id
-  const dateAdded = formatDate(item.date_added)
-  const information = item.basic_information
-  const title = information.title
-  const artist = formatArtists(information.artists)
-  const year = information.year
-  const releaseYear = year === 0 ? 'N/A' : year
-  const formats = information.formats.map(composeFormat).join(', ')
-  const coverImage = information.cover_image
-  const thumbImage = information.thumb
-  return {
-    id,
-    title,
-    artist,
-    dateAdded,
-    releaseYear,
-    formats,
-    coverImage,
-    thumbImage
   }
 }
 function trimText (inputString, maxLength = 40) {

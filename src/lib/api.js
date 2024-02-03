@@ -1,4 +1,4 @@
-import { formatRelease, formatReleases } from './dataUtils'
+import { formatCollectionRelease, formatRelease } from './dataUtils'
 
 export { fetchDiscogsData, fetchDiscogsRelease, sendContactMessage }
 
@@ -26,7 +26,7 @@ async function fetchDiscogsData ({
       throw new Error('Network response was not ok')
     }
     const data = await response.json()
-    const records = data.releases.map(formatReleases)
+    const records = data.releases.map(formatCollectionRelease)
     return { records, pagination: data.pagination }
   } catch (error) {
     console.error('Error fetching data:', error)
