@@ -2,7 +2,7 @@
 const {
   createEmailBody,
   createEmailParams
-} = require('../../services/utils/email')
+} = require('../../../services/utils/email')
 
 describe('email tests', () => {
   const fullName = 'Test User'

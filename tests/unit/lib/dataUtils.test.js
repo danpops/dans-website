@@ -9,7 +9,7 @@ const {
 const {
   DISCOGS_RELEASE,
   COLLECTION_RELEASE
-} = require('./__mocks__/discogs.mock')
+} = require('../__mocks__/discogs.mock')
 
 describe('dataUtils tests', () => {
   describe('formatRelease', () => {
