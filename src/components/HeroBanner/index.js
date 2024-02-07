@@ -10,6 +10,7 @@ import {
   ResumeLink
 } from '@/components/HeroBanner/styles'
 import { Heading3 } from '@/components/Text'
+import Typewriter from '../Typewriter'
 
 export default function HeroBanner (props) {
   const { data, isDarkMode, goToAbout, goToContact } = props
@@ -40,6 +41,7 @@ export default function HeroBanner (props) {
           $inverted={isDarkMode}
         />
       </TitleContainer>
+      <Typewriter content={data.typewriterText} />
       <LinkContainer>
         <LinkImage
           id='about-link'

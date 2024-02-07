@@ -22,9 +22,12 @@ export const HeroContainer = styled.div`
   grid-auto-flow: row;
   align-items: center;
   justify-items: center;
-  row-gap: 1.5rem;
+  row-gap: 1rem;
   padding: 2rem;
   ${props => borderStyle(props)}
+  @media ${devices.lg} {
+    row-gap: 1.5rem;
+  }
 `
 export const TitleContainer = styled.div`
   display: grid;
@@ -71,7 +74,7 @@ export const LinkContainer = styled.div`
   align-items: flex-end;
   justify-items: stretch;
   column-gap: 2rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 `
 export const LinkImage = styled(Image)`
   display: grid;
