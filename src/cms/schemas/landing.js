@@ -18,6 +18,12 @@ const landing = {
       options: { hotspot: true },
       fields: [{ name: 'alt', title: 'Alt', type: 'string' }]
     },
+    {
+      name: 'typewriterText',
+      title: 'Typewriter Text',
+      type: 'array',
+      of: [{ type: 'string' }]
+    },
     { name: 'resume', title: 'Resume', type: 'file' },
     {
       name: 'aboutLinkGif',

@@ -23,6 +23,7 @@ export const GET_EXPERIENCE = groq`*[_type == "experience"][0]{
 export const GET_LANDING = groq`*[_type == "landing"][0]{
   _id,
   title,
+  typewriterText,
   welcomeGif {alt, "image": asset->url},
   iconGif {alt, "image": asset->url},
   "resumeURL": resume.asset->url,
