@@ -69,6 +69,7 @@ Feature: Landing Page
     Given I open the "landing" page
     Then I see the "landing" page
     And I see the "HERO_WINDOW" on the "landing" page
+    And I see the "TYPEWRITER_TEXT" on the "landing" page
     And I see the "ABOUT_LINK" on the "landing" page
     And I see the "CONTACT_LINK" on the "landing" page
     And I see the "RESUME_LINK" on the "landing" page
