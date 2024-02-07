@@ -83,6 +83,7 @@ export const LinkImage = styled(Image)`
 `
 export const ResumeLink = styled.a`
   display: grid;
+  z-index: 1000;
   align-items: center;
   justify-items: center;
   padding: 0.3rem 2rem;
