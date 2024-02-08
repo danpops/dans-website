@@ -71,7 +71,7 @@ export const PageTabsContainer = styled.ul`
   grid-template-columns: 1fr;
   row-gap: 0.5rem;
   margin-top: 0.5rem;
-  grid-template-rows: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
   cursor: pointer;
 
   @media ${devices.md} {
@@ -80,7 +80,7 @@ export const PageTabsContainer = styled.ul`
     grid-template-rows: 1fr;
   }
   @media ${devices.lg} {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 1rem;
     display: grid;
     animation: none;
@@ -106,17 +106,8 @@ export const TabItem = styled.li`
     ${props => hoverBorder(props)}
   }
 
-  @media ${devices.md} {
-    &:nth-last-child(1) {
-      grid-column: 1 / span 2;
-    }
-  }
-
   @media ${devices.lg} {
     padding: 0.75rem 2rem;
-    &:nth-last-child(1) {
-      grid-column: 5 / span 1;
-    }
   }
 
   @media ${devices.xl} {

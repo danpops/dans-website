@@ -7,7 +7,6 @@ module.exports = {
   HOME_BUTTON: '#home-button',
   PAGE_MARQUEE: '#page-marquee',
   ABOUT_NAV_TAB: '#about-nav-tab',
-  SPECIALITIES_NAV_TAB: '#specialties-nav-tab',
   EXPERIENCE_NAV_TAB: '#experience-nav-tab',
   CONTACT_NAV_TAB: '#contact-nav-tab',
   RECORDS_NAV_TAB: '#records-nav-tab',

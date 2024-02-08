@@ -13,7 +13,7 @@ import {
 import { useEffect, useState } from 'react'
 import { useTheme } from '../ThemeProvider'
 
-const PAGE_LINKS = ['About', 'Specialties', 'Experience', 'Records', 'Contact']
+const PAGE_LINKS = ['About', 'Experience', 'Records', 'Contact']
 export default function Navigation () {
   const [menuActive, setMenuActive] = useState(false)
   const router = useRouter()
