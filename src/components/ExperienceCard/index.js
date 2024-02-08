@@ -28,13 +28,19 @@ export default function ExperienceCard ({ experience, inverted }) {
           <BodyText id='experience-company'>{experience.company}</BodyText>
         </TitleContainer>
       </CardHeader>
-      <DetailsContainer id='experience-details'>
-        {experience.notes.map((note, index) => (
-          <BodyText key={index} id='experience-detail'>
-            <Markdown>{note}</Markdown>
-          </BodyText>
-        ))}
-      </DetailsContainer>
+      <ExperienceNotes notes={experience.notes} />
     </CardContainer>
+  )
+}
+function ExperienceNotes ({ notes }) {
+  if (!notes) return null
+  return (
+    <DetailsContainer id='experience-details'>
+      {notes.map((note, index) => (
+        <BodyText key={index} id='experience-detail'>
+          <Markdown>{note}</Markdown>
+        </BodyText>
+      ))}
+    </DetailsContainer>
   )
 }
