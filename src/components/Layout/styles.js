@@ -48,3 +48,16 @@ export const ContentContainer = styled.div`
     row-gap: 2rem;
   }
 `
+export const WindowsContainers = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  row-gap: 0.5rem;
+
+  @media ${devices.md} {
+    row-gap: 0.75rem;
+  }
+  @media ${devices.lg} {
+    row-gap: 1rem;
+  }
+`
