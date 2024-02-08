@@ -12,7 +12,7 @@ export const PageMarqueeWrapper = styled.div`
   bottom: 0;
   ${props => borderStyle(props)}
   width: 100%;
-  z-index: 100;
+  z-index: 1001;
 `
 export const CustomMarquee = styled(Marquee)`
   background-color: ${props => props.theme.marquee};
