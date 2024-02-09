@@ -15,12 +15,14 @@ export default function LandingPage ({ data }) {
   const { isDarkMode } = useTheme()
   const goToAbout = () => router.push('/about')
   const goToContact = () => router.push('/contact')
+  const goToSynth = () => router.push('/synth/note')
   return (
     <HeroBanner
       data={data}
       isDarkMode={isDarkMode}
       goToAbout={goToAbout}
       goToContact={goToContact}
+      goToSynth={goToSynth}
     />
   )
 }

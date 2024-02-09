@@ -9,11 +9,12 @@ import {
   WelcomeImg,
   ResumeLink
 } from '@/components/HeroBanner/styles'
-import { Heading3 } from '@/components/Text'
+import { Anchor, Heading3 } from '@/components/Text'
 import Typewriter from '../Typewriter'
+import { LinkText } from '../ReleaseDetails/styles'
 
 export default function HeroBanner (props) {
-  const { data, isDarkMode, goToAbout, goToContact } = props
+  const { data, isDarkMode, goToAbout, goToContact, goToSynth } = props
   return (
     <HeroContainer id='hero-window'>
       <WelcomeImg
@@ -70,6 +71,13 @@ export default function HeroBanner (props) {
       >
         Resume
       </ResumeLink>
+      <LinkText id='synth-link'>
+        Check out{' '}
+        <Anchor style={{ cursor: 'pointer' }} onClick={goToSynth}>
+          this synth
+        </Anchor>{' '}
+        I am building!
+      </LinkText>
       <Copyright />
     </HeroContainer>
   )
