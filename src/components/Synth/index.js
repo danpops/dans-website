@@ -10,6 +10,7 @@ import {
   Button,
   ControlContainer,
   EffectContainer,
+  Label,
   Slider,
   SynthContainer
 } from './styles'
@@ -57,42 +58,54 @@ export default function Synth (props) {
         {OSCILLATORS.map(renderOscillators)}
       </ControlContainer>
       <EffectContainer>
-        <Slider
-          type='range'
-          min='-30'
-          max='5'
-          step='0.1'
-          defaultValue='5'
-          value={volume}
-          onChange={e => changeSynthVolume(parseFloat(e.target.value))}
-        />
-        <Slider
-          type='range'
-          min='100'
-          max='500'
-          step='1'
-          defaultValue='300'
-          value={frequency}
-          onChange={e => changeFrequency(parseFloat(e.target.value))}
-        />
-        <Slider
-          type='range'
-          min='0'
-          max='20'
-          step='0.1'
-          defaultValue='0'
-          value={freqAM}
-          onChange={e => changeAM(parseFloat(e.target.value))}
-        />
-        <Slider
-          type='range'
-          min='0'
-          max='50'
-          step='0.1'
-          defaultValue='0'
-          value={freqFM}
-          onChange={e => changeFM(parseFloat(e.target.value))}
-        />
+        <Label>
+          Synth Volume ({volume})
+          <Slider
+            type='range'
+            min='-30'
+            max='5'
+            step='0.1'
+            defaultValue='5'
+            value={volume}
+            onChange={e => changeSynthVolume(parseFloat(e.target.value))}
+          />
+        </Label>
+        <Label>
+          Synth Frequency ({frequency})
+          <Slider
+            type='range'
+            min='100'
+            max='500'
+            step='1'
+            defaultValue='300'
+            value={frequency}
+            onChange={e => changeFrequency(parseFloat(e.target.value))}
+          />
+        </Label>
+        <Label>
+          Amplitude Modulation ({freqAM})
+          <Slider
+            type='range'
+            min='0'
+            max='20'
+            step='0.1'
+            defaultValue='0'
+            value={freqAM}
+            onChange={e => changeAM(parseFloat(e.target.value))}
+          />
+        </Label>
+        <Label>
+          Frequency Modulation ({freqFM})
+          <Slider
+            type='range'
+            min='0'
+            max='50'
+            step='0.1'
+            defaultValue='0'
+            value={freqFM}
+            onChange={e => changeFM(parseFloat(e.target.value))}
+          />
+        </Label>
       </EffectContainer>
     </SynthContainer>
   )

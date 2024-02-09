@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { borderStyle, hoverBorder } from '@/lib/global'
 import { fonts } from '@/lib/fonts'
+import { devices } from '@/lib/devices'
 
 export const Button = styled.div`
   display: grid;
@@ -13,26 +14,38 @@ export const Button = styled.div`
   background-color: ${props => props.theme.secondary};
   color: ${props => props.theme.font};
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   ${props => (props.$active ? hoverBorder(props) : borderStyle(props))}
   outline: none;
+
+  &:nth-child(1) {
+    grid-column: 1 / span 4;
+  }
 `
 export const ControlContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: auto auto;
+  row-gap: 0.5rem;
 `
 export const EffectContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: repeat(4, auto);
   grid-template-columns: 1fr;
-  row-gap: 1.75rem;
+  row-gap: 2rem;
+
+  @media ${devices.md} {
+    column-gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
 `
+export const Label = styled.label``
 export const Slider = styled.input`
+  margin-top: 1.5rem;
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
-  margin: 15px 0;
   &:focus {
     outline: none;
   }
@@ -78,6 +91,10 @@ export const Slider = styled.input`
 export const SynthContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(3, minmax(0, auto));
-  row-gap: 2rem;
+  row-gap: 1rem;
   align-items: center;
+
+  @media ${devices.md} {
+    row-gap: 2.5rem;
+  }
 `
