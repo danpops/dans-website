@@ -23,23 +23,25 @@ const OSCILLATORS = [
 export default function Synth (props) {
   const {
     Waveform,
-    adjustFrequency,
     changeAM,
     changeFM,
+    changeFrequency,
+    changeOscillator,
+    changeSynthVolume,
     frequency,
     freqAM,
     freqFM,
-    handleOscillatorChange,
     isPlaying,
     oscillatorType,
-    toggleSynth
+    toggleSynth,
+    volume
   } = props
 
   const renderOscillators = (item, index) => (
     <Button
       key={item.label}
       $active={oscillatorType === item.value}
-      onClick={() => handleOscillatorChange(item.value)}
+      onClick={() => changeOscillator(item.value)}
     >
       {item.icon}
     </Button>
@@ -57,12 +59,21 @@ export default function Synth (props) {
       <EffectContainer>
         <Slider
           type='range'
+          min='-30'
+          max='5'
+          step='0.1'
+          defaultValue='5'
+          value={volume}
+          onChange={e => changeSynthVolume(parseFloat(e.target.value))}
+        />
+        <Slider
+          type='range'
           min='100'
           max='500'
           step='1'
           defaultValue='300'
           value={frequency}
-          onChange={e => adjustFrequency(parseFloat(e.target.value))}
+          onChange={e => changeFrequency(parseFloat(e.target.value))}
         />
         <Slider
           type='range'

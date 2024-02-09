@@ -8,25 +8,28 @@ export default function useSynthNote () {
   const [synth, setSynth] = useState(null)
   const [synthVibrato, setSynthVibrato] = useState(null)
   const [synthTremolo, setSynthTremolo] = useState(null)
+  const [synthVolume, setSynthVolume] = useState(null)
   const [oscillatorType, setOscillatorType] = useState('sine')
   const [frequency, setFrequency] = useState(300)
   const [freqAM, setFreqAM] = useState(0)
   const [freqFM, setFreqFM] = useState(0)
+  const [volume, setVolume] = useState(-12.5)
 
   const router = useRouter()
   const { Waveform } = useWaveform()
 
   useEffect(() => {
-    const synthVolume = new Tone.Volume(0).toDestination()
+    const newSynthVolume = new Tone.Volume(volume).toDestination()
     const tremolo = { frequency: 0, depth: 1, spread: 0 }
     const vibrato = { frequency: 0, depth: 1, wet: 0 }
     const oscillator = { type: 'sine', frequency: 300 }
     const envelope = { attack: 0.5, decay: 0.0, sustain: 1, release: 0.1 }
     const synthConfig = { volume: -8, oscillator, envelope }
-    const newSynthTremolo = new Tone.Tremolo(tremolo).connect(synthVolume)
+    const newSynthTremolo = new Tone.Tremolo(tremolo).connect(newSynthVolume)
     const newSynthVibrato = new Tone.Vibrato(vibrato).connect(newSynthTremolo)
     const newSynth = new Tone.Synth(synthConfig).connect(newSynthVibrato)
 
+    setSynthVolume(newSynthVolume)
     setSynthTremolo(newSynthTremolo)
     setSynthVibrato(newSynthVibrato)
     setSynth(newSynth)
@@ -38,6 +41,7 @@ export default function useSynthNote () {
       if (synth) synth.dispose()
       if (synthTremolo) synthTremolo.dispose()
       if (synthVibrato) synthVibrato.dispose()
+      if (synthVolume) synthVolume.dispose()
     }
   }, [])
 
@@ -73,38 +77,44 @@ export default function useSynthNote () {
     synthTremolo.stop()
     setIsPlaying(false)
   }
-  function adjustFrequency (value) {
+  function changeFrequency (value) {
     setFrequency(value)
     if (synth) {
       synth.oscillator.frequency.value = value
     }
   }
-  const changeAM = e => {
+  function changeAM (e) {
     synthTremolo.frequency.value = e
     setFreqAM(e)
   }
-  const changeFM = e => {
+  function changeFM (e) {
     synthVibrato.frequency.value = e
     setFreqFM(e)
   }
-  const handleOscillatorChange = type => {
+  function changeOscillator (type) {
     setOscillatorType(type)
     if (synth) {
       synth.oscillator.type = type
     }
   }
+  function changeSynthVolume (e) {
+    synthVolume.volume.linearRampTo(e, 0.1, Tone.now())
+    setVolume(e)
+  }
 
   return {
     Waveform,
-    adjustFrequency,
     changeAM,
     changeFM,
+    changeFrequency,
+    changeOscillator,
+    changeSynthVolume,
     frequency,
     freqAM,
     freqFM,
-    handleOscillatorChange,
     isPlaying,
     oscillatorType,
-    toggleSynth
+    toggleSynth,
+    volume
   }
 }
