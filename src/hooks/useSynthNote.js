@@ -3,12 +3,27 @@ import useWaveform from '@/hooks/useWaveform'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
+export const SYNTH_NOTES = {
+  C4: 261.63,
+  Db4: 277.18,
+  D4: 293.66,
+  Eb4: 311.13,
+  E4: 329.63,
+  F4: 349.23,
+  Gb4: 369.99,
+  G4: 392.0,
+  Ab4: 415.3,
+  A4: 440,
+  Bb4: 466.16,
+  B4: 493.88
+}
 export default function useSynthNote () {
   const [isPlaying, setIsPlaying] = useState(false)
   const [synth, setSynth] = useState(null)
   const [synthVibrato, setSynthVibrato] = useState(null)
   const [synthTremolo, setSynthTremolo] = useState(null)
   const [synthVolume, setSynthVolume] = useState(null)
+  const [activeNote, setActiveNote] = useState('C4')
   const [oscillatorType, setOscillatorType] = useState('sine')
   const [frequency, setFrequency] = useState(300)
   const [freqAM, setFreqAM] = useState(0)
@@ -60,7 +75,7 @@ export default function useSynthNote () {
     else stopSynth()
   }
   function playSynth () {
-    synth.triggerAttack(synth.frequency.value)
+    synth.triggerAttack(activeNote)
     synthTremolo.start()
     synthTremolo.wet.linearRampTo(1, 0.1, Tone.now())
     synthVibrato.wet.linearRampTo(1, 0.1, Tone.now())
@@ -78,9 +93,10 @@ export default function useSynthNote () {
     setIsPlaying(false)
   }
   function changeFrequency (value) {
+    setActiveNote(null)
     setFrequency(value)
     if (synth) {
-      synth.oscillator.frequency.value = value
+      synth.oscillator.frequency.setValueAtTime(value, 0)
     }
   }
   function changeAM (e) {
@@ -97,6 +113,12 @@ export default function useSynthNote () {
       synth.oscillator.type = type
     }
   }
+  function changeSynthNote (note) {
+    const value = SYNTH_NOTES[note]
+    setActiveNote(note)
+    setFrequency(value)
+    synth.oscillator.frequency.setValueAtTime(value, 0)
+  }
   function changeSynthVolume (e) {
     synthVolume.volume.linearRampTo(e, 0.1, Tone.now())
     setVolume(e)
@@ -104,10 +126,12 @@ export default function useSynthNote () {
 
   return {
     Waveform,
+    activeNote,
     changeAM,
     changeFM,
     changeFrequency,
     changeOscillator,
+    changeSynthNote,
     changeSynthVolume,
     frequency,
     freqAM,

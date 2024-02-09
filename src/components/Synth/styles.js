@@ -12,19 +12,16 @@ export const Button = styled.div`
   font-size: ${fonts.sm};
   text-align: center;
   background-color: ${props => props.theme.secondary};
-  color: ${props => props.theme.font};
+  color: ${props =>
+    props.$active ? props.theme.heroTitle : props.theme.font};
   cursor: pointer;
   padding: 0.25rem 1rem;
   ${props => (props.$active ? hoverBorder(props) : borderStyle(props))}
   outline: none;
-
-  &:nth-child(1) {
-    grid-column: 1 / span 4;
-  }
 `
 export const ControlContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   row-gap: 0.5rem;
 `
@@ -43,6 +40,16 @@ export const EffectContainer = styled.div`
   }
 `
 export const Label = styled.label``
+export const NotesContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, auto));
+  grid-template-rows: 1fr 1fr;
+`
+export const OscillatorContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, auto));
+  grid-template-rows: 1fr;
+`
 export const Slider = styled.input`
   margin-top: 1rem;
   appearance: none;
@@ -92,12 +99,12 @@ export const Slider = styled.input`
 `
 export const SynthContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(3, minmax(0, auto));
+  grid-template-rows: repeat(4, minmax(0, auto));
   row-gap: 0.5rem;
   align-items: center;
   padding: 0.25rem;
 
   @media ${devices.md} {
-    row-gap: 2.5rem;
+    row-gap: 1.5rem;
   }
 `

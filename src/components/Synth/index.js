@@ -11,9 +11,12 @@ import {
   ControlContainer,
   EffectContainer,
   Label,
+  NotesContainer,
+  OscillatorContainer,
   Slider,
   SynthContainer
 } from './styles'
+import { SYNTH_NOTES } from '@/hooks/useSynthNote'
 
 const OSCILLATORS = [
   { value: 'sine', label: 'Sine', icon: <PiWaveSine size={38} /> },
@@ -24,10 +27,12 @@ const OSCILLATORS = [
 export default function Synth (props) {
   const {
     Waveform,
+    activeNote,
     changeAM,
     changeFM,
     changeFrequency,
     changeOscillator,
+    changeSynthNote,
     changeSynthVolume,
     frequency,
     freqAM,
@@ -38,7 +43,16 @@ export default function Synth (props) {
     volume
   } = props
 
-  const renderOscillators = (item, index) => (
+  const renderNotes = note => (
+    <Button
+      key={note}
+      $active={activeNote === note}
+      onClick={() => changeSynthNote(note)}
+    >
+      {note}
+    </Button>
+  )
+  const renderOscillators = item => (
     <Button
       key={item.label}
       $active={oscillatorType === item.value}
@@ -51,11 +65,16 @@ export default function Synth (props) {
   return (
     <SynthContainer>
       <Analyzer waveform={Waveform} />
+      <Button $active={isPlaying} onClick={toggleSynth}>
+        <PiPlayPauseFill size={38} />
+      </Button>
       <ControlContainer>
-        <Button $active={isPlaying} onClick={toggleSynth}>
-          <PiPlayPauseFill size={38} />
-        </Button>
-        {OSCILLATORS.map(renderOscillators)}
+        <OscillatorContainer>
+          {OSCILLATORS.map(renderOscillators)}
+        </OscillatorContainer>
+        <NotesContainer>
+          {Object.keys(SYNTH_NOTES).map(renderNotes)}
+        </NotesContainer>
       </ControlContainer>
       <EffectContainer>
         <Label>
@@ -99,7 +118,7 @@ export default function Synth (props) {
           <Slider
             type='range'
             min='0'
-            max='50'
+            max='30'
             step='0.1'
             defaultValue='0'
             value={freqFM}
