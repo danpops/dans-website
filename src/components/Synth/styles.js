@@ -32,9 +32,11 @@ export const EffectContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(4, auto);
   grid-template-columns: 1fr;
-  row-gap: 2rem;
+  row-gap: 0.75rem;
+  margin: 1rem 0.5rem;
 
   @media ${devices.md} {
+    row-gap: 2rem;
     column-gap: 2rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -42,7 +44,7 @@ export const EffectContainer = styled.div`
 `
 export const Label = styled.label``
 export const Slider = styled.input`
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
@@ -91,8 +93,9 @@ export const Slider = styled.input`
 export const SynthContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(3, minmax(0, auto));
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   align-items: center;
+  padding: 0.25rem;
 
   @media ${devices.md} {
     row-gap: 2.5rem;
