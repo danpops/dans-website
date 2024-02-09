@@ -5,7 +5,7 @@ export const WindowBody = styled.div`
   display: grid;
   grid-template-rows: 1fr auto;
   grid-template-columns: 1fr;
-  padding: 1rem;
+  padding: 0.5rem;
   row-gap: 1rem;
 
   @media ${devices.md} {

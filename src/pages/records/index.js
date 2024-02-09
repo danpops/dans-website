@@ -15,7 +15,7 @@ export async function getServerSideProps () {
   const data = await client.fetch(GET_RECORDS)
   const title = data.title
   const discogsKey = process.env.DISCOGS_KEY ?? ''
-  return { props: { id, title, discogsKey, data } }
+  return { props: { id, title, discogsKey, data, showHomer: false } }
 }
 export default function RecordsPage (props) {
   const { title, discogsKey, data } = props

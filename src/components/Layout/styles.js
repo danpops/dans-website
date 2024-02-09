@@ -43,6 +43,7 @@ export const ContentContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
   row-gap: 1rem;
+  padding: 1rem;
 
   @media ${devices.md} {
     row-gap: 2rem;
