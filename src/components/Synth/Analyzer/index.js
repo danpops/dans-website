@@ -3,13 +3,13 @@
 import { WaveformContainer } from './styles'
 
 export function waveformRender (analyzer, context, ref) {
+  if (!ref.current) return
   const WaveformCTX = ref.current.getContext('2d')
   const containerWidth = ref.current.clientWidth // Get the width of the container
   const containerHeight = ref.current.clientHeight // Get the height of the container
   context.connect(analyzer)
 
   function drawWaveform () {
-    if (!ref.current) return
     const waveArray = analyzer.getValue()
     requestAnimationFrame(drawWaveform)
     WaveformCTX.lineWidth = 2.75

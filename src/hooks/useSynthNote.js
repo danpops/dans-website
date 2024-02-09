@@ -35,47 +35,26 @@ export default function useSynthNote () {
 
     return () => {
       // Clean up the synth when the component unmounts
-      if (synth) {
-        synth.dispose()
-      }
-      if (synthTremolo) {
-        synthTremolo.dispose()
-      }
-      if (synthVibrato) {
-        synthVibrato.dispose()
-      }
+      if (synth) synth.dispose()
+      if (synthTremolo) synthTremolo.dispose()
+      if (synthVibrato) synthVibrato.dispose()
     }
   }, [])
 
   useEffect(() => {
     const handleRouteChange = () => {
-      if (isPlaying) {
-        stopSynth()
-      }
+      if (isPlaying) stopSynth()
     }
-
     router.events.on('routeChangeStart', handleRouteChange)
-
     return () => {
       router.events.off('routeChangeStart', handleRouteChange)
     }
   }, [isPlaying])
 
   function toggleSynth () {
-    if (!isPlaying) {
-      playSynth()
-    } else {
-      stopSynth()
-    }
+    if (!isPlaying) playSynth()
+    else stopSynth()
   }
-
-  const handleOscillatorChange = type => {
-    setOscillatorType(type)
-    if (synth) {
-      synth.oscillator.type = type
-    }
-  }
-
   function playSynth () {
     synth.triggerAttack(synth.frequency.value)
     synthTremolo.start()
@@ -85,7 +64,6 @@ export default function useSynthNote () {
     synthVibrato.depth.linearRampTo(1, 0.1, Tone.now())
     setIsPlaying(true)
   }
-
   function stopSynth () {
     synth.triggerRelease()
     synthTremolo.wet.linearRampTo(0, 0.1, Tone.now())
@@ -95,7 +73,6 @@ export default function useSynthNote () {
     synthTremolo.stop()
     setIsPlaying(false)
   }
-
   function adjustFrequency (value) {
     setFrequency(value)
     if (synth) {
@@ -106,23 +83,28 @@ export default function useSynthNote () {
     synthTremolo.frequency.value = e
     setFreqAM(e)
   }
-
   const changeFM = e => {
     synthVibrato.frequency.value = e
     setFreqFM(e)
+  }
+  const handleOscillatorChange = type => {
+    setOscillatorType(type)
+    if (synth) {
+      synth.oscillator.type = type
+    }
   }
 
   return {
     Waveform,
     adjustFrequency,
+    changeAM,
+    changeFM,
     frequency,
-    isPlaying,
-    toggleSynth,
-    oscillatorType,
-    handleOscillatorChange,
     freqAM,
     freqFM,
-    changeAM,
-    changeFM
+    handleOscillatorChange,
+    isPlaying,
+    oscillatorType,
+    toggleSynth
   }
 }

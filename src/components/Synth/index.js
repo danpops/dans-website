@@ -23,16 +23,16 @@ const OSCILLATORS = [
 export default function Synth (props) {
   const {
     Waveform,
-    frequency,
     adjustFrequency,
-    isPlaying,
-    toggleSynth,
-    oscillatorType,
-    handleOscillatorChange,
+    changeAM,
+    changeFM,
+    frequency,
     freqAM,
     freqFM,
-    changeAM,
-    changeFM
+    handleOscillatorChange,
+    isPlaying,
+    oscillatorType,
+    toggleSynth
   } = props
 
   const renderOscillators = (item, index) => (
