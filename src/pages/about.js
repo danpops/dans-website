@@ -2,9 +2,11 @@ import Image from 'next/image'
 import { getWindowLayout } from '@/components/Layout'
 import { ContentContainer } from '@/components/Layout/styles'
 import { useTheme } from '@/components/Layout/ThemeProvider'
-import { BodyText } from '@/components/Text'
+import { Anchor, BodyText } from '@/components/Text'
 import client from '@/cms/client'
 import { GET_ABOUT } from '@/cms/queries'
+import { LinkText } from '@/components/ReleaseDetails/styles'
+import { useRouter } from 'next/router'
 
 export async function getServerSideProps () {
   const id = 'about'
@@ -14,6 +16,8 @@ export async function getServerSideProps () {
 }
 export default function AboutPage ({ data }) {
   const { isDarkMode } = useTheme()
+  const router = useRouter()
+  const goToSynth = () => router.push('/synth/note')
   const imgStyle = isDarkMode ? { filter: 'invert(100%)' } : {}
   return (
     <ContentContainer>
@@ -26,6 +30,13 @@ export default function AboutPage ({ data }) {
       />
       <BodyText id='about-text'>{data.heading}</BodyText>
       <BodyText id='about-summary'>{data.summary}</BodyText>
+      <LinkText id='synth-link' style={{ zIndex: 2000 }}>
+        Check out{' '}
+        <Anchor style={{ cursor: 'pointer' }} onClick={goToSynth}>
+          this cool synth
+        </Anchor>{' '}
+        I am building
+      </LinkText>
     </ContentContainer>
   )
 }
