@@ -29,7 +29,7 @@ export const Button = styled.button`
 export const ControlContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, auto));
   padding: 0.25rem;
   ${hoverBorder}
   outline: none;
@@ -51,8 +51,8 @@ export const EffectContainer = styled.div`
 export const Label = styled.label``
 export const NotesContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: 1fr 1fr;
 `
 export const OscillatorContainer = styled.div`
   display: grid;
@@ -106,6 +106,13 @@ export const Slider = styled.input`
     ${borderStyle}
   }
 `
+export const StatusBadge = styled.div`
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 100%;
+  background-color: ${props =>
+    props.$active ? props.theme.success : props.theme.error};
+`
 export const SynthContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(4, minmax(0, auto));
@@ -116,4 +123,32 @@ export const SynthContainer = styled.div`
   @media ${devices.md} {
     row-gap: 1rem;
   }
+`
+export const ToggleButton = styled.button`
+  display: grid;
+  align-items: center;
+  font-family: 'MS Sans Serif';
+  font-size: ${fonts.sm};
+  background-color: ${props => props.theme.secondary};
+  color: ${props => props.theme.font};
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  ${props => (props.$active ? hoverBorder : borderStyle)}/* outline: none; */
+`
+export const ToggleContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 1fr;
+`
+export const ToggleWrapper = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+`
+export const ToggleLabel = styled.div`
+  display: grid;
+  align-items: center;
+  justify-self: flex-start;
 `

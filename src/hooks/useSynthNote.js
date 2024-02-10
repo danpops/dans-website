@@ -1,8 +1,20 @@
 import * as Tone from 'tone'
+import {
+  PiWaveSawtooth,
+  PiWaveSquare,
+  PiWaveSine,
+  PiWaveTriangle
+} from 'react-icons/pi'
 import useWaveform from '@/hooks/useWaveform'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
+export const OSCILLATORS = [
+  { value: 'sine', label: 'Sine', icon: <PiWaveSine size={25} /> },
+  { value: 'square', label: 'Square', icon: <PiWaveSquare size={25} /> },
+  { value: 'sawtooth', label: 'Sawtooth', icon: <PiWaveSawtooth size={25} /> },
+  { value: 'triangle', label: 'Triangle', icon: <PiWaveTriangle size={25} /> }
+]
 export const SYNTH_NOTES = {
   C4: 261.63,
   Db4: 277.18,
@@ -19,26 +31,27 @@ export const SYNTH_NOTES = {
 }
 export default function useSynthNote () {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [lfoStatus, setLFOStatus] = useState(false)
   const [synth, setSynth] = useState(null)
   const [synthVibrato, setSynthVibrato] = useState(null)
   const [synthTremolo, setSynthTremolo] = useState(null)
   const [synthVolume, setSynthVolume] = useState(null)
   const [activeNote, setActiveNote] = useState('C4')
   const [oscillatorType, setOscillatorType] = useState('sine')
-  const [frequency, setFrequency] = useState(300)
+  const [frequency, setFrequency] = useState(197.6)
   const [freqAM, setFreqAM] = useState(0)
   const [freqFM, setFreqFM] = useState(0)
-  const [volume, setVolume] = useState(-12.5)
+  const [volume, setVolume] = useState(-10.8)
 
   const router = useRouter()
   const { Waveform } = useWaveform()
 
   useEffect(() => {
     const newSynthVolume = new Tone.Volume(volume).toDestination()
-    const tremolo = { frequency: 0, depth: 1, spread: 0 }
-    const vibrato = { frequency: 0, depth: 1, wet: 0 }
-    const oscillator = { type: 'sine', frequency: 300 }
-    const envelope = { attack: 0.5, decay: 0.0, sustain: 1, release: 0.1 }
+    const tremolo = { frequency: 0, depth: 0, spread: 0 }
+    const vibrato = { frequency: 0, depth: 0, wet: 0 }
+    const oscillator = { type: oscillatorType, frequency: 300 }
+    const envelope = { attack: 0.6, decay: 0.0, sustain: 1, release: 0.1 }
     const synthConfig = { volume: -8, oscillator, envelope }
     const newSynthTremolo = new Tone.Tremolo(tremolo).connect(newSynthVolume)
     const newSynthVibrato = new Tone.Vibrato(vibrato).connect(newSynthTremolo)
@@ -74,23 +87,33 @@ export default function useSynthNote () {
     if (!isPlaying) playSynth()
     else stopSynth()
   }
+  function toggleLFO () {
+    if (!lfoStatus) startLFO()
+    else stopLFO()
+  }
   function playSynth () {
-    synth.triggerAttack(activeNote)
+    synth.triggerAttack(synth.frequency.value)
+    setIsPlaying(true)
+  }
+  function stopSynth () {
+    synth.triggerRelease()
+    setIsPlaying(false)
+  }
+  function startLFO () {
     synthTremolo.start()
     synthTremolo.wet.linearRampTo(1, 0.1, Tone.now())
     synthVibrato.wet.linearRampTo(1, 0.1, Tone.now())
     synthTremolo.depth.linearRampTo(1, 0.1, Tone.now())
     synthVibrato.depth.linearRampTo(1, 0.1, Tone.now())
-    setIsPlaying(true)
+    setLFOStatus(true)
   }
-  function stopSynth () {
-    synth.triggerRelease()
+  function stopLFO () {
     synthTremolo.wet.linearRampTo(0, 0.1, Tone.now())
     synthVibrato.wet.linearRampTo(0, 0.1, Tone.now())
     synthTremolo.depth.linearRampTo(0, 0.1, Tone.now())
     synthVibrato.depth.linearRampTo(0, 0.1, Tone.now())
     synthTremolo.stop()
-    setIsPlaying(false)
+    setLFOStatus(false)
   }
   function changeFrequency (value) {
     setActiveNote(null)
@@ -137,7 +160,9 @@ export default function useSynthNote () {
     freqAM,
     freqFM,
     isPlaying,
+    lfoStatus,
     oscillatorType,
+    toggleLFO,
     toggleSynth,
     volume
   }

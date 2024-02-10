@@ -20,7 +20,9 @@ export const colors = {
   blue: '#0000FF',
   paleGolden: '#FFF185',
   red: '#E50000',
-  babyBlue: '#1AFFFF'
+  babyBlue: '#1AFFFF',
+  limeGreen: '#32CD32',
+  lavender: '#FFCDFF'
 }
 export const lightTheme = {
   primary: colors.blueSecondary,
@@ -33,6 +35,7 @@ export const lightTheme = {
   windowHeader: colors.darkBlue,
   windowTitle: colors.white,
   error: colors.red,
+  success: colors.limeGreen,
   table: {
     header: colors.grey,
     row: {
@@ -60,6 +63,7 @@ export const darkTheme = {
   windowHeader: colors.paleGolden,
   windowTitle: colors.black,
   error: colors.babyBlue,
+  success: colors.lavender,
   table: {
     header: colors.charcoal,
     row: {
