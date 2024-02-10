@@ -3,7 +3,7 @@ import { borderStyle, hoverBorder } from '@/lib/global'
 import { fonts } from '@/lib/fonts'
 import { devices } from '@/lib/devices'
 
-export const Button = styled.div`
+export const Button = styled.button`
   display: grid;
   align-items: center;
   justify-items: center;
@@ -11,26 +11,35 @@ export const Button = styled.div`
   font-family: 'MS Sans Serif';
   font-size: ${fonts.sm};
   text-align: center;
-  background-color: ${props => props.theme.secondary};
+  height: 100%;
+  background-color: ${props =>
+    props.$active ? props.theme.heroTitle : props.theme.secondary};
   color: ${props =>
-    props.$active ? props.theme.heroTitle : props.theme.font};
+    props.$active ? props.theme.windowTitle : props.theme.font};
   cursor: pointer;
   padding: 0.25rem 1rem;
-  ${props => (props.$active ? hoverBorder(props) : borderStyle(props))}
+  ${props => (props.$active ? hoverBorder : borderStyle)}
   outline: none;
+  &:disabled {
+    color: ${props =>
+      props.$active ? props.theme.windowTitle : props.theme.buttonDisabled};
+    cursor: not-allowed;
+  }
 `
 export const ControlContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  row-gap: 0.5rem;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  padding: 0.25rem;
+  ${hoverBorder}
+  outline: none;
 `
 export const EffectContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(4, auto);
   grid-template-columns: 1fr;
   row-gap: 0.75rem;
-  margin: 1rem 0.5rem;
+  margin: 0.5rem;
 
   @media ${devices.md} {
     row-gap: 2rem;
@@ -42,8 +51,8 @@ export const EffectContainer = styled.div`
 export const Label = styled.label``
 export const NotesContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, auto));
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: 1fr;
 `
 export const OscillatorContainer = styled.div`
   display: grid;
@@ -105,6 +114,6 @@ export const SynthContainer = styled.div`
   padding: 0.25rem;
 
   @media ${devices.md} {
-    row-gap: 1.5rem;
+    row-gap: 1rem;
   }
 `

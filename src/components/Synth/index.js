@@ -65,10 +65,10 @@ export default function Synth (props) {
   return (
     <SynthContainer>
       <Analyzer waveform={Waveform} />
-      <Button $active={isPlaying} onClick={toggleSynth}>
-        <PiPlayPauseFill size={38} />
-      </Button>
       <ControlContainer>
+        <Button $active={isPlaying} onClick={toggleSynth}>
+          <PiPlayPauseFill size={38} />
+        </Button>
         <OscillatorContainer>
           {OSCILLATORS.map(renderOscillators)}
         </OscillatorContainer>
