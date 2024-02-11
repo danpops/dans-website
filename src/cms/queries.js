@@ -37,4 +37,5 @@ export const GET_LANDING = groq`*[_type == "landing"][0]{
   aboutLinkGif {alt, "image": asset->url},
   contactLinkGif {alt, "image": asset->url}
 }`
+export const GET_PROJECTS = groq`*[_type == "projects"][0]`
 export const GET_RECORDS = groq`*[_type == "records"][0]`
