@@ -112,6 +112,9 @@ export const StatusBadge = styled.div`
   border-radius: 100%;
   background-color: ${props =>
     props.$active ? props.theme.success : props.theme.error};
+  ${props => props.$disabled && `
+    background-color: ${props.theme.buttonDisabled}
+  `}
 `
 export const SynthContainer = styled.div`
   display: grid;
@@ -133,7 +136,12 @@ export const ToggleButton = styled.button`
   color: ${props => props.theme.font};
   cursor: pointer;
   padding: 0.5rem 1rem;
-  ${props => (props.$active ? hoverBorder : borderStyle)}/* outline: none; */
+  ${props => (props.$active ? hoverBorder : borderStyle)}
+  &:disabled {
+    color: ${props =>
+      props.$active ? props.theme.windowTitle : props.theme.buttonDisabled};
+    cursor: not-allowed;
+  }
 `
 export const ToggleContainer = styled.div`
   display: grid;

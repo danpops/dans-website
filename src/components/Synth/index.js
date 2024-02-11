@@ -44,14 +44,19 @@ export default function Synth (props) {
             active={isPlaying}
             onClick={toggleSynth}
           />
-          <SynthToggle label='LFO' active={lfoStatus} onClick={toggleLFO} />
+          <SynthToggle
+            label='LFO'
+            disabled={!isPlaying}
+            active={lfoStatus}
+            onClick={toggleLFO}
+          />
         </ToggleContainer>
         <OscillatorContainer>
           {OSCILLATORS.map(item => (
             <SynthToggle
               key={item.label}
               label={item.icon}
-              active={oscillatorType === item.value}
+              active={oscillatorType === item.value && isPlaying}
               onClick={() => changeOscillator(item.value)}
             />
           ))}
@@ -113,11 +118,11 @@ function SynthSlider ({ value, label, min, max, step, onChange }) {
     </Label>
   )
 }
-function SynthToggle ({ label, active, onClick }) {
+function SynthToggle ({ label, active, disabled = false, onClick }) {
   return (
-    <ToggleButton $active={active} onClick={onClick}>
+    <ToggleButton $active={active} disabled={disabled} onClick={onClick}>
       <ToggleWrapper>
-        <StatusBadge $active={active} />
+        <StatusBadge $active={active} $disabled={disabled} />
         <ToggleLabel>{label}</ToggleLabel>
       </ToggleWrapper>
     </ToggleButton>

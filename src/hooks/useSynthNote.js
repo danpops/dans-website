@@ -97,6 +97,7 @@ export default function useSynthNote () {
   }
   function stopSynth () {
     synth.triggerRelease()
+    stopLFO()
     setIsPlaying(false)
   }
   function startLFO () {
