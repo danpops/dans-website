@@ -9,7 +9,7 @@ module.exports = {
   ABOUT_NAV_TAB: '#about-nav-tab',
   EXPERIENCE_NAV_TAB: '#experience-nav-tab',
   CONTACT_NAV_TAB: '#contact-nav-tab',
-  RECORDS_NAV_TAB: '#records-nav-tab',
+  PROJECTS_NAV_TAB: '#projects-nav-tab',
   STICKY_GIF: '#sticky-gif',
   COPYRIGHT_GITHUB_LINK: '#copyright-github-link'
 }
