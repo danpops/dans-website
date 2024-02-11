@@ -23,11 +23,10 @@ export default function Synth (props) {
     activeNote,
     changeAM,
     changeFM,
-    changeFrequency,
     changeOscillator,
     changeSynthVolume,
     changeSynthNote,
-    frequency,
+    changeTempo,
     freqAM,
     freqFM,
     isPlaying,
@@ -35,6 +34,8 @@ export default function Synth (props) {
     noteLength,
     notesVisible,
     oscillatorType,
+    randomizeLoop,
+    tempo,
     toggleLFO,
     toggleNoteLength,
     toggleNotes,
@@ -62,18 +63,18 @@ export default function Synth (props) {
           isPlaying={isPlaying}
           noteLength={noteLength}
           toggleNoteLength={toggleNoteLength}
+          randomizeLoop={randomizeLoop}
         />
       )}
       <SynthEffects
         changeAM={changeAM}
         changeFM={changeFM}
-        changeFrequency={changeFrequency}
+        changeTempo={changeTempo}
         changeSynthVolume={changeSynthVolume}
-        frequency={frequency}
+        tempo={tempo}
         freqAM={freqAM}
         freqFM={freqFM}
         lfoStatus={lfoStatus}
-        notesVisible={notesVisible}
         volume={volume}
       />
     </SynthContainer>
@@ -118,6 +119,7 @@ function SynthNotes (props) {
   const {
     activeNote,
     changeSynthNote,
+    randomizeLoop,
     isPlaying,
     noteLength,
     toggleNoteLength
@@ -135,18 +137,17 @@ function SynthNotes (props) {
           </Button>
         ))}
       </NotesContainer>
-      {!isPlaying && (
-        <ToggleContainer>
-          {NOTE_LENGTHS.map(item => (
-            <SynthToggle
-              key={item}
-              label={item}
-              active={noteLength === item}
-              onClick={() => toggleNoteLength(item)}
-            />
-          ))}
-        </ToggleContainer>
-      )}
+      <ToggleContainer>
+        {NOTE_LENGTHS.map(item => (
+          <SynthToggle
+            key={item}
+            label={item}
+            active={noteLength === item}
+            onClick={() => toggleNoteLength(item)}
+          />
+        ))}
+        <Button onClick={randomizeLoop}>Random Loop</Button>
+      </ToggleContainer>
     </ControlContainer>
   )
 }
@@ -154,13 +155,12 @@ function SynthEffects (props) {
   const {
     changeAM,
     changeFM,
-    changeFrequency,
+    changeTempo,
     changeSynthVolume,
-    frequency,
     freqAM,
     freqFM,
     lfoStatus,
-    notesVisible,
+    tempo,
     volume
   } = props
   return (
@@ -174,16 +174,14 @@ function SynthEffects (props) {
           value={volume}
           onChange={e => changeSynthVolume(parseFloat(e.target.value))}
         />
-        {!notesVisible && (
-          <SynthSlider
-            label='Frequency'
-            min='100'
-            max='500'
-            step='0.1'
-            value={frequency}
-            onChange={e => changeFrequency(parseFloat(e.target.value))}
-          />
-        )}
+        <SynthSlider
+          label='Tempo'
+          min='30'
+          max='225'
+          step='1'
+          value={tempo}
+          onChange={e => changeTempo(parseFloat(e.target.value))}
+        />
       </GroupBox>
       {lfoStatus && (
         <GroupBox groupLabel='LFO'>

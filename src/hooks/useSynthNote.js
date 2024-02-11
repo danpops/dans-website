@@ -8,12 +8,13 @@ import {
 import useWaveform from '@/hooks/useWaveform'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { generateRandomNotes } from '@/lib/dataUtils'
 
 export const OSCILLATORS = [
+  { value: 'triangle', label: 'Triangle', icon: <PiWaveTriangle size={25} /> },
   { value: 'sine', label: 'Sine', icon: <PiWaveSine size={25} /> },
-  { value: 'square', label: 'Square', icon: <PiWaveSquare size={25} /> },
   { value: 'sawtooth', label: 'Sawtooth', icon: <PiWaveSawtooth size={25} /> },
-  { value: 'triangle', label: 'Triangle', icon: <PiWaveTriangle size={25} /> }
+  { value: 'square', label: 'Square', icon: <PiWaveSquare size={25} /> }
 ]
 export const SYNTH_NOTES = {
   C4: 261.63,
@@ -39,12 +40,14 @@ export default function useSynthNote () {
   const [synthTremolo, setSynthTremolo] = useState(null)
   const [synthVolume, setSynthVolume] = useState(null)
   const [activeNote, setActiveNote] = useState('C4')
-  const [noteLength, setNoteLength] = useState('1n')
-  const [oscillatorType, setOscillatorType] = useState('sine')
+  const [noteLength, setNoteLength] = useState('8n')
+  const [oscillatorType, setOscillatorType] = useState('triangle')
   const [frequency, setFrequency] = useState(197.6)
   const [freqAM, setFreqAM] = useState(0)
   const [freqFM, setFreqFM] = useState(0)
   const [volume, setVolume] = useState(-10.8)
+  const [tempo, setTempo] = useState(120)
+  const [sequenceNotes, setSequenceNotes] = useState(null)
 
   const router = useRouter()
   const { Waveform } = useWaveform()
@@ -59,7 +62,9 @@ export default function useSynthNote () {
     const newSynthTremolo = new Tone.Tremolo(tremolo).connect(newSynthVolume)
     const newSynthVibrato = new Tone.Vibrato(vibrato).connect(newSynthTremolo)
     const newSynth = new Tone.Synth(synthConfig).connect(newSynthVibrato)
+    const randomNotes = generateRandomNotes(5)
 
+    setSequenceNotes(randomNotes)
     setSynthVolume(newSynthVolume)
     setSynthTremolo(newSynthTremolo)
     setSynthVibrato(newSynthVibrato)
@@ -75,6 +80,25 @@ export default function useSynthNote () {
       if (synthVolume) synthVolume.dispose()
     }
   }, [])
+
+  useEffect(() => {
+    if (synth === null) return
+    synth.connect(synthVibrato)
+    const repeat = (time, note) => {
+      setActiveNote(note)
+      synth.triggerAttackRelease(note, noteLength, time)
+    }
+    const seq = new Tone.Sequence(repeat, sequenceNotes)
+    if (isPlaying) {
+      Tone.Transport.bpm.value = tempo
+      seq.start(0)
+      Tone.Transport.start()
+    }
+    return () => {
+      seq.stop()
+      Tone.Transport.stop()
+    }
+  }, [isPlaying, synth, synthVibrato, noteLength, sequenceNotes])
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -101,7 +125,7 @@ export default function useSynthNote () {
     setNoteLength(length)
   }
   function playSynth () {
-    synth.triggerAttack(synth.frequency.value)
+    Tone.start()
     setIsPlaying(true)
   }
   function stopSynth () {
@@ -125,6 +149,10 @@ export default function useSynthNote () {
     synthTremolo.stop()
     setLFOStatus(false)
   }
+  function randomizeLoop () {
+    const notes = generateRandomNotes(5)
+    setSequenceNotes(notes)
+  }
   function changeFrequency (value) {
     setActiveNote(null)
     setFrequency(value)
@@ -135,6 +163,12 @@ export default function useSynthNote () {
   function changeAM (e) {
     synthTremolo.frequency.value = e
     setFreqAM(e)
+  }
+  function changeTempo (value) {
+    setTempo(value)
+    if (synth) {
+      Tone.Transport.bpm.value = value
+    }
   }
   function changeFM (e) {
     synthVibrato.frequency.value = e
@@ -170,6 +204,7 @@ export default function useSynthNote () {
     changeOscillator,
     changeSynthNote,
     changeSynthVolume,
+    changeTempo,
     frequency,
     freqAM,
     freqFM,
@@ -178,6 +213,8 @@ export default function useSynthNote () {
     noteLength,
     notesVisible,
     oscillatorType,
+    randomizeLoop,
+    tempo,
     toggleLFO,
     toggleNoteLength,
     toggleNotes,

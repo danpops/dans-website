@@ -1,7 +1,10 @@
+import { SYNTH_NOTES } from '@/hooks/useSynthNote'
+
 export {
   formatCollectionRelease,
   formatDate,
   formatRelease,
+  generateRandomNotes,
   getPageNumbers,
   trimText
 }
@@ -92,6 +95,16 @@ function formatRelease (release) {
     thumbImage,
     community
   }
+}
+function generateRandomNotes (totalNotes = 4) {
+  const notesArray = Object.keys(SYNTH_NOTES)
+  const randomNotes = []
+  for (let i = 0; i < totalNotes; i++) {
+    const randomIndex = Math.floor(Math.random() * notesArray.length)
+    const randomNote = notesArray[randomIndex]
+    randomNotes.push(randomNote)
+  }
+  return randomNotes
 }
 function trimText (inputString, maxLength = 40) {
   if (inputString.length <= maxLength) {
