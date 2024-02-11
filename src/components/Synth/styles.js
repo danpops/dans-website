@@ -151,7 +151,7 @@ export const ToggleButton = styled.button`
 `
 export const ToggleContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
   grid-template-rows: 1fr;
 `
 export const ToggleWrapper = styled.div`

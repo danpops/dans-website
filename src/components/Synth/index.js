@@ -123,6 +123,17 @@ function SynthNotes (props) {
   } = props
   return (
     <ControlContainer>
+      <NotesContainer>
+        {Object.keys(SYNTH_NOTES).map(item => (
+          <Button
+            key={item}
+            $active={activeNote === item && isPlaying}
+            onClick={() => changeSynthNote(item)}
+          >
+            {item}
+          </Button>
+        ))}
+      </NotesContainer>
       {!isPlaying && (
         <ToggleContainer>
           {NOTE_LENGTHS.map(item => (
@@ -135,17 +146,6 @@ function SynthNotes (props) {
           ))}
         </ToggleContainer>
       )}
-      <NotesContainer>
-        {Object.keys(SYNTH_NOTES).map(item => (
-          <Button
-            key={item}
-            $active={activeNote === item && isPlaying}
-            onClick={() => changeSynthNote(item)}
-          >
-            {item}
-          </Button>
-        ))}
-      </NotesContainer>
     </ControlContainer>
   )
 }
