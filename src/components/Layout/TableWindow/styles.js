@@ -7,6 +7,7 @@ export const TableContainer = styled.div`
 `
 export const TableWindowBody = styled(WindowBody)`
   grid-template-rows: repeat(4, minmax(0, auto));
+  padding: 1rem;
   align-content: center;
 `
 export const TableWindowWrapper = styled.div`
