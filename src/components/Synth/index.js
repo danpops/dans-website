@@ -165,7 +165,7 @@ function SynthEffects (props) {
   } = props
   return (
     <EffectContainer>
-      <GroupBox groupLabel='Synth Controls'>
+      <GroupBox groupLabel='Synth'>
         <SynthSlider
           label='Volume'
           min='-30'
@@ -186,7 +186,7 @@ function SynthEffects (props) {
         )}
       </GroupBox>
       {lfoStatus && (
-        <GroupBox groupLabel='LFO Controls'>
+        <GroupBox groupLabel='LFO'>
           <SynthSlider
             label='Amplitude Modulation'
             min='0'

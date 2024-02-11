@@ -38,7 +38,8 @@ export const EffectContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 1fr;
-  row-gap: 1rem;
+  row-gap: 1.5rem;
+  padding: 0.25rem;
 
   @media ${devices.md} {
     row-gap: 2rem;
