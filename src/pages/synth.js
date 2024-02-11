@@ -3,7 +3,7 @@ import Synth from '@/components/Synth'
 import useSynthNote from '@/hooks/useSynthNote'
 
 export function getStaticProps () {
-  const id = 'modular-synth'
+  const id = 'synth'
   const title = 'Modular Synth'
   const props = {
     id,

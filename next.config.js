@@ -26,6 +26,9 @@ const nextConfig = withFonts({
       ssr: true,
       fileName: false
     }
+  },
+  async redirects () {
+    return [{ source: '/synth/note', destination: '/synth', permanent: true }]
   }
 })
 
