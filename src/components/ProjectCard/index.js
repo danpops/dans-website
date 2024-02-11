@@ -21,7 +21,7 @@ export default function ProjectCard ({ title, info, onClickDemo, github }) {
           Github
         </LinkItem>
         <LinkItem id='demo-link' onClick={onClickDemo}>
-          Demo
+          Live Demo
         </LinkItem>
       </LinkContainer>
     </ProjectCardWrapper>

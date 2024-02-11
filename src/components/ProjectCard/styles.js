@@ -23,6 +23,7 @@ export const ProjectCardWrapper = styled.div`
   padding: 1rem;
   row-gap: 1rem;
   align-content: flex-start;
+  justify-items: center;
   max-width: 50rem;
   ${borderStyle}
 `
@@ -56,6 +57,9 @@ export const LinkItem = styled.a`
   background-color: ${props => props.theme.secondary};
   ${props => borderStyle(props)}
   &:active {
+    ${props => hoverBorder(props)}
+  }
+  &:hover {
     ${props => hoverBorder(props)}
   }
 `
