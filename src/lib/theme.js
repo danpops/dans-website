@@ -22,7 +22,11 @@ export const colors = {
   red: '#E50000',
   babyBlue: '#1AFFFF',
   limeGreen: '#32CD32',
-  lavender: '#FFCDFF'
+  lavender: '#FFCDFF',
+  whiteShade: '#FEFEFE',
+  mediumGrey2: '#848584',
+  darkShade: '#010101',
+  mediumGrey3: '#7B7A7B'
 }
 export const lightTheme = {
   primary: colors.blueSecondary,
@@ -49,7 +53,9 @@ export const lightTheme = {
     innerBottomRight: colors.mediumGrey,
     innerTopLeft: colors.lightGrey,
     outerBottomRight: colors.black,
-    outerTopLeft: colors.white
+    outerTopLeft: colors.white,
+    lightBorder: colors.whiteShade,
+    darkBorder: colors.mediumGrey2
   }
 }
 export const darkTheme = {
@@ -77,6 +83,8 @@ export const darkTheme = {
     innerBottomRight: colors.darkSlateGrey,
     innerTopLeft: colors.slateGrey,
     outerBottomRight: colors.black,
-    outerTopLeft: colors.grey
+    outerTopLeft: colors.grey,
+    lightBorder: colors.darkShade,
+    darkBorder: colors.mediumGrey3
   }
 }

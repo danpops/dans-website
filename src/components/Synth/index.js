@@ -15,6 +15,7 @@ import {
   Button
 } from './styles'
 import { NOTE_LENGTHS, OSCILLATORS, SYNTH_NOTES } from '@/hooks/useSynthNote'
+import GroupBox from '@/components/GroupBox'
 
 export default function Synth (props) {
   const {
@@ -164,26 +165,28 @@ function SynthEffects (props) {
   } = props
   return (
     <EffectContainer>
-      <SynthSlider
-        label='Volume'
-        min='-30'
-        max='5'
-        step='0.1'
-        value={volume}
-        onChange={e => changeSynthVolume(parseFloat(e.target.value))}
-      />
-      {!notesVisible && (
+      <GroupBox groupLabel='Synth Controls'>
         <SynthSlider
-          label='Frequency'
-          min='100'
-          max='500'
+          label='Volume'
+          min='-30'
+          max='5'
           step='0.1'
-          value={frequency}
-          onChange={e => changeFrequency(parseFloat(e.target.value))}
+          value={volume}
+          onChange={e => changeSynthVolume(parseFloat(e.target.value))}
         />
-      )}
+        {!notesVisible && (
+          <SynthSlider
+            label='Frequency'
+            min='100'
+            max='500'
+            step='0.1'
+            value={frequency}
+            onChange={e => changeFrequency(parseFloat(e.target.value))}
+          />
+        )}
+      </GroupBox>
       {lfoStatus && (
-        <>
+        <GroupBox groupLabel='LFO Controls'>
           <SynthSlider
             label='Amplitude Modulation'
             min='0'
@@ -200,15 +203,17 @@ function SynthEffects (props) {
             value={freqFM}
             onChange={e => changeFM(parseFloat(e.target.value))}
           />
-        </>
+        </GroupBox>
       )}
     </EffectContainer>
   )
 }
 function SynthSlider ({ value, label, min, max, step, onChange }) {
   return (
-    <Label>
-      {label} ({value})
+    <div>
+      <Label>
+        {label} ({value})
+      </Label>
       <Slider
         type='range'
         min={min}
@@ -217,7 +222,7 @@ function SynthSlider ({ value, label, min, max, step, onChange }) {
         value={value}
         onChange={onChange}
       />
-    </Label>
+    </div>
   )
 }
 function SynthToggle ({ label, active, disabled = false, onClick }) {

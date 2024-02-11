@@ -36,19 +36,20 @@ export const ControlContainer = styled.div`
 `
 export const EffectContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: row;
   grid-template-columns: 1fr;
-  row-gap: 0.75rem;
-  margin: 0.5rem;
+  row-gap: 1rem;
 
   @media ${devices.md} {
     row-gap: 2rem;
-    column-gap: 2rem;
+    column-gap: 1rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(0, 1fr));
   }
 `
-export const Label = styled.label``
+export const Label = styled.label`
+  margin-bottom: 0.75rem;
+  font-size: ${fonts.sm};
+`
 export const NotesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -64,7 +65,7 @@ export const OscillatorContainer = styled.div`
   grid-template-rows: 1fr;
 `
 export const Slider = styled.input`
-  margin-top: 1rem;
+  margin: 1.25rem 0;
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
@@ -124,13 +125,13 @@ export const StatusBadge = styled.div`
 `
 export const SynthContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(4, minmax(0, auto));
-  row-gap: 0.5rem;
+  grid-auto-flow: row;
+  row-gap: 1.5rem;
   align-items: center;
   padding: 0.25rem;
 
   @media ${devices.md} {
-    row-gap: 1rem;
+    row-gap: 2rem;
   }
 `
 export const ToggleButton = styled.button`
