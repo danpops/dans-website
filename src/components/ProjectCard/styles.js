@@ -32,7 +32,7 @@ export const ProjectTitle = styled.div`
 `
 export const ProjectInfo = styled.div`
   padding: 1rem;
-  background-color: white;
+  background-color: ${props => props.theme.windowTitle};
   ${hoverBorder}
   outline: none;
 `
