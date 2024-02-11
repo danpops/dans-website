@@ -29,14 +29,17 @@ export const SYNTH_NOTES = {
   Bb4: 466.16,
   B4: 493.88
 }
+export const NOTE_LENGTHS = ['1n', '4n', '8n']
 export default function useSynthNote () {
   const [isPlaying, setIsPlaying] = useState(false)
   const [lfoStatus, setLFOStatus] = useState(false)
+  const [notesVisible, setNotesVisible] = useState(false)
   const [synth, setSynth] = useState(null)
   const [synthVibrato, setSynthVibrato] = useState(null)
   const [synthTremolo, setSynthTremolo] = useState(null)
   const [synthVolume, setSynthVolume] = useState(null)
   const [activeNote, setActiveNote] = useState('C4')
+  const [noteLength, setNoteLength] = useState('1n')
   const [oscillatorType, setOscillatorType] = useState('sine')
   const [frequency, setFrequency] = useState(197.6)
   const [freqAM, setFreqAM] = useState(0)
@@ -51,7 +54,7 @@ export default function useSynthNote () {
     const tremolo = { frequency: 0, depth: 0, spread: 0 }
     const vibrato = { frequency: 0, depth: 0, wet: 0 }
     const oscillator = { type: oscillatorType, frequency: 300 }
-    const envelope = { attack: 0.6, decay: 0.0, sustain: 1, release: 0.1 }
+    const envelope = { attack: 1, decay: 0.0, sustain: 1, release: 0.5 }
     const synthConfig = { volume: -8, oscillator, envelope }
     const newSynthTremolo = new Tone.Tremolo(tremolo).connect(newSynthVolume)
     const newSynthVibrato = new Tone.Vibrato(vibrato).connect(newSynthTremolo)
@@ -90,6 +93,12 @@ export default function useSynthNote () {
   function toggleLFO () {
     if (!lfoStatus) startLFO()
     else stopLFO()
+  }
+  function toggleNotes () {
+    setNotesVisible(!notesVisible)
+  }
+  function toggleNoteLength (length) {
+    setNoteLength(length)
   }
   function playSynth () {
     synth.triggerAttack(synth.frequency.value)
@@ -139,9 +148,13 @@ export default function useSynthNote () {
   }
   function changeSynthNote (note) {
     const value = SYNTH_NOTES[note]
-    setActiveNote(note)
     setFrequency(value)
-    synth.oscillator.frequency.setValueAtTime(value, 0)
+    setActiveNote(note)
+    if (isPlaying) {
+      synth.oscillator.frequency.setValueAtTime(value, 0)
+    } else {
+      synth.triggerAttackRelease(note, noteLength)
+    }
   }
   function changeSynthVolume (e) {
     synthVolume.volume.linearRampTo(e, 0.1, Tone.now())
@@ -162,8 +175,12 @@ export default function useSynthNote () {
     freqFM,
     isPlaying,
     lfoStatus,
+    noteLength,
+    notesVisible,
     oscillatorType,
     toggleLFO,
+    toggleNoteLength,
+    toggleNotes,
     toggleSynth,
     volume
   }

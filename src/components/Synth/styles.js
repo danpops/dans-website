@@ -12,14 +12,14 @@ export const Button = styled.button`
   font-size: ${fonts.sm};
   text-align: center;
   height: 100%;
-  background-color: ${props =>
-    props.$active ? props.theme.heroTitle : props.theme.secondary};
-  color: ${props =>
-    props.$active ? props.theme.windowTitle : props.theme.font};
+  background-color: ${props => props.theme.secondary};
+  color: ${props => props.theme.font};
   cursor: pointer;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
   ${props => (props.$active ? hoverBorder : borderStyle)}
-  outline: none;
+  &:active {
+    ${hoverBorder}
+  }
   &:disabled {
     color: ${props =>
       props.$active ? props.theme.windowTitle : props.theme.buttonDisabled};
@@ -51,8 +51,12 @@ export const EffectContainer = styled.div`
 export const Label = styled.label``
 export const NotesContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  @media ${devices.md} {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
 `
 export const OscillatorContainer = styled.div`
   display: grid;
@@ -112,7 +116,9 @@ export const StatusBadge = styled.div`
   border-radius: 100%;
   background-color: ${props =>
     props.$active ? props.theme.success : props.theme.error};
-  ${props => props.$disabled && `
+  ${props =>
+    props.$disabled &&
+    `
     background-color: ${props.theme.buttonDisabled}
   `}
 `
@@ -145,7 +151,7 @@ export const ToggleButton = styled.button`
 `
 export const ToggleContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: 1fr;
 `
 export const ToggleWrapper = styled.div`
