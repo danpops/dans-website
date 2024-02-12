@@ -3,7 +3,8 @@ import {
   PiWaveSawtooth,
   PiWaveSquare,
   PiWaveSine,
-  PiWaveTriangle
+  PiWaveTriangle,
+  PiWaveSquareDuotone
 } from 'react-icons/pi'
 import useWaveform from '@/hooks/useWaveform'
 import { useState, useEffect } from 'react'
@@ -14,7 +15,8 @@ export const OSCILLATORS = [
   { value: 'triangle', label: 'Triangle', icon: <PiWaveTriangle size={25} /> },
   { value: 'sine', label: 'Sine', icon: <PiWaveSine size={25} /> },
   { value: 'sawtooth', label: 'Sawtooth', icon: <PiWaveSawtooth size={25} /> },
-  { value: 'square', label: 'Square', icon: <PiWaveSquare size={25} /> }
+  { value: 'square', label: 'Square', icon: <PiWaveSquare size={25} /> },
+  { value: 'pwm', label: 'PWM', icon: <PiWaveSquareDuotone size={25} /> }
 ]
 export const SYNTH_NOTES = {
   C4: 261.63,

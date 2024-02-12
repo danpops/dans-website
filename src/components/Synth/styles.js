@@ -62,7 +62,7 @@ export const NotesContainer = styled.div`
 `
 export const OscillatorContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, auto));
+  grid-template-columns: repeat(5, minmax(0, auto));
   grid-template-rows: 1fr;
 `
 export const Slider = styled.input`

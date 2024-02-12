@@ -206,7 +206,7 @@ function SynthEffects (props) {
     </EffectContainer>
   )
 }
-function SynthSlider ({ value, label, min, max, step, onChange }) {
+export function SynthSlider ({ value, label, min, max, step, onChange }) {
   return (
     <div>
       <Label>
@@ -223,7 +223,7 @@ function SynthSlider ({ value, label, min, max, step, onChange }) {
     </div>
   )
 }
-function SynthToggle ({ label, active, disabled = false, onClick }) {
+export function SynthToggle ({ label, active, disabled = false, onClick }) {
   return (
     <ToggleButton $active={active} disabled={disabled} onClick={onClick}>
       <ToggleWrapper>

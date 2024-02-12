@@ -1,6 +1,7 @@
 import { getWindowLayout } from '@/components/Layout'
-import Synth from '@/components/Synth'
-import useSynthNote from '@/hooks/useSynthNote'
+// import Synth from '@/components/Synth'
+import SynthV2 from '@/components/SynthV2'
+// import useSynthNote from '@/hooks/useSynthNote'
 
 export function getStaticProps () {
   const id = 'synth'
@@ -15,8 +16,9 @@ export function getStaticProps () {
   return { props }
 }
 export default function ModularSynthPage () {
-  const synth = useSynthNote()
-  return <Synth {...synth} />
+  // const synth = useSynthNote()
+  // return <Synth {...synth} />
+  return <SynthV2 />
 }
 
 ModularSynthPage.getLayout = getWindowLayout
