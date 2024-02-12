@@ -11,8 +11,9 @@ import {
   ToggleLabel,
   ToggleButton,
   ToggleWrapper,
-  NotesContainer,
-  Button
+  Button,
+  SeqColContainer,
+  SequencerContainer
 } from './styles'
 import { NOTE_LENGTHS, OSCILLATORS, SYNTH_NOTES } from '@/hooks/useSynthNote'
 import GroupBox from '@/components/GroupBox'
@@ -21,9 +22,11 @@ export default function Synth (props) {
   const {
     Waveform,
     activeNote,
+    activeNoteIndex,
     changeAM,
     changeFM,
     changeOscillator,
+    changeSequenceNote,
     changeSynthVolume,
     changeSynthNote,
     changeTempo,
@@ -35,6 +38,7 @@ export default function Synth (props) {
     notesVisible,
     oscillatorType,
     randomizeLoop,
+    sequenceNotes,
     tempo,
     toggleLFO,
     toggleNoteLength,
@@ -64,6 +68,9 @@ export default function Synth (props) {
           noteLength={noteLength}
           toggleNoteLength={toggleNoteLength}
           randomizeLoop={randomizeLoop}
+          sequenceNotes={sequenceNotes}
+          activeNoteIndex={activeNoteIndex}
+          changeSequenceNote={changeSequenceNote}
         />
       )}
       <SynthEffects
@@ -96,7 +103,7 @@ function SynthControls (props) {
       <ToggleContainer>
         <SynthToggle label='Play' active={isPlaying} onClick={toggleSynth} />
         <SynthToggle
-          label='Notes'
+          label='Sequencer'
           active={notesVisible}
           onClick={toggleNotes}
         />
@@ -115,28 +122,49 @@ function SynthControls (props) {
     </ControlContainer>
   )
 }
-function SynthNotes (props) {
-  const {
-    activeNote,
-    changeSynthNote,
-    randomizeLoop,
-    isPlaying,
-    noteLength,
-    toggleNoteLength
-  } = props
+function SequenceColumn ({ activeNote, playing, toggleNote }) {
   return (
-    <ControlContainer>
-      <NotesContainer>
-        {Object.keys(SYNTH_NOTES).map(item => (
+    <SeqColContainer>
+      {Object.keys(SYNTH_NOTES).map(item => {
+        const isActive = activeNote === item
+        const updateNote = () => toggleNote(item)
+        return (
           <Button
             key={item}
-            $active={activeNote === item && isPlaying}
-            onClick={() => changeSynthNote(item)}
+            $active={activeNote === item}
+            $highlighted={isActive && playing}
+            onClick={updateNote}
           >
             {item}
           </Button>
+        )
+      })}
+    </SeqColContainer>
+  )
+}
+function SynthNotes (props) {
+  const {
+    activeNoteIndex,
+    changeSequenceNote,
+    isPlaying,
+    randomizeLoop,
+    noteLength,
+    sequenceNotes,
+    toggleNoteLength
+  } = props
+  const toggleNote = index => value => changeSequenceNote(index, value)
+  return (
+    <ControlContainer>
+      <SequencerContainer>
+        {sequenceNotes.map((item, index) => (
+          <SequenceColumn
+            key={index}
+            activeNote={item}
+            playing={activeNoteIndex === index && isPlaying}
+            toggleNote={toggleNote(index)}
+          />
         ))}
-      </NotesContainer>
+      </SequencerContainer>
       <ToggleContainer>
         {NOTE_LENGTHS.map(item => (
           <SynthToggle

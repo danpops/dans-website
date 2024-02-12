@@ -40,6 +40,7 @@ export default function useSynthNote () {
   const [synthTremolo, setSynthTremolo] = useState(null)
   const [synthVolume, setSynthVolume] = useState(null)
   const [activeNote, setActiveNote] = useState('C4')
+  const [activeNoteIndex, setActiveNoteIndex] = useState(0)
   const [noteLength, setNoteLength] = useState('8n')
   const [oscillatorType, setOscillatorType] = useState('triangle')
   const [frequency, setFrequency] = useState(197.6)
@@ -62,7 +63,7 @@ export default function useSynthNote () {
     const newSynthTremolo = new Tone.Tremolo(tremolo).connect(newSynthVolume)
     const newSynthVibrato = new Tone.Vibrato(vibrato).connect(newSynthTremolo)
     const newSynth = new Tone.Synth(synthConfig).connect(newSynthVibrato)
-    const randomNotes = generateRandomNotes(5)
+    const randomNotes = generateRandomNotes(4)
 
     setSequenceNotes(randomNotes)
     setSynthVolume(newSynthVolume)
@@ -84,8 +85,11 @@ export default function useSynthNote () {
   useEffect(() => {
     if (synth === null) return
     synth.connect(synthVibrato)
+    let index = activeNoteIndex > 0 ? activeNoteIndex : 0
     const repeat = (time, note) => {
       setActiveNote(note)
+      setActiveNoteIndex(index)
+      index = (index + 1) % sequenceNotes.length
       synth.triggerAttackRelease(note, noteLength, time)
     }
     const seq = new Tone.Sequence(repeat, sequenceNotes)
@@ -150,7 +154,7 @@ export default function useSynthNote () {
     setLFOStatus(false)
   }
   function randomizeLoop () {
-    const notes = generateRandomNotes(5)
+    const notes = generateRandomNotes(4)
     setSequenceNotes(notes)
   }
   function changeFrequency (value) {
@@ -190,6 +194,13 @@ export default function useSynthNote () {
       synth.triggerAttackRelease(note, noteLength)
     }
   }
+  const changeSequenceNote = (index, newValue) => {
+    setSequenceNotes(prevArray => {
+      const newArray = [...prevArray]
+      newArray[index] = newValue
+      return newArray
+    })
+  }
   function changeSynthVolume (e) {
     synthVolume.volume.linearRampTo(e, 0.1, Tone.now())
     setVolume(e)
@@ -198,10 +209,12 @@ export default function useSynthNote () {
   return {
     Waveform,
     activeNote,
+    activeNoteIndex,
     changeAM,
     changeFM,
     changeFrequency,
     changeOscillator,
+    changeSequenceNote,
     changeSynthNote,
     changeSynthVolume,
     changeTempo,
@@ -214,6 +227,7 @@ export default function useSynthNote () {
     notesVisible,
     oscillatorType,
     randomizeLoop,
+    sequenceNotes,
     tempo,
     toggleLFO,
     toggleNoteLength,

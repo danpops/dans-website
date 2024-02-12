@@ -12,7 +12,8 @@ export const Button = styled.button`
   font-size: ${fonts.sm};
   text-align: center;
   height: 100%;
-  background-color: ${props => props.theme.secondary};
+  background-color: ${props =>
+    props.$highlighted ? props.theme.marquee : props.theme.secondary};
   color: ${props => props.theme.font};
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -64,6 +65,15 @@ export const OscillatorContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(0, auto));
   grid-template-rows: 1fr;
+`
+export const SequencerContainer = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
+`
+export const SeqColContainer = styled.div`
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
 `
 export const Slider = styled.input`
   margin: 1.25rem 0;
