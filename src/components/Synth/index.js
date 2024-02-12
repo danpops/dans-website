@@ -15,8 +15,9 @@ import {
   SeqColContainer,
   SequencerContainer
 } from './styles'
-import { NOTE_LENGTHS, OSCILLATORS, SYNTH_NOTES } from '@/hooks/useSynthNote'
+import { OSCILLATORS } from '@/hooks/useSynthNote'
 import GroupBox from '@/components/GroupBox'
+import { NOTE_LENGTHS, SYNTH_NOTES } from '@/lib/constant'
 
 export default function Synth (props) {
   const {

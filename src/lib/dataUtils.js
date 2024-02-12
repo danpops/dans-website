@@ -1,4 +1,4 @@
-import { SYNTH_NOTES } from '@/hooks/useSynthNote'
+import { SYNTH_NOTES } from './constant'
 
 export {
   formatCollectionRelease,

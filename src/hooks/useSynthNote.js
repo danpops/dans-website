@@ -9,6 +9,7 @@ import useWaveform from '@/hooks/useWaveform'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { generateRandomNotes } from '@/lib/dataUtils'
+import { SYNTH_NOTES } from '@/lib/constant'
 
 export const OSCILLATORS = [
   { value: 'triangle', label: 'Triangle', icon: <PiWaveTriangle size={25} /> },
@@ -16,21 +17,6 @@ export const OSCILLATORS = [
   { value: 'sawtooth', label: 'Sawtooth', icon: <PiWaveSawtooth size={25} /> },
   { value: 'square', label: 'Square', icon: <PiWaveSquare size={25} /> }
 ]
-export const SYNTH_NOTES = {
-  C4: 261.63,
-  Db4: 277.18,
-  D4: 293.66,
-  Eb4: 311.13,
-  E4: 329.63,
-  F4: 349.23,
-  Gb4: 369.99,
-  G4: 392.0,
-  Ab4: 415.3,
-  A4: 440,
-  Bb4: 466.16,
-  B4: 493.88
-}
-export const NOTE_LENGTHS = ['1n', '4n', '8n']
 export default function useSynthNote () {
   const [isPlaying, setIsPlaying] = useState(false)
   const [lfoStatus, setLFOStatus] = useState(false)
