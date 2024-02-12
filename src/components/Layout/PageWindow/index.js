@@ -8,14 +8,14 @@ export default function PageWindow ({
   id,
   title,
   onExit = 'home',
-  showCopyright = true
+  copyright = true
 }) {
   return (
     <WindowContainer id={`${id}-window`}>
       <WindowHeader id={id} title={title} onExit={onExit} />
       <WindowBody>
         {children}
-        {showCopyright && <Copyright />}
+        {copyright && <Copyright />}
       </WindowBody>
     </WindowContainer>
   )

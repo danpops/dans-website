@@ -11,7 +11,7 @@ export async function getServerSideProps () {
   const id = 'projects'
   const data = await client.fetch(GET_PROJECTS)
   const title = data.title
-  return { props: { id, title, data, showHomer: false } }
+  return { props: { id, title, data, homer: false } }
 }
 export default function ProjectsPage ({ data }) {
   const router = useRouter()

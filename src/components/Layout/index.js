@@ -6,9 +6,9 @@ import PageWindow from './PageWindow'
 
 export { getDefaultLayout, getWindowLayout, getHeroLayout }
 
-function getDefaultLayout (page, { id, showMarquee, showHomer }) {
+function getDefaultLayout (page, { id, marquee, homer }) {
   return (
-    <DefaultLayout id={id} showMarquee={showMarquee} showHomer={showHomer}>
+    <DefaultLayout id={id} marquee={marquee} homer={homer}>
       {page}
     </DefaultLayout>
   )
@@ -21,27 +21,27 @@ function getHeroLayout (page, { id }) {
   )
 }
 function getWindowLayout (page, props) {
-  const { id, title, showMarquee, showHomer, showCopyright, onExit } = props
+  const { id, title, marquee, homer, copyright, onExit } = props
   return (
-    <DefaultLayout id={id} showMarquee={showMarquee} showHomer={showHomer}>
+    <DefaultLayout id={id} marquee={marquee} homer={homer}>
       <PageWindow
         id={id}
         title={title}
         onExit={onExit}
-        showCopyright={showCopyright}
+        copyright={copyright}
       >
         {page}
       </PageWindow>
     </DefaultLayout>
   )
 }
-function DefaultLayout ({ id, children, showHomer = true, showMarquee = true }) {
+function DefaultLayout ({ id, children, homer = true, marquee = true }) {
   return (
     <FullPageContainer id='app-layout'>
       <Navigation />
-      {showMarquee && <PageMarquee />}
+      {marquee && <PageMarquee />}
       <PageContainer id={id}>{children}</PageContainer>
-      {showHomer && <StickyGif />}
+      {homer && <StickyGif />}
     </FullPageContainer>
   )
 }

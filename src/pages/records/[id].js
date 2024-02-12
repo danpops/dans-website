@@ -17,7 +17,7 @@ export async function getServerSideProps (ctx) {
   const discogsKey = process.env.DISCOGS_KEY ?? ''
   const release = await fetchDiscogsRelease({ discogsKey, id })
   const title = release.title
-  return { props: { id: pageId, title, release, onExit, showHomer: false } }
+  return { props: { id: pageId, title, release, onExit, homer: false } }
 }
 export default function RecordPage ({ id, title, release, onExit }) {
   return (
