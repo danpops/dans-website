@@ -17,7 +17,7 @@ export const CloseButtonContainer = styled.button`
   cursor: pointer;
   ${props => borderStyle(props)}
 
-  &:hover {
+  &:active {
     ${props => hoverBorder(props)}
     outline: none;
   }
