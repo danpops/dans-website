@@ -10,9 +10,9 @@ import {
   CardWrapper,
   CollectionContainer,
   RecordImage,
-  SortingContainer
+  SortingContainer,
+  ToggleGroupWrapper
 } from './styles'
-import { ToggleContainer } from '../Synth/styles'
 import { ToggleButton } from '../Button'
 
 export function RecordCollection (props) {
@@ -62,7 +62,7 @@ export function RecordSorting (props) {
   const { onUpdateSorting, onUpdateSortOrder, sorting } = props
   return (
     <SortingContainer>
-      <ToggleContainer>
+      <ToggleGroupWrapper>
         {SORT_KEYS.map(item => {
           const sortKey = item.toLowerCase()
           return (
@@ -74,8 +74,8 @@ export function RecordSorting (props) {
             />
           )
         })}
-      </ToggleContainer>
-      <ToggleContainer>
+      </ToggleGroupWrapper>
+      <ToggleGroupWrapper>
         <ToggleButton
           label='Asc'
           active={sorting.sortOrder === 'asc'}
@@ -86,7 +86,7 @@ export function RecordSorting (props) {
           active={sorting.sortOrder === 'desc'}
           onClick={() => onUpdateSortOrder('desc')}
         />
-      </ToggleContainer>
+      </ToggleGroupWrapper>
     </SortingContainer>
   )
 }

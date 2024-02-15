@@ -1,5 +1,4 @@
 import { getWindowLayout } from '@/components/Layout'
-import { ContentContainer } from '@/components/Layout/styles'
 import client from '@/cms/client'
 import { GET_RECORDS } from '@/cms/queries'
 import useCollection from '@/hooks/useCollection'
@@ -33,32 +32,30 @@ export default function DiscogsPage (props) {
   } = useCollection({ discogsKey })
   const infoText = `${collectionInfo} ${data.discogsMessage}`
   return (
-    <ContentContainer>
-      <DiscogsContainer>
-        <div>
-          <TableBodyText id='records-info'>{data.summary}</TableBodyText>
-          <TableBodyText id='discogs-total-albums'>
-            <Markdown>{infoText}</Markdown>
-          </TableBodyText>
-          <RecordSorting
-            sorting={sorting}
-            onUpdateSorting={onUpdateSorting}
-            onUpdateSortOrder={onUpdateSortOrder}
-          />
-        </div>
-        <RecordCollection
-          myCollection={myCollection}
-          loading={loading}
-          onClickRelease={onClickRelease}
+    <DiscogsContainer>
+      <div>
+        <TableBodyText id='records-info'>{data.summary}</TableBodyText>
+        <TableBodyText id='discogs-total-albums'>
+          <Markdown>{infoText}</Markdown>
+        </TableBodyText>
+        <RecordSorting
+          sorting={sorting}
+          onUpdateSorting={onUpdateSorting}
+          onUpdateSortOrder={onUpdateSortOrder}
         />
-        <Pagination
-          onChange={onSelectPage}
-          currentPage={currentPage}
-          pages={paginationInfo.pages}
-          pageList={pageList}
-        />
-      </DiscogsContainer>
-    </ContentContainer>
+      </div>
+      <RecordCollection
+        myCollection={myCollection}
+        loading={loading}
+        onClickRelease={onClickRelease}
+      />
+      <Pagination
+        onChange={onSelectPage}
+        currentPage={currentPage}
+        pages={paginationInfo.pages}
+        pageList={pageList}
+      />
+    </DiscogsContainer>
   )
 }
 
