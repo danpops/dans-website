@@ -42,8 +42,11 @@ export default function useCollection ({ discogsKey = '' }) {
 
   // Event handler for updating sorting
   const onUpdateSorting = key => {
-    const order = key !== sortKey ? 'asc' : sortOrder === 'asc' ? 'desc' : 'asc'
-    const query = { page: currentPage, key, order }
+    const query = { page: currentPage, key, order: sortOrder }
+    router.push({ pathname: '/records', query })
+  }
+  const onUpdateSortOrder = order => {
+    const query = { page: currentPage, key: sortKey, order }
     router.push({ pathname: '/records', query })
   }
 
@@ -77,6 +80,7 @@ export default function useCollection ({ discogsKey = '' }) {
     pageList,
     collectionInfo,
     onUpdateSorting,
+    onUpdateSortOrder,
     onClickRelease,
     sorting: { sortKey, sortOrder }
   }

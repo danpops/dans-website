@@ -8,7 +8,7 @@ Feature: Records Page
     And I see the "RECORDS_WINDOW" on the "records" page
     And I see the "RECORDS_INFO" on the "records" page
     And I see the "DISCOGS_TOTAL_ALBUMS" on the "records" page
-    And I see the "RECORDS_TABLE" on the "records" page
+    And I see the "RECORD_COLLECTION" on the "records" page
     And I see 50 different "ALBUM_RELEASE_ROW" on the "records" page
     And I see the "PAGINATION" on the "records" page
     And I see the "PAGE_MARQUEE" on the "records" page

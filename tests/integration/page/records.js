@@ -5,7 +5,7 @@ module.exports = {
   RECORDS_WINDOW: '#records-window',
   RECORDS_INFO: '#records-info',
   DISCOGS_TOTAL_ALBUMS: '#discogs-total-albums',
-  RECORDS_TABLE: '#records-table',
+  RECORD_COLLECTION: '#record-collection',
   ALBUM_RELEASE_ROW: '#album-release-row',
   PAGINATION: '#pagination',
   NAV_MENU,
