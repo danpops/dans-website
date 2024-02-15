@@ -2,6 +2,7 @@ import { fetchDiscogsData } from '@/lib/api'
 import { getPageNumbers } from '@/lib/dataUtils'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import debounce from 'lodash/debounce'
 
 export default function useCollection ({ discogsKey = '' }) {
   const router = useRouter()
@@ -20,8 +21,7 @@ export default function useCollection ({ discogsKey = '' }) {
   // Event handler for clicking on a release
   const onClickRelease = release => router.push(`/records/${release.id}`)
 
-  // Function to fetch data and update state
-  const fetchDataAndUpdateState = async (page, key, order) => {
+  const fetchData = debounce(async (page, key, order) => {
     setLoading(true)
     try {
       const data = await fetchDiscogsData({ discogsKey, page, key, order })
@@ -32,7 +32,7 @@ export default function useCollection ({ discogsKey = '' }) {
     } finally {
       setLoading(false)
     }
-  }
+  }, 500)
 
   // Event handler for selecting a page
   const onSelectPage = page => {
@@ -59,8 +59,12 @@ export default function useCollection ({ discogsKey = '' }) {
     setCurrentPage(page)
     setSortKey(key)
     setSortOrder(order)
+    setLoading(true)
+    fetchData(page, key, order)
 
-    fetchDataAndUpdateState(page, key, order)
+    return () => {
+      fetchData.cancel()
+    }
   }, [
     router.query.page,
     router.query.key,
