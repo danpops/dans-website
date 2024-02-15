@@ -9,9 +9,10 @@ import {
   CardTitle,
   CardWrapper,
   CollectionContainer,
-  RecordImage
+  RecordImage,
+  SortingContainer
 } from './styles'
-import { ControlContainer, ToggleContainer } from '../Synth/styles'
+import { ToggleContainer } from '../Synth/styles'
 import { ToggleButton } from '../Button'
 
 export function RecordCollection (props) {
@@ -60,7 +61,7 @@ const SORT_KEYS = ['Artist', 'Title', 'Added']
 export function RecordSorting (props) {
   const { onUpdateSorting, onUpdateSortOrder, sorting } = props
   return (
-    <ControlContainer>
+    <SortingContainer>
       <ToggleContainer>
         {SORT_KEYS.map(item => {
           const sortKey = item.toLowerCase()
@@ -86,6 +87,6 @@ export function RecordSorting (props) {
           onClick={() => onUpdateSortOrder('desc')}
         />
       </ToggleContainer>
-    </ControlContainer>
+    </SortingContainer>
   )
 }

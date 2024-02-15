@@ -72,3 +72,21 @@ export const DiscogsContainer = styled.div`
   grid-template-rows: auto 1fr auto;
   row-gap: 1rem;
 `
+export const SortingContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, minmax(0, auto));
+  padding: 0.25rem;
+  ${hoverBorder}
+  outline: none;
+
+  @media ${devices.md} {
+    border: none;
+    box-shadow: none;
+    grid-template-columns: auto auto;
+    column-gap: 1rem;
+  }
+  @media ${devices.lg} {
+    column-gap: 5rem;
+  }
+`
