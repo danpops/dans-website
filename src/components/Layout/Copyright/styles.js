@@ -10,7 +10,7 @@ export const CopyrightText = styled.a`
   align-content: center;
   cursor: pointer;
   text-decoration: none;
-  margin-top: 1rem;
+  padding: 1rem;
   &:hover {
     text-decoration: none;
   }
