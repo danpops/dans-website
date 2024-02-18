@@ -8,11 +8,12 @@ export const CollectionContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(50, minmax(0, auto));
-  row-gap: 0.5rem;
   margin: 0.5rem 0;
+  ${hoverBorder}
+  padding: 0.25rem;
+  outline: none;
 
   @media ${devices.lg} {
-    column-gap: 1rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(25, 1fr);
   }

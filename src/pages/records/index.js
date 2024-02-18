@@ -25,7 +25,6 @@ export default function DiscogsPage (props) {
     onClickRelease,
     onSelectPage,
     onUpdateSorting,
-    onUpdateSortOrder,
     pageList,
     paginationInfo,
     sorting
@@ -33,17 +32,11 @@ export default function DiscogsPage (props) {
   const infoText = `${collectionInfo} ${data.discogsMessage}`
   return (
     <DiscogsContainer>
-      <div>
-        <TableBodyText id='records-info'>{data.summary}</TableBodyText>
-        <TableBodyText id='discogs-total-albums'>
-          <Markdown>{infoText}</Markdown>
-        </TableBodyText>
-        <RecordSorting
-          sorting={sorting}
-          onUpdateSorting={onUpdateSorting}
-          onUpdateSortOrder={onUpdateSortOrder}
-        />
-      </div>
+      <TableBodyText id='records-info'>{data.summary}</TableBodyText>
+      <TableBodyText id='discogs-total-albums'>
+        <Markdown>{infoText}</Markdown>
+      </TableBodyText>
+      <RecordSorting sorting={sorting} onUpdateSorting={onUpdateSorting} />
       <RecordCollection
         myCollection={myCollection}
         loading={loading}

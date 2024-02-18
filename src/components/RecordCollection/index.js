@@ -14,6 +14,7 @@ import {
   ToggleGroupWrapper
 } from './styles'
 import { ToggleButton } from '../Button'
+import { SortChevron } from '../Table'
 
 export function RecordCollection (props) {
   const { myCollection, loading, onClickRelease } = props
@@ -59,34 +60,31 @@ function CollectionCard ({ release, onClickCard }) {
 }
 const SORT_KEYS = ['Artist', 'Title', 'Added']
 export function RecordSorting (props) {
-  const { onUpdateSorting, onUpdateSortOrder, sorting } = props
+  const { onUpdateSorting, sorting } = props
   return (
     <SortingContainer>
       <ToggleGroupWrapper>
-        {SORT_KEYS.map(item => {
-          const sortKey = item.toLowerCase()
-          return (
-            <ToggleButton
-              key={item}
-              label={item}
-              active={sorting.sortKey === sortKey}
-              onClick={() => onUpdateSorting(sortKey)}
-            />
-          )
-        })}
-      </ToggleGroupWrapper>
-      <ToggleGroupWrapper>
-        <ToggleButton
-          label='Asc'
-          active={sorting.sortOrder === 'asc'}
-          onClick={() => onUpdateSortOrder('asc')}
-        />
-        <ToggleButton
-          label='Desc'
-          active={sorting.sortOrder === 'desc'}
-          onClick={() => onUpdateSortOrder('desc')}
-        />
+        {SORT_KEYS.map((item, index) => (
+          <SortButton
+            key={index}
+            item={item}
+            sorting={sorting}
+            onUpdateSorting={onUpdateSorting}
+          />
+        ))}
       </ToggleGroupWrapper>
     </SortingContainer>
+  )
+}
+function SortButton ({ item, sorting, onUpdateSorting }) {
+  const sortKey = item.toLowerCase()
+  const isActive = sorting.sortKey === sortKey
+  return (
+    <ToggleButton
+      icon={isActive && <SortChevron order={sorting.sortOrder} />}
+      active={isActive}
+      label={item}
+      onClick={() => onUpdateSorting(sortKey)}
+    />
   )
 }
