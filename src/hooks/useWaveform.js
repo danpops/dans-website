@@ -1,8 +1,10 @@
 /* globals ResizeObserver */
 
 import { waveformRender } from '@/components/Synth/Analyzer'
+import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
-import * as Tone from 'tone'
+
+const Tone = dynamic(() => import('tone').then(mod => mod), { ssr: false })
 
 export default function useWaveform () {
   const Waveform = useRef(null)

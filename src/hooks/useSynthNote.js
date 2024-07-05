@@ -1,4 +1,3 @@
-import * as Tone from 'tone'
 import {
   PiWaveSawtooth,
   PiWaveSquare,
@@ -10,6 +9,9 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { generateRandomNotes } from '@/lib/dataUtils'
 import { SYNTH_NOTES } from '@/lib/constant'
+import dynamic from 'next/dynamic'
+
+const Tone = dynamic(() => import('tone').then(mod => mod), { ssr: false })
 
 export const OSCILLATORS = [
   { value: 'triangle', label: 'Triangle', icon: <PiWaveTriangle size={25} /> },
