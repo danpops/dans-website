@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { LoadingContainer } from '@/components/RecordTable/styles'
-import hourglassGif from 'public/gifs/hourglass.gif'
+import hourglassGif from '/public/gifs/hourglass.gif'
 import {
   CardArtist,
   CardContainer,

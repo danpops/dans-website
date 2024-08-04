@@ -1,4 +1,4 @@
-import homerGif from 'public/gifs/homer.gif'
+import homerGif from '/public/gifs/homer.gif'
 import { StickyImageWrapper, StickyImage, MarqueeWrapper } from './styles'
 import { useTheme } from '../ThemeProvider'
 import Marquee from 'react-fast-marquee'
