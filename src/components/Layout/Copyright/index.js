@@ -9,7 +9,7 @@ export default function Copyright () {
       rel='noopener noreferrer'
       href='https://github.com/danpops/dans-website.git'
     >
-      © {year} - danpops.ca
+      © {year} - danpopovic.com
     </CopyrightText>
   )
 }
